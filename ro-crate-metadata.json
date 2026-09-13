@@ -55,7 +55,7 @@
         "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/0af0fc970f75360d4f84acc2203c26b5fd9d6d23"
       },
       "bridge:vocabularyPin": {
-        "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3"
+        "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
       },
       "bridge:vocabulary": [
         {
@@ -138,7 +138,7 @@
           "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/ClinVar_VCV_2.6.xsd"
         },
         {
-          "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3"
+          "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
         },
         {
           "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/0af0fc970f75360d4f84acc2203c26b5fd9d6d23"
@@ -197,31 +197,31 @@
       "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #7, released as v0.2.0, which removed that repository's catalogue of adapters and published its lint as a reusable action. The tag v0.2.0 points at this SHA and keeps it reachable if the branch is later reset or rebased, which is why an untagged commit is not pinned (docs/alignment.md there). The same revision is named twice on purpose: here for the reader, and in .github/workflows/validate.yml as the ref the lint is called at, for the machine; the lint fails the run if the two disagree, and they move together in the same pull request. This is also the revision whose vocab/bridge.ttl and shapes/bridge.shapes.ttl replaced this adapter's own copies under schema/manifest/, which were the seed of them. Read on 2026-09-06. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
-      "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3",
+      "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
       "@type": ["SoftwareSourceCode", "File"],
-      "name": "spec at e77ba5e",
+      "name": "spec at d819bc2",
       "codeRepository": {
-        "@id": "https://github.com/jayostis/spec"
+        "@id": "https://github.com/the-cascade-protocol/spec"
       },
-      "version": "e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3",
+      "version": "d819bc2c045266f9f79ebf9398cbbb82a6156d27",
       "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
+        "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "The spec revision the adapter's vocabularies are pinned to: the same pin conformance/scripts/SPEC_PIN carries, the merge commit of jayostis/spec PR #53 (core v3.13, health v2.9, clinical v1.20, coverage v1.9, checkup v3.5, pots v1.5). The commit is on the fork, jayostis/spec, and not yet on the-cascade-protocol/spec: it is not an ancestor of the org's main, so naming the org would point at a revision the org does not hold. Six tags (vocab/core-v3.13, vocab/health-v2.9, vocab/clinical-v1.20, vocab/coverage-v1.9, vocab/checkup-v3.5, vocab/pots-v1.5) point at this SHA and keep it reachable if the fork's main is reset or rebased; the pin moves to the org in the same commit that re-pins to an org SHA, once the vocabulary lands there. Read from conformance/scripts/SPEC_PIN on 2026-09-06. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every genomics: and core: term the expected graphs write has the same standing here as at jayostis/spec e77ba5e, the fork revision conformance/scripts/SPEC_PIN names: the fork's later releases add nothing this adapter writes. One term is declared at neither: cascade:sourceFhirId, which every record carries. Read on 2026-09-13. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/genomics/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade genomics vocabulary",
       "version": "v1-draft",
-      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: at the pin, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.6\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
+      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: at the pin, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.5\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/core/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade core vocabulary",
-      "version": "3.13",
-      "description": "One of the two Cascade vocabularies the adapter writes. At the pin, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.13\", the version spec's VOCAB_VERSIONS records. The stamp predicates the test manifest ignores when comparing (cascade:dataProvenance, cascade:schemaVersion) are its terms."
+      "version": "3.9",
+      "description": "One of the two Cascade vocabularies the adapter writes. At the pin, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.9\", the version spec's VOCAB_VERSIONS records. The stamp predicates the test manifest ignores when comparing (cascade:dataProvenance, cascade:schemaVersion) are its terms."
     },
     {
       "@id": "schema/ClinVar_VCV_2.6.xsd",
@@ -580,7 +580,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged and four expected files are corrected in this crate. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' sameAs links name the fork, for the same reason the vocabulary pin does: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in scripts/SPEC_PIN (e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3), which this adapter pins too (bridge:vocabularyPin)."
+      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged and four expected files are corrected in this crate. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:vocabularyPin)."
     },
     {
       "@id": "https://spdx.org/licenses/Apache-2.0",
@@ -597,6 +597,16 @@
       "@type": "CreativeWork",
       "name": "NCBI Website and Data Usage Policies and Disclaimers",
       "description": "The terms under which NCBI distributes ClinVar data. Questions about the data go to clinvar@ncbi.nlm.nih.gov, per NCBI's README files."
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC-BY-4.0",
+      "@type": "CreativeWork",
+      "name": "Creative Commons Attribution 4.0 International",
+      "identifier": "CC-BY-4.0",
+      "sameAs": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "description": "The licence of the Cascade Protocol's spec repository, whose vocabularies the adapter writes at the revision bridge:vocabularyPin names."
     }
   ]
 }
