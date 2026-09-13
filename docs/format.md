@@ -44,7 +44,8 @@ Inside it, one of:
 cascade-cli's converter (`src/lib/clinvar-converter/`, about 2,200 lines)
 handles these as `simple-allele.ts`, `rcv-interpretation.ts` and
 `scv-submitter-assertion.ts`, plus a seven-tier review-status table in
-`review-status-map.ts`. Phase 2 re-expresses each as an XSLT module.
+`review-status-map.ts`. Phase 2 re-expresses each as a SPARQL CONSTRUCT and its
+findings query in `in/sparql/`, with the review-status table inline.
 
 ## The two envelopes
 

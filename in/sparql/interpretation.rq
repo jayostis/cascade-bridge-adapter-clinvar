@@ -1,0 +1,210 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
+PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
+PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+
+# ClinVar RCVAccession -> genomics:VariantInterpretation, one per ClassifiedCondition,
+# plus genomics:aggregatedFrom from each to the SubmitterAssertions whose TraitMapping
+# names one of its condition keys. aggregatedFrom lives here because its subject is the
+# interpretation and its keys are this query's condition state; only the assertion's
+# emission rule and name are repeated from assertion.rq.
+#
+# Idioms beyond the Variant query's:
+#   - a template triple whose variable is unbound is not produced (SPARQL 1.1 §16.2),
+#     so an optional field is an OPTIONAL or an erroring BIND, never a UNION;
+#   - a lookup table is VALUES joined on a computed key;
+#   - a condition's index is its ordinal among same-named siblings: a COUNT of the
+#     earlier ones, from an OPTIONAL whose FILTER sees both sides;
+#   - "the last one wins" is MAX over a position key, decoded back into positions;
+#   - a join on a set of computed keys is an OPTIONAL whose FILTER lists the keys.
+#
+# A condition takes the MONDO, and the aggregatedFrom keys, of the Trait carrying the
+# condition's own DB and ID as a top-level XRef: ClinVar orders a TraitSet's Traits
+# independently of an RCV's conditions, so position does not pair them. Every key of
+# every TraitMapping is tried, and every match is linked.
+#
+# Relies on XSD validity: RCVClassifications holds at most one GermlineClassification
+# with one Description and one ReviewStatus (schema/ClinVar_VCV_2.6.xsd:1643-1654), so
+# "the first" is a plain match here.
+
+CONSTRUCT {
+  ?vi a g:VariantInterpretation ;
+      g:variantInterpreted ?v ;
+      g:condition ?cond ;
+      g:mondoId ?mondoId ;
+      g:acmgClassification ?acmg ;
+      g:reviewStatus ?rs ;
+      g:interpretedDate ?date ;
+      g:clinvarRcvId ?rcvAcc ;
+      cascade:sourceFhirId ?sfid ;
+      g:aggregatedFrom ?sa .
+}
+WHERE {
+  ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
+  ?rec a ?recType .
+  FILTER(?recType = xyz:ClassifiedRecord ||
+         (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
+  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+
+  BIND(SHA1(CONCAT("genomics:Variant:clinvar:", ?vcv)) AS ?hv)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hv, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?nv)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hv, 1, 8), "-", SUBSTR(?hv, 9, 4), "-5", SUBSTR(?hv, 14, 3),
+                  "-", ?nv, SUBSTR(?hv, 18, 3), "-", SUBSTR(?hv, 21, 12))) AS ?v)
+
+  ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
+  OPTIONAL { ?rcv xyz:Accession ?rcvAcc0 }
+  BIND(COALESCE(?rcvAcc0, "<no-rcv>") AS ?rcvAcc)
+
+  # Emitted only for a non-empty GermlineClassification whose Description is one of
+  # the five ACMG classes.
+  ?rcv ?s3 ?rc . ?rc a xyz:RCVClassifications ; ?s4 ?gc . ?gc a xyz:GermlineClassification .
+  FILTER EXISTS { ?gc ?gp ?go FILTER(?gp != rdf:type) }
+  ?gc ?s5 ?desc . ?desc a xyz:Description ; rdf:_1 ?dt . FILTER(isLiteral(?dt))
+  BIND(LCASE(REPLACE(?dt, "^\\s+|\\s+$", "")) AS ?acmgKey)
+  VALUES (?acmgKey ?acmg) {
+    ("pathogenic" g:Pathogenic) ("likely pathogenic" g:LikelyPathogenic)
+    ("uncertain significance" g:VUS) ("likely benign" g:LikelyBenign) ("benign" g:Benign)
+  }
+
+  # One interpretation per ClassifiedCondition; ?i is its 0-based index.
+  ?rcv ?s6 ?ccl . ?ccl a xyz:ClassifiedConditionList ; ?ccSlot ?cc . ?cc a xyz:ClassifiedCondition .
+  { SELECT ?cc (COUNT(?prev) AS ?i) WHERE {
+      ?ccl0 a xyz:ClassifiedConditionList ; ?sA ?cc . ?cc a xyz:ClassifiedCondition .
+      OPTIONAL { ?ccl0 ?sB ?prev . ?prev a xyz:ClassifiedCondition .
+                 FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
+    } GROUP BY ?cc }
+  OPTIONAL { ?ccl xyz:TraitSetID ?tsId0 }
+  BIND(COALESCE(?tsId0, "") AS ?tsId)
+  OPTIONAL { ?cc xyz:DB ?ccDb0 }
+  BIND(COALESCE(?ccDb0, "") AS ?ccDb)
+  OPTIONAL { ?cc xyz:ID ?ccId0 }
+  BIND(COALESCE(?ccId0, "") AS ?ccId)
+  OPTIONAL { ?cc rdf:_1 ?ccText . FILTER(isLiteral(?ccText)) }
+  BIND(COALESCE(REPLACE(?ccText, "^\\s+|\\s+$", ""), "") AS ?ccLabel)
+
+  # The Trait aligned with the condition: the one with a top-level XRef of the
+  # condition's DB and ID, in the TraitSet with this ID under Classifications, the
+  # last such TraitSet winning, kinds taken Germline, Somatic, Oncogenicity. Its MONDO
+  # is the first top-level MONDO XRef, else the first under a Name; its MedGen the
+  # first top-level. ?tsId, ?ccDb and ?ccId are "" when absent, and "" never matches.
+  OPTIONAL {
+    ?rec ?t0 ?cls . ?cls a xyz:Classifications .
+    { SELECT ?cls ?tsId (MAX(?tk) AS ?tkBest) WHERE {
+        ?cls a xyz:Classifications ; ?k1 ?kind . ?kind a ?kt ; ?k2 ?cl0 . ?cl0 a xyz:ConditionList ; ?k3 ?ts0 .
+        ?ts0 a xyz:TraitSet ; xyz:ID ?tsId . FILTER(STRLEN(?tsId) > 0)
+        VALUES (?kt ?kr) { (xyz:GermlineClassification "0") (xyz:SomaticClinicalImpact "1")
+                           (xyz:OncogenicityClassification "2") }
+        BIND(xsd:integer(STRAFTER(STR(?k1), "#_")) AS ?p1)
+        BIND(xsd:integer(STRAFTER(STR(?k3), "#_")) AS ?p3)
+        BIND(CONCAT(?kr, SUBSTR(CONCAT("0000000000", STR(?p1)), STRLEN(STR(?p1)) + 1),
+                         SUBSTR(CONCAT("0000000000", STR(?p3)), STRLEN(STR(?p3)) + 1)) AS ?tk)
+      } GROUP BY ?cls ?tsId }
+    ?cls ?k1b ?kindb . ?kindb ?k2b ?clb . ?clb a xyz:ConditionList ; ?k3b ?ts . ?ts a xyz:TraitSet .
+    FILTER(xsd:integer(STRAFTER(STR(?k1b), "#_")) = xsd:integer(SUBSTR(?tkBest, 2, 10)) &&
+           xsd:integer(STRAFTER(STR(?k3b), "#_")) = xsd:integer(SUBSTR(?tkBest, 12, 10)))
+    ?ts ?tS ?trait . ?trait a xyz:Trait ; ?tX ?idXref . ?idXref a xyz:XRef ; xyz:DB ?ccDb ; xyz:ID ?ccId .
+    OPTIONAL { SELECT ?trait (MIN(?mk) AS ?mBest) WHERE {
+        ?trait a xyz:Trait .
+        { ?trait ?xs ?xr . ?xr a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid .
+          BIND(xsd:integer(STRAFTER(STR(?xs), "#_")) AS ?q1)
+          BIND(CONCAT("0", SUBSTR(CONCAT("0000000000", STR(?q1)), STRLEN(STR(?q1)) + 1),
+                      "0000000000|", ?xid) AS ?mk) }
+        UNION
+        { ?trait ?ns ?nm . ?nm a xyz:Name ; ?xs2 ?xr2 . ?xr2 a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid2 .
+          BIND(xsd:integer(STRAFTER(STR(?ns), "#_")) AS ?q2)
+          BIND(xsd:integer(STRAFTER(STR(?xs2), "#_")) AS ?q3)
+          BIND(CONCAT("1", SUBSTR(CONCAT("0000000000", STR(?q2)), STRLEN(STR(?q2)) + 1),
+                      SUBSTR(CONCAT("0000000000", STR(?q3)), STRLEN(STR(?q3)) + 1), "|", ?xid2) AS ?mk) }
+      } GROUP BY ?trait }
+    OPTIONAL { SELECT ?trait (MIN(?gk) AS ?gBest) WHERE {
+        ?trait a xyz:Trait ; ?ys ?yr . ?yr a xyz:XRef ; xyz:DB "MedGen" ; xyz:ID ?yid .
+        FILTER(STRLEN(?yid) > 0)
+        BIND(xsd:integer(STRAFTER(STR(?ys), "#_")) AS ?q4)
+        BIND(CONCAT(SUBSTR(CONCAT("0000000000", STR(?q4)), STRLEN(STR(?q4)) + 1), "|", ?yid) AS ?gk)
+      } GROUP BY ?trait }
+    BIND(STRAFTER(?mBest, "|") AS ?tMondoRaw)
+    BIND(STRAFTER(?gBest, "|") AS ?tMedgen)
+  }
+
+  # condition: the ClassifiedCondition's own MONDO, else the aligned Trait's MONDO,
+  # else its MedGen CUI, else a name hashed from the label.
+  # MONDO numbers lose "MONDO:" and leading zeros, then pad to seven.
+  BIND(REPLACE(?ccId, "^MONDO:0*", "") AS ?ccN)
+  BIND(IF(?ccDb = "MONDO" && STRLEN(?ccId) > 0,
+          IF(STRLEN(?ccN) >= 7, ?ccN, SUBSTR(CONCAT("0000000", ?ccN), STRLEN(?ccN) + 1)), 1/0) AS ?ccMondo)
+  BIND(REPLACE(?tMondoRaw, "^MONDO:0*", "") AS ?tN)
+  BIND(IF(STRLEN(?tN) >= 7, ?tN, SUBSTR(CONCAT("0000000", ?tN), STRLEN(?tN) + 1)) AS ?tMondo)
+  BIND(COALESCE(?ccMondo, ?tMondo) AS ?mondoNum)
+  BIND(SHA1(CONCAT("clinvar-condition:", ?rcvAcc, ":", STR(?i), ":",
+                   IF(STRLEN(?ccLabel) > 0, ?ccLabel, IF(STRLEN(?ccId) > 0, ?ccId, "unknown")))) AS ?hc)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hc, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?nc)
+  BIND(IF(BOUND(?mondoNum), IRI(CONCAT("http://purl.obolibrary.org/obo/MONDO_", ?mondoNum)),
+       IF(?ccDb = "MedGen" && STRLEN(?ccId) > 0, IRI(CONCAT("https://www.ncbi.nlm.nih.gov/medgen/", ?ccId)),
+          IRI(CONCAT("urn:cascade:condition:", SUBSTR(?hc, 1, 8), "-", SUBSTR(?hc, 9, 4), "-5",
+                     SUBSTR(?hc, 14, 3), "-", ?nc, SUBSTR(?hc, 18, 3), "-", SUBSTR(?hc, 21, 12))))) AS ?cond)
+  BIND(CONCAT("MONDO:", ?mondoNum) AS ?mondoId)
+
+  OPTIONAL {
+    ?gc ?s7 ?rsEl . ?rsEl a xyz:ReviewStatus ; rdf:_1 ?rsText .
+    BIND(LCASE(REPLACE(?rsText, "^\\s+|\\s+$", "")) AS ?rsKey)
+    VALUES (?rsKey ?rs) {
+      ("no assertion provided" g:NoAssertionProvided)
+      ("no assertion criteria provided" g:CriteriaNotProvided)
+      ("criteria provided, single submitter" g:SingleSubmitter)
+      ("criteria provided, conflicting interpretations" g:ConflictingSubmissions)
+      ("criteria provided, conflicting classifications" g:ConflictingSubmissions)
+      ("criteria provided, conflicting classifications of pathogenicity" g:ConflictingSubmissions)
+      ("criteria provided, multiple submitters, no conflicts" g:MultipleSubmittersNoConflict)
+      ("reviewed by expert panel" g:ExpertPanelReviewed)
+      ("practice guideline" g:PracticeGuideline)
+    }
+  }
+  OPTIONAL { ?desc xyz:DateLastEvaluated ?d0 FILTER(STRLEN(?d0) > 0) }
+  BIND(STRDT(?d0, xsd:date) AS ?date)
+
+  BIND(SHA1(CONCAT("genomics:VariantInterpretation:clinvar:", ?rcvAcc, ":", STR(?i))) AS ?h)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
+                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
+  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?sfid)
+
+  # aggregatedFrom. Right side: every emitted SubmitterAssertion (as assertion.rq) with
+  # each key its TraitMapping yields: "mondo:" + MappingValue when MappingRef is MONDO;
+  # "medgen:" + MedGen@CUI, else + MappingValue when MappingRef is MedGen. The FILTER
+  # is the interpretation's key set.
+  OPTIONAL {
+    { SELECT ?rec ?sa ?hk WHERE {
+        ?rec ?a1 ?cal . ?cal a xyz:ClinicalAssertionList ; ?a2 ?ca . ?ca a xyz:ClinicalAssertion ; xyz:ID ?caId .
+        FILTER(STRLEN(?caId) > 0)
+        ?ca ?a3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)
+        ?ca ?a4 ?ccls . ?ccls a xyz:Classification ; ?a5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt .
+        FILTER(isLiteral(?cgt) && LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
+               ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"))
+        BIND(SHA1(CONCAT("genomics:SubmitterAssertion:clinvar:", ?scv)) AS ?hs)
+        BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hs, 17, 1),
+               "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?ns1)
+        BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hs, 1, 8), "-", SUBSTR(?hs, 9, 4), "-5", SUBSTR(?hs, 14, 3),
+                        "-", ?ns1, SUBSTR(?hs, 18, 3), "-", SUBSTR(?hs, 21, 12))) AS ?sa)
+        ?rec ?a6 ?tml . ?tml a xyz:TraitMappingList ; ?a7 ?tm . ?tm a xyz:TraitMapping ; xyz:ClinicalAssertionID ?caId .
+        OPTIONAL { ?tm xyz:MappingRef ?mref }
+        OPTIONAL { ?tm xyz:MappingValue ?mval }
+        OPTIONAL { ?tm ?a8 ?mg . ?mg a xyz:MedGen ; xyz:CUI ?cui }
+        VALUES ?hint { "mondo" "medgen" }
+        BIND(IF(?hint = "mondo",
+                IF(COALESCE(?mref, "") = "MONDO" && STRLEN(COALESCE(?mval, "")) > 0, CONCAT("mondo:", ?mval), 1/0),
+                IF(STRLEN(COALESCE(?cui, "")) > 0, CONCAT("medgen:", ?cui),
+                   IF(COALESCE(?mref, "") = "MedGen" && STRLEN(COALESCE(?mval, "")) > 0,
+                      CONCAT("medgen:", ?mval), 1/0))) AS ?hk)
+        FILTER(BOUND(?hk))
+      } }
+    FILTER((?ccDb = "MedGen" && STRLEN(?ccId) > 0 && ?hk = CONCAT("medgen:", ?ccId)) ||
+           (?ccDb = "MONDO" && STRLEN(?ccId) > 0 && ?hk = CONCAT("mondo:", ?ccId)) ||
+           ?hk = CONCAT("mondo:MONDO:", ?ccMondo) ||
+           ?hk = CONCAT("mondo:MONDO:", ?tMondo) ||
+           ?hk = CONCAT("medgen:", ?tMedgen))
+  }
+}

@@ -12,7 +12,9 @@
       "bridge:sourceSchema": "bridge:sourceSchema",
       "bridge:envelope": "bridge:envelope",
       "bridge:unit": "bridge:unit",
-      "bridge:detectXPath": "bridge:detectXPath",
+      "bridge:detectQuery": "bridge:detectQuery",
+      "bridge:mapping": "bridge:mapping",
+      "bridge:findingsQuery": "bridge:findingsQuery",
       "bridge:testManifest": "bridge:testManifest",
       "bridge:rootElement": "bridge:rootElement",
       "bridge:documentSchema": "bridge:documentSchema"
@@ -34,8 +36,8 @@
       "@type": ["Dataset", "bridge:Adapter"],
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
-      "version": "0.2.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. Phase 1 (0.2.0) has no mapping and nothing that executes. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. The phase 2 mapping (mainEntity, Workflow RO-Crate), tables (bridge:table) and extension vocabulary (bridge:extensionVocabulary) are absent until the files exist; nothing for the export direction is declared, because ClinVar is import-only.",
+      "version": "0.3.0",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. Its mapping is SPARQL a Bridge runs over each record. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. The mapping is three CONSTRUCT queries (bridge:mapping) and three findings queries (bridge:findingsQuery) under in/sparql/; their lookup tables are inline VALUES, so no bridge:table is declared, and no value yet needs an extension vocabulary (bridge:extensionVocabulary). Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -48,7 +50,7 @@
       },
       "bridge:profileRequired": [
         {
-          "@id": "bridge:xslt-3"
+          "@id": "bridge:sparql-1.1"
         }
       ],
       "bridge:specPin": {
@@ -78,7 +80,31 @@
         }
       ],
       "bridge:unit": "VariationArchive",
-      "bridge:detectXPath": "exists(/ClinVarResult-Set/(VariationArchive|set)) or exists(/ClinVarVariationRelease/VariationArchive)",
+      "bridge:detectQuery": {
+        "@id": "in/sparql/detect.rq"
+      },
+      "bridge:mapping": [
+        {
+          "@id": "in/sparql/variant.rq"
+        },
+        {
+          "@id": "in/sparql/interpretation.rq"
+        },
+        {
+          "@id": "in/sparql/assertion.rq"
+        }
+      ],
+      "bridge:findingsQuery": [
+        {
+          "@id": "in/sparql/variant-findings.rq"
+        },
+        {
+          "@id": "in/sparql/interpretation-findings.rq"
+        },
+        {
+          "@id": "in/sparql/assertion-findings.rq"
+        }
+      ],
       "bridge:testManifest": {
         "@id": "fixtures/manifest.ttl"
       },
@@ -88,6 +114,27 @@
         },
         {
           "@id": "schema/ClinVarResult-Set.xsd"
+        },
+        {
+          "@id": "in/sparql/detect.rq"
+        },
+        {
+          "@id": "in/sparql/variant.rq"
+        },
+        {
+          "@id": "in/sparql/interpretation.rq"
+        },
+        {
+          "@id": "in/sparql/assertion.rq"
+        },
+        {
+          "@id": "in/sparql/variant-findings.rq"
+        },
+        {
+          "@id": "in/sparql/interpretation-findings.rq"
+        },
+        {
+          "@id": "in/sparql/assertion-findings.rq"
         },
         {
           "@id": "fixtures/manifest.ttl"
@@ -172,10 +219,10 @@
       "description": "The monthly and weekly release files, ClinVarVCVRelease_*.xml.gz. Declared by NCBI's XSD directly, so no document schema beyond the source schema is needed. The root element is still ClinVarVariationRelease although the file name family changed to ClinVarVCVRelease in August 2025; docs/format.md, \"The two envelopes\"."
     },
     {
-      "@id": "bridge:xslt-3",
+      "@id": "bridge:sparql-1.1",
       "@type": "bridge:Profile",
-      "name": "xslt-3",
-      "description": "The optional Bridge profile under which a Bridge runs an adapter's XSLT 3 mapping. Required here because the phase 2 mapping is XSLT 3, one module per record class. Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec at the commit bridge:specPin names."
+      "name": "sparql-1.1",
+      "description": "The Bridge profile under which a Bridge lifts each unit to RDF and runs an adapter's SPARQL 1.1 queries over it. Required here because the mapping, the findings and the detect rule are SPARQL queries. Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec at the commit bridge:specPin names."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/bridge/v1-draft/adapter-profile/",
@@ -249,6 +296,90 @@
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
       "description": "Includes NCBI's ClinVar_VCV_2.6.xsd unchanged and declares the one document root NCBI's schema leaves undeclared, ClinVarResult-Set, so a whole efetch response validates and not only the records inside it. The document schema of the efetch envelope (#envelope-efetch); .vscode/settings.json associates fixtures/in/*.xml with it."
+    },
+    {
+      "@id": "in/sparql/detect.rq",
+      "@type": "File",
+      "name": "Detect rule",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "815",
+      "sha256": "9782fc15d216ffba50f79c993a0c2b0eb2d89949e7e0bb7267160650352bc837",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The detect rule, bridge:detectQuery: an ASK over the envelope skeleton, true for an efetch envelope holding records or the empty set efetch returns when a query matched none, and for a release envelope holding records."
+    },
+    {
+      "@id": "in/sparql/variant.rq",
+      "@type": "File",
+      "name": "Mapping: the Variant",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "12049",
+      "sha256": "bf08b5e8bbdd7e2631d737ecc8da36fefbadef6a3c3688565e38715cd30fb7a0",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "One genomics:Variant per VariationArchive, named by a UUID the query mints from the VCV accession, so the other two record classes can point at it without a lookup."
+    },
+    {
+      "@id": "in/sparql/interpretation.rq",
+      "@type": "File",
+      "name": "Mapping: the interpretations",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "12482",
+      "sha256": "d7d51dfb681f803d8307aba3c05a4a2fe5ba5f762f78b73c2e70a5be55d05387",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "One genomics:VariantInterpretation per condition of each RCV whose classification is one of the five ACMG classes, and its genomics:aggregatedFrom links to the submitter assertions whose TraitMapping names that condition. The links are written here because their subject and their keys are the interpretation's."
+    },
+    {
+      "@id": "in/sparql/assertion.rq",
+      "@type": "File",
+      "name": "Mapping: the submitter assertions",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "3087",
+      "sha256": "ef27e2b854d94e4896e4735601ef6c7a353cd6a88a834b8d8fe84d3e892d8204",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "One genomics:SubmitterAssertion per ClinicalAssertion with an SCV accession and a germline classification among the five ACMG classes."
+    },
+    {
+      "@id": "in/sparql/variant-findings.rq",
+      "@type": "File",
+      "name": "Findings: the Variant",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "9282",
+      "sha256": "fddb14e6c1ef2648172f52de0a632fe9a533e5c9d976121f5c38cfd0a5d92e2f",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The findings whose context is the VCV accession: what the Variant record carries that has no Cascade term."
+    },
+    {
+      "@id": "in/sparql/interpretation-findings.rq",
+      "@type": "File",
+      "name": "Findings: the interpretations",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "10194",
+      "sha256": "4953d8719a395b035112ace2cb6bfa300c29cbe44756478a6707acfb6e423d0f",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The findings whose context is an RCV accession, including why an RCV yields no interpretation."
+    },
+    {
+      "@id": "in/sparql/assertion-findings.rq",
+      "@type": "File",
+      "name": "Findings: the submitter assertions",
+      "encodingFormat": "application/sparql-query",
+      "contentSize": "12437",
+      "sha256": "89c6de290a1db5cba49bba268b85e41a28415f9e5c92b1e6e7468b96bb653c95",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The findings whose context is an SCV accession, including why an assertion yields no record."
     },
     {
       "@id": "fixtures/manifest.ttl",
@@ -590,7 +721,7 @@
       "sameAs": {
         "@id": "https://www.apache.org/licenses/LICENSE-2.0"
       },
-      "description": "The licence of the adapter package: what conformance and cascade-cli use, because XSLT executes and a content licence sits awkwardly on files that execute. The SPDX identifier is the entity's identifier; the text is at the sameAs URL and in LICENSE."
+      "description": "The licence of the adapter package: what conformance and cascade-cli use, because a Bridge executes the queries and a content licence sits awkwardly on files that execute. The SPDX identifier is the entity's identifier; the text is at the sameAs URL and in LICENSE."
     },
     {
       "@id": "https://www.ncbi.nlm.nih.gov/home/about/policies/",

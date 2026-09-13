@@ -1,0 +1,214 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
+PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
+PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+
+# ClinVar VariationArchive -> genomics:Variant, over a Facade-X lift of the VCV XML.
+# The stamp predicates (cascade:dataProvenance, cascade:schemaVersion) are the
+# Bridge's, not the mapping's, and are not written here.
+#
+# Idioms, because SPARQL has no "first", no "else", no JSON and no loops:
+#   - a child step is "?parent ?slot ?child . ?child a xyz:Element": rdf:_N slots
+#     reach element children, and attribute objects are literals so never match;
+#   - document position is the N of rdf:_N: xsd:integer(STRAFTER(STR(?slot), "#_"));
+#   - "first/last/preferred" is an argmin: a subquery takes MIN over a string key of
+#     zero-padded rank + "|" + value, and STRAFTER recovers the value;
+#   - "emit this predicate or nothing" is IF(cond, value, 1/0): the error leaves
+#     the variable unbound and FILTER(BOUND(...)) drops the row.
+
+CONSTRUCT {
+  ?v a g:Variant ;
+     g:dataQualityTier g:ClinicalGrade ;
+     g:dataProvenance g:ClinicalSequencing ;
+     cascade:sourceFhirId ?acc ;
+     ?p ?o .
+}
+WHERE {
+  ?va a xyz:VariationArchive ; xyz:Accession ?acc ; ?recSlot ?rec .
+  ?rec a ?recType .
+  FILTER(?recType = xyz:ClassifiedRecord ||
+         (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
+  ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele .
+
+  # The record name: a name-based UUID, SHA-1 over the seed with the version
+  # nibble forced to 5 and the variant bits to 10. SPARQL has no bitwise
+  # operators, so the variant nibble is a four-way table.
+  BIND(SHA1(CONCAT("genomics:Variant:clinvar:", ?acc)) AS ?h)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?vn)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
+                  "-", ?vn, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?v)
+
+  OPTIONAL {
+    {
+      # clinvarVariationId: VariationArchive@VariationID, else SimpleAllele@VariationID,
+      # else the accession without VCV and leading zeros.
+      ?va xyz:Accession ?a1 ; ?s1 ?r1 . ?r1 ?s2 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
+      OPTIONAL { ?va xyz:VariationID ?vid1 }
+      OPTIONAL { ?sa xyz:VariationID ?vid2 }
+      BIND(g:clinvarVariationId AS ?p)
+      BIND(COALESCE(?vid1, ?vid2, REPLACE(?a1, "^VCV0*", "")) AS ?o)
+    }
+    UNION
+    {
+      # hgvsCDot: the last MANE Select coding c. expression, else the first coding c.
+      { SELECT ?sa (MIN(?k) AS ?best) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?hl . ?hl a xyz:HGVSlist ; ?slot ?hv .
+          ?hv a xyz:HGVS ; xyz:Type "coding" ; ?s2 ?ne .
+          ?ne a xyz:NucleotideExpression ; ?s3 ?ex . ?ex a xyz:Expression ; rdf:_1 ?t .
+          FILTER(CONTAINS(?t, ":c."))
+          OPTIONAL { ?ne xyz:MANESelect ?mane }
+          BIND(COALESCE(?mane, "") = "true" AS ?isMane)
+          BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
+          BIND(IF(?isMane, 1000000000 - ?pos, ?pos) AS ?rank)
+          BIND(CONCAT(IF(?isMane, "0", "1"),
+                      SUBSTR(CONCAT("0000000000", STR(?rank)), STRLEN(STR(?rank)) + 1), "|", ?t) AS ?k)
+        } GROUP BY ?sa }
+      BIND(g:hgvsCDot AS ?p)
+      BIND(STRAFTER(?best, "|") AS ?o)
+    }
+    UNION
+    {
+      # hgvsGDot: the last GRCh38 "genomic, top-level", else the first "genomic" g.
+      { SELECT ?sa (MIN(?k) AS ?best) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?hl . ?hl a xyz:HGVSlist ; ?slot ?hv .
+          ?hv a xyz:HGVS ; xyz:Type ?type ; ?s2 ?ne .
+          ?ne a xyz:NucleotideExpression ; ?s3 ?ex . ?ex a xyz:Expression ; rdf:_1 ?t .
+          OPTIONAL { ?hv xyz:Assembly ?asm }
+          BIND(?type = "genomic, top-level" && COALESCE(?asm, "") = "GRCh38" AS ?top)
+          FILTER(?top || (?type = "genomic" && CONTAINS(?t, ":g.")))
+          BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
+          BIND(IF(?top, 1000000000 - ?pos, ?pos) AS ?rank)
+          BIND(CONCAT(IF(?top, "0", "1"),
+                      SUBSTR(CONCAT("0000000000", STR(?rank)), STRLEN(STR(?rank)) + 1), "|", ?t) AS ?k)
+        } GROUP BY ?sa }
+      BIND(g:hgvsGDot AS ?p)
+      BIND(STRAFTER(?best, "|") AS ?o)
+    }
+    UNION
+    {
+      # hgvsPDot: the first p. expression, from a coding entry's ProteinExpression or
+      # from a protein entry.
+      { SELECT ?sa (MIN(?k) AS ?best) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?hl . ?hl a xyz:HGVSlist ; ?slot ?hv .
+          ?hv a xyz:HGVS ; xyz:Type ?type ; ?s2 ?pe .
+          ?pe a xyz:ProteinExpression ; ?s3 ?ex . ?ex a xyz:Expression ; rdf:_1 ?t .
+          FILTER(CONTAINS(?t, ":p.") &&
+                 (?type = "coding" ||
+                  (?type = "protein" && NOT EXISTS { ?hv ?s4 ?ne . ?ne a xyz:NucleotideExpression })))
+          BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
+          BIND(CONCAT(SUBSTR(CONCAT("0000000000", STR(?pos)), STRLEN(STR(?pos)) + 1), "|", ?t) AS ?k)
+        } GROUP BY ?sa }
+      BIND(g:hgvsPDot AS ?p)
+      BIND(STRAFTER(?best, "|") AS ?o)
+    }
+    UNION
+    {
+      # geneSymbol, hgncId: from the first Gene only.
+      { SELECT ?sa (MIN(?pos0) AS ?first) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?gl . ?gl a xyz:GeneList ; ?slot0 ?gn . ?gn a xyz:Gene .
+          BIND(xsd:integer(STRAFTER(STR(?slot0), "#_")) AS ?pos0)
+        } GROUP BY ?sa }
+      ?sa ?s2 ?gl2 . ?gl2 a xyz:GeneList ; ?slot ?gene . ?gene a xyz:Gene .
+      FILTER(xsd:integer(STRAFTER(STR(?slot), "#_")) = ?first)
+      { ?gene xyz:Symbol ?o . BIND(g:geneSymbol AS ?p) }
+      UNION
+      { ?gene xyz:HGNC_ID ?o . BIND(g:hgncId AS ?p) }
+      FILTER(STRLEN(?o) > 0)
+    }
+    UNION
+    {
+      # caId, dbsnpRsId: every ClinGen / dbSNP cross-reference.
+      ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?xl . ?xl a xyz:XRefList ; ?s2 ?xr .
+      ?xr a xyz:XRef ; xyz:DB ?db ; xyz:ID ?id .
+      BIND(IF(?db = "ClinGen", g:caId, IF(?db = "dbSNP", g:dbsnpRsId, 1/0)) AS ?p)
+      BIND(IF(?db = "dbSNP" && !STRSTARTS(?id, "rs"), CONCAT("rs", ?id), ?id) AS ?o)
+      FILTER(BOUND(?p))
+    }
+    UNION
+    {
+      # vrsObject: the SPDI wrapped as JSON. SPARQL has no JSON serialiser; CONCAT is
+      # exact only because an SPDI never needs escaping.
+      ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?cs . ?cs a xyz:CanonicalSPDI ; rdf:_1 ?spdi .
+      BIND(g:vrsObject AS ?p)
+      BIND(CONCAT('{"canonicalSPDI":"', ?spdi, '"}') AS ?o)
+    }
+    UNION
+    {
+      # consequenceTerm and consequenceLabel: each distinct SO id once, labelled by
+      # its first occurrence.
+      { SELECT ?sa ?soId (MIN(?k) AS ?best) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?hl . ?hl a xyz:HGVSlist ; ?slot1 ?hv .
+          ?hv a xyz:HGVS ; ?slot2 ?mc . ?mc a xyz:MolecularConsequence ; xyz:ID ?soId .
+          FILTER(STRSTARTS(?soId, "SO:"))
+          OPTIONAL { ?mc xyz:Type ?label }
+          BIND(xsd:integer(STRAFTER(STR(?slot1), "#_")) AS ?p1)
+          BIND(xsd:integer(STRAFTER(STR(?slot2), "#_")) AS ?p2)
+          BIND(CONCAT(SUBSTR(CONCAT("0000000000", STR(?p1)), STRLEN(STR(?p1)) + 1),
+                      SUBSTR(CONCAT("0000000000", STR(?p2)), STRLEN(STR(?p2)) + 1),
+                      "|", IF(BOUND(?label), CONCAT("L", ?label), "N")) AS ?k)
+        } GROUP BY ?sa ?soId }
+      VALUES ?which { 1 2 }
+      BIND(STRAFTER(?best, "|") AS ?lab)
+      BIND(IF(?which = 1, g:consequenceTerm,
+              IF(STRSTARTS(?lab, "L"), g:consequenceLabel, 1/0)) AS ?p)
+      BIND(IF(?which = 1, IRI(CONCAT("http://purl.obolibrary.org/obo/", REPLACE(?soId, ":", "_"))),
+              SUBSTR(?lab, 2)) AS ?o)
+      FILTER(BOUND(?p))
+    }
+    UNION
+    {
+      # refAllele, altAllele, genomicStartEnd: from one SequenceLocation, picked as
+      # GRCh38 forDisplay, else first GRCh38, else first carrying VCF alleles.
+      { SELECT ?sa (MIN(?k) AS ?best) WHERE {
+          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?loc . ?loc a xyz:Location ; ?slot ?sl .
+          ?sl a xyz:SequenceLocation .
+          OPTIONAL { ?sl xyz:Assembly ?asm }
+          OPTIONAL { ?sl xyz:forDisplay ?fd }
+          BIND(EXISTS { ?sl xyz:referenceAlleleVCF ?x1 } || EXISTS { ?sl xyz:alternateAlleleVCF ?x2 } ||
+               EXISTS { ?sl xyz:referenceAllele ?x3 } || EXISTS { ?sl xyz:alternateAllele ?x4 } AS ?hasVcf)
+          BIND(IF(COALESCE(?asm, "") = "GRCh38" && COALESCE(?fd, "") = "true", "0",
+               IF(COALESCE(?asm, "") = "GRCh38", "1", IF(?hasVcf, "2", "9"))) AS ?tier)
+          FILTER(?tier != "9")
+          BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
+          BIND(CONCAT(?tier, SUBSTR(CONCAT("0000000000", STR(?pos)), STRLEN(STR(?pos)) + 1)) AS ?k)
+        } GROUP BY ?sa }
+      ?sa ?s2 ?loc2 . ?loc2 a xyz:Location ; ?slot2 ?pick . ?pick a xyz:SequenceLocation .
+      FILTER(xsd:integer(STRAFTER(STR(?slot2), "#_")) = xsd:integer(SUBSTR(?best, 2)))
+      OPTIONAL { ?pick xyz:referenceAlleleVCF ?rv }
+      OPTIONAL { ?pick xyz:referenceAllele ?r0 }
+      OPTIONAL { ?pick xyz:alternateAlleleVCF ?av }
+      OPTIONAL { ?pick xyz:alternateAllele ?a0 }
+      OPTIONAL { ?pick xyz:Chr ?chr }
+      OPTIONAL { ?pick xyz:start ?start }
+      OPTIONAL { ?pick xyz:stop ?stop }
+      VALUES ?which { 1 2 3 }
+      BIND(IF(BOUND(?chr) && BOUND(?start) && BOUND(?stop),
+              CONCAT(IF(STRSTARTS(?chr, "chr"), ?chr, CONCAT("chr", ?chr)), ":", ?start, "-", ?stop),
+              1/0) AS ?gse)
+      BIND(IF(?which = 1, g:refAllele, IF(?which = 2, g:altAllele, g:genomicStartEnd)) AS ?p)
+      BIND(IF(?which = 1, COALESCE(?rv, ?r0), IF(?which = 2, COALESCE(?av, ?a0), ?gse)) AS ?o)
+      FILTER(BOUND(?o) && STRLEN(?o) > 0)
+    }
+    UNION
+    {
+      # somaticStatus: aggregated over every SCV's Sample/Origin, once per record.
+      # One grouped aggregate is a single pass; EXISTS per solution re-walks every
+      # SCV's chain for each row.
+      { SELECT ?rec (MAX(?isGerm) AS ?germ) (MAX(?isSom) AS ?som) WHERE {
+          ?rec a ?rt ; ?c1 ?cal . FILTER(?rt IN (xyz:ClassifiedRecord, xyz:IncludedRecord))
+          ?cal a xyz:ClinicalAssertionList ; ?c2 ?ca . ?ca a xyz:ClinicalAssertion ; ?c3 ?oil .
+          ?oil a xyz:ObservedInList ; ?c4 ?oi . ?oi a xyz:ObservedIn ; ?c5 ?smp . ?smp a xyz:Sample ; ?c6 ?org .
+          ?org a xyz:Origin ; rdf:_1 ?t .
+          BIND(LCASE(REPLACE(?t, "^\\s+|\\s+$", "")) AS ?origin)
+          FILTER(STRLEN(?origin) > 0)
+          BIND(IF(?origin IN ("germline", "de novo", "maternal", "paternal"), 1, 0) AS ?isGerm)
+          BIND(IF(?origin = "somatic", 1, 0) AS ?isSom)
+        } GROUP BY ?rec }
+      ?rec ?s1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
+      BIND(g:somaticStatus AS ?p)
+      BIND(IF(?germ = 1 && ?som = 0, g:Germline, IF(?som = 1 && ?germ = 0, g:Somatic, g:UnknownSomaticStatus)) AS ?o)
+    }
+  }
+}

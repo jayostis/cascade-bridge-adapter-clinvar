@@ -30,8 +30,10 @@ crate, plus a `bridge:DatasetCompletionTest` naming that entity by its IRI.
 
 - Every input validates against `../schema/ClinVarResult-Set.xsd` (any XSD 1.0
   validator: `xmllint --schema`, lxml, the Red Hat XML extension).
-- The crate's `bridge:detectXPath` is true for each input (an XPath 3.1
-  evaluator such as Saxon). It must also be true for
+- `../in/sparql/detect.rq`, the crate's `bridge:detectQuery`, is true for each
+  input. Run the ASK, in any SPARQL 1.1 engine, over the document's envelope
+  skeleton: the lift the specification's `engine/sparql.md` defines, with each
+  `VariationArchive` reduced to an empty container. It must also be true for
   `<ClinVarResult-Set><set/></ClinVarResult-Set>`, the response efetch returns
   when a query matched no record, and false for a document under a known root
   holding neither.

@@ -22,35 +22,35 @@ this way and only this way.
 
 ## Status
 
-**Phase 1, version 0.2.0: the adapter laid out, and checked against the
-specification it pins.** Manifest, pinned schema, fixtures with recorded
-provenance, references to the large datasets, editor configuration, and a
-workflow that calls the specification's published lint. No mapping, no runner.
+**Phase 2, version 0.3.0: the mapping, as SPARQL.** A CONSTRUCT query and a
+findings query per record class in `in/sparql/`, and the detect rule as an ASK.
+A Bridge lifts each unit to RDF and runs them; the crate names every one.
 
 | phase | what | where | done when |
 |---|---|---|---|
 | 1 | this layout | here ([#1](https://github.com/jayostis/cascade-bridge-adapter-clinvar/issues/1)) | it opens in VS Code with everything validating |
-| 2 | the first mapping (XSLT 3, one module per record class) and the engine that runs it | here and `bridge-engine-java` (Camel YAML route, Saxon-HE, riot) | the four committed cases compare isomorphic |
-| 3 | the same mapping as SPARQL CONSTRUCT over the Bridge's XML lift | `in/sparql/` | the two graphs are diffed and the difference reported |
-| 4 | the same adapter, byte for byte, through JavaScript engines | `bridge-engine-browser` | the same `manifest.ttl` passes in both |
+| 2 | the mapping, as SPARQL 1.1 over the Bridge's XML lift, and the engine that runs it | `in/sparql/`, and `cascade-bridge-js` | the four committed cases compare isomorphic |
+| 3 | the same adapter, byte for byte, through the same engine in a browser | `cascade-bridge-js` | the same `manifest.ttl` passes in both |
 
 ## How a Bridge runs it
 
 1. Reads `ro-crate-metadata.json`, the adapter's manifest and its provenance
    record in one RO-Crate. The root entity is the adapter: format id
    `clinvar`, the two envelopes (`#envelope-efetch`, `#envelope-release`),
-   the unit `VariationArchive`, the detect rule, the `xslt-3` profile it
+   the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
    must offer, the vocabulary pin, and the test manifest, every one of them
    a link to an entity in the same graph.
-2. Routes an input here when the crate's detect rule, one XPath 3.1 boolean, is
-   true of it: an efetch envelope holding records, the empty `set` efetch
-   returns when a query matched none, or a release envelope. The expression is in
-   the crate; `docs/format.md` has which roots were deliberately not claimed.
+2. Routes an input here when the detect rule, a SPARQL ASK over the document's
+   envelope skeleton, is true of it: an efetch envelope holding records, the
+   empty `set` efetch returns when a query matched none, or a release envelope.
+   The query is `in/sparql/detect.rq`; `docs/format.md` has which roots were
+   deliberately not claimed.
 3. Splits the document on `VariationArchive` and validates each unit against
    `schema/ClinVar_VCV_2.6.xsd`. A unit that fails is a finding; it still goes
    through.
-4. Runs the mapping (phase 2) on each unit, links the interpretation and
-   submitter-assertion records to their Variant, stamps provenance, checks
+4. Lifts each unit to RDF and runs the queries in `in/sparql/` over it: the
+   CONSTRUCTs write the records, which name each other by the IRIs the queries
+   mint, and the SELECTs write the findings. Then stamps provenance, checks
    every predicate against the pinned vocabularies, validates with SHACL,
    and hands the graph and findings to the runtime.
 5. In test, executes `fixtures/manifest.ttl`. Each entry's type carries how it
@@ -75,34 +75,30 @@ cascade-bridge-adapter-clinvar/
   .github/workflows/
     validate.yml             calls the specification's lint at the pinned tag; no logic of its own
   .vscode/
-    extensions.json          XML, XSLT/XPath, Turtle, EditorConfig, Kaoto
+    extensions.json          XML, SPARQL, Turtle, EditorConfig
     settings.json            XSD association for fixtures/in
   docs/
     format.md                ClinVar VCV XML as the adapter sees it
   schema/
     ClinVar_VCV_2.6.xsd      NCBI's schema, pinned byte for byte (md5 a7b65e5a166dc5f36a7eea9127d56f4e)
     ClinVarResult-Set.xsd    the efetch envelope root NCBI's schema does not declare; includes the above
+  in/sparql/                 the mapping: a CONSTRUCT and a findings query per record class, and detect.rq
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample
     expected/                the four expected graphs, from conformance, corrected where it was wrong
     findings/                the four expected gaps sidecars, from conformance, corrected where it was wrong
-  in/xslt/                   phase 2: clinvar.xsl entry, one module per record class, findings.xsl
-  in/sparql/                 phase 3: the same mapping as CONSTRUCT over the Bridge's XML lift
-  tables/                    phase 2: review-status.csv, from cascade-cli's review-status-map.ts
-  vocab/                     phase 2: clinvar-ext.ttl, the adapter's namespace for unmapped values
 ```
 
-The four directories marked phase 2 or 3 do not exist yet; they are named
-here so the shape is visible. Phase 2 adds them to the crate: the XSLT as
-the crate's `mainEntity` (Workflow RO-Crate), the tables as `bridge:table`,
-the extension vocabulary as `bridge:extensionVocabulary`.
+Lookup tables are inline `VALUES` in the queries, so there is no `tables/`; the
+adapter's own namespace (`vocab/`, `bridge:extensionVocabulary`) arrives with
+the first value that needs one.
 
 ## Decisions
 
 The decisions that shaped this adapter — the manifest being an RO-Crate rather
 than an `adapter.yaml`, the cases being a W3C `mf:` test manifest, the
-detect rule being one XPath expression, standards over inventions — are not
+detect rule being one query, standards over inventions — are not
 restated here. Each is a property of the **adapter package format**, and the
 authority for that format is the Cascade Bridge Specification:
 [`docs/adapter-manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/adapter-manifest.md),
@@ -114,9 +110,6 @@ What is specific to ClinVar rather than to adapters in general is in
 wrapper schema exists, and what is and is not known about the committed inputs.
 Why this adapter is laid out the way it is, and the phases, are in
 [issue #1](https://github.com/jayostis/cascade-bridge-adapter-clinvar/issues/1).
-
-Naming is the one decision still open: how a record's IRI is minted is decided
-in phase 2.
 
 ## Verification
 
@@ -133,8 +126,8 @@ conformance — are run by hand before pushing; `fixtures/CLAUDE.md` and
 `schema/CLAUDE.md` say how.
 
 There is no test suite here by design. Executing an adapter's fixtures is a
-Bridge's job, and no Bridge exists yet: phase 2 is when this adapter is proven
-rather than described.
+Bridge's job: `cascade-bridge test` runs `fixtures/manifest.ttl` and reports
+each case in EARL.
 
 ## Licence
 

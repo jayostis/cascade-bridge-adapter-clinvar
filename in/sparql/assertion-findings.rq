@@ -1,0 +1,231 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xyz: <http://sparql.xyz/facade-x/data/>
+
+# The SCV findings: every finding whose context is an SCV accession. One solution per
+# finding, no DISTINCT.
+#
+# An assertion that yields no SubmitterAssertion still reports its SubmitterName and
+# OrganizationCategory findings and the one that says why it yields none; the rest are
+# reported for emitted assertions only. ?gate says which rules run for emitted
+# assertions, which for skipped ones, and which for both.
+#
+# Not guaranteed by the standard: the Method types list is a JSON array in document
+# order, and GROUP_CONCAT aggregates a multiset (SPARQL 1.1 §18.5), so its order is
+# the engine's. No fixture has a list that mixes values, so none can detect this.
+#
+# Existence is a DISTINCT subquery and absence a MINUS: EXISTS / NOT EXISTS re-run
+# their pattern for every solution.
+
+SELECT ?sourceField ?reason ?severity ?context WHERE {
+  ?va a xyz:VariationArchive ; ?recSlot ?rec .
+  ?rec a ?recType .
+  FILTER(?recType = xyz:ClassifiedRecord ||
+         (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
+  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+  ?rec ?s1 ?cal . ?cal a xyz:ClinicalAssertionList ; ?s2 ?ca . ?ca a xyz:ClinicalAssertion .
+  ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?context . FILTER(STRLEN(?context) > 0)
+  ?ca ?s4 ?cl . ?cl a xyz:Classification .
+  OPTIONAL { ?cl ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt . FILTER(isLiteral(?cgt)) }
+  BIND(COALESCE(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
+         ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"), false) AS ?emitted)
+  OPTIONAL { ?ca xyz:ID ?caId0 }
+  BIND(COALESCE(?caId0, "undefined") AS ?caId)
+
+  OPTIONAL {
+  {
+    ?cva a xyz:ClinVarAccession .
+    MINUS { ?cva xyz:SubmitterName ?sn FILTER(STRLEN(?sn) > 0) }
+    BIND("/ClinVarAccession@SubmitterName" AS ?sfT)
+    BIND("ClinicalAssertion has no SubmitterName; SubmitterAssertionShape requires genomics:submitter cardinality 1." AS ?reason)
+    BIND("warning" AS ?severity)
+    BIND("any" AS ?gate)
+  }
+  UNION
+  {
+    ?cva a xyz:ClinVarAccession ; xyz:OrganizationCategory ?oc .
+    FILTER(STRLEN(?oc) > 0 && !(LCASE(?oc) IN ("laboratory", "consortium", "expert-panel", "expert panel",
+           "research group", "research", "resource", "clinician", "single clinician")))
+    BIND("/ClinVarAccession@OrganizationCategory" AS ?sfT)
+    BIND(CONCAT("OrganizationCategory \"", ?oc, "\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician.") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("any" AS ?gate)
+  }
+  UNION
+  {
+    ?cl a xyz:Classification ; ?c1 ?rsE . ?rsE a xyz:ReviewStatus ; rdf:_1 ?rsT . FILTER(isLiteral(?rsT))
+    BIND(REPLACE(?rsT, "^\\s+|\\s+$", "") AS ?rsText)
+    FILTER(STRLEN(?rsText) > 0)
+    BIND("/Classification/ReviewStatus" AS ?sfT)
+    BIND(CONCAT("Per-SCV ReviewStatus \"", ?rsText, "\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    ?cl a xyz:Classification ; xyz:DateLastEvaluated ?dle . FILTER(STRLEN(?dle) > 0)
+    BIND("/Classification@DateLastEvaluated" AS ?sfT)
+    BIND(CONCAT("Per-SCV DateLastEvaluated \"", ?dle, "\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    { SELECT DISTINCT ?ca WHERE {
+        ?ca a xyz:ClinicalAssertion ; ?lp ?lv .
+        FILTER(?lp IN (xyz:SubmissionDate, xyz:DateCreated, xyz:DateLastUpdated) && STRLEN(?lv) > 0) } }
+    BIND("/@SubmissionDate|@DateCreated|@DateLastUpdated" AS ?sfT)
+    BIND("Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # One entry per ObservedIn/Method, the MethodType as a JSON string, or
+    # null with no MethodType; reported when any entry is non-empty. JSON escaping
+    # covers backslash and quote only.
+    { SELECT ?ca (GROUP_CONCAT(?jm; SEPARATOR=",") AS ?list) (MAX(?has) AS ?any) WHERE {
+        ?ca a xyz:ClinicalAssertion ; ?m1 ?oil . ?oil a xyz:ObservedInList ; ?m2 ?oi .
+        ?oi a xyz:ObservedIn ; ?m3 ?m . ?m a xyz:Method .
+        OPTIONAL { ?m ?m4 ?mt . ?mt a xyz:MethodType .
+                   OPTIONAL { ?mt rdf:_1 ?mtt . FILTER(isLiteral(?mtt)) } }
+        BIND(COALESCE(REPLACE(?mtt, "^\\s+|\\s+$", ""), "") AS ?mtv)
+        BIND(IF(BOUND(?mt), CONCAT("\"", REPLACE(REPLACE(?mtv, "\\\\", "\\\\\\\\"), "\"", "\\\\\""), "\""), "null") AS ?jm)
+        BIND(IF(STRLEN(?mtv) > 0, 1, 0) AS ?has)
+      } GROUP BY ?ca }
+    FILTER(?any = 1)
+    BIND("/ObservedInList/ObservedIn/Method" AS ?sfT)
+    BIND(CONCAT("Method types [", ?list, "] have no v1-draft predicate. Candidates: genomics:methodType (literature only / clinical testing / curation / research).") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # IDs with text, under Classification's Citations if it has any, else
+    # under the assertion's own.
+    { SELECT ?ca (COUNT(?idt) AS ?nCit) WHERE {
+        { ?ca a xyz:ClinicalAssertion ; ?c1 ?clx . ?clx a xyz:Classification ; ?c2 ?cit . ?cit a xyz:Citation }
+        UNION
+        { ?ca a xyz:ClinicalAssertion ; ?c3 ?cit . ?cit a xyz:Citation .
+          MINUS { ?ca ?c4 ?cly . ?cly a xyz:Classification ; ?c5 ?cit2 . ?cit2 a xyz:Citation } }
+        ?cit ?c6 ?idn . ?idn a xyz:ID ; rdf:_1 ?idt . FILTER(isLiteral(?idt))
+      } GROUP BY ?ca }
+    FILTER(?nCit > 0)
+    BIND("/Citation" AS ?sfT)
+    BIND(CONCAT("Citations carry ", STR(?nCit), " PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    ?ca a xyz:ClinicalAssertion ; ?r1 ?rse . ?rse a xyz:RecordStatus ; rdf:_1 ?rst . FILTER(isLiteral(?rst))
+    BIND(REPLACE(?rst, "^\\s+|\\s+$", "") AS ?recSt)
+    FILTER(STRLEN(?recSt) > 0 && ?recSt != "current")
+    BIND("/RecordStatus" AS ?sfT)
+    BIND(CONCAT("RecordStatus \"", ?recSt, "\" indicates a non-current record (withdrawn or superseded). v1-draft has no predicate to flag this state on a SubmitterAssertion.") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # Once per ObservedIn.
+    ?ca a xyz:ClinicalAssertion ; ?o1 ?oil2 . ?oil2 a xyz:ObservedInList ; ?o2 ?oi2 . ?oi2 a xyz:ObservedIn ; ?o3 ?smp .
+    ?smp a xyz:Sample ; ?o4 ?ase . ?ase a xyz:AffectedStatus ; rdf:_1 ?ast . FILTER(isLiteral(?ast))
+    BIND(REPLACE(?ast, "^\\s+|\\s+$", "") AS ?aff)
+    FILTER(STRLEN(?aff) > 0)
+    BIND("/ObservedInList/ObservedIn/Sample/AffectedStatus" AS ?sfT)
+    BIND(CONCAT("AffectedStatus \"", ?aff, "\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus.") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # Once per ObservedIn that has ObservedData.
+    { SELECT DISTINCT ?ca ?oi3 WHERE {
+        ?ca a xyz:ClinicalAssertion ; ?o5 ?oil3 . ?oil3 a xyz:ObservedInList ; ?o6 ?oi3 .
+        ?oi3 a xyz:ObservedIn ; ?o7 ?od . ?od a xyz:ObservedData } }
+    BIND("/ObservedInList/ObservedIn/ObservedData" AS ?sfT)
+    BIND("ObservedData carries free-text case descriptions, segregation evidence, and population frequencies. No v1-draft predicate; would map to genomics:observationNarrative or be split into structured evidence types in v1-draft.0.2." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # Once per Comment.
+    ?cl a xyz:Classification ; ?k1 ?cm . ?cm a xyz:Comment .
+    BIND("/Classification/Comment" AS ?sfT)
+    BIND("ClinicalAssertion Comment carries human-readable notes from the submitter. No v1-draft predicate; candidate genomics:assertionComment (v1-draft.0.2)." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    ?ca a xyz:ClinicalAssertion ; ?d1 ?sd . ?sd a xyz:StudyDescription ; rdf:_1 ?sdt . FILTER(isLiteral(?sdt))
+    BIND("/StudyDescription" AS ?sfT)
+    BIND("StudyDescription carries the broader study/consortium context for the assertion. No v1-draft predicate." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    ?rec13 ?n1 ?cal13 . ?cal13 a xyz:ClinicalAssertionList ; ?n2 ?ca . ?ca a xyz:ClinicalAssertion ; xyz:ID ?tid .
+    FILTER(STRLEN(?tid) > 0)
+    # An anti-join as MINUS, which walks the TraitMappings once, not per assertion.
+    MINUS { ?rec13 ?n3 ?tml . ?tml a xyz:TraitMappingList ; ?n4 ?tm . ?tm xyz:ClinicalAssertionID ?tid }
+    BIND("" AS ?sfT)
+    BIND("No <TraitMapping> entry for this ClinicalAssertion; cannot derive a deterministic genomics:aggregatedFrom link to a specific VariantInterpretation. The Assertion is emitted standalone." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  UNION
+  {
+    # On a skipped assertion: GermlineClassification text outside the five classes.
+    ?cl a xyz:Classification ; ?q1 ?cgx . ?cgx a xyz:GermlineClassification ; rdf:_1 ?cgxt . FILTER(isLiteral(?cgxt))
+    BIND(REPLACE(?cgxt, "^\\s+|\\s+$", "") AS ?gText)
+    FILTER(STRLEN(?gText) > 0)
+    BIND("/Classification/GermlineClassification" AS ?sfT)
+    BIND(CONCAT("GermlineClassification \"", ?gText, "\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".") AS ?reason)
+    BIND("warning" AS ?severity)
+    BIND("skipped" AS ?gate)
+  }
+  UNION
+  {
+    # On a skipped assertion: no germline text, a somatic or oncogenicity one.
+    ?cl a xyz:Classification .
+    { SELECT DISTINCT ?cl WHERE {
+        ?cl a xyz:Classification ; ?q2 ?sx . ?sx a ?sxt ; rdf:_1 ?sxtt .
+        FILTER(?sxt IN (xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && isLiteral(?sxtt)) } }
+    MINUS { ?cl ?q3 ?gx . ?gx a xyz:GermlineClassification ; rdf:_1 ?gxt . FILTER(isLiteral(?gxt)) }
+    BIND("/Classification" AS ?sfT)
+    BIND("ClinicalAssertion classifies somatic impact or oncogenicity, not germline ACMG; v1-draft.0.1 has no genomics:somaticStatus / oncogenicityClass — these are v1-draft.0.2 candidates. Skipping SubmitterAssertion emission." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("skipped" AS ?gate)
+  }
+  UNION
+  {
+    # On a skipped assertion: no classification text of any kind.
+    ?cl a xyz:Classification .
+    MINUS { ?cl ?q4 ?ax . ?ax a ?axt ; rdf:_1 ?axtt .
+            FILTER(?axt IN (xyz:GermlineClassification, xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && isLiteral(?axtt)) }
+    BIND("/Classification" AS ?sfT)
+    BIND("ClinicalAssertion has no germline / somatic / oncogenicity classification text (e.g., NoClassification=evidence_only); SubmitterAssertionShape requires genomics:assertedClassification cardinality 1. Skipping SubmitterAssertion emission." AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("skipped" AS ?gate)
+  }
+  UNION
+  {
+    # Once per AttributeSet whose Attribute is an AssertionMethod.
+    ?ca a xyz:ClinicalAssertion ; ?w1 ?aset . ?aset a xyz:AttributeSet ; ?w2 ?attr .
+    ?attr a xyz:Attribute ; xyz:Type "AssertionMethod" .
+    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT)) }
+    BIND("/AttributeSet[Type='AssertionMethod']" AS ?sfT)
+    BIND(CONCAT("Assertion method \"", COALESCE(REPLACE(?attrT, "^\\s+|\\s+$", ""), "<unknown>"), "\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).") AS ?reason)
+    BIND("info" AS ?severity)
+    BIND("emitted" AS ?gate)
+  }
+  }
+  FILTER(BOUND(?sfT))
+  FILTER(?gate = "any" || (?gate = "emitted" && ?emitted) || (?gate = "skipped" && !?emitted))
+
+  BIND(CONCAT("ClinicalAssertion[", ?caId, "]", ?sfT) AS ?sourceField)
+}
