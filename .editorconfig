@@ -12,7 +12,7 @@ indent_size = 2
 [*.md]
 trim_trailing_whitespace = false
 
-# Verbatim copies: an editor must not touch a byte of these, or the digests in
+# Digested files: an editor must not touch a byte of these, or the digests in
 # ro-crate-metadata.json stop being true.
 [{schema/ClinVar_VCV_*.xsd,fixtures/in/*,fixtures/expected/*,fixtures/findings/*}]
 insert_final_newline = false

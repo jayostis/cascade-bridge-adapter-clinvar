@@ -19,9 +19,9 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  // Verbatim copies (see .editorconfig): no save-time rewriting. A language
+  // Digested files (see .editorconfig): no save-time rewriting. A language
   // override reaches every file in that language, so only languages whose
-  // files are verbatim copies (or nearly all are) get one. The .gaps.json
+  // files are digested (or nearly all are) get one. The .gaps.json
   // sidecars are JSON, and a [json] override would also reach the crate;
   // they rely on the EditorConfig extension recommended in extensions.json,
   // which applies .editorconfig's path-scoped rules.

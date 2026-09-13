@@ -14,7 +14,7 @@
 *.sparql text eol=lf
 *.rq     text eol=lf
 
-# Verbatim copies. Their bytes must keep matching the digests recorded in
+# Digested files. Their bytes must keep matching the digests recorded in
 # ro-crate-metadata.json, so git must never normalise them.
 schema/ClinVar_VCV_*.xsd  -text
 fixtures/in/**            -text

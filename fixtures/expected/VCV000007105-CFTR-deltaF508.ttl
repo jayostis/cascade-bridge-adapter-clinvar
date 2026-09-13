@@ -172,8 +172,8 @@
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
     <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:765f9150-61d8-5ec3-b8e5-9f29d57a5782>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0010178>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0010178";
+    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0008887>;
+    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0008887";
     <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
     <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#MultipleSubmittersNoConflict>;
     <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2024-06-10"^^xsd:date;
@@ -183,8 +183,8 @@
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
     <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:765f9150-61d8-5ec3-b8e5-9f29d57a5782>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0009061>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0009061";
+    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0010178>;
+    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0010178";
     <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
     <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#MultipleSubmittersNoConflict>;
     <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2024-06-10"^^xsd:date;
@@ -194,8 +194,8 @@
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
     <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:765f9150-61d8-5ec3-b8e5-9f29d57a5782>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0008185>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0008185";
+    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0009061>;
+    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0009061";
     <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
     <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#MultipleSubmittersNoConflict>;
     <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2024-06-10"^^xsd:date;
@@ -205,8 +205,8 @@
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
     <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:765f9150-61d8-5ec3-b8e5-9f29d57a5782>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0008887>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0008887";
+    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0008185>;
+    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0008185";
     <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
     <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#MultipleSubmittersNoConflict>;
     <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2024-06-10"^^xsd:date;
@@ -246,7 +246,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:02fca67e-db6f-5bf2-b478-4430ec60fa04>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:02fca67e-db6f-5bf2-b478-4430ec60fa04>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:02fca67e-db6f-5bf2-b478-4430ec60fa04>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:02fca67e-db6f-5bf2-b478-4430ec60fa04>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:02fca67e-db6f-5bf2-b478-4430ec60fa04>.
 <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -260,7 +259,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f686e929-d12d-5d63-9c51-41cc85d05ed1>.
 <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -275,7 +273,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:50e305a2-eb05-5b0e-9846-cc209cc5f50c>.
 <urn:uuid:acb64b5c-2b3a-5f61-a707-35051f2ebb44> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -311,7 +308,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5f8b8e10-ce0a-5151-9f6d-75cc0d2a6752>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5f8b8e10-ce0a-5151-9f6d-75cc0d2a6752>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5f8b8e10-ce0a-5151-9f6d-75cc0d2a6752>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5f8b8e10-ce0a-5151-9f6d-75cc0d2a6752>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5f8b8e10-ce0a-5151-9f6d-75cc0d2a6752>.
 <urn:uuid:c0bfcab4-d7bb-537b-9895-fcdc2a2fc4d6> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -337,7 +333,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:970fab6d-3233-53b9-a457-c7b1d36f7319>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:970fab6d-3233-53b9-a457-c7b1d36f7319>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:970fab6d-3233-53b9-a457-c7b1d36f7319>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:970fab6d-3233-53b9-a457-c7b1d36f7319>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:970fab6d-3233-53b9-a457-c7b1d36f7319>.
 <urn:uuid:e32c8157-4f3f-5dc5-b784-019bf754df6d> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -363,7 +358,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8ec81839-4b5c-52cc-a834-273a09b8b16e>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8ec81839-4b5c-52cc-a834-273a09b8b16e>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8ec81839-4b5c-52cc-a834-273a09b8b16e>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8ec81839-4b5c-52cc-a834-273a09b8b16e>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8ec81839-4b5c-52cc-a834-273a09b8b16e>.
 <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -378,7 +372,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8756c481-bb7b-5460-9163-3c9af65798ba>.
 <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -393,7 +386,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d27abfd8-ae6a-5512-919f-5b882de94907>.
 <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -408,7 +400,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:216248da-067e-5e0a-b5db-2171cff8f780>.
 <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -423,7 +414,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:10777ca3-55f5-5c8c-87c2-e12022cb72c0>.
 <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -437,7 +427,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fdcb6008-3b83-5c86-8e54-2f997f9b6a8d>.
 <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -452,7 +441,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84d45886-47db-58ad-822d-9cc7f5a35fa4>.
 <urn:uuid:0b961555-4788-5b48-8067-a5f402e00b51> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -499,12 +487,11 @@
     cascade:sourceFhirId "VCV000007105:SCV002512246".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
+<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fa068930-cdae-5a71-b439-d3c18a16a77f>.
 <urn:uuid:84db5597-dd2e-53e6-b559-5366bd8d1b63> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
@@ -517,7 +504,6 @@
     cascade:sourceFhirId "VCV000007105:SCV002529678".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84db5597-dd2e-53e6-b559-5366bd8d1b63>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84db5597-dd2e-53e6-b559-5366bd8d1b63>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84db5597-dd2e-53e6-b559-5366bd8d1b63>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:84db5597-dd2e-53e6-b559-5366bd8d1b63>.
 <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -531,7 +517,6 @@
     cascade:sourceFhirId "VCV000007105:SCV002543782".
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
-<urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
 <urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e64ed5d2-2f5a-5442-9ddd-b547d7fa319d>.
@@ -550,7 +535,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5cffc10d-16b0-563d-aa18-8d70100cf912>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5cffc10d-16b0-563d-aa18-8d70100cf912>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5cffc10d-16b0-563d-aa18-8d70100cf912>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5cffc10d-16b0-563d-aa18-8d70100cf912>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5cffc10d-16b0-563d-aa18-8d70100cf912>.
 <urn:uuid:6e082bf3-3bd1-5401-8db1-9891289ca46d> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -574,7 +558,6 @@
     cascade:sourceFhirId "VCV000007105:SCV004042777".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4b61051c-6100-5a2f-b039-d8d750ba1d62>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4b61051c-6100-5a2f-b039-d8d750ba1d62>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4b61051c-6100-5a2f-b039-d8d750ba1d62>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4b61051c-6100-5a2f-b039-d8d750ba1d62>.
 <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -589,7 +572,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f975a1a9-5cd1-5f78-ba99-ca3db2c5f628>.
 <urn:uuid:4996b87c-62bf-570d-b4e0-0513a13ad0ff> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -603,7 +585,6 @@
     cascade:sourceFhirId "VCV000007105:SCV004176446".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4996b87c-62bf-570d-b4e0-0513a13ad0ff>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4996b87c-62bf-570d-b4e0-0513a13ad0ff>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4996b87c-62bf-570d-b4e0-0513a13ad0ff>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4996b87c-62bf-570d-b4e0-0513a13ad0ff>.
 <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -618,7 +599,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3a557294-9eb7-5f5f-8182-a6dc0e44ef61>.
 <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -633,7 +613,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:dcc22c66-c9e2-59c9-9e7e-3933fba5853b>.
 <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -648,7 +627,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:29d2a48f-506e-532a-8b36-d3ebbaf07525>.
 <urn:uuid:e95d5567-6a98-5f1f-b193-d6a3e1f3ce45> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -674,7 +652,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c4a15043-31b0-5a77-908a-34c68f85efdf>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c4a15043-31b0-5a77-908a-34c68f85efdf>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c4a15043-31b0-5a77-908a-34c68f85efdf>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c4a15043-31b0-5a77-908a-34c68f85efdf>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c4a15043-31b0-5a77-908a-34c68f85efdf>.
 <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -689,7 +666,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:905f4629-c3d3-57eb-bfc5-055cafa771ed>.
 <urn:uuid:73a98241-4060-5e2c-b05d-23165529328a> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -714,16 +690,16 @@
     cascade:sourceFhirId "VCV000007105:SCV002810876".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:466ed8e3-6d18-53be-9f12-9a7628ff6ebc> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
+<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
+<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8b5d75cb-b483-57f5-a29c-a00c6715874b>.
 <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
@@ -737,7 +713,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf13cca6-abb2-5800-abe6-c04a81884a9a>.
 <urn:uuid:af246bc4-c1d9-568c-8fae-883879a5497f> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -763,7 +738,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fcf331b9-a535-5dcd-bd7e-785479255b5c>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fcf331b9-a535-5dcd-bd7e-785479255b5c>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fcf331b9-a535-5dcd-bd7e-785479255b5c>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fcf331b9-a535-5dcd-bd7e-785479255b5c>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:fcf331b9-a535-5dcd-bd7e-785479255b5c>.
 <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -778,7 +752,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0d8af85f-a3f4-5805-a35d-250e16399e43>.
 <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -792,7 +765,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:80dbfbce-4066-5242-945e-ebf6cd1a7a24>.
 <urn:uuid:08bbab97-871d-5617-9b0b-e03432b50e4c> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -817,7 +789,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5a7f9d4f-032f-5298-809d-d3c3af938dfe>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5a7f9d4f-032f-5298-809d-d3c3af938dfe>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5a7f9d4f-032f-5298-809d-d3c3af938dfe>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5a7f9d4f-032f-5298-809d-d3c3af938dfe>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5a7f9d4f-032f-5298-809d-d3c3af938dfe>.
 <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -832,7 +803,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:21b9a2a5-57b8-5ca5-b965-493e5fdcc468>.
 <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -846,7 +816,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23ec4b5f-c9e1-5701-9188-c4e62a7f9ea0>.
 <urn:uuid:eea216be-0fa5-5007-ba4a-ba469cd47f54> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -912,7 +881,6 @@
     cascade:sourceFhirId "VCV000007105:SCV001163504".
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
-<urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
 <urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:869b0c0d-d8d6-5a31-a0d2-aaf9a2253680>.
@@ -931,7 +899,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf35ea97-c5bc-5021-a5fb-2a3d562f8d92>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf35ea97-c5bc-5021-a5fb-2a3d562f8d92>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf35ea97-c5bc-5021-a5fb-2a3d562f8d92>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf35ea97-c5bc-5021-a5fb-2a3d562f8d92>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cf35ea97-c5bc-5021-a5fb-2a3d562f8d92>.
 <urn:uuid:c48faf39-3360-5fc2-93f2-cbdb24b7e4de> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -957,7 +924,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bcf735b7-32da-5e91-a249-c1f2e788de65>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bcf735b7-32da-5e91-a249-c1f2e788de65>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bcf735b7-32da-5e91-a249-c1f2e788de65>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bcf735b7-32da-5e91-a249-c1f2e788de65>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bcf735b7-32da-5e91-a249-c1f2e788de65>.
 <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -972,7 +938,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f6f21c0e-085d-5700-8ebb-7432fd2e8c16>.
 <urn:uuid:538ea588-e603-56db-8d4d-159f5b320c54> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -985,7 +950,6 @@
     cascade:sourceFhirId "VCV000007105:SCV001368335".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:538ea588-e603-56db-8d4d-159f5b320c54>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:538ea588-e603-56db-8d4d-159f5b320c54>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:538ea588-e603-56db-8d4d-159f5b320c54>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:538ea588-e603-56db-8d4d-159f5b320c54>.
 <urn:uuid:788a5eba-797a-5300-b3fd-e71979cf5e63> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1022,7 +986,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d3707408-335f-5b1e-9530-b5e23c5cc356>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d3707408-335f-5b1e-9530-b5e23c5cc356>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d3707408-335f-5b1e-9530-b5e23c5cc356>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d3707408-335f-5b1e-9530-b5e23c5cc356>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d3707408-335f-5b1e-9530-b5e23c5cc356>.
 <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1037,7 +1000,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:1a2ca33e-9bc3-51ff-a42a-53037fc44d0c>.
 <urn:uuid:f55d1cdb-0852-519f-b428-9df17f648937> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1063,7 +1025,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d8f97220-f84f-58d5-8169-783a0312528e>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d8f97220-f84f-58d5-8169-783a0312528e>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d8f97220-f84f-58d5-8169-783a0312528e>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d8f97220-f84f-58d5-8169-783a0312528e>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d8f97220-f84f-58d5-8169-783a0312528e>.
 <urn:uuid:6104f56b-3bfd-5964-9d58-9c588b22f9f3> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1098,7 +1059,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0bd6a6c6-ce77-5f4a-a34b-4e79bc74ac47>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0bd6a6c6-ce77-5f4a-a34b-4e79bc74ac47>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0bd6a6c6-ce77-5f4a-a34b-4e79bc74ac47>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0bd6a6c6-ce77-5f4a-a34b-4e79bc74ac47>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0bd6a6c6-ce77-5f4a-a34b-4e79bc74ac47>.
 <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1113,7 +1073,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:bab28043-7ea2-5b9b-9a26-6923351772c0>.
 <urn:uuid:a535b057-be35-5f7f-a2a9-09788ac0f7a0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1127,7 +1086,6 @@
     cascade:sourceFhirId "VCV000007105:SCV003925476".
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a535b057-be35-5f7f-a2a9-09788ac0f7a0>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a535b057-be35-5f7f-a2a9-09788ac0f7a0>.
-<urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a535b057-be35-5f7f-a2a9-09788ac0f7a0>.
 <urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a535b057-be35-5f7f-a2a9-09788ac0f7a0>.
 <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1142,7 +1100,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a8724d35-5969-5b70-bd4a-dd43cc1c263e>.
 <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1157,7 +1114,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:30472cbd-fdea-5ac3-a140-58e5b4b59cbf>.
 <urn:uuid:a1b23300-cbdf-5ccc-a41f-af0611859dec> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1169,7 +1125,6 @@
     <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> false;
     cascade:sourceFhirId "VCV000007105:SCV004171185".
 <urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a1b23300-cbdf-5ccc-a41f-af0611859dec>.
-<urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a1b23300-cbdf-5ccc-a41f-af0611859dec>.
 <urn:uuid:466ed8e3-6d18-53be-9f12-9a7628ff6ebc> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:a1b23300-cbdf-5ccc-a41f-af0611859dec>.
 <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1184,7 +1139,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8acbca29-4e75-5178-9082-79cf9a823b5a>.
 <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1199,7 +1153,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cc654c77-5ab6-58a0-ad28-6dc746d53921>.
 <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1214,7 +1167,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d2cdf799-9a5b-55ef-89ae-6e86d05f0af7>.
 <urn:uuid:0ecc42bc-1c49-53ad-b311-cced234519d9> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1227,7 +1179,6 @@
     <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> false;
     cascade:sourceFhirId "VCV000007105:SCV004211619".
 <urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0ecc42bc-1c49-53ad-b311-cced234519d9>.
-<urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0ecc42bc-1c49-53ad-b311-cced234519d9>.
 <urn:uuid:466ed8e3-6d18-53be-9f12-9a7628ff6ebc> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:0ecc42bc-1c49-53ad-b311-cced234519d9>.
 <urn:uuid:9029895a-5219-5fed-85cc-96a6548ef018> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1253,7 +1204,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e9aee84d-0b19-5148-a506-c915e8cf6ede>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e9aee84d-0b19-5148-a506-c915e8cf6ede>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e9aee84d-0b19-5148-a506-c915e8cf6ede>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e9aee84d-0b19-5148-a506-c915e8cf6ede>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:e9aee84d-0b19-5148-a506-c915e8cf6ede>.
 <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1268,7 +1218,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c79b900f-167c-5448-9612-d46580ad88a0>.
 <urn:uuid:0b3723b5-ed82-53fc-98f6-2ffef05a50b4> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1293,7 +1242,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d4b27d40-4bf3-5cb8-92ab-c05aa2721410>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d4b27d40-4bf3-5cb8-92ab-c05aa2721410>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d4b27d40-4bf3-5cb8-92ab-c05aa2721410>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d4b27d40-4bf3-5cb8-92ab-c05aa2721410>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:d4b27d40-4bf3-5cb8-92ab-c05aa2721410>.
 <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1308,7 +1256,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:900647b2-f5a3-5f6a-a29e-e90f6d5ae2d3>.
 <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1323,7 +1270,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:294dbe84-bac0-57e6-94ce-1a8c38139d54>.
 <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1336,17 +1282,17 @@
     <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> false;
     cascade:sourceFhirId "VCV000007105:SCV004101389".
 <urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
-<urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:466ed8e3-6d18-53be-9f12-9a7628ff6ebc> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
+<urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
+<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:cef01acf-73bf-5f8b-bbb8-8366af42ed24>.
 <urn:uuid:c8564cd5-2d88-5b89-b111-594cb6294708> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
@@ -1357,7 +1303,6 @@
     <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> false;
     cascade:sourceFhirId "VCV000007105:SCV004698102".
 <urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c8564cd5-2d88-5b89-b111-594cb6294708>.
-<urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c8564cd5-2d88-5b89-b111-594cb6294708>.
 <urn:uuid:466ed8e3-6d18-53be-9f12-9a7628ff6ebc> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:c8564cd5-2d88-5b89-b111-594cb6294708>.
 <urn:uuid:bd420ba2-b288-5c40-9e43-cf36a4a5bdd6> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1381,7 +1326,6 @@
     cascade:sourceFhirId "VCV000007105:SCV006554384".
 <urn:uuid:2790ebce-27f6-5f7b-9e81-10d04b6bdaea> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f58e318b-5a76-5f8f-84bf-4b8182dae09b>.
 <urn:uuid:0c7324c7-52e2-572f-9ce3-0ef543ad4677> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f58e318b-5a76-5f8f-84bf-4b8182dae09b>.
-<urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f58e318b-5a76-5f8f-84bf-4b8182dae09b>.
 <urn:uuid:e0660105-e7b7-5a59-8f5d-e11ab43beaf1> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f58e318b-5a76-5f8f-84bf-4b8182dae09b>.
 <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1396,7 +1340,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:23f6b80a-d2be-5fbb-827b-bed038cac7cb>.
 <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1410,7 +1353,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:ccb46e0b-5ea1-57fe-a4b6-70ac81d4e5ed>.
 <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1424,7 +1366,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3922ceaf-b514-59b8-a01e-e99409a82839>.
 <urn:uuid:665e2c5f-554b-53af-9a94-f171164b2be3> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1450,7 +1391,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f118b4b6-bb97-5c76-8222-7bbb36cf9180>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f118b4b6-bb97-5c76-8222-7bbb36cf9180>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f118b4b6-bb97-5c76-8222-7bbb36cf9180>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f118b4b6-bb97-5c76-8222-7bbb36cf9180>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:f118b4b6-bb97-5c76-8222-7bbb36cf9180>.
 <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1465,7 +1405,6 @@
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037>.
 <urn:uuid:0798f735-6221-5a0f-b057-4717a64b6320> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037>.
-<urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037>.
 <urn:uuid:a5b825b6-8f3f-5979-b7e5-dc4d8120e962> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:4d78d32e-caba-50e2-827b-d6951c4ef037>.
 <urn:uuid:ba67d345-7476-5821-bd10-c7f94a4e49b2> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -1490,7 +1429,6 @@
     cascade:sourceFhirId "VCV000007105:SCV007580311".
 <urn:uuid:bc15f983-1fa4-5036-9f60-0e6d93aaa0bd> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
 <urn:uuid:a953a5db-0c00-5b6f-ac40-09193a9cae21> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
-<urn:uuid:aab530ee-c38f-5a13-85dd-f23ae040c50b> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
 <urn:uuid:e2ad5a6f-9892-5aba-9904-c7823e1e8bd3> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
 <urn:uuid:d1577c70-6126-51a4-baeb-9df61324939f> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
 <urn:uuid:3281a513-7c31-5767-9045-494ecf4bacf9> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:63050d3b-7c8e-51fb-ab92-7a34cf51c832>.
