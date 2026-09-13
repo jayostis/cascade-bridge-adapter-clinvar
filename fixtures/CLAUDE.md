@@ -4,17 +4,18 @@ The cases a Bridge's harness runs, and the inputs and expected outputs they name
 Nothing here executes; `manifest.ttl` declares the cases and the rule each is
 judged by, and the crate records where every file came from.
 
-## Verbatim copies are never edited
+## Every byte is recorded, and inputs are never edited
 
-Everything under `in/`, `expected/` and `findings/` is a byte-for-byte copy whose
-digest the crate records. `.gitattributes` and `.editorconfig` protect them from
-normalisation. To change one, replace it from its source and update the crate's
-digest, size and description in the same commit.
+Every file under `in/`, `expected/` and `findings/` has its digest in the crate,
+and `.gitattributes` and `.editorconfig` protect them from normalisation. A
+change updates the crate's digest, size and description in the same commit.
 
 The four oracle triplets come from `../conformance`, `fixtures/genomics/clinvar/`
 at the commit the crate names: `X.input.xml` becomes `in/X.xml`,
 `X.expected.ttl` becomes `expected/X.ttl`, and `X.gaps.json` keeps its suffix as
-`findings/X.gaps.json`.
+`findings/X.gaps.json`. An input stays a byte-for-byte copy. An expected file
+is corrected here where the converter that produced it was wrong; its crate
+entity then says `isBasedOn` rather than `sameAs`, and names each correction.
 
 Two of the four file names do not describe the record inside; the per-entry
 `rdfs:comment` in `manifest.ttl` says which. The names are the conformance
@@ -35,7 +36,7 @@ crate, plus a `bridge:DatasetCompletionTest` naming that entity by its IRI.
   when a query matched no record, and false for a document under a known root
   holding neither.
 - Every `expected/*.ttl` parses as Turtle (`riot --validate`, rdflib).
-- The oracle triplets are byte-identical to conformance. Compare against the
+- Each `sameAs` copy is byte-identical to conformance. Compare against the
   **blobs**, never the worktree: a clone with `core.autocrlf=true` holds those
   files as CRLF, so `cmp` on the worktree reports every input as differing at
   byte 40, and "fixing" that would break the recorded digests.

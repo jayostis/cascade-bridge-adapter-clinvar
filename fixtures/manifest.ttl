@@ -31,7 +31,7 @@
     <#clinvar-vcv-release-2026-09>
   ) .
 
-# The four conformance oracles, byte-identical to the conformance repository.
+# The four conformance oracles, some corrected here; the crate says which.
 # Its file names are kept so each copy stays traceable; two do not describe the
 # record inside, noted per entry.
 

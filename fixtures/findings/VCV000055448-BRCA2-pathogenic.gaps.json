@@ -6,6 +6,12 @@
     "context": "SCV000568397"
   },
   {
+    "sourceField": "ClinicalAssertion[1103504]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"GeneDx Variant Classification Process June 2021\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000568397"
+  },
+  {
     "sourceField": "ClinicalAssertion[1103504]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2021-03-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -48,6 +54,12 @@
     "context": "SCV005915327"
   },
   {
+    "sourceField": "ClinicalAssertion[11376414]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV005915327"
+  },
+  {
     "sourceField": "ClinicalAssertion[11376414]/Citation",
     "reason": "Citations carry 1 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -82,6 +94,12 @@
     "reason": "AffectedStatus \"yes\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus.",
     "severity": "info",
     "context": "SCV005915327"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2445656]/Classification",
+    "reason": "ClinicalAssertion has no germline / somatic / oncogenicity classification text (e.g., NoClassification=evidence_only); SubmitterAssertionShape requires genomics:assertedClassification cardinality 1. Skipping SubmitterAssertion emission.",
+    "severity": "info",
+    "context": "SCV001242334"
   },
   {
     "sourceField": "ClinicalAssertion[262277]/@SubmissionDate|@DateCreated|@DateLastUpdated",
@@ -132,6 +150,12 @@
     "context": "SCV000186117"
   },
   {
+    "sourceField": "ClinicalAssertion[304632]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Ambry Autosomal Dominant and X-Linked criteria (10/2015)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000186117"
+  },
+  {
     "sourceField": "ClinicalAssertion[304632]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2013-01-08\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -174,6 +198,12 @@
     "context": "SCV000326199"
   },
   {
+    "sourceField": "ClinicalAssertion[625307]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"CIMBA Mutation Classification guidelines May 2016\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000326199"
+  },
+  {
     "sourceField": "ClinicalAssertion[625307]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2015-10-02\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -206,6 +236,12 @@
   {
     "sourceField": "ClinicalAssertion[7982987]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004297793"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7982987]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Invitae Variant Classification Sherloc (09022015)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004297793"
   },

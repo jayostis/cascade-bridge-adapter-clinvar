@@ -35,7 +35,7 @@
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
       "version": "0.2.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. Phase 1 (0.2.0) has no mapping and nothing that executes. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are copied byte for byte from the conformance repository; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. The phase 2 mapping (mainEntity, Workflow RO-Crate), tables (bridge:table) and extension vocabulary (bridge:extensionVocabulary) are absent until the files exist; nothing for the export direction is declared, because ClinVar is import-only.",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. Phase 1 (0.2.0) has no mapping and nothing that executes. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. The phase 2 mapping (mainEntity, Workflow RO-Crate), tables (bridge:table) and extension vocabulary (bridge:extensionVocabulary) are absent until the files exist; nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -55,7 +55,7 @@
         "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/0af0fc970f75360d4f84acc2203c26b5fd9d6d23"
       },
       "bridge:vocabularyPin": {
-        "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3"
+        "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
       },
       "bridge:vocabulary": [
         {
@@ -138,7 +138,7 @@
           "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/ClinVar_VCV_2.6.xsd"
         },
         {
-          "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3"
+          "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
         },
         {
           "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/0af0fc970f75360d4f84acc2203c26b5fd9d6d23"
@@ -197,31 +197,31 @@
       "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #7, released as v0.2.0, which removed that repository's catalogue of adapters and published its lint as a reusable action. The tag v0.2.0 points at this SHA and keeps it reachable if the branch is later reset or rebased, which is why an untagged commit is not pinned (docs/alignment.md there). The same revision is named twice on purpose: here for the reader, and in .github/workflows/validate.yml as the ref the lint is called at, for the machine; the lint fails the run if the two disagree, and they move together in the same pull request. This is also the revision whose vocab/bridge.ttl and shapes/bridge.shapes.ttl replaced this adapter's own copies under schema/manifest/, which were the seed of them. Read on 2026-09-06. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
-      "@id": "https://github.com/jayostis/spec/commit/e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3",
+      "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
       "@type": ["SoftwareSourceCode", "File"],
-      "name": "spec at e77ba5e",
+      "name": "spec at d819bc2",
       "codeRepository": {
-        "@id": "https://github.com/jayostis/spec"
+        "@id": "https://github.com/the-cascade-protocol/spec"
       },
-      "version": "e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3",
+      "version": "d819bc2c045266f9f79ebf9398cbbb82a6156d27",
       "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
+        "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "The spec revision the adapter's vocabularies are pinned to: the same pin conformance/scripts/SPEC_PIN carries, the merge commit of jayostis/spec PR #53 (core v3.13, health v2.9, clinical v1.20, coverage v1.9, checkup v3.5, pots v1.5). The commit is on the fork, jayostis/spec, and not yet on the-cascade-protocol/spec: it is not an ancestor of the org's main, so naming the org would point at a revision the org does not hold. Six tags (vocab/core-v3.13, vocab/health-v2.9, vocab/clinical-v1.20, vocab/coverage-v1.9, vocab/checkup-v3.5, vocab/pots-v1.5) point at this SHA and keep it reachable if the fork's main is reset or rebased; the pin moves to the org in the same commit that re-pins to an org SHA, once the vocabulary lands there. Read from conformance/scripts/SPEC_PIN on 2026-09-06. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every genomics: and core: term the expected graphs write has the same standing here as at jayostis/spec e77ba5e, the fork revision conformance/scripts/SPEC_PIN names: the fork's later releases add nothing this adapter writes. One term is declared at neither: cascade:sourceFhirId, which every record carries. Read on 2026-09-13. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/genomics/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade genomics vocabulary",
       "version": "v1-draft",
-      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: at the pin, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.6\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
+      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: at the pin, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.5\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/core/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade core vocabulary",
-      "version": "3.13",
-      "description": "One of the two Cascade vocabularies the adapter writes. At the pin, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.13\", the version spec's VOCAB_VERSIONS records. The stamp predicates the test manifest ignores when comparing (cascade:dataProvenance, cascade:schemaVersion) are its terms."
+      "version": "3.9",
+      "description": "One of the two Cascade vocabularies the adapter writes. At the pin, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.9\", the version spec's VOCAB_VERSIONS records. The stamp predicates the test manifest ignores when comparing (cascade:dataProvenance, cascade:schemaVersion) are its terms."
     },
     {
       "@id": "schema/ClinVar_VCV_2.6.xsd",
@@ -371,18 +371,18 @@
       "@type": "File",
       "name": "Expected graph for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "154096",
-      "sha256": "a330c4a5b960eafff264715fa124d43b7c2e3215b864bdb8b6514154a8e3cfb9",
+      "contentSize": "144362",
+      "sha256": "22b55ec95a97ee725c7e00b2f50c0dfa28be31f09e0ca9f18f9eb2781f6a2d0d",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000007105-CFTR-deltaF508.expected.ttl"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and copied byte for byte from 0ea48bb. 1,486 triples, 112 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. 1,424 triples, 112 IRI subjects named urn:uuid: by the converter."
     },
     {
       "@id": "fixtures/expected/VCV000017661-BRCA1.ttl",
@@ -443,54 +443,54 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "application/json",
-      "contentSize": "248158",
-      "sha256": "b6310d2447f6a97d3fdcac970931a59c98057f60f65f0baeeba1e62c99c18dda",
+      "contentSize": "278911",
+      "sha256": "68edeebaa0103f38fc559f72e811800dca59f8d82a5719efee7933682bc2ba30",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000007105-CFTR-deltaF508.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 732 entries of {sourceField, reason, severity, context}. The file is in the order cascade-cli's authoring script left it, ICU collation on (sourceField, severity, reason); that order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Copied byte for byte from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06). Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "The vocabulary-gap sidecar the input produces: 822 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 732 entries are kept, with 90 the converter never wrote: 9 for the seven SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 81 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.json",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "application/json",
-      "contentSize": "167309",
-      "sha256": "fd7741b748d745adc4c2f6034aa7f3c8c25100df5b47dcbb885ce3831efcc96b",
+      "contentSize": "186320",
+      "sha256": "e81d1887ab0563132a4f016785c23e4dc6f9619b075cf5d17ec513962af36233",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000017661-BRCA1.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 502 entries of {sourceField, reason, severity, context}. The file is in the order cascade-cli's authoring script left it, ICU collation on (sourceField, severity, reason); that order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Copied byte for byte from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06). Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "The vocabulary-gap sidecar the input produces: 558 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 502 entries are kept, with 56 the converter never wrote: 5 for the three SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 51 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.json",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "application/json",
-      "contentSize": "19521",
-      "sha256": "0a5f0d1ccd52ccfc6fb4c68d175d7a10e2cf4ded11bc75205d12aeb05fddc108",
+      "contentSize": "21663",
+      "sha256": "bca27231696f7735b57c6704b7104fa7382c8483208030967ccfcf65798f96ed",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000055448-BRCA2-pathogenic.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 58 entries of {sourceField, reason, severity, context}. The file is in the order cascade-cli's authoring script left it, ICU collation on (sourceField, severity, reason); that order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Copied byte for byte from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06). Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "The vocabulary-gap sidecar the input produces: 64 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 58 entries are kept, with 6 the converter never wrote: 1 for the one SubmitterAssertion it skips, which it recorded and then discarded with the skipped record, and 5 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
       "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.json",
@@ -560,7 +560,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "How the fixtures are treated: verbatim copies are never edited, large datasets are referenced rather than committed, and the checks on inputs and expected graphs that the specification's lint cannot run."
+      "description": "How the fixtures are treated: every byte is recorded and inputs are never edited, large datasets are referenced rather than committed, and the checks on inputs and expected graphs that the specification's lint cannot run."
     },
     {
       "@id": "schema/CLAUDE.md",
@@ -580,7 +580,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The four input / expected / gaps triplets the committed oracles are copied from, unchanged. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' sameAs links name the fork, for the same reason the vocabulary pin does: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in scripts/SPEC_PIN (e77ba5e8004bf57f34d42a1bee69d1cfb95f86e3), which this adapter pins too (bridge:vocabularyPin)."
+      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged and four expected files are corrected in this crate. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:vocabularyPin)."
     },
     {
       "@id": "https://spdx.org/licenses/Apache-2.0",
@@ -597,6 +597,16 @@
       "@type": "CreativeWork",
       "name": "NCBI Website and Data Usage Policies and Disclaimers",
       "description": "The terms under which NCBI distributes ClinVar data. Questions about the data go to clinvar@ncbi.nlm.nih.gov, per NCBI's README files."
+    },
+    {
+      "@id": "https://spdx.org/licenses/CC-BY-4.0",
+      "@type": "CreativeWork",
+      "name": "Creative Commons Attribution 4.0 International",
+      "identifier": "CC-BY-4.0",
+      "sameAs": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "description": "The licence of the Cascade Protocol's spec repository, whose vocabularies the adapter writes at the revision bridge:vocabularyPin names."
     }
   ]
 }

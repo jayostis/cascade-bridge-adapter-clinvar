@@ -6,6 +6,12 @@
     "context": "SCV005197698"
   },
   {
+    "sourceField": "ClinicalAssertion[10087643]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV005197698"
+  },
+  {
     "sourceField": "ClinicalAssertion[10087643]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2024-01-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -38,6 +44,12 @@
   {
     "sourceField": "ClinicalAssertion[10376581]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV005397656"
+  },
+  {
+    "sourceField": "ClinicalAssertion[10376581]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV005397656"
   },
@@ -86,6 +98,12 @@
   {
     "sourceField": "ClinicalAssertion[1048728]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000538017"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1048728]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000538017"
   },
@@ -170,6 +188,12 @@
   {
     "sourceField": "ClinicalAssertion[1139209]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000584079"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1139209]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"HA_assertions_20150911\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000584079"
   },
@@ -618,6 +642,12 @@
     "context": "SCV000594089"
   },
   {
+    "sourceField": "ClinicalAssertion[1150533]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000594089"
+  },
+  {
     "sourceField": "ClinicalAssertion[1150533]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2016-08-26\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -654,6 +684,12 @@
     "context": "SCV006109277"
   },
   {
+    "sourceField": "ClinicalAssertion[11741718]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV006109277"
+  },
+  {
     "sourceField": "ClinicalAssertion[11741718]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-02-16\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -684,8 +720,26 @@
     "context": "SCV006109277"
   },
   {
+    "sourceField": "ClinicalAssertion[1174465]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"not provided\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV000607274"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1174465]/ClinVarAccession@OrganizationCategory",
+    "reason": "OrganizationCategory \"other\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician.",
+    "severity": "info",
+    "context": "SCV000607274"
+  },
+  {
     "sourceField": "ClinicalAssertion[118581]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000071392"
+  },
+  {
+    "sourceField": "ClinicalAssertion[118581]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Guideline for cystic fibrosis carrier screening\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000071392"
   },
@@ -744,6 +798,12 @@
     "context": "SCV000074347"
   },
   {
+    "sourceField": "ClinicalAssertion[122277]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Invitae Variant Classification Sherloc (09022015)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000074347"
+  },
+  {
     "sourceField": "ClinicalAssertion[122277]/Citation",
     "reason": "Citations carry 5 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -788,6 +848,12 @@
   {
     "sourceField": "ClinicalAssertion[12618796]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV006554384"
+  },
+  {
+    "sourceField": "ClinicalAssertion[12618796]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV006554384"
   },
@@ -840,6 +906,12 @@
     "context": "SCV006554430"
   },
   {
+    "sourceField": "ClinicalAssertion[12618843]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV006554430"
+  },
+  {
     "sourceField": "ClinicalAssertion[12618843]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-08-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -878,6 +950,12 @@
   {
     "sourceField": "ClinicalAssertion[12621779]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV006555683"
+  },
+  {
+    "sourceField": "ClinicalAssertion[12621779]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV006555683"
   },
@@ -924,6 +1002,12 @@
     "context": "SCV006561073"
   },
   {
+    "sourceField": "ClinicalAssertion[12629688]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV006561073"
+  },
+  {
     "sourceField": "ClinicalAssertion[12629688]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-10-21\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -960,6 +1044,12 @@
     "context": "SCV007329966"
   },
   {
+    "sourceField": "ClinicalAssertion[13987807]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"IMAGENE.ME Variant Classification SOP 2022\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV007329966"
+  },
+  {
     "sourceField": "ClinicalAssertion[13987807]/Classification/Comment",
     "reason": "ClinicalAssertion Comment carries human-readable notes from the submitter. No v1-draft predicate; candidate genomics:assertionComment (v1-draft.0.2).",
     "severity": "info",
@@ -992,6 +1082,12 @@
   {
     "sourceField": "ClinicalAssertion[14204171]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV007448776"
+  },
+  {
+    "sourceField": "ClinicalAssertion[14204171]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Variantyx Assertion Criteria 2022\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV007448776"
   },
@@ -1038,6 +1134,12 @@
     "context": "SCV007540636"
   },
   {
+    "sourceField": "ClinicalAssertion[14399379]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV007540636"
+  },
+  {
     "sourceField": "ClinicalAssertion[14399379]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2023-11-07\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1076,6 +1178,12 @@
   {
     "sourceField": "ClinicalAssertion[1445020]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000741228"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1445020]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Ambry Variant Classification Scheme 2023\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000741228"
   },
@@ -1128,6 +1236,12 @@
     "context": "SCV007580311"
   },
   {
+    "sourceField": "ClinicalAssertion[14476319]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV007580311"
+  },
+  {
     "sourceField": "ClinicalAssertion[14476319]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-01-06\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1166,6 +1280,12 @@
   {
     "sourceField": "ClinicalAssertion[1455487]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000747395"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1455487]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000747395"
   },
@@ -1212,6 +1332,12 @@
     "context": "SCV000747396"
   },
   {
+    "sourceField": "ClinicalAssertion[1455488]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000747396"
+  },
+  {
     "sourceField": "ClinicalAssertion[1455488]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2017-01-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1250,6 +1376,12 @@
   {
     "sourceField": "ClinicalAssertion[146844]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000071493"
+  },
+  {
+    "sourceField": "ClinicalAssertion[146844]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Sosnay PR et al. (Nat Genet 2013)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000071493"
   },
@@ -1296,8 +1428,26 @@
     "context": "SCV000071493"
   },
   {
+    "sourceField": "ClinicalAssertion[150746]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"not provided\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV000090450"
+  },
+  {
+    "sourceField": "ClinicalAssertion[150746]/ClinVarAccession@OrganizationCategory",
+    "reason": "OrganizationCategory \"other\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician.",
+    "severity": "info",
+    "context": "SCV000090450"
+  },
+  {
     "sourceField": "ClinicalAssertion[1690191]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000864219"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1690191]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000864219"
   },
@@ -1338,6 +1488,12 @@
     "context": "SCV000883108"
   },
   {
+    "sourceField": "ClinicalAssertion[1729226]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000883108"
+  },
+  {
     "sourceField": "ClinicalAssertion[1729226]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2019-06-04\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1374,6 +1530,12 @@
     "context": "SCV000886152"
   },
   {
+    "sourceField": "ClinicalAssertion[1732804]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Mendelics Assertion Criteria 2017\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000886152"
+  },
+  {
     "sourceField": "ClinicalAssertion[1732804]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2018-11-05\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1406,6 +1568,12 @@
   {
     "sourceField": "ClinicalAssertion[1739176]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000889288"
+  },
+  {
+    "sourceField": "ClinicalAssertion[1739176]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Quest Diagnostics criteria\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000889288"
   },
@@ -1458,6 +1626,12 @@
     "context": "SCV000891676"
   },
   {
+    "sourceField": "ClinicalAssertion[1747476]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000891676"
+  },
+  {
     "sourceField": "ClinicalAssertion[1747476]/Citation",
     "reason": "Citations carry 1 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -1500,6 +1674,12 @@
     "context": "SCV000928113"
   },
   {
+    "sourceField": "ClinicalAssertion[1816735]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Blueprint Genetics Variant Classification Scheme\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000928113"
+  },
+  {
     "sourceField": "ClinicalAssertion[1816735]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2018-12-12\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1532,6 +1712,12 @@
   {
     "sourceField": "ClinicalAssertion[2267912]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001149705"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2267912]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Classification criteria August 2017\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001149705"
   },
@@ -1578,6 +1764,12 @@
     "context": "SCV001163504"
   },
   {
+    "sourceField": "ClinicalAssertion[2292560]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001163504"
+  },
+  {
     "sourceField": "ClinicalAssertion[2292560]/Classification/ReviewStatus",
     "reason": "Per-SCV ReviewStatus \"criteria provided, single submitter\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).",
     "severity": "info",
@@ -1604,6 +1796,12 @@
   {
     "sourceField": "ClinicalAssertion[2307446]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001169465"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2307446]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Claustres M et al. (Hum Mutat 2017)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001169465"
   },
@@ -1656,6 +1854,12 @@
     "context": "SCV001161676"
   },
   {
+    "sourceField": "ClinicalAssertion[2307731]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001161676"
+  },
+  {
     "sourceField": "ClinicalAssertion[2307731]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2019-10-18\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1700,6 +1904,12 @@
   {
     "sourceField": "ClinicalAssertion[2354360]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001193905"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2354360]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Myriad Women's Health Autosomal Recessive and X-Linked Classification Criteria (2019)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001193905"
   },
@@ -1752,6 +1962,12 @@
     "context": "SCV001244997"
   },
   {
+    "sourceField": "ClinicalAssertion[2466179]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001244997"
+  },
+  {
     "sourceField": "ClinicalAssertion[2466179]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2018-09-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1794,6 +2010,12 @@
     "context": "SCV001246813"
   },
   {
+    "sourceField": "ClinicalAssertion[2468412]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"CeGaT Center For Human Genetics Tuebingen Variant Classification Criteria Version 2\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001246813"
+  },
+  {
     "sourceField": "ClinicalAssertion[2468412]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2026-03-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1832,6 +2054,12 @@
   {
     "sourceField": "ClinicalAssertion[2477479]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001251533"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2477479]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001251533"
   },
@@ -1884,6 +2112,12 @@
     "context": "SCV001251746"
   },
   {
+    "sourceField": "ClinicalAssertion[2560022]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001251746"
+  },
+  {
     "sourceField": "ClinicalAssertion[2560022]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2020-05-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -1916,6 +2150,12 @@
   {
     "sourceField": "ClinicalAssertion[2696416]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001368335"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2696416]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001368335"
   },
@@ -1998,8 +2238,20 @@
     "context": "SCV000027724"
   },
   {
+    "sourceField": "ClinicalAssertion[278536]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"not provided\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV000153744"
+  },
+  {
     "sourceField": "ClinicalAssertion[2808734]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001424387"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2808734]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001424387"
   },
@@ -2030,6 +2282,12 @@
   {
     "sourceField": "ClinicalAssertion[2862971]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001450105"
+  },
+  {
+    "sourceField": "ClinicalAssertion[2862971]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001450105"
   },
@@ -2066,6 +2324,12 @@
   {
     "sourceField": "ClinicalAssertion[3002554]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001527339"
+  },
+  {
+    "sourceField": "ClinicalAssertion[3002554]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001527339"
   },
@@ -2136,8 +2400,20 @@
     "context": "SCV001553614"
   },
   {
+    "sourceField": "ClinicalAssertion[3194104]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"not provided\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV001622798"
+  },
+  {
     "sourceField": "ClinicalAssertion[3373850]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001713417"
+  },
+  {
+    "sourceField": "ClinicalAssertion[3373850]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001713417"
   },
@@ -2214,6 +2490,12 @@
     "context": "SCV001810348"
   },
   {
+    "sourceField": "ClinicalAssertion[3551420]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV001810348"
+  },
+  {
     "sourceField": "ClinicalAssertion[3551420]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2021-07-22\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -2246,6 +2528,12 @@
   {
     "sourceField": "ClinicalAssertion[3662008]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV001860325"
+  },
+  {
+    "sourceField": "ClinicalAssertion[3662008]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV001860325"
   },
@@ -2316,6 +2604,12 @@
     "context": "SCV002009133"
   },
   {
+    "sourceField": "ClinicalAssertion[3924585]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002009133"
+  },
+  {
     "sourceField": "ClinicalAssertion[3924585]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2021-11-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -2358,6 +2652,12 @@
     "context": "SCV002019253"
   },
   {
+    "sourceField": "ClinicalAssertion[3960509]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002019253"
+  },
+  {
     "sourceField": "ClinicalAssertion[3960509]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-06-12\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -2386,6 +2686,18 @@
     "reason": "AffectedStatus \"unknown\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus.",
     "severity": "info",
     "context": "SCV002019253"
+  },
+  {
+    "sourceField": "ClinicalAssertion[3984227]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"drug response\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV002031250"
+  },
+  {
+    "sourceField": "ClinicalAssertion[3984228]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"drug response\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV002031251"
   },
   {
     "sourceField": "ClinicalAssertion[3990900]/@SubmissionDate|@DateCreated|@DateLastUpdated",
@@ -2420,6 +2732,12 @@
   {
     "sourceField": "ClinicalAssertion[399789]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000221179"
+  },
+  {
+    "sourceField": "ClinicalAssertion[399789]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000221179"
   },
@@ -2472,6 +2790,12 @@
     "context": "SCV002048630"
   },
   {
+    "sourceField": "ClinicalAssertion[4016590]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ARUP Molecular Germline Variant Investigation Process 2024\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002048630"
+  },
+  {
     "sourceField": "ClinicalAssertion[4016590]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2025-07-31\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -2514,6 +2838,12 @@
     "context": "SCV002053836"
   },
   {
+    "sourceField": "ClinicalAssertion[4023878]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002053836"
+  },
+  {
     "sourceField": "ClinicalAssertion[4023878]/Classification/ReviewStatus",
     "reason": "Per-SCV ReviewStatus \"criteria provided, single submitter\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).",
     "severity": "info",
@@ -2540,6 +2870,12 @@
   {
     "sourceField": "ClinicalAssertion[4041679]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002061800"
+  },
+  {
+    "sourceField": "ClinicalAssertion[4041679]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002061800"
   },
@@ -2582,6 +2918,12 @@
   {
     "sourceField": "ClinicalAssertion[4061980]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002072562"
+  },
+  {
+    "sourceField": "ClinicalAssertion[4061980]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002072562"
   },
@@ -2670,6 +3012,12 @@
     "context": "SCV002097285"
   },
   {
+    "sourceField": "ClinicalAssertion[4101268]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002097285"
+  },
+  {
     "sourceField": "ClinicalAssertion[4101268]/Citation",
     "reason": "Citations carry 6 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -2718,6 +3066,12 @@
     "context": "SCV002502414"
   },
   {
+    "sourceField": "ClinicalAssertion[4892951]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002502414"
+  },
+  {
     "sourceField": "ClinicalAssertion[4892951]/Citation",
     "reason": "Citations carry 40 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -2756,6 +3110,12 @@
   {
     "sourceField": "ClinicalAssertion[4897172]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002503785"
+  },
+  {
+    "sourceField": "ClinicalAssertion[4897172]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002503785"
   },
@@ -2804,6 +3164,12 @@
   {
     "sourceField": "ClinicalAssertion[4903977]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002507372"
+  },
+  {
+    "sourceField": "ClinicalAssertion[4903977]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002507372"
   },
@@ -2880,6 +3246,12 @@
     "context": "SCV002512246"
   },
   {
+    "sourceField": "ClinicalAssertion[4924017]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002512246"
+  },
+  {
     "sourceField": "ClinicalAssertion[4924017]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2022-02-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -2918,6 +3290,12 @@
   {
     "sourceField": "ClinicalAssertion[4943852]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002523540"
+  },
+  {
+    "sourceField": "ClinicalAssertion[4943852]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002523540"
   },
@@ -2964,6 +3342,12 @@
     "context": "SCV002529678"
   },
   {
+    "sourceField": "ClinicalAssertion[4950801]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"Sema4 Curation Guidelines\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002529678"
+  },
+  {
     "sourceField": "ClinicalAssertion[4950801]/Citation",
     "reason": "Citations carry 4 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -3006,6 +3390,12 @@
     "context": "SCV002543782"
   },
   {
+    "sourceField": "ClinicalAssertion[4978502]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002543782"
+  },
+  {
     "sourceField": "ClinicalAssertion[4978502]/Classification/ReviewStatus",
     "reason": "Per-SCV ReviewStatus \"criteria provided, single submitter\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).",
     "severity": "info",
@@ -3032,6 +3422,12 @@
   {
     "sourceField": "ClinicalAssertion[5015108]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002564582"
+  },
+  {
+    "sourceField": "ClinicalAssertion[5015108]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002564582"
   },
@@ -3078,6 +3474,12 @@
     "context": "SCV002579737"
   },
   {
+    "sourceField": "ClinicalAssertion[5041300]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002579737"
+  },
+  {
     "sourceField": "ClinicalAssertion[5041300]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2022-08-30\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3114,6 +3516,12 @@
     "context": "SCV002759371"
   },
   {
+    "sourceField": "ClinicalAssertion[5398471]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002759371"
+  },
+  {
     "sourceField": "ClinicalAssertion[5398471]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2022-12-08\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3146,6 +3554,12 @@
   {
     "sourceField": "ClinicalAssertion[5403210]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002761398"
+  },
+  {
+    "sourceField": "ClinicalAssertion[5403210]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002761398"
   },
@@ -3198,6 +3612,12 @@
     "context": "SCV002810876"
   },
   {
+    "sourceField": "ClinicalAssertion[5456737]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV002810876"
+  },
+  {
     "sourceField": "ClinicalAssertion[5456737]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2024-06-10\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3230,6 +3650,12 @@
   {
     "sourceField": "ClinicalAssertion[5502611]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV002818128"
+  },
+  {
+    "sourceField": "ClinicalAssertion[5502611]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV002818128"
   },
@@ -3276,6 +3702,12 @@
     "context": "SCV000329246"
   },
   {
+    "sourceField": "ClinicalAssertion[642495]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"GeneDx Variant Classification (06012015)\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000329246"
+  },
+  {
     "sourceField": "ClinicalAssertion[642495]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2018-07-30\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3318,6 +3750,12 @@
     "context": "SCV000330918"
   },
   {
+    "sourceField": "ClinicalAssertion[644270]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"EGL Classification Definitions\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV000330918"
+  },
+  {
     "sourceField": "ClinicalAssertion[644270]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2017-01-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3350,6 +3788,12 @@
   {
     "sourceField": "ClinicalAssertion[7171614]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV003841941"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7171614]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV003841941"
   },
@@ -3404,6 +3848,12 @@
   {
     "sourceField": "ClinicalAssertion[7337619]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV003925476"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7337619]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV003925476"
   },
@@ -3480,6 +3930,12 @@
     "context": "SCV004037030"
   },
   {
+    "sourceField": "ClinicalAssertion[7555765]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004037030"
+  },
+  {
     "sourceField": "ClinicalAssertion[7555765]/Classification/ReviewStatus",
     "reason": "Per-SCV ReviewStatus \"criteria provided, single submitter\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).",
     "severity": "info",
@@ -3506,6 +3962,12 @@
   {
     "sourceField": "ClinicalAssertion[7566350]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004042777"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7566350]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004042777"
   },
@@ -3548,6 +4010,12 @@
   {
     "sourceField": "ClinicalAssertion[7570088]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004046363"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7570088]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004046363"
   },
@@ -3636,6 +4104,12 @@
     "context": "SCV004100881"
   },
   {
+    "sourceField": "ClinicalAssertion[7680519]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004100881"
+  },
+  {
     "sourceField": "ClinicalAssertion[7680519]/Citation",
     "reason": "Citations carry 1 PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).",
     "severity": "info",
@@ -3684,6 +4158,12 @@
     "context": "SCV004101389"
   },
   {
+    "sourceField": "ClinicalAssertion[7681074]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004101389"
+  },
+  {
     "sourceField": "ClinicalAssertion[7681074]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2023-11-07\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3716,6 +4196,12 @@
   {
     "sourceField": "ClinicalAssertion[7681228]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004101520"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7681228]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004101520"
   },
@@ -3804,6 +4290,12 @@
     "context": "SCV004171185"
   },
   {
+    "sourceField": "ClinicalAssertion[7805629]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004171185"
+  },
+  {
     "sourceField": "ClinicalAssertion[7805629]/Classification/ReviewStatus",
     "reason": "Per-SCV ReviewStatus \"criteria provided, single submitter\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).",
     "severity": "info",
@@ -3836,6 +4328,12 @@
   {
     "sourceField": "ClinicalAssertion[7815308]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004176446"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7815308]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004176446"
   },
@@ -3882,6 +4380,12 @@
     "context": "SCV004211619"
   },
   {
+    "sourceField": "ClinicalAssertion[7865773]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004211619"
+  },
+  {
     "sourceField": "ClinicalAssertion[7865773]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2024-03-30\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3914,6 +4418,12 @@
   {
     "sourceField": "ClinicalAssertion[7926816]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004242533"
+  },
+  {
+    "sourceField": "ClinicalAssertion[7926816]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004242533"
   },
@@ -3960,6 +4470,12 @@
     "context": "SCV004698102"
   },
   {
+    "sourceField": "ClinicalAssertion[8772540]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
+    "severity": "info",
+    "context": "SCV004698102"
+  },
+  {
     "sourceField": "ClinicalAssertion[8772540]/Classification@DateLastEvaluated",
     "reason": "Per-SCV DateLastEvaluated \"2024-02-15\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).",
     "severity": "info",
@@ -3996,8 +4512,20 @@
     "context": "SCV004698102"
   },
   {
+    "sourceField": "ClinicalAssertion[88863]/Classification/GermlineClassification",
+    "reason": "GermlineClassification \"risk factor\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".",
+    "severity": "warning",
+    "context": "SCV000053487"
+  },
+  {
     "sourceField": "ClinicalAssertion[8985337]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV004805438"
+  },
+  {
+    "sourceField": "ClinicalAssertion[8985337]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV004805438"
   },
@@ -4034,6 +4562,12 @@
   {
     "sourceField": "ClinicalAssertion[976807]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV000511517"
+  },
+  {
+    "sourceField": "ClinicalAssertion[976807]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV000511517"
   },
@@ -4076,6 +4610,12 @@
   {
     "sourceField": "ClinicalAssertion[9810766]/@SubmissionDate|@DateCreated|@DateLastUpdated",
     "reason": "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2.",
+    "severity": "info",
+    "context": "SCV005051724"
+  },
+  {
+    "sourceField": "ClinicalAssertion[9810766]/AttributeSet[Type='AssertionMethod']",
+    "reason": "Assertion method \"ACMG Guidelines, 2015\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).",
     "severity": "info",
     "context": "SCV005051724"
   },

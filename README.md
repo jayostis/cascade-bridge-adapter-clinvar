@@ -85,8 +85,8 @@ cascade-bridge-adapter-clinvar/
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample
-    expected/                the four expected graphs, byte-identical to conformance
-    findings/                the four expected gaps sidecars, byte-identical to conformance
+    expected/                the four expected graphs, from conformance, corrected where it was wrong
+    findings/                the four expected gaps sidecars, from conformance, corrected where it was wrong
   in/xslt/                   phase 2: clinvar.xsl entry, one module per record class, findings.xsl
   in/sparql/                 phase 3: the same mapping as CONSTRUCT over the Bridge's XML lift
   tables/                    phase 2: review-status.csv, from cascade-cli's review-status-map.ts
@@ -128,7 +128,7 @@ what a failure means, is
 there. Failures come out of the build.
 
 A few things a lint cannot see — that a file exists on disk, that an input
-validates against its schema, that the oracle copies are byte-identical to
+validates against its schema, that each `sameAs` copy is byte-identical to
 conformance — are run by hand before pushing; `fixtures/CLAUDE.md` and
 `schema/CLAUDE.md` say how.
 
