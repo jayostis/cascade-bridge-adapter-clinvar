@@ -11,6 +11,9 @@ PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 #
 # Relies on XSD validity: one Classification per assertion, holding at most one
 # GermlineClassification (schema/ClinVar_VCV_2.6.xsd:2017, :2109).
+#
+# Existence is a join with a DISTINCT sub-select: Oxigraph hoists an existence filter
+# to the top of its group and pays it once per surviving row.
 
 CONSTRUCT {
   ?sa a g:SubmitterAssertion ;
@@ -27,7 +30,7 @@ WHERE {
   ?rec a ?recType .
   FILTER(?recType = xyz:ClassifiedRecord ||
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
-  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+  { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
 
   ?rec ?s1 ?cal . ?cal a xyz:ClinicalAssertionList ; ?s2 ?ca . ?ca a xyz:ClinicalAssertion .
   ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)

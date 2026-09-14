@@ -27,6 +27,16 @@ PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 # Relies on XSD validity: RCVClassifications holds at most one GermlineClassification
 # with one Description and one ReviewStatus (schema/ClinVar_VCV_2.6.xsd:1643-1654), so
 # "the first" is a plain match here.
+#
+# Shapes Oxigraph's static join ordering asks for. The head test for a SimpleAllele is
+# a join with a DISTINCT sub-select, an existence filter being hoisted to the top of
+# its group and paid once per surviving row; the GermlineClassification test is a
+# filter, its bound subject being its only selective term. A selective constant pattern
+# is given its own sub-select, or the group is planned from `a xyz:XRef`: among equally
+# ranked constant patterns Oxigraph keeps text order. An OPTIONAL whose group opens
+# with a variable-predicate step projects its join key, so the group is hash-joined
+# once instead of run per outer row with that step planned as a scan of every node of
+# its type.
 
 CONSTRUCT {
   ?vi a g:VariantInterpretation ;
@@ -45,7 +55,7 @@ WHERE {
   ?rec a ?recType .
   FILTER(?recType = xyz:ClassifiedRecord ||
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
-  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+  { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
 
   BIND(SHA1(CONCAT("genomics:Variant:clinvar:", ?vcv)) AS ?hv)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hv, 17, 1),
@@ -107,19 +117,19 @@ WHERE {
     ?ts ?tS ?trait . ?trait a xyz:Trait ; ?tX ?idXref . ?idXref a xyz:XRef ; xyz:DB ?ccDb ; xyz:ID ?ccId .
     OPTIONAL { SELECT ?trait (MIN(?mk) AS ?mBest) WHERE {
         ?trait a xyz:Trait .
-        { ?trait ?xs ?xr . ?xr a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid .
+        { { SELECT ?xr ?xid WHERE { ?xr xyz:DB "MONDO" ; xyz:ID ?xid ; a xyz:XRef } } ?trait ?xs ?xr .
           BIND(xsd:integer(STRAFTER(STR(?xs), "#_")) AS ?q1)
           BIND(CONCAT("0", SUBSTR(CONCAT("0000000000", STR(?q1)), STRLEN(STR(?q1)) + 1),
                       "0000000000|", ?xid) AS ?mk) }
         UNION
-        { ?trait ?ns ?nm . ?nm a xyz:Name ; ?xs2 ?xr2 . ?xr2 a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid2 .
+        { { SELECT ?xr2 ?xid2 WHERE { ?xr2 xyz:DB "MONDO" ; xyz:ID ?xid2 ; a xyz:XRef } } ?trait ?ns ?nm . ?nm a xyz:Name ; ?xs2 ?xr2 .
           BIND(xsd:integer(STRAFTER(STR(?ns), "#_")) AS ?q2)
           BIND(xsd:integer(STRAFTER(STR(?xs2), "#_")) AS ?q3)
           BIND(CONCAT("1", SUBSTR(CONCAT("0000000000", STR(?q2)), STRLEN(STR(?q2)) + 1),
                       SUBSTR(CONCAT("0000000000", STR(?q3)), STRLEN(STR(?q3)) + 1), "|", ?xid2) AS ?mk) }
       } GROUP BY ?trait }
     OPTIONAL { SELECT ?trait (MIN(?gk) AS ?gBest) WHERE {
-        ?trait a xyz:Trait ; ?ys ?yr . ?yr a xyz:XRef ; xyz:DB "MedGen" ; xyz:ID ?yid .
+        { SELECT ?yr ?yid WHERE { ?yr xyz:DB "MedGen" ; xyz:ID ?yid ; a xyz:XRef } } ?trait a xyz:Trait ; ?ys ?yr .
         FILTER(STRLEN(?yid) > 0)
         BIND(xsd:integer(STRAFTER(STR(?ys), "#_")) AS ?q4)
         BIND(CONCAT(SUBSTR(CONCAT("0000000000", STR(?q4)), STRLEN(STR(?q4)) + 1), "|", ?yid) AS ?gk)
@@ -192,7 +202,7 @@ WHERE {
         ?rec ?a6 ?tml . ?tml a xyz:TraitMappingList ; ?a7 ?tm . ?tm a xyz:TraitMapping ; xyz:ClinicalAssertionID ?caId .
         OPTIONAL { ?tm xyz:MappingRef ?mref }
         OPTIONAL { ?tm xyz:MappingValue ?mval }
-        OPTIONAL { ?tm ?a8 ?mg . ?mg a xyz:MedGen ; xyz:CUI ?cui }
+        OPTIONAL { SELECT ?tm ?cui WHERE { ?tm ?a8 ?mg . ?mg a xyz:MedGen ; xyz:CUI ?cui } }
         VALUES ?hint { "mondo" "medgen" }
         BIND(IF(?hint = "mondo",
                 IF(COALESCE(?mref, "") = "MONDO" && STRLEN(COALESCE(?mval, "")) > 0, CONCAT("mondo:", ?mval), 1/0),

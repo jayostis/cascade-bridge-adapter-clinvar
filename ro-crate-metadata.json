@@ -326,8 +326,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12482",
-      "sha256": "d7d51dfb681f803d8307aba3c05a4a2fe5ba5f762f78b73c2e70a5be55d05387",
+      "contentSize": "13309",
+      "sha256": "ab014ab17f2cb5ab114532e5e93f57ad2f9cbb39bfacadd26d6eb5b728c2868f",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -338,8 +338,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "3087",
-      "sha256": "ef27e2b854d94e4896e4735601ef6c7a353cd6a88a834b8d8fe84d3e892d8204",
+      "contentSize": "3254",
+      "sha256": "5ac55a4236715e098d19759ca5c5f0f5ae7769e0db992a26dac730fa88007e51",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -350,8 +350,8 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "9282",
-      "sha256": "fddb14e6c1ef2648172f52de0a632fe9a533e5c9d976121f5c38cfd0a5d92e2f",
+      "contentSize": "9464",
+      "sha256": "9f3b3681e63582293140065cdd1cf4caa8ada4857f7f21e67ffa5cf38d2ae28b",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -362,8 +362,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10194",
-      "sha256": "4953d8719a395b035112ace2cb6bfa300c29cbe44756478a6707acfb6e423d0f",
+      "contentSize": "10427",
+      "sha256": "45483e969a13675de5bd90795e3b954495ca5ba870d3f09e25d06e18a48d0ada",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -374,8 +374,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12437",
-      "sha256": "89c6de290a1db5cba49bba268b85e41a28415f9e5c92b1e6e7468b96bb653c95",
+      "contentSize": "12770",
+      "sha256": "4367416fe5c15d07112b68b994d1cc2db50559e378d36ccc33616c7e1bf3a8d1",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },

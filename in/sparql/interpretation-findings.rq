@@ -10,15 +10,17 @@ PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 # group cannot see them, so each rule binds a ?gate and one FILTER after the UNION
 # applies it.
 #
-# Existence is a DISTINCT subquery and absence a MINUS: EXISTS / NOT EXISTS re-run
-# their pattern for every solution.
+# The head test for a SimpleAllele is a join with a DISTINCT sub-select: Oxigraph
+# hoists an existence filter to the top of its group and pays it once per surviving
+# row. The GermlineClassification test below is a filter: its bound subject is its only
+# selective term, and a sub-select there enumerates every subject in the record.
 
 SELECT ?sourceField ?reason ?severity ?context WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
   ?rec a ?recType .
   FILTER(?recType = xyz:ClassifiedRecord ||
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
-  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+  { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
   ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
   OPTIONAL { ?rcv xyz:Accession ?acc0 }
   BIND(COALESCE(?acc0, "<no-rcv>") AS ?context)

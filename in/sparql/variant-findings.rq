@@ -45,8 +45,11 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
       } GROUP BY ?sa }
     ?sa ?x3 ?gl2 . ?gl2 a xyz:GeneList ; ?slot2 ?g2 . ?g2 a xyz:Gene .
     FILTER(xsd:integer(STRAFTER(STR(?slot2), "#_")) = ?first)
-    BIND(EXISTS { ?g2 ?y2 ?c2 . ?c2 a ?ct2 .
-                  FILTER(?ct2 IN (xyz:Haploinsufficiency, xyz:Triplosensitivity)) } AS ?haplo)
+    # A grouped COUNT: an existence expression in a BIND is evaluated once per row.
+    OPTIONAL { SELECT ?g2 (COUNT(*) AS ?nHaplo) WHERE {
+        ?g2 a xyz:Gene ; ?y2 ?c2 . ?c2 a ?ct2 .
+        FILTER(?ct2 IN (xyz:Haploinsufficiency, xyz:Triplosensitivity)) } GROUP BY ?g2 }
+    BIND(COALESCE(?nHaplo, 0) > 0 AS ?haplo)
     BIND(IF(?haplo, "/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity",
                     "/SimpleAllele/GeneList/Gene/Property") AS ?sfT)
     BIND(IF(?haplo,

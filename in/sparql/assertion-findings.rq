@@ -14,19 +14,22 @@ PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 # order, and GROUP_CONCAT aggregates a multiset (SPARQL 1.1 §18.5), so its order is
 # the engine's. No fixture has a list that mixes values, so none can detect this.
 #
-# Existence is a DISTINCT subquery and absence a MINUS: EXISTS / NOT EXISTS re-run
-# their pattern for every solution.
+# Existence is a join with a DISTINCT sub-select and absence a MINUS: Oxigraph hoists
+# an existence filter to the top of its group and pays it once per surviving row. An
+# OPTIONAL whose group opens with a variable-predicate step projects its join key, so
+# the group is hash-joined once instead of run per outer row with that step planned as
+# a scan of every node of its type.
 
 SELECT ?sourceField ?reason ?severity ?context WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
   ?rec a ?recType .
   FILTER(?recType = xyz:ClassifiedRecord ||
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
-  FILTER EXISTS { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele }
+  { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
   ?rec ?s1 ?cal . ?cal a xyz:ClinicalAssertionList ; ?s2 ?ca . ?ca a xyz:ClinicalAssertion .
   ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?context . FILTER(STRLEN(?context) > 0)
   ?ca ?s4 ?cl . ?cl a xyz:Classification .
-  OPTIONAL { ?cl ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt . FILTER(isLiteral(?cgt)) }
+  OPTIONAL { SELECT ?cl ?cgt WHERE { ?cl ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt . FILTER(isLiteral(?cgt)) } }
   BIND(COALESCE(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
          ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"), false) AS ?emitted)
   OPTIONAL { ?ca xyz:ID ?caId0 }
@@ -87,8 +90,8 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     { SELECT ?ca (GROUP_CONCAT(?jm; SEPARATOR=",") AS ?list) (MAX(?has) AS ?any) WHERE {
         ?ca a xyz:ClinicalAssertion ; ?m1 ?oil . ?oil a xyz:ObservedInList ; ?m2 ?oi .
         ?oi a xyz:ObservedIn ; ?m3 ?m . ?m a xyz:Method .
-        OPTIONAL { ?m ?m4 ?mt . ?mt a xyz:MethodType .
-                   OPTIONAL { ?mt rdf:_1 ?mtt . FILTER(isLiteral(?mtt)) } }
+        OPTIONAL { SELECT ?m ?mt ?mtt WHERE { ?m ?m4 ?mt . ?mt a xyz:MethodType .
+                   OPTIONAL { ?mt rdf:_1 ?mtt . FILTER(isLiteral(?mtt)) } } }
         BIND(COALESCE(REPLACE(?mtt, "^\\s+|\\s+$", ""), "") AS ?mtv)
         BIND(IF(BOUND(?mt), CONCAT("\"", REPLACE(REPLACE(?mtv, "\\\\", "\\\\\\\\"), "\"", "\\\\\""), "\""), "null") AS ?jm)
         BIND(IF(STRLEN(?mtv) > 0, 1, 0) AS ?has)
