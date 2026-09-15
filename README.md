@@ -22,9 +22,7 @@ this way and only this way.
 
 ## Status
 
-**Phase 2, version 0.3.0: the mapping, as SPARQL.** A CONSTRUCT query and a
-findings query per record class in `in/sparql/`, and the detect rule as an ASK.
-A Bridge lifts each unit to RDF and runs them; the crate names every one.
+**Phase 2, version 0.3.0: the mapping, as SPARQL.**
 
 | phase | what | where | done when |
 |---|---|---|---|
@@ -40,10 +38,8 @@ A Bridge lifts each unit to RDF and runs them; the crate names every one.
    the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
    must offer, the vocabulary pin, and the test manifest, every one of them
    a link to an entity in the same graph.
-2. Routes an input here when the detect rule, a SPARQL ASK over the document's
-   envelope skeleton, is true of it: an efetch envelope holding records, the
-   empty `set` efetch returns when a query matched none, or a release envelope.
-   The query is `in/sparql/detect.rq`; `docs/format.md` has which roots were
+2. Routes an input here when the detect rule, `in/sparql/detect.rq`, is true of
+   the document's envelope skeleton; `docs/format.md` has which roots were
    deliberately not claimed.
 3. Splits the document on `VariationArchive` and validates each unit against
    `schema/ClinVar_VCV_2.6.xsd`. A unit that fails is a finding; it still goes
@@ -90,10 +86,6 @@ cascade-bridge-adapter-clinvar/
     findings/                the four expected gaps sidecars, from conformance, corrected where it was wrong
 ```
 
-Lookup tables are inline `VALUES` in the queries, so there is no `tables/`; the
-adapter's own namespace (`vocab/`, `bridge:extensionVocabulary`) arrives with
-the first value that needs one.
-
 ## Decisions
 
 The decisions that shaped this adapter — the manifest being an RO-Crate rather
@@ -126,8 +118,9 @@ conformance — are run by hand before pushing; `fixtures/CLAUDE.md` and
 `schema/CLAUDE.md` say how.
 
 There is no test suite here by design. Executing an adapter's fixtures is a
-Bridge's job: `cascade-bridge test` runs `fixtures/manifest.ttl` and reports
-each case in EARL.
+Bridge's job, and the specification's
+[`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/engine/executing.md)
+says how.
 
 ## Licence
 

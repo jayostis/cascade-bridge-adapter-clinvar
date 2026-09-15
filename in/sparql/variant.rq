@@ -16,6 +16,19 @@ PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 #     zero-padded rank + "|" + value, and STRAFTER recovers the value;
 #   - "emit this predicate or nothing" is IF(cond, value, 1/0): the error leaves
 #     the variable unbound and FILTER(BOUND(...)) drops the row.
+#
+# Shapes for Oxigraph's static join ordering, which the other queries follow:
+#   - existence at the head of a group is a join with a DISTINCT sub-select, and
+#     absence a MINUS: Oxigraph hoists an existence filter to the top of its group
+#     and pays it once per surviving row;
+#   - an existence test whose bound subject is its only selective term stays a
+#     filter: a sub-select there enumerates every subject in the record;
+#   - a selective constant pattern is given its own sub-select, or the group is
+#     planned from `a xyz:XRef`: among equally ranked constant patterns Oxigraph
+#     keeps text order;
+#   - an OPTIONAL whose group opens with a variable-predicate step projects its
+#     join key, so the group is hash-joined once instead of run per outer row with
+#     that step planned as a scan of every node of its type.
 
 CONSTRUCT {
   ?v a g:Variant ;
@@ -42,8 +55,7 @@ WHERE {
 
   OPTIONAL {
     {
-      # clinvarVariationId: VariationArchive@VariationID, else SimpleAllele@VariationID,
-      # else the accession without VCV and leading zeros.
+      # clinvarVariationId
       ?va xyz:Accession ?a1 ; ?s1 ?r1 . ?r1 ?s2 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
       OPTIONAL { ?va xyz:VariationID ?vid1 }
       OPTIONAL { ?sa xyz:VariationID ?vid2 }
@@ -119,7 +131,7 @@ WHERE {
     }
     UNION
     {
-      # caId, dbsnpRsId: every ClinGen / dbSNP cross-reference.
+      # caId, dbsnpRsId
       ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?xl . ?xl a xyz:XRefList ; ?s2 ?xr .
       ?xr a xyz:XRef ; xyz:DB ?db ; xyz:ID ?id .
       BIND(IF(?db = "ClinGen", g:caId, IF(?db = "dbSNP", g:dbsnpRsId, 1/0)) AS ?p)
@@ -160,36 +172,53 @@ WHERE {
     UNION
     {
       # refAllele, altAllele, genomicStartEnd: from one SequenceLocation, picked as
-      # GRCh38 forDisplay, else first GRCh38, else first carrying VCF alleles.
-      { SELECT ?sa (MIN(?k) AS ?best) WHERE {
-          ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?loc . ?loc a xyz:Location ; ?slot ?sl .
-          ?sl a xyz:SequenceLocation .
-          OPTIONAL { ?sl xyz:Assembly ?asm }
-          OPTIONAL { ?sl xyz:forDisplay ?fd }
-          BIND(EXISTS { ?sl xyz:referenceAlleleVCF ?x1 } || EXISTS { ?sl xyz:alternateAlleleVCF ?x2 } ||
-               EXISTS { ?sl xyz:referenceAllele ?x3 } || EXISTS { ?sl xyz:alternateAllele ?x4 } AS ?hasVcf)
-          BIND(IF(COALESCE(?asm, "") = "GRCh38" && COALESCE(?fd, "") = "true", "0",
-               IF(COALESCE(?asm, "") = "GRCh38", "1", IF(?hasVcf, "2", "9"))) AS ?tier)
-          FILTER(?tier != "9")
-          BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
-          BIND(CONCAT(?tier, SUBSTR(CONCAT("0000000000", STR(?pos)), STRLEN(STR(?pos)) + 1)) AS ?k)
-        } GROUP BY ?sa }
-      ?sa ?s2 ?loc2 . ?loc2 a xyz:Location ; ?slot2 ?pick . ?pick a xyz:SequenceLocation .
-      FILTER(xsd:integer(STRAFTER(STR(?slot2), "#_")) = xsd:integer(SUBSTR(?best, 2)))
-      OPTIONAL { ?pick xyz:referenceAlleleVCF ?rv }
-      OPTIONAL { ?pick xyz:referenceAllele ?r0 }
-      OPTIONAL { ?pick xyz:alternateAlleleVCF ?av }
-      OPTIONAL { ?pick xyz:alternateAllele ?a0 }
-      OPTIONAL { ?pick xyz:Chr ?chr }
-      OPTIONAL { ?pick xyz:start ?start }
-      OPTIONAL { ?pick xyz:stop ?stop }
+      # GRCh38 forDisplay, else first GRCh38, else first carrying VCF alleles. Each one
+      # that gives no value comes from the CanonicalSPDI instead, whose position is
+      # 0-based interbase, so the deleted bases span position + 1 onwards.
+      ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
+      OPTIONAL {
+        { SELECT ?sa (MIN(?k) AS ?best) WHERE {
+            ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?s1 ?loc . ?loc a xyz:Location ; ?slot ?sl .
+            ?sl a xyz:SequenceLocation .
+            OPTIONAL { ?sl xyz:Assembly ?asm }
+            OPTIONAL { ?sl xyz:forDisplay ?fd }
+            BIND(EXISTS { ?sl xyz:referenceAlleleVCF ?x1 } || EXISTS { ?sl xyz:alternateAlleleVCF ?x2 } ||
+                 EXISTS { ?sl xyz:referenceAllele ?x3 } || EXISTS { ?sl xyz:alternateAllele ?x4 } AS ?hasVcf)
+            BIND(IF(COALESCE(?asm, "") = "GRCh38" && COALESCE(?fd, "") = "true", "0",
+                 IF(COALESCE(?asm, "") = "GRCh38", "1", IF(?hasVcf, "2", "9"))) AS ?tier)
+            FILTER(?tier != "9")
+            BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
+            BIND(CONCAT(?tier, SUBSTR(CONCAT("0000000000", STR(?pos)), STRLEN(STR(?pos)) + 1)) AS ?k)
+          } GROUP BY ?sa }
+        ?sa ?s2 ?loc2 . ?loc2 a xyz:Location ; ?slot2 ?pick . ?pick a xyz:SequenceLocation .
+        FILTER(xsd:integer(STRAFTER(STR(?slot2), "#_")) = xsd:integer(SUBSTR(?best, 2)))
+        OPTIONAL { ?pick xyz:referenceAlleleVCF ?rv }
+        OPTIONAL { ?pick xyz:referenceAllele ?r0 }
+        OPTIONAL { ?pick xyz:alternateAlleleVCF ?av }
+        OPTIONAL { ?pick xyz:alternateAllele ?a0 }
+        OPTIONAL { ?pick xyz:Chr ?chr }
+        OPTIONAL { ?pick xyz:start ?start }
+        OPTIONAL { ?pick xyz:stop ?stop }
+      }
+      OPTIONAL {
+        ?sa ?s3 ?cs . ?cs a xyz:CanonicalSPDI ; rdf:_1 ?spdi .
+        FILTER(REGEX(?spdi, "^([^:]*):([^:]*):([^:]*):([^:]*)$"))
+      }
+      BIND(REPLACE(?spdi, "^([^:]*):([^:]*):([^:]*):([^:]*)$", "$1") AS ?spdiSeq)
+      BIND(xsd:integer(REPLACE(?spdi, "^([^:]*):([^:]*):([^:]*):([^:]*)$", "$2")) AS ?spdiPos)
+      BIND(REPLACE(?spdi, "^([^:]*):([^:]*):([^:]*):([^:]*)$", "$3") AS ?spdiDel)
+      BIND(REPLACE(?spdi, "^([^:]*):([^:]*):([^:]*):([^:]*)$", "$4") AS ?spdiIns)
       VALUES ?which { 1 2 3 }
       BIND(IF(BOUND(?chr) && BOUND(?start) && BOUND(?stop),
               CONCAT(IF(STRSTARTS(?chr, "chr"), ?chr, CONCAT("chr", ?chr)), ":", ?start, "-", ?stop),
               1/0) AS ?gse)
       BIND(IF(?which = 1, g:refAllele, IF(?which = 2, g:altAllele, g:genomicStartEnd)) AS ?p)
-      BIND(IF(?which = 1, COALESCE(?rv, ?r0), IF(?which = 2, COALESCE(?av, ?a0), ?gse)) AS ?o)
-      FILTER(BOUND(?o) && STRLEN(?o) > 0)
+      BIND(IF(?which = 1, COALESCE(?rv, ?r0), IF(?which = 2, COALESCE(?av, ?a0), ?gse)) AS ?fromLoc)
+      BIND(IF(?which = 1, ?spdiDel, IF(?which = 2, ?spdiIns,
+              CONCAT(?spdiSeq, ":", STR(?spdiPos + 1), "-",
+                     STR(?spdiPos + IF(STRLEN(?spdiDel) > 0, STRLEN(?spdiDel), 1))))) AS ?fromSpdi)
+      BIND(COALESCE(IF(STRLEN(?fromLoc) > 0, ?fromLoc, 1/0), IF(STRLEN(?fromSpdi) > 0, ?fromSpdi, 1/0)) AS ?o)
+      FILTER(BOUND(?o))
     }
     UNION
     {

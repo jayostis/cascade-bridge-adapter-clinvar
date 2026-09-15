@@ -37,7 +37,7 @@
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
       "version": "0.3.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. Its mapping is SPARQL a Bridge runs over each record. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. The mapping is three CONSTRUCT queries (bridge:mapping) and three findings queries (bridge:findingsQuery) under in/sparql/; their lookup tables are inline VALUES, so no bridge:table is declared, and no value yet needs an extension vocabulary (bridge:extensionVocabulary). Nothing for the export direction is declared, because ClinVar is import-only.",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -222,7 +222,7 @@
       "@id": "bridge:sparql-1.1",
       "@type": "bridge:Profile",
       "name": "sparql-1.1",
-      "description": "The Bridge profile under which a Bridge lifts each unit to RDF and runs an adapter's SPARQL 1.1 queries over it. Required here because the mapping, the findings and the detect rule are SPARQL queries. Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec at the commit bridge:specPin names."
+      "description": "Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec at the commit bridge:specPin names."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/bridge/v1-draft/adapter-profile/",
@@ -241,7 +241,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #18, released as v0.4.0, which made SPARQL 1.1 over a specified lift the one mapping profile and defined bridge:mapping, bridge:findingsQuery, bridge:detectQuery and bridge:sparql-1.1, the terms this crate uses. The tag v0.4.0 points at this SHA and keeps it reachable if the branch is later reset or rebased, which is why an untagged commit is not pinned (pinning.md there). The same revision is named twice on purpose: here for the reader, and in .github/workflows/validate.yml as the ref the lint is called at, for the machine; the lint fails the run if the two disagree, and they move together in the same pull request. Read on 2026-09-15. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #18, tagged v0.4.0 (pinning.md there), which defines bridge:mapping, bridge:findingsQuery, bridge:detectQuery and bridge:sparql-1.1, the terms this crate uses. The same revision is named twice on purpose: here for the reader, and in .github/workflows/validate.yml as the ref the lint is called at, for the machine; the lint fails the run if the two disagree, and they move together in the same pull request. Read on 2026-09-15. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
@@ -302,8 +302,8 @@
       "@type": "File",
       "name": "Detect rule",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "815",
-      "sha256": "9782fc15d216ffba50f79c993a0c2b0eb2d89949e7e0bb7267160650352bc837",
+      "contentSize": "557",
+      "sha256": "203f38f44eff4ef411845f847ec1444f9ecde5558d7579404e693df258c819f2",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -314,8 +314,8 @@
       "@type": "File",
       "name": "Mapping: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12049",
-      "sha256": "bf08b5e8bbdd7e2631d737ecc8da36fefbadef6a3c3688565e38715cd30fb7a0",
+      "contentSize": "13930",
+      "sha256": "75a527ef785d13dc4e36dad27e66757423b5c82279a6e38827d4375b7b137d2c",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -326,8 +326,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "13309",
-      "sha256": "ab014ab17f2cb5ab114532e5e93f57ad2f9cbb39bfacadd26d6eb5b728c2868f",
+      "contentSize": "12237",
+      "sha256": "f0f2f110d1b9fcaa13327b5d3227e23dda2fc0c8b9cc27c037d6bbe65777c8fc",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -338,8 +338,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "3254",
-      "sha256": "5ac55a4236715e098d19759ca5c5f0f5ae7769e0db992a26dac730fa88007e51",
+      "contentSize": "3014",
+      "sha256": "ced46177c65bd66e932d8a1152ed7a0a749b19fb65e087d7ff5bf6b83dd43464",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -350,8 +350,8 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "9464",
-      "sha256": "9f3b3681e63582293140065cdd1cf4caa8ada4857f7f21e67ffa5cf38d2ae28b",
+      "contentSize": "10202",
+      "sha256": "e3084d713cba5256c178cb6105988de663ee403128ed11fe8e1e3cb3ca2ca8fb",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -362,8 +362,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10427",
-      "sha256": "45483e969a13675de5bd90795e3b954495ca5ba870d3f09e25d06e18a48d0ada",
+      "contentSize": "10052",
+      "sha256": "6629a5e9349a1a5ac39644871a193324a7a882309210960e6b17bfb52d2bf056",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -374,8 +374,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12770",
-      "sha256": "4367416fe5c15d07112b68b994d1cc2db50559e378d36ccc33616c7e1bf3a8d1",
+      "contentSize": "12350",
+      "sha256": "4dd407d6f2b83d8819bdd7f2864286aaed16acfc0ebb30edac73db4a9389856b",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },

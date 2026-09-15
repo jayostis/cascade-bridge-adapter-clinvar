@@ -1,12 +1,9 @@
 PREFIX fx:  <http://sparql.xyz/facade-x/ns/>
 PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 
-# The detect rule, over the envelope skeleton: an efetch envelope holding records or
-# the empty set efetch returns when a query matched none, or a release envelope
-# holding records. A document under either root holding neither is not this
-# adapter's; docs/format.md says which other ClinVar roots are deliberately not
-# claimed. The child pattern sits inside each branch, because a FILTER cannot see a
-# variable bound outside its group.
+# docs/format.md says which ClinVar roots are deliberately not claimed. The child
+# pattern sits inside each branch, because a FILTER cannot see a variable bound
+# outside its group.
 
 ASK {
   ?root a fx:root .

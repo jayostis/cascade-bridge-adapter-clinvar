@@ -29,8 +29,7 @@ the layout itself in the README. Do not re-derive them.
   `bridge:specPin` and the workflow's ref here in the same commit. The two name
   one commit; the lint fails the run when they differ.
 - **No Cascade terms are minted here.** A value with no Cascade term goes in the
-  adapter's own namespace (`vocab/`, when a value first needs one) or in the
-  findings sidecar.
+  adapter's own namespace (`vocab/`) or in the findings sidecar.
 
 ## Before pushing
 

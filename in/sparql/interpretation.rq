@@ -4,11 +4,8 @@ PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 
-# ClinVar RCVAccession -> genomics:VariantInterpretation, one per ClassifiedCondition,
-# plus genomics:aggregatedFrom from each to the SubmitterAssertions whose TraitMapping
-# names one of its condition keys. aggregatedFrom lives here because its subject is the
-# interpretation and its keys are this query's condition state; only the assertion's
-# emission rule and name are repeated from assertion.rq.
+# aggregatedFrom repeats assertion.rq's emission rule and name for each
+# SubmitterAssertion, so a change to either is made in both.
 #
 # Idioms beyond the Variant query's:
 #   - a template triple whose variable is unbound is not produced (SPARQL 1.1 §16.2),
@@ -19,24 +16,11 @@ PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 #   - "the last one wins" is MAX over a position key, decoded back into positions;
 #   - a join on a set of computed keys is an OPTIONAL whose FILTER lists the keys.
 #
-# A condition takes the MONDO, and the aggregatedFrom keys, of the Trait carrying the
-# condition's own DB and ID as a top-level XRef: ClinVar orders a TraitSet's Traits
-# independently of an RCV's conditions, so position does not pair them. Every key of
-# every TraitMapping is tried, and every match is linked.
-#
 # Relies on XSD validity: RCVClassifications holds at most one GermlineClassification
 # with one Description and one ReviewStatus (schema/ClinVar_VCV_2.6.xsd:1643-1654), so
 # "the first" is a plain match here.
 #
-# Shapes Oxigraph's static join ordering asks for. The head test for a SimpleAllele is
-# a join with a DISTINCT sub-select, an existence filter being hoisted to the top of
-# its group and paid once per surviving row; the GermlineClassification test is a
-# filter, its bound subject being its only selective term. A selective constant pattern
-# is given its own sub-select, or the group is planned from `a xyz:XRef`: among equally
-# ranked constant patterns Oxigraph keeps text order. An OPTIONAL whose group opens
-# with a variable-predicate step projects its join key, so the group is hash-joined
-# once instead of run per outer row with that step planned as a scan of every node of
-# its type.
+# Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
 CONSTRUCT {
   ?vi a g:VariantInterpretation ;
@@ -94,9 +78,11 @@ WHERE {
   OPTIONAL { ?cc rdf:_1 ?ccText . FILTER(isLiteral(?ccText)) }
   BIND(COALESCE(REPLACE(?ccText, "^\\s+|\\s+$", ""), "") AS ?ccLabel)
 
-  # The Trait aligned with the condition: the one with a top-level XRef of the
-  # condition's DB and ID, in the TraitSet with this ID under Classifications, the
-  # last such TraitSet winning, kinds taken Germline, Somatic, Oncogenicity. Its MONDO
+  # The Trait aligned with the condition: ClinVar orders a TraitSet's Traits
+  # independently of an RCV's conditions, so position does not pair them, and the
+  # aligned Trait is the one with a top-level XRef of the condition's DB and ID, in
+  # the TraitSet with this ID under Classifications, the last such TraitSet winning,
+  # kinds taken Germline, Somatic, Oncogenicity. Its MONDO
   # is the first top-level MONDO XRef, else the first under a Name; its MedGen the
   # first top-level. ?tsId, ?ccDb and ?ccId are "" when absent, and "" never matches.
   OPTIONAL {

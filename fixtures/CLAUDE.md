@@ -32,8 +32,8 @@ crate, plus a `bridge:DatasetCompletionTest` naming that entity by its IRI.
   validator: `xmllint --schema`, lxml, the Red Hat XML extension).
 - `../in/sparql/detect.rq`, the crate's `bridge:detectQuery`, is true for each
   input. Run the ASK, in any SPARQL 1.1 engine, over the document's envelope
-  skeleton: the lift the specification's `engine/sparql.md` defines, with each
-  `VariationArchive` reduced to an empty container. It must also be true for
+  skeleton, which the specification's `engine/sparql.md` defines. It must also
+  be true for
   `<ClinVarResult-Set><set/></ClinVarResult-Set>`, the response efetch returns
   when a query matched no record, and false for a document under a known root
   holding neither.

@@ -2,9 +2,6 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 
-# The SCV findings: every finding whose context is an SCV accession. One solution per
-# finding, no DISTINCT.
-#
 # An assertion that yields no SubmitterAssertion still reports its SubmitterName and
 # OrganizationCategory findings and the one that says why it yields none; the rest are
 # reported for emitted assertions only. ?gate says which rules run for emitted
@@ -14,11 +11,7 @@ PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 # order, and GROUP_CONCAT aggregates a multiset (SPARQL 1.1 §18.5), so its order is
 # the engine's. No fixture has a list that mixes values, so none can detect this.
 #
-# Existence is a join with a DISTINCT sub-select and absence a MINUS: Oxigraph hoists
-# an existence filter to the top of its group and pays it once per surviving row. An
-# OPTIONAL whose group opens with a variable-predicate step projects its join key, so
-# the group is hash-joined once instead of run per outer row with that step planned as
-# a scan of every node of its type.
+# Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
 SELECT ?sourceField ?reason ?severity ?context WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .

@@ -2,18 +2,12 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz: <http://sparql.xyz/facade-x/data/>
 
-# The RCV findings: every finding whose context is an RCV accession. One solution per
-# finding, no DISTINCT.
-#
 # Which rules fire depends on two facts about the RCV: a non-empty
 # GermlineClassification (?germ) and a canonical ACMG Description (?canon). A nested
 # group cannot see them, so each rule binds a ?gate and one FILTER after the UNION
 # applies it.
 #
-# The head test for a SimpleAllele is a join with a DISTINCT sub-select: Oxigraph
-# hoists an existence filter to the top of its group and pays it once per surviving
-# row. The GermlineClassification test below is a filter: its bound subject is its only
-# selective term, and a sub-select there enumerates every subject in the record.
+# Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
 SELECT ?sourceField ?reason ?severity ?context WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
