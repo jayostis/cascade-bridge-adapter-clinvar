@@ -58,7 +58,7 @@ A Bridge lifts each unit to RDF and runs them; the crate names every one.
    specification's vocabulary, not anything this repository states.
 
 Those stages are the Bridge's, not this adapter's; the specification's
-[`docs/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/stages.md)
+[`engine/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/engine/stages.md)
 names each with its Enterprise Integration Pattern. `docs/format.md` describes
 the format the first three stages see.
 
@@ -101,9 +101,9 @@ than an `adapter.yaml`, the cases being a W3C `mf:` test manifest, the
 detect rule being one query, standards over inventions — are not
 restated here. Each is a property of the **adapter package format**, and the
 authority for that format is the Cascade Bridge Specification:
-[`docs/adapter-manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/adapter-manifest.md),
-[`docs/test-manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/test-manifest.md)
-and [`docs/alignment.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/alignment.md).
+[`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/ro-crate-metadata.md),
+[`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/fixtures/manifest.md)
+and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/pinning.md).
 
 What is specific to ClinVar rather than to adapters in general is in
 [`docs/format.md`](docs/format.md): why the schema pin is 2.6, why an envelope
@@ -117,7 +117,7 @@ This package must conform to the Cascade Bridge Specification at the revision
 its crate pins. `.github/workflows/validate.yml` calls that specification's
 published lint at the matching tag on every pull request; what it checks, and
 what a failure means, is
-[`docs/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.2.0/docs/validation.md)
+[`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/validation.md)
 there. Failures come out of the build.
 
 A few things a lint cannot see — that a file exists on disk, that an input

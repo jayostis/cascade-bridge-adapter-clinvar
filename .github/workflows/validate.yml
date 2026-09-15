@@ -17,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jayostis/cascade-bridge-spec/.github/actions/validate-adapter@v0.2.0
+      - uses: jayostis/cascade-bridge-spec/.github/actions/validate-adapter@v0.4.0
