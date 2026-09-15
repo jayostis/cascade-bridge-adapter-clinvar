@@ -3,11 +3,11 @@
   // already exists. Nothing here needs a plugin written for it.
   "recommendations": [
     // XML: validates fixtures/in/*.xml live against the pinned NCBI schema
-    // through xml.fileAssociations in settings.json; edits XSD and XSLT.
+    // through xml.fileAssociations in settings.json; edits XSD.
     "redhat.vscode-xml",
-    // XSLT 3.0 / XPath 3.1 language support, and Saxon-JS tasks, for the
-    // mapping that arrives in phase 2 under in/xslt/.
-    "deltaxml.xslt-xpath",
+    // SPARQL 1.1: completion and diagnostics for the mapping, findings and
+    // detect queries under in/sparql/.
+    "stardog-union.vscode-langserver-sparql",
     // Turtle, with a language server, for the test manifest
     // fixtures/manifest.ttl and the expected graphs under fixtures/expected/.
     // (The bridge: vocabulary and its SHACL shapes are not in this
@@ -16,11 +16,8 @@
     // (stardog-union.stardog-rdf-grammars is the grammar-only alternative.)
     "faubulous.mentor",
     // EditorConfig: without it VS Code ignores .editorconfig, and its
-    // path-scoped rules are what keep the verbatim copies under fixtures/
+    // path-scoped rules are what keep the digested files under fixtures/
     // and the pinned XSD untouched on save (see settings.json).
-    "EditorConfig.EditorConfig",
-    // Kaoto: the Apache Camel route designer and DataMapper, so the route in
-    // bridge-engine-java opens beside this adapter once that repository exists.
-    "redhat.vscode-kaoto"
+    "EditorConfig.EditorConfig"
   ]
 }

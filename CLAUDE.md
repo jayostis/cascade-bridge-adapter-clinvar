@@ -1,8 +1,8 @@
 # cascade-bridge-adapter-clinvar — Agent Context
 
 The Cascade Bridge Adapter for ClinVar VCV XML: a package of data a **Cascade
-Bridge** runs to turn ClinVar records into Cascade RDF. Import-only. Phase 1
-(version 0.2.0) has no mapping and nothing that executes.
+Bridge** runs to turn ClinVar records into Cascade RDF. Import-only. Its mapping
+is SPARQL queries in `in/sparql/`, which a Bridge runs over each record.
 
 The contract is the **Cascade Bridge Specification**, [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec),
 pinned by the crate's `bridge:specPin`. Dependencies point one way: an adapter
@@ -12,16 +12,16 @@ the layout itself in the README. Do not re-derive them.
 
 ## The rules
 
-- **No code.** Markdown, XML, XSD, XSLT, YAML, JSON, JSON-LD, CSV, Turtle,
-  SPARQL. Nothing that executes, in any directory. An adapter is data; the thing
+- **No code.** Markdown, XML, XSD, YAML, JSON, JSON-LD, CSV, Turtle, SPARQL.
+  Nothing that executes, in any directory. An adapter is data; the thing
   that runs it is a Bridge. If something seems to need code, it is a finding for
   the specification. The lint measures this rather than taking it on trust.
 - **The manifest is the crate.** `ro-crate-metadata.json` is both the adapter's
   manifest and the provenance record for every file and dataset. There is no
   `adapter.yaml`.
 - **No tests here.** Fixtures and how to judge them are declared as data in
-  `fixtures/manifest.ttl`; a Bridge's harness executes them, and no Bridge exists
-  yet. Do not add a test runner or a workflow that runs fixtures.
+  `fixtures/manifest.ttl`; a Bridge's harness executes them. Do not add a test
+  runner or a workflow that runs fixtures.
   `.github/workflows/validate.yml` is a lint, not a fixture run; its own
   `CLAUDE.md` says why that is no contradiction.
 - **No copy of the specification.** The `bridge:` vocabulary and its SHACL shapes
@@ -29,15 +29,11 @@ the layout itself in the README. Do not re-derive them.
   `bridge:specPin` and the workflow's ref here in the same commit. The two name
   one commit; the lint fails the run when they differ.
 - **No Cascade terms are minted here.** A value with no Cascade term goes in the
-  adapter's own namespace (`vocab/`, phase 2) or in the findings sidecar.
-- **Identity is not a blocker.** How a record's IRI is minted is not settled and
-  is decided in phase 2. Nothing in the layout depends on the answer, so do not
-  reopen it to make progress on anything else, and do not settle it from a
-  discussion thread — ask.
+  adapter's own namespace (`vocab/`) or in the findings sidecar.
 
 ## Before pushing
 
-CI calls the specification's lint at the pinned tag; `docs/validation.md` there
+CI calls the specification's lint at the pinned tag; `adapter/validation.md` there
 says what it checks. SHACL cannot see the filesystem, so by hand: every crate
 `File` exists and every `sha256` matches, then what `fixtures/CLAUDE.md` and
 `schema/CLAUDE.md` say. A commit says which ran.

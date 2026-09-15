@@ -44,7 +44,9 @@ Inside it, one of:
 cascade-cli's converter (`src/lib/clinvar-converter/`, about 2,200 lines)
 handles these as `simple-allele.ts`, `rcv-interpretation.ts` and
 `scv-submitter-assertion.ts`, plus a seven-tier review-status table in
-`review-status-map.ts`. Phase 2 re-expresses each as an XSLT module.
+`review-status-map.ts`. The adapter re-expresses each as a SPARQL CONSTRUCT
+with a findings query beside it, in `in/sparql/`; the last section says what
+each reads.
 
 ## The two envelopes
 
@@ -177,21 +179,39 @@ stay traceable, do not describe the record inside:
 
 `manifest.ttl` and the crate state the actual record for each.
 
-## What the mapping will read (phase 2)
+## What the mapping reads
 
-For orientation only; the mapping is not written yet.
+For orientation; the queries are the authority, and each record class has a
+findings query beside it (`<class>-findings.rq`).
 
-- Variant: `SimpleAllele` attributes and children (`GeneList/Gene`,
-  `Location/SequenceLocation`, `HGVSlist`, `XRefList`, `ProteinChange`,
-  `FunctionalConsequence`), plus `VariationArchive/@Accession` as the source
-  id.
-- Interpretation: each `RCVList/RCVAccession` with its `ClassifiedConditionList`
-  and `RCVClassifications` (review status, description, dates).
-- Submitter assertion: each `ClinicalAssertionList/ClinicalAssertion` with its
-  `ClinVarAccession`, `Classification`, `ClinVarSubmissionID`, submitter and
-  dates.
-- The review-status strings map through a nine-row table onto seven tiers
-  (`tables/review-status.csv`, from `review-status-map.ts`: three phrasings
-  of "criteria provided, conflicting ..." that ClinVar has used over time all
-  map to `genomics:ConflictingSubmissions`); everything with no Cascade term
-  is a findings entry or an extension term in `vocab/`.
+- **Variant**, `variant.rq`: the `SimpleAllele` of the `ClassifiedRecord`, or of
+  the `IncludedRecord` where there is no classified record. From it:
+  `GeneList/Gene`, `Location/SequenceLocation`, `CanonicalSPDI`, `HGVSlist`
+  (nucleotide and protein expressions, and MANE Select), `XRefList` and
+  `MolecularConsequence`, plus each `ClinicalAssertion`'s `ObservedInList` for
+  the allele origin. `VariationArchive/@Accession` is the source id. Whatever
+  of the reference allele, alternate allele and genomic span the picked
+  `SequenceLocation` does not give is decomposed from `CanonicalSPDI`.
+- **A record with no `SimpleAllele` of its own**, only a `Haplotype` or
+  `Genotype`, yields one warning finding and no records: Cascade has no
+  representation for a haplotype-level ClinVar record yet.
+- **Interpretation**, `interpretation.rq`: each `RCVList/RCVAccession`, with its
+  `ClassifiedConditionList` and `RCVClassifications` (review status,
+  description, date last evaluated), and the `TraitSet`, `TraitMappingList` and
+  `XRef`s through which each condition's identifier is resolved.
+- **Submitter assertion**, `assertion.rq`: each
+  `ClinicalAssertionList/ClinicalAssertion`, with its `ClinVarAccession`,
+  `Classification` and `ContributesToAggregateClassification`.
+- **The review-status strings** map through a nine-row table onto seven tiers,
+  inline as a `VALUES` table in `interpretation.rq`. It comes from cascade-cli's
+  `review-status-map.ts`: three phrasings of "criteria provided, conflicting …"
+  that ClinVar has used over time all map to `genomics:ConflictingSubmissions`.
+  A value with no Cascade term is a findings entry.
+
+**The converter's `Name` fallback is not reproduced.** cascade-cli's
+`pickHgvs` has a second pass meant to take `hgvsCDot` or `hgvsGDot` from
+`SimpleAllele/Name` (`simple-allele.ts:155-164`), but it never fires: its XML
+parser lists `Name` in `ALWAYS_ARRAY` (`xml-parser.ts`), so the text that pass
+reads is always undefined. No expected output carries a value taken from
+`Name`, and the mapping takes none. Read from cascade-cli at `5f6c06f` on
+2026-09-15.

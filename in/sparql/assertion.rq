@@ -1,0 +1,64 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
+PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
+PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+
+# Its aggregatedFrom links are written by interpretation.rq, which repeats the
+# emission rule and the name below.
+#
+# Relies on XSD validity: one Classification per assertion, holding at most one
+# GermlineClassification (schema/ClinVar_VCV_2.6.xsd:2017, :2109).
+#
+# Shaped for Oxigraph's join ordering as variant.rq's header describes.
+
+CONSTRUCT {
+  ?sa a g:SubmitterAssertion ;
+      g:scvAccession ?scv ;
+      g:submitter ?submitter ;
+      g:submitterOrgId ?orgId ;
+      g:submitterCategory ?cat ;
+      g:assertedClassification ?acmg ;
+      g:contributesToAggregate ?contrib ;
+      cascade:sourceFhirId ?sfid .
+}
+WHERE {
+  ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
+  ?rec a ?recType .
+  FILTER(?recType = xyz:ClassifiedRecord ||
+         (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
+  { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
+
+  ?rec ?s1 ?cal . ?cal a xyz:ClinicalAssertionList ; ?s2 ?ca . ?ca a xyz:ClinicalAssertion .
+  ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)
+  ?ca ?s4 ?cl . ?cl a xyz:Classification ; ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt .
+  FILTER(isLiteral(?cgt))
+  BIND(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) AS ?acmgKey)
+  VALUES (?acmgKey ?acmg) {
+    ("pathogenic" g:Pathogenic) ("likely pathogenic" g:LikelyPathogenic)
+    ("uncertain significance" g:VUS) ("likely benign" g:LikelyBenign) ("benign" g:Benign)
+  }
+
+  BIND(SHA1(CONCAT("genomics:SubmitterAssertion:clinvar:", ?scv)) AS ?h)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
+                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?sa)
+
+  OPTIONAL { ?cva xyz:SubmitterName ?submitter FILTER(STRLEN(?submitter) > 0) }
+  OPTIONAL { ?cva xyz:OrgID ?orgId FILTER(STRLEN(?orgId) > 0) }
+  OPTIONAL {
+    ?cva xyz:OrganizationCategory ?oc .
+    BIND(LCASE(?oc) AS ?ocKey)
+    VALUES (?ocKey ?cat) {
+      ("laboratory" g:SubmitterLaboratory) ("consortium" g:SubmitterConsortium)
+      ("expert-panel" g:SubmitterExpertPanel) ("expert panel" g:SubmitterExpertPanel)
+      ("research group" g:SubmitterResearch) ("research" g:SubmitterResearch)
+      ("resource" g:SubmitterLaboratory) ("clinician" g:SubmitterClinician)
+      ("single clinician" g:SubmitterClinician)
+    }
+  }
+  OPTIONAL { ?ca xyz:ContributesToAggregateClassification ?c0 FILTER(?c0 IN ("true", "false")) }
+  BIND(STRDT(?c0, xsd:boolean) AS ?contrib)
+  BIND(CONCAT(?vcv, ":", ?scv) AS ?sfid)
+}

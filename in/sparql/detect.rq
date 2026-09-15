@@ -1,0 +1,20 @@
+PREFIX fx:  <http://sparql.xyz/facade-x/ns/>
+PREFIX xyz: <http://sparql.xyz/facade-x/data/>
+
+# docs/format.md says which ClinVar roots are deliberately not claimed. The child
+# pattern sits inside each branch, because a FILTER cannot see a variable bound
+# outside its group.
+
+ASK {
+  ?root a fx:root .
+  {
+    ?root a xyz:ClinVarResult-Set ; ?slot ?child .
+    ?child a ?childType .
+    FILTER(?childType IN (xyz:VariationArchive, xyz:set))
+  }
+  UNION
+  {
+    ?root a xyz:ClinVarVariationRelease ; ?slot ?child .
+    ?child a xyz:VariationArchive .
+  }
+}
