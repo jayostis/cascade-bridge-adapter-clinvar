@@ -16,9 +16,8 @@ There is no code here and there will be none. An adapter is mappings, schemas,
 fixtures and a manifest; the thing that runs it is a Bridge. Nothing in this
 repository executes.
 
-No file here names a version of the specification: its own CI picks one when it
-runs and validates this package against it. The specification does not know this
-adapter exists; the arrow runs this way and only this way.
+The specification does not know this adapter exists; the arrow runs this way and
+only this way.
 
 ## Status
 
@@ -27,8 +26,8 @@ adapter exists; the arrow runs this way and only this way.
 | phase | what | where | done when |
 |---|---|---|---|
 | 1 | this layout | here ([#1](https://github.com/jayostis/cascade-bridge-adapter-clinvar/issues/1)) | it opens in VS Code with everything validating |
-| 2 | the mapping, as SPARQL 1.1 over the Bridge's XML lift, and the engine that runs it | `in/sparql/`, and `cascade-bridge-js` | the four committed cases compare isomorphic |
-| 3 | the same adapter, byte for byte, through the same engine in a browser | `cascade-bridge-js` | the same `manifest.ttl` passes in both |
+| 2 | the mapping, as SPARQL 1.1 over the Bridge's XML lift, and the engine that runs it | `in/sparql/`, and `cascade-bridge-rs` | the four committed cases compare isomorphic |
+| 3 | the same adapter, byte for byte, through the same engine in a browser | `cascade-bridge-rs` | the same `manifest.ttl` passes in both |
 
 ## How a Bridge runs it
 
@@ -108,7 +107,7 @@ Why this adapter is laid out the way it is, and the phases, are in
 
 This package must conform to the Cascade Bridge Specification.
 `.github/workflows/validate.yml` runs that specification's lint on every pull
-request; what it checks, and what a failure means, is
+request and nightly; what it checks, and what a failure means, is
 [`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/adapter/validation.md)
 there. Failures come out of the build.
 
