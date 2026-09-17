@@ -19,11 +19,9 @@ the layout itself in the README. Do not re-derive them.
 - **The manifest is the crate.** `ro-crate-metadata.json` is both the adapter's
   manifest and the provenance record for every file and dataset. There is no
   `adapter.yaml`.
-- **No tests here.** Fixtures and how to judge them are declared as data in
-  `fixtures/manifest.ttl`; a Bridge's harness executes them. Do not add a test
-  runner or a workflow that runs fixtures.
-  `.github/workflows/validate.yml` is a lint, not a fixture run; its own
-  `CLAUDE.md` says why that is no contradiction.
+- **No test code lives here; a `compatibility.json` may name engines that must
+  pass it, and CI runs those.** Fixtures and how to judge them are declared as
+  data in `fixtures/manifest.ttl`; a Bridge's harness executes them.
 - **No copy of the specification.** The `bridge:` vocabulary and its SHACL shapes
   live in `cascade-bridge-spec`. To change one, change it there and move
   `bridge:specPin` here; the crate is the only place the pin is written.

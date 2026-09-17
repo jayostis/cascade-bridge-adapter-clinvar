@@ -65,6 +65,7 @@ cascade-bridge-adapter-clinvar/
   README.md                  this file
   LICENSE                    Apache-2.0
   CLAUDE.md                  agent context
+  compatibility.json         the Bridges that must pass this adapter
   ro-crate-metadata.json     the adapter manifest, and provenance for every committed fixture, schema and document, and every remote dataset (RO-Crate 1.2)
   .gitattributes             LF everywhere; verbatim copies never normalised
   .editorconfig
@@ -116,8 +117,9 @@ A few things the lint cannot see, such as the detect rule's answer for each
 input and each `sameAs` copy being byte-identical to conformance, are run by
 hand before pushing; `fixtures/CLAUDE.md` and `schema/CLAUDE.md` say how.
 
-There is no test suite here by design. Executing an adapter's fixtures is a
-Bridge's job, and the specification's
+There is no test code here by design. Executing an adapter's fixtures is a
+Bridge's job, and `compatibility.json` names the Bridges CI runs on this
+adapter; the specification's
 [`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/engine/executing.md)
 says how.
 
