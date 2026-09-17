@@ -1,5 +1,5 @@
-# No logic here on purpose: the checks live in cascade-bridge-spec and are
-# published from it as an action. Why, and the pin rule: CLAUDE.md here.
+# No logic here on purpose: the checks live in cascade-bridge-spec, at the
+# commit the crate's bridge:specPin names. Why: CLAUDE.md here.
 name: validate
 
 on:
@@ -13,8 +13,14 @@ permissions:
 
 jobs:
   adapter:
-    name: the adapter package against the specification it pins
+    name: adapter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: jayostis/cascade-bridge-spec/.github/actions/validate-adapter@v0.4.0
+      - uses: jayostis/cascade-bridge-spec/.github/actions/start@start-v1
+  ready-to-merge:
+    name: ready-to-merge
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jayostis/cascade-bridge-spec/.github/actions/start@start-v1
+        with:
+          check: ready-to-merge

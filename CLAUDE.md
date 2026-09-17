@@ -25,18 +25,17 @@ the layout itself in the README. Do not re-derive them.
   `.github/workflows/validate.yml` is a lint, not a fixture run; its own
   `CLAUDE.md` says why that is no contradiction.
 - **No copy of the specification.** The `bridge:` vocabulary and its SHACL shapes
-  live in `cascade-bridge-spec`. To change one, change it there, tag it, and move
-  `bridge:specPin` and the workflow's ref here in the same commit. The two name
-  one commit; the lint fails the run when they differ.
+  live in `cascade-bridge-spec`. To change one, change it there and move
+  `bridge:specPin` here; the crate is the only place the pin is written.
 - **No Cascade terms are minted here.** A value with no Cascade term goes in the
   adapter's own namespace (`vocab/`) or in the findings sidecar.
 
 ## Before pushing
 
-CI calls the specification's lint at the pinned tag; `adapter/validation.md` there
-says what it checks. SHACL cannot see the filesystem, so by hand: every crate
-`File` exists and every `sha256` matches, then what `fixtures/CLAUDE.md` and
-`schema/CLAUDE.md` say. A commit says which ran.
+CI runs the specification's lint at the commit `bridge:specPin` names;
+`adapter/validation.md` there says what it checks. By hand, what
+`fixtures/CLAUDE.md` and `schema/CLAUDE.md` say CI cannot run. A commit says
+which ran.
 
 ## Where a rule goes
 

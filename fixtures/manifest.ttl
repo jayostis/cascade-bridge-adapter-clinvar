@@ -21,7 +21,7 @@
 <> a mf:Manifest ;
   rdfs:label "cascade-bridge-adapter-clinvar fixture cases" ;
   bridge:adapter <../> ; # the crate's root entity, the adapter; its bridge:testManifest is <>
-  bridge:ignorePredicate cascade:dataProvenance, cascade:schemaVersion, prov:generatedAtTime ;
+  bridge:stampPredicate cascade:dataProvenance, cascade:schemaVersion, prov:generatedAtTime ;
   mf:entries (
     <#VCV000007105-CFTR-deltaF508>
     <#VCV000017661-BRCA1>
@@ -43,8 +43,8 @@
     bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
   ] ;
   mf:result [
-    bridge:graph <expected/VCV000007105-CFTR-deltaF508.ttl> ;
-    bridge:findings <findings/VCV000007105-CFTR-deltaF508.gaps.json>
+    bridge:expectedGraph <expected/VCV000007105-CFTR-deltaF508.ttl> ;
+    bridge:expectedFindings <findings/VCV000007105-CFTR-deltaF508.gaps.json>
   ] .
 
 <#VCV000017661-BRCA1> a bridge:IsomorphicConversionTest ;
@@ -55,8 +55,8 @@
     bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
   ] ;
   mf:result [
-    bridge:graph <expected/VCV000017661-BRCA1.ttl> ;
-    bridge:findings <findings/VCV000017661-BRCA1.gaps.json>
+    bridge:expectedGraph <expected/VCV000017661-BRCA1.ttl> ;
+    bridge:expectedFindings <findings/VCV000017661-BRCA1.gaps.json>
   ] .
 
 <#VCV000055448-BRCA2-pathogenic> a bridge:IsomorphicConversionTest ;
@@ -67,8 +67,8 @@
     bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
   ] ;
   mf:result [
-    bridge:graph <expected/VCV000055448-BRCA2-pathogenic.ttl> ;
-    bridge:findings <findings/VCV000055448-BRCA2-pathogenic.gaps.json>
+    bridge:expectedGraph <expected/VCV000055448-BRCA2-pathogenic.ttl> ;
+    bridge:expectedFindings <findings/VCV000055448-BRCA2-pathogenic.gaps.json>
   ] .
 
 <#VCV000208804-MLH1-LynchSyndrome> a bridge:IsomorphicConversionTest ;
@@ -79,8 +79,8 @@
     bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
   ] ;
   mf:result [
-    bridge:graph <expected/VCV000208804-MLH1-LynchSyndrome.ttl> ;
-    bridge:findings <findings/VCV000208804-MLH1-LynchSyndrome.gaps.json>
+    bridge:expectedGraph <expected/VCV000208804-MLH1-LynchSyndrome.ttl> ;
+    bridge:expectedFindings <findings/VCV000208804-MLH1-LynchSyndrome.gaps.json>
   ] .
 
 # NCBI's official sample: the one input whose provenance is unimpeachable.
@@ -96,7 +96,7 @@
 # The weekly release is not listed: on 2026-09-06 its symlink resolved to the
 # monthly file below, so an entry would be a second pass over the same bytes
 # (docs/format.md, "Releases"). mf:result is absent until a first run records
-# bridge:records and bridge:outputDigest; RDF has no null.
+# bridge:recordsProcessedCount and bridge:outputDigest; RDF has no null.
 
 <#clinvar-vcv-release-2026-09> a bridge:DatasetCompletionTest ;
   mf:name "clinvar-vcv-release-2026-09" ;

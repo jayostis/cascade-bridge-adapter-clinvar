@@ -28,8 +28,6 @@ crate, plus a `bridge:DatasetCompletionTest` naming that entity by its IRI.
 
 ## Checks CI cannot run
 
-- Every input validates against `../schema/ClinVarResult-Set.xsd` (any XSD 1.0
-  validator: `xmllint --schema`, lxml, the Red Hat XML extension).
 - `../in/sparql/detect.rq`, the crate's `bridge:detectQuery`, is true for each
   input. Run the ASK, in any SPARQL 1.1 engine, over the document's envelope
   skeleton, which the specification's `engine/sparql.md` defines. It must also
@@ -37,7 +35,6 @@ crate, plus a `bridge:DatasetCompletionTest` naming that entity by its IRI.
   `<ClinVarResult-Set><set/></ClinVarResult-Set>`, the response efetch returns
   when a query matched no record, and false for a document under a known root
   holding neither.
-- Every `expected/*.ttl` parses as Turtle (`riot --validate`, rdflib).
 - Each `sameAs` copy is byte-identical to conformance. Compare against the
   **blobs**, never the worktree: a clone with `core.autocrlf=true` holds those
   files as CRLF, so `cmp` on the worktree reports every input as differing at
