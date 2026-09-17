@@ -1,6 +1,6 @@
 {
   "@context": "https://ns.cascadeprotocol.org/bridge/v1-draft/compatibility.jsonld",
   "mustPassWith": [
-    { "codeRepository": "https://github.com/jayostis/cascade-bridge-rs", "branch": "main" }
+    { "codeRepository": "https://github.com/jayostis/cascade-bridge-rs", "tag": "v0.1.0" }
   ]
 }
