@@ -10,7 +10,6 @@ The job names are required status checks on `main`, matched by name: renaming
 one silently drops it from the merge gate. No job `needs:` another; a job
 skipped because its dependency failed counts as passing.
 
-This is a lint, not a fixture run, so "no tests here" stands: executing an
-adapter's fixtures is a Bridge's job, and nothing here runs a mapping or compares
-a graph. Checking that the package is well formed belongs where the package
-lives.
+The `adapter` job lints the package, then runs each engine `compatibility.json`
+names on it and judges the report. Executing the fixtures stays a Bridge's job:
+nothing here runs a mapping or compares a graph.
