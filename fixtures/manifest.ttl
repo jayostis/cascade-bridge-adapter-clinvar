@@ -1,9 +1,9 @@
 # The cases a Bridge's harness runs for this adapter, as a W3C-style test
 # manifest: W3C's mf: vocabulary plus the test terms of bridge:, declared and
-# constrained by the Cascade Bridge Specification at the commit bridge:specPin
-# names. Each entry has a type, an mf:action and an mf:result; the type carries
-# the comparison rule, and the rule is stated in that type's rdfs:comment there,
-# not here. Nothing in this repository executes it.
+# constrained by the Cascade Bridge Specification. Each entry has a type, an
+# mf:action and an mf:result; the type carries the comparison rule, and the rule
+# is stated in that type's rdfs:comment there, not here. Nothing in this
+# repository executes it.
 #
 # Relative IRIs resolve against this file's location, so <in/X.xml> names the
 # file the crate names as fixtures/in/X.xml, <../> is the crate's root entity

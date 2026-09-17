@@ -4,10 +4,9 @@ The Cascade Bridge Adapter for ClinVar VCV XML: a package of data a **Cascade
 Bridge** runs to turn ClinVar records into Cascade RDF. Import-only. Its mapping
 is SPARQL queries in `in/sparql/`, which a Bridge runs over each record.
 
-The contract is the **Cascade Bridge Specification**, [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec),
-pinned by the crate's `bridge:specPin`. Dependencies point one way: an adapter
-knows about the specification, and the specification knows nothing about any
-adapter. Phases and the decisions behind the layout are in [issue #1](https://github.com/jayostis/cascade-bridge-adapter-clinvar/issues/1),
+The contract is the **Cascade Bridge Specification**, [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec).
+Dependencies point one way: an adapter knows about the specification, and the
+specification knows nothing about any adapter. Phases and the decisions behind the layout are in [issue #1](https://github.com/jayostis/cascade-bridge-adapter-clinvar/issues/1),
 the layout itself in the README. Do not re-derive them.
 
 ## The rules
@@ -23,14 +22,13 @@ the layout itself in the README. Do not re-derive them.
   pass it, and CI runs those.** Fixtures and how to judge them are declared as
   data in `fixtures/manifest.ttl`; a Bridge's harness executes them.
 - **No copy of the specification.** The `bridge:` vocabulary and its SHACL shapes
-  live in `cascade-bridge-spec`. To change one, change it there and move
-  `bridge:specPin` here; the crate is the only place the pin is written.
+  live in `cascade-bridge-spec`. To change one, change it there.
 - **No Cascade terms are minted here.** A value with no Cascade term goes in the
   adapter's own namespace (`vocab/`) or in the findings sidecar.
 
 ## Before pushing
 
-CI runs the specification's lint at the commit `bridge:specPin` names;
+CI runs the specification's lint at the version it picks when it starts;
 `adapter/validation.md` there says what it checks. By hand, what
 `fixtures/CLAUDE.md` and `schema/CLAUDE.md` say CI cannot run. A commit says
 which ran.

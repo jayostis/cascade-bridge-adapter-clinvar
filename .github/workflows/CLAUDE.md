@@ -2,9 +2,9 @@
 
 `validate.yml` has no logic on purpose and must not grow any. The checks live in
 the Cascade Bridge Specification and are published from it as the `start`
-action, which reads the crate's `bridge:specPin` and runs the specification's
-checks at that commit. A check that needs writing is a change to the
-specification, made there and consumed here by moving `bridge:specPin`.
+action, which picks the version of each repository when the run starts and runs
+the specification's checks at it. A check that needs writing is a change to the
+specification, made there; no file here names a version of it.
 
 The job names are required status checks on `main`, matched by name: renaming
 one silently drops it from the merge gate. No job `needs:` another; a job
