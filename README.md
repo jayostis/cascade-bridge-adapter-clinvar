@@ -54,7 +54,7 @@ this way and only this way.
    specification's vocabulary, not anything this repository states.
 
 Those stages are the Bridge's, not this adapter's; the specification's
-[`engine/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/engine/stages.md)
+[`engine/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/engine/stages.md)
 names each with its Enterprise Integration Pattern. `docs/format.md` describes
 the format the first three stages see.
 
@@ -69,7 +69,7 @@ cascade-bridge-adapter-clinvar/
   .gitattributes             LF everywhere; verbatim copies never normalised
   .editorconfig
   .github/workflows/
-    validate.yml             calls the specification's lint at the pinned tag; no logic of its own
+    validate.yml             runs the specification's checks at the pinned commit; no logic of its own
   .vscode/
     extensions.json          XML, SPARQL, Turtle, EditorConfig
     settings.json            XSD association for fixtures/in
@@ -93,9 +93,9 @@ than an `adapter.yaml`, the cases being a W3C `mf:` test manifest, the
 detect rule being one query, standards over inventions — are not
 restated here. Each is a property of the **adapter package format**, and the
 authority for that format is the Cascade Bridge Specification:
-[`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/ro-crate-metadata.md),
-[`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/fixtures/manifest.md)
-and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/pinning.md).
+[`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/ro-crate-metadata.md),
+[`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/fixtures/manifest.md)
+and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/pinning.md).
 
 What is specific to ClinVar rather than to adapters in general is in
 [`docs/format.md`](docs/format.md): why the schema pin is 2.6, why an envelope
@@ -106,20 +106,19 @@ Why this adapter is laid out the way it is, and the phases, are in
 ## Verification
 
 This package must conform to the Cascade Bridge Specification at the revision
-its crate pins. `.github/workflows/validate.yml` calls that specification's
-published lint at the matching tag on every pull request; what it checks, and
-what a failure means, is
-[`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/adapter/validation.md)
+its crate pins. `.github/workflows/validate.yml` runs that specification's
+lint at that commit on every pull request; what it checks, and what a failure
+means, is
+[`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/validation.md)
 there. Failures come out of the build.
 
-A few things a lint cannot see — that a file exists on disk, that an input
-validates against its schema, that each `sameAs` copy is byte-identical to
-conformance — are run by hand before pushing; `fixtures/CLAUDE.md` and
-`schema/CLAUDE.md` say how.
+A few things the lint cannot see, such as the detect rule's answer for each
+input and each `sameAs` copy being byte-identical to conformance, are run by
+hand before pushing; `fixtures/CLAUDE.md` and `schema/CLAUDE.md` say how.
 
 There is no test suite here by design. Executing an adapter's fixtures is a
 Bridge's job, and the specification's
-[`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/v0.4.0/engine/executing.md)
+[`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/engine/executing.md)
 says how.
 
 ## Licence
