@@ -1,5 +1,7 @@
 # cascade-bridge-adapter-clinvar
 
+[![compatibility](https://github.com/jayostis/cascade-bridge-adapter-clinvar/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/jayostis/cascade-bridge-adapter-clinvar/actions/workflows/validate.yml?query=branch%3Amain)
+
 The **Cascade Bridge Adapter** for ClinVar VCV XML: the package of data a
 **Cascade Bridge** runs to turn NCBI ClinVar variation records into Cascade
 RDF. The pilot adapter: import-only, a published NCBI schema, no vendor quirks,
@@ -54,7 +56,7 @@ this way and only this way.
    specification's vocabulary, not anything this repository states.
 
 Those stages are the Bridge's, not this adapter's; the specification's
-[`engine/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/engine/stages.md)
+[`engine/stages.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/engine/stages.md)
 names each with its Enterprise Integration Pattern. `docs/format.md` describes
 the format the first three stages see.
 
@@ -94,9 +96,9 @@ than an `adapter.yaml`, the cases being a W3C `mf:` test manifest, the
 detect rule being one query, standards over inventions — are not
 restated here. Each is a property of the **adapter package format**, and the
 authority for that format is the Cascade Bridge Specification:
-[`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/ro-crate-metadata.md),
-[`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/fixtures/manifest.md)
-and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/pinning.md).
+[`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/adapter/ro-crate-metadata.md),
+[`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/adapter/fixtures/manifest.md)
+and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/pinning.md).
 
 What is specific to ClinVar rather than to adapters in general is in
 [`docs/format.md`](docs/format.md): why the schema pin is 2.6, why an envelope
@@ -110,7 +112,7 @@ This package must conform to the Cascade Bridge Specification at the revision
 its crate pins. `.github/workflows/validate.yml` runs that specification's
 lint at that commit on every pull request; what it checks, and what a failure
 means, is
-[`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/adapter/validation.md)
+[`adapter/validation.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/adapter/validation.md)
 there. Failures come out of the build.
 
 A few things the lint cannot see, such as the detect rule's answer for each
@@ -120,7 +122,7 @@ hand before pushing; `fixtures/CLAUDE.md` and `schema/CLAUDE.md` say how.
 There is no test code here by design. Executing an adapter's fixtures is a
 Bridge's job, and `compatibility.json` names the Bridges CI runs on this
 adapter; the specification's
-[`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/d99014607d8dfe981714d41eb4d3f725bfcb4127/engine/executing.md)
+[`engine/executing.md`](https://github.com/jayostis/cascade-bridge-spec/blob/b72569a6602a5fa715cf83d680c6c87f21cfba8f/engine/executing.md)
 says how.
 
 ## Licence
