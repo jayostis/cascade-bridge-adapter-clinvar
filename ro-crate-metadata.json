@@ -54,7 +54,7 @@
         }
       ],
       "bridge:specPin": {
-        "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/d99014607d8dfe981714d41eb4d3f725bfcb4127"
+        "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f"
       },
       "bridge:cascadeVocabularyPin": {
         "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
@@ -188,7 +188,7 @@
           "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
         },
         {
-          "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/d99014607d8dfe981714d41eb4d3f725bfcb4127"
+          "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f"
         },
         {
           "@id": "docs/format.md"
@@ -231,17 +231,17 @@
       "description": "The RO-Crate 1.2 Profile Crate a conforming adapter package names in conformsTo: the machine-checkable claim that this crate is an adapter package, whose constraints resource is the SHACL shapes in cascade-bridge-spec. The IRI does not dereference yet, which that repository's README records; the Profile Crate describing it is adapter/profile/ro-crate-metadata.json there, and bridge:specPin says at which commit."
     },
     {
-      "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/d99014607d8dfe981714d41eb4d3f725bfcb4127",
+      "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f",
       "@type": ["SoftwareSourceCode", "File"],
-      "name": "cascade-bridge-spec at d990146",
+      "name": "cascade-bridge-spec at b72569a",
       "codeRepository": {
         "@id": "https://github.com/jayostis/cascade-bridge-spec"
       },
-      "version": "d99014607d8dfe981714d41eb4d3f725bfcb4127",
+      "version": "b72569a6602a5fa715cf83d680c6c87f21cfba8f",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #23. The specification's start action reads this pin and runs the lint at it. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #31. The specification's start action reads this pin and runs the lint at it. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
