@@ -1,15 +1,28 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX xyz: <http://sparql.xyz/facade-x/data/>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX sh:     <http://www.w3.org/ns/shacl#>
+PREFIX oa:     <http://www.w3.org/ns/oa#>
+PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
+PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 
 # Which rules fire depends on two facts about the RCV: a non-empty
 # GermlineClassification (?germ) and a canonical ACMG Description (?canon). A nested
 # group cannot see them, so each rule binds a ?gate and one FILTER after the UNION
-# applies it.
+# applies it. Each also binds a path below its RCVAccession (?sfT); the record's
+# wrapper element and the RCVAccession are joined on after the UNION.
 #
 # Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
-SELECT ?sourceField ?reason ?severity ?context WHERE {
+CONSTRUCT {
+  [] a oa:Annotation ;
+    oa:hasTarget [
+      oa:hasSource bridge:thisRecord ;
+      oa:hasSelector [ a oa:XPathSelector ; rdf:value ?xpath ]
+    ] ;
+    oa:hasBody [ a oa:TextualBody ; rdf:value ?reason ] ;
+    sh:resultSeverity ?severity .
+}
+WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
   ?rec a ?recType .
   FILTER(?recType = xyz:ClassifiedRecord ||
@@ -17,7 +30,7 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
   { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
   ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
   OPTIONAL { ?rcv xyz:Accession ?acc0 }
-  BIND(COALESCE(?acc0, "<no-rcv>") AS ?context)
+  BIND(COALESCE(?acc0, "<no-rcv>") AS ?rcvAcc)
 
   OPTIONAL {
     ?rcv ?f1 ?frc . ?frc a xyz:RCVClassifications ; ?f2 ?gc . ?gc a xyz:GermlineClassification .
@@ -37,14 +50,15 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
         FILTER(?ot IN (xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && ?op != rdf:type) } }
     BIND("/RCVClassifications" AS ?sfT)
     BIND("RCV carries SomaticClinicalImpact or OncogenicityClassification; v1-draft.0.1 has no genomics:somaticStatus / oncogenicityClassification predicates yet — these are v1-draft.0.2 candidates." AS ?reason)
-    BIND("info" AS ?severity)
+    BIND(sh:Info AS ?severity)
     BIND("any" AS ?gate)
   }
   UNION
   {
-    BIND("/RCVClassifications/GermlineClassification" AS ?sfT)
+    # An absence: the RCVAccession is the nearest element that exists.
+    BIND("" AS ?sfT)
     BIND("RCV has no GermlineClassification block; cannot emit a VariantInterpretation (ACMG classification is required)." AS ?reason)
-    BIND("warning" AS ?severity)
+    BIND(sh:Warning AS ?severity)
     BIND("nogerm" AS ?gate)
   }
   UNION
@@ -53,18 +67,19 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     ?rcv a xyz:RCVAccession ; ?r3 ?rc3 . ?rc3 a xyz:RCVClassifications ; ?r4 ?gc .
     ?gc a xyz:GermlineClassification ; ?r5 ?d3 . ?d3 a xyz:Description ; xyz:SubmissionCount ?sc .
     FILTER(STRLEN(?sc) > 0)
-    BIND("/Description@SubmissionCount" AS ?sfT)
+    BIND("/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" AS ?sfT)
     BIND("RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." AS ?reason)
-    BIND("info" AS ?severity)
+    BIND(sh:Info AS ?severity)
     BIND("germ" AS ?gate)
   }
   UNION
   {
+    # An absence: the RCVAccession is the nearest element that exists.
     ?rcv a xyz:RCVAccession .
     MINUS { ?rcv ?r6 ?ccl6 . ?ccl6 a xyz:ClassifiedConditionList ; ?r7 ?cc6 . ?cc6 a xyz:ClassifiedCondition }
-    BIND("/ClassifiedConditionList" AS ?sfT)
+    BIND("" AS ?sfT)
     BIND("RCV has no ClassifiedCondition entries; cannot emit VariantInterpretation (genomics:condition is required, cardinality 1..1 per D-Q5)." AS ?reason)
-    BIND("warning" AS ?severity)
+    BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
   }
   UNION
@@ -77,9 +92,9 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     BIND(REPLACE(?d8t, "^\\s+|\\s+$", "") AS ?acmgText)
     FILTER(STRLEN(?acmgText) > 0 && !(LCASE(?acmgText) IN
            ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign")))
-    BIND("/Description" AS ?sfT)
+    BIND("/RCVClassifications/GermlineClassification/Description" AS ?sfT)
     BIND(CONCAT("Description \"", ?acmgText, "\" is not one of the five canonical ACMG values; cannot emit a VariantInterpretation (would violate VariantInterpretationShape). Common non-canonical strings: \"Conflicting classifications of pathogenicity\", \"Pathogenic, low penetrance\", \"drug response\".") AS ?reason)
-    BIND("warning" AS ?severity)
+    BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
   }
   UNION
@@ -87,12 +102,8 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     # Per condition: no MONDO of its own, none on the aligned Trait, no MedGen.
     # The Trait lookup repeats interpretation.rq's, down to existence.
     ?rec9 ?r13 ?rcvl9 . ?rcvl9 a xyz:RCVList ; ?r14 ?rcv . ?rcv a xyz:RCVAccession ; ?r15 ?ccl9 .
-    ?ccl9 a xyz:ClassifiedConditionList ; ?r16 ?cc9 . ?cc9 a xyz:ClassifiedCondition .
-    { SELECT ?cc9 (COUNT(?prev9) AS ?i9) WHERE {
-        ?ccl0 a xyz:ClassifiedConditionList ; ?sA ?cc9 . ?cc9 a xyz:ClassifiedCondition .
-        OPTIONAL { ?ccl0 ?sB ?prev9 . ?prev9 a xyz:ClassifiedCondition .
-                   FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
-      } GROUP BY ?cc9 }
+    ?ccl9 a xyz:ClassifiedConditionList ; ?s9 ?cc9 . ?cc9 a xyz:ClassifiedCondition .
+    BIND(STRAFTER(STR(?s9), "#_") AS ?i9)
     OPTIONAL { ?ccl9 xyz:TraitSetID ?ts9raw }
     BIND(COALESCE(?ts9raw, "") AS ?tsId9)
     OPTIONAL { ?cc9 xyz:DB ?db9 }
@@ -126,25 +137,21 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     FILTER(!(COALESCE(?db9, "") = "MONDO" && STRLEN(COALESCE(?id9, "")) > 0))
     FILTER(!COALESCE(?traitMondo, false))
     FILTER(!(COALESCE(?db9, "") = "MedGen" && STRLEN(COALESCE(?id9, "")) > 0))
-    BIND(CONCAT("/ClassifiedCondition[", STR(?i9), "]") AS ?sfT)
+    BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i9, "]") AS ?sfT)
     BIND(CONCAT("Condition \"", COALESCE(REPLACE(?t9, "^\\s+|\\s+$", ""), ""), "\" (DB=", COALESCE(?db9, "none"),
                 ", ID=", COALESCE(?id9, "none"), ") had no resolvable MONDO/MedGen identifier; synthesized a Cascade-local IRI to satisfy cardinality 1..1 on genomics:condition. Recommended: source XML carries no MONDO mapping for this trait.") AS ?reason)
-    BIND("warning" AS ?severity)
+    BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }
   UNION
   {
-    # Per condition.
-    ?rcv a xyz:RCVAccession ; ?r17 ?ccl10 . ?ccl10 a xyz:ClassifiedConditionList ; ?r18 ?cc10 .
+    # Per condition: the CUI itself, which is the identifier with no Cascade term.
+    ?rcv a xyz:RCVAccession ; ?r17 ?ccl10 . ?ccl10 a xyz:ClassifiedConditionList ; ?s10 ?cc10 .
     ?cc10 a xyz:ClassifiedCondition ; xyz:DB "MedGen" ; xyz:ID ?id10 . FILTER(STRLEN(?id10) > 0)
-    { SELECT ?cc10 (COUNT(?prev10) AS ?i10) WHERE {
-        ?ccl0 a xyz:ClassifiedConditionList ; ?sA ?cc10 . ?cc10 a xyz:ClassifiedCondition .
-        OPTIONAL { ?ccl0 ?sB ?prev10 . ?prev10 a xyz:ClassifiedCondition .
-                   FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
-      } GROUP BY ?cc10 }
-    BIND(CONCAT("/ClassifiedCondition[", STR(?i10), "]@DB='MedGen'") AS ?sfT)
+    BIND(STRAFTER(STR(?s10), "#_") AS ?i10)
+    BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i10, "][@DB='MedGen']") AS ?sfT)
     BIND("MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." AS ?reason)
-    BIND("info" AS ?severity)
+    BIND(sh:Info AS ?severity)
     BIND("canon" AS ?gate)
   }
   UNION
@@ -161,7 +168,7 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
     ?rcv ?r22 ?ccl19 . ?ccl19 a xyz:ClassifiedConditionList ; ?r23 ?cc19 . ?cc19 a xyz:ClassifiedCondition .
     BIND("/RCVClassifications/GermlineClassification/ReviewStatus" AS ?sfT)
     BIND(CONCAT("Unknown ReviewStatus \"", ?rsText, "\"; not one of the seven published ClinGen tiers.") AS ?reason)
-    BIND("warning" AS ?severity)
+    BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }
   }
@@ -169,5 +176,6 @@ SELECT ?sourceField ?reason ?severity ?context WHERE {
   FILTER(?gate = "any" || (?gate = "nogerm" && !?germ) || (?gate = "germ" && ?germ) ||
          (?gate = "canon" && ?germ && ?canon))
 
-  BIND(CONCAT("RCVAccession[", ?context, "]", ?sfT) AS ?sourceField)
+  BIND(STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/") AS ?recName)
+  BIND(CONCAT(?recName, "/RCVList/RCVAccession[@Accession='", ?rcvAcc, "']", ?sfT) AS ?xpath)
 }

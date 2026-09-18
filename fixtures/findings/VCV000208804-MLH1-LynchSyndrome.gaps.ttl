@@ -1,0 +1,207 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix oa:  <http://www.w3.org/ns/oa#> .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/OtherNameList" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "OtherNameList carries legacy / alias variant names (\"p.C61G:TGT>GGT\", \"300T>G\") that pre-date current HGVS conventions. No v1-draft alias-list predicate; could be added as genomics:variantAlias." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/XRefList/XRef[@DB='OMIM']" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "OMIM allelic variant identifier (e.g., 113705.0002) has no v1-draft genomics: predicate; preserved only in source XML." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/VariantType" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "VariantType \"single nucleotide variant\" (structural kind: SNV, indel, deletion, etc.) has no v1-draft genomics: predicate. Captured in consequenceTerm only when SO mapping is present." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate-level Classifications block carries 2 curated citations (PubMed, DOI). No v1-draft predicate at the Variant level; candidate genomics:supportingEvidence (v1-draft.0.2)." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1][@NumberOfSubmissions]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1][@NumberOfSubmitters]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/TraitMappingList" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "TraitMappingList connects each ClinicalAssertion to a normalized condition (MedGen / MONDO / OMIM). The mapping is consumed during SCV → SubmitterAssertion aggregation, but the per-mapping evidence (MappingType, MappingValue) is not preserved on the resulting graph." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910']/Classification/ReviewStatus" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV ReviewStatus \"no assertion criteria provided\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2)." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910']/Classification[@DateLastEvaluated]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-04-21\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910'][@SubmissionDate]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910'][@DateCreated]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910'][@DateLastUpdated]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910']/ObservedInList" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "Method types [\"literature only\"] have no v1-draft predicate. Candidates: genomics:methodType (literature only / clinical testing / curation / research)." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910']/ObservedInList/ObservedIn[1]/Sample/AffectedStatus" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "AffectedStatus \"not provided\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus." ] ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='454910']/ObservedInList/ObservedIn[1]/ObservedData[1]" ]
+    ]
+  ] ;
+  oa:hasBody [ a oa:TextualBody ; rdf:value "ObservedData carries free-text case descriptions, segregation evidence, and population frequencies. No v1-draft predicate; would map to genomics:observationNarrative or be split into structured evidence types in v1-draft.0.2." ] ;
+  sh:resultSeverity sh:Info .
