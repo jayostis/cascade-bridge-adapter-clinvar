@@ -103,7 +103,7 @@ WHERE {
     ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?xl . ?xl a xyz:XRefList ; ?x2 ?xr .
     ?xr a xyz:XRef ; xyz:DB ?db ; xyz:ID ?xid .
     FILTER(?db IN ("OMIM", "UniProtKB", "BRCA1-HCI", "NCBI 1000 Genomes Browser"))
-    BIND(CONCAT("/SimpleAllele/XRefList/XRef[@DB='", ?db, "']") AS ?sfT)
+    BIND(CONCAT("/SimpleAllele/XRefList/XRef[", STRAFTER(STR(?x2), "#_"), "][@DB='", ?db, "']") AS ?sfT)
     BIND(IF(?db = "OMIM",
       "OMIM allelic variant identifier (e.g., 113705.0002) has no v1-draft genomics: predicate; preserved only in source XML.",
       CONCAT("External cross-ref to ", ?db, " has no v1-draft genomics: predicate.")) AS ?reason)
@@ -151,8 +151,8 @@ WHERE {
     # container the citations were counted over.
     ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
-    MINUS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
-            FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
+    FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
+                        FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
     { SELECT ?agg (COUNT(?cit) AS ?nCit) WHERE {
         ?agg a xyz:GermlineClassification ; ?y ?cit . ?cit a xyz:Citation
       } GROUP BY ?agg }
@@ -166,8 +166,8 @@ WHERE {
     # One finding per aggregate count attribute on that same GermlineClassification.
     ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
-    MINUS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
-            FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
+    FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
+                        FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
     ?agg ?countProp ?countValue .
     FILTER(?countProp IN (xyz:NumberOfSubmissions, xyz:NumberOfSubmitters) && STRLEN(?countValue) > 0)
     BIND(CONCAT("/Classifications/GermlineClassification[1]/@",

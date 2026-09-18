@@ -39,8 +39,6 @@ WHERE {
   OPTIONAL { SELECT ?cl ?cgt WHERE { ?cl ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt . FILTER(isLiteral(?cgt)) } }
   BIND(COALESCE(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
          ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"), false) AS ?emitted)
-  OPTIONAL { ?ca xyz:ID ?caId0 }
-  BIND(COALESCE(?caId0, "undefined") AS ?caId)
 
   OPTIONAL {
   {
@@ -241,11 +239,17 @@ WHERE {
   }
   UNION
   {
-    # Once per AttributeSet whose Attribute is an AssertionMethod.
+    # Once per AttributeSet whose Attribute is an AssertionMethod, which the selector
+    # names by position: AttributeSet is unbounded, so the predicate alone names a set.
     ?ca a xyz:ClinicalAssertion ; ?w1 ?aset . ?aset a xyz:AttributeSet ; ?w2 ?attr .
     ?attr a xyz:Attribute ; xyz:Type "AssertionMethod" .
     OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT)) }
-    BIND("/AttributeSet[Attribute/@Type='AssertionMethod']" AS ?sfT)
+    { SELECT ?aset (COUNT(?earlierAs) AS ?beforeAs) WHERE {
+        ?ownerAs ?sA ?aset . ?aset a xyz:AttributeSet .
+        OPTIONAL { ?ownerAs ?sB ?earlierAs . ?earlierAs a xyz:AttributeSet .
+                   FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
+      } GROUP BY ?aset }
+    BIND(CONCAT("/AttributeSet[", STR(?beforeAs + 1), "][Attribute/@Type='AssertionMethod']") AS ?sfT)
     BIND(CONCAT("Assertion method \"", COALESCE(REPLACE(?attrT, "^\\s+|\\s+$", ""), "<unknown>"), "\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).") AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
@@ -255,5 +259,5 @@ WHERE {
   FILTER(?gate = "any" || (?gate = "emitted" && ?emitted) || (?gate = "skipped" && !?emitted))
 
   BIND(STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/") AS ?recName)
-  BIND(CONCAT(?recName, "/ClinicalAssertionList/ClinicalAssertion[@ID='", ?caId, "']", ?sfT) AS ?xpath)
+  BIND(CONCAT(?recName, "/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='", ?scv, "']", ?sfT) AS ?xpath)
 }

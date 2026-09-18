@@ -156,7 +156,8 @@ WHERE {
   }
   UNION
   {
-    # Repeated once per condition.
+    # A condition is what makes the review status worth reporting, so it gates the
+    # rule rather than joining to it: the finding is about the one ReviewStatus node.
     ?rcv a xyz:RCVAccession ; ?r19 ?rc19 . ?rc19 a xyz:RCVClassifications ; ?r20 ?gc .
     ?gc a xyz:GermlineClassification ; ?r21 ?rs19 . ?rs19 a xyz:ReviewStatus ; rdf:_1 ?rst . FILTER(isLiteral(?rst))
     BIND(REPLACE(?rst, "^\\s+|\\s+$", "") AS ?rsText)
@@ -165,7 +166,7 @@ WHERE {
       "criteria provided, conflicting interpretations", "criteria provided, conflicting classifications",
       "criteria provided, conflicting classifications of pathogenicity",
       "criteria provided, multiple submitters, no conflicts", "reviewed by expert panel", "practice guideline")))
-    ?rcv ?r22 ?ccl19 . ?ccl19 a xyz:ClassifiedConditionList ; ?r23 ?cc19 . ?cc19 a xyz:ClassifiedCondition .
+    FILTER EXISTS { ?rcv ?r22 ?ccl19 . ?ccl19 a xyz:ClassifiedConditionList ; ?r23 ?cc19 . ?cc19 a xyz:ClassifiedCondition }
     BIND("/RCVClassifications/GermlineClassification/ReviewStatus" AS ?sfT)
     BIND(CONCAT("Unknown ReviewStatus \"", ?rsText, "\"; not one of the seven published ClinGen tiers.") AS ?reason)
     BIND(sh:Warning AS ?severity)
