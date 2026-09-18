@@ -206,7 +206,7 @@ findings query beside it (`<class>-findings.rq`).
   inline as a `VALUES` table in `interpretation.rq`. It comes from cascade-cli's
   `review-status-map.ts`: three phrasings of "criteria provided, conflicting …"
   that ClinVar has used over time all map to `genomics:ConflictingSubmissions`.
-  A value with no Cascade term is a findings entry.
+  A value with no Cascade term is a finding.
 
 **The converter's `Name` fallback is not reproduced.** cascade-cli's
 `pickHgvs` has a second pass meant to take `hgvsCDot` or `hgvsGDot` from

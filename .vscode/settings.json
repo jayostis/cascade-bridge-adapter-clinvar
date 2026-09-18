@@ -21,10 +21,9 @@
   "files.trimTrailingWhitespace": true,
   // Digested files (see .editorconfig): no save-time rewriting. A language
   // override reaches every file in that language, so only languages whose
-  // files are digested (or nearly all are) get one. The .gaps.json
-  // sidecars are JSON, and a [json] override would also reach the crate;
-  // they rely on the EditorConfig extension recommended in extensions.json,
-  // which applies .editorconfig's path-scoped rules.
+  // files are digested (or nearly all are) get one. Every digested file is XML
+  // or Turtle, so the two overrides below reach all of them, and the crate,
+  // which is JSON and carries no digest, keeps the defaults above.
   "[xml]": {
     "files.insertFinalNewline": false,
     "files.trimTrailingWhitespace": false
