@@ -116,7 +116,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000112550']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000112550']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -140,7 +140,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131171']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131171']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -164,7 +164,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000486220']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000486220']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -188,7 +188,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV003529968']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV003529968']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -212,7 +212,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005357413']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005357413']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
