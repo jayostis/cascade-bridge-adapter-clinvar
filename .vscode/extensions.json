@@ -11,8 +11,7 @@
     // Turtle, with a language server, for the test manifest
     // fixtures/manifest.ttl and the expected graphs under fixtures/expected/.
     // (The bridge: vocabulary and its SHACL shapes are not in this
-    // repository; they are in cascade-bridge-spec, at the commit
-    // bridge:specPin names.)
+    // repository; they are in cascade-bridge-spec.)
     // (stardog-union.stardog-rdf-grammars is the grammar-only alternative.)
     "faubulous.mentor",
     // EditorConfig: without it VS Code ignores .editorconfig, and its

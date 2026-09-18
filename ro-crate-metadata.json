@@ -5,7 +5,6 @@
       "md5": "https://w3id.org/ro/terms/workflow-run#md5",
       "bridge": "https://ns.cascadeprotocol.org/bridge/v1-draft#",
       "bridge:requiresProfile": "bridge:requiresProfile",
-      "bridge:specPin": "bridge:specPin",
       "bridge:cascadeVocabularyPin": "bridge:cascadeVocabularyPin",
       "bridge:vocabulary": "bridge:vocabulary",
       "bridge:sourceMediaType": "bridge:sourceMediaType",
@@ -53,9 +52,6 @@
           "@id": "bridge:sparql-1.1"
         }
       ],
-      "bridge:specPin": {
-        "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f"
-      },
       "bridge:cascadeVocabularyPin": {
         "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
       },
@@ -188,9 +184,6 @@
           "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
         },
         {
-          "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f"
-        },
-        {
           "@id": "docs/format.md"
         },
         {
@@ -222,26 +215,13 @@
       "@id": "bridge:sparql-1.1",
       "@type": "bridge:Profile",
       "name": "sparql-1.1",
-      "description": "Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec at the commit bridge:specPin names."
+      "description": "Declared in the Cascade Bridge Specification's vocabulary, vocab/bridge.ttl in cascade-bridge-spec."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/bridge/v1-draft/adapter-profile/",
       "@type": ["CreativeWork", "Profile"],
       "name": "Cascade Bridge Adapter profile",
-      "description": "The RO-Crate 1.2 Profile Crate a conforming adapter package names in conformsTo: the machine-checkable claim that this crate is an adapter package, whose constraints resource is the SHACL shapes in cascade-bridge-spec. The IRI does not dereference yet, which that repository's README records; the Profile Crate describing it is adapter/profile/ro-crate-metadata.json there, and bridge:specPin says at which commit."
-    },
-    {
-      "@id": "https://github.com/jayostis/cascade-bridge-spec/commit/b72569a6602a5fa715cf83d680c6c87f21cfba8f",
-      "@type": ["SoftwareSourceCode", "File"],
-      "name": "cascade-bridge-spec at b72569a",
-      "codeRepository": {
-        "@id": "https://github.com/jayostis/cascade-bridge-spec"
-      },
-      "version": "b72569a6602a5fa715cf83d680c6c87f21cfba8f",
-      "license": {
-        "@id": "https://spdx.org/licenses/Apache-2.0"
-      },
-      "description": "The revision of the Cascade Bridge Specification this adapter is written against: the merge commit of cascade-bridge-spec PR #31. The specification's start action reads this pin and runs the lint at it. A web-based data entity, referenced and not committed, the way the vocabulary pin is: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The RO-Crate 1.2 Profile Crate a conforming adapter package names in conformsTo: the machine-checkable claim that this crate is an adapter package, whose constraints resource is the SHACL shapes in cascade-bridge-spec. The IRI does not dereference yet, which that repository's README records; the Profile Crate describing it is adapter/profile/ro-crate-metadata.json there."
     },
     {
       "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
@@ -386,7 +366,7 @@
       "@type": "File",
       "name": "Test manifest",
       "encodingFormat": "text/turtle",
-      "description": "The cases a Bridge's harness executes and how each is judged: a W3C-style test manifest (mf: test-manifest vocabulary) whose entries are typed with the bridge: vocabulary and constrained by the SHACL shapes, both of them in the Cascade Bridge Specification at the commit bridge:specPin names (vocab/bridge.ttl and shapes/bridge.shapes.ttl in cascade-bridge-spec). This adapter carried copies of the two until 0.2.0; they were the seed of that repository, and a second statement of a contract is one that can disagree with it. Every input, expected graph, findings file, dataset and envelope this manifest names is described in this crate, by the same IRI, and it names this crate's root entity as its adapter, so the manifest and this crate load as one graph.",
+      "description": "The cases a Bridge's harness executes and how each is judged: a W3C-style test manifest (mf: test-manifest vocabulary) whose entries are typed with the bridge: vocabulary and constrained by the SHACL shapes, both of them in the Cascade Bridge Specification (vocab/bridge.ttl and shapes/bridge.shapes.ttl in cascade-bridge-spec). This adapter carried copies of the two until 0.2.0; they were the seed of that repository, and a second statement of a contract is one that can disagree with it. Every input, expected graph, findings file, dataset and envelope this manifest names is described in this crate, by the same IRI, and it names this crate's root entity as its adapter, so the manifest and this crate load as one graph.",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       }
