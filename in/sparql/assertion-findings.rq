@@ -57,7 +57,7 @@ WHERE {
     ?cva a xyz:ClinVarAccession ; xyz:OrganizationCategory ?oc .
     FILTER(STRLEN(?oc) > 0 && !(LCASE(?oc) IN ("laboratory", "consortium", "expert-panel", "expert panel",
            "research group", "research", "resource", "clinician", "single clinician")))
-    BIND("/ClinVarAccession[@OrganizationCategory]" AS ?sfT)
+    BIND("/ClinVarAccession/@OrganizationCategory" AS ?sfT)
     BIND(CONCAT("OrganizationCategory \"", ?oc, "\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician.") AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("any" AS ?gate)
@@ -75,7 +75,7 @@ WHERE {
   UNION
   {
     ?cl a xyz:Classification ; xyz:DateLastEvaluated ?dle . FILTER(STRLEN(?dle) > 0)
-    BIND("/Classification[@DateLastEvaluated]" AS ?sfT)
+    BIND("/Classification/@DateLastEvaluated" AS ?sfT)
     BIND(CONCAT("Per-SCV DateLastEvaluated \"", ?dle, "\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).") AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
@@ -85,7 +85,7 @@ WHERE {
     # One finding per lifecycle attribute: a selector names one node.
     ?ca a xyz:ClinicalAssertion ; ?lp ?lv .
     FILTER(?lp IN (xyz:SubmissionDate, xyz:DateCreated, xyz:DateLastUpdated) && STRLEN(?lv) > 0)
-    BIND(CONCAT("[@", STRAFTER(STR(?lp), "http://sparql.xyz/facade-x/data/"), "]") AS ?sfT)
+    BIND(CONCAT("/@", STRAFTER(STR(?lp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
     BIND("Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)

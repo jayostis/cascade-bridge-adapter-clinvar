@@ -67,7 +67,7 @@ WHERE {
     ?rcv a xyz:RCVAccession ; ?r3 ?rc3 . ?rc3 a xyz:RCVClassifications ; ?r4 ?gc .
     ?gc a xyz:GermlineClassification ; ?r5 ?d3 . ?d3 a xyz:Description ; xyz:SubmissionCount ?sc .
     FILTER(STRLEN(?sc) > 0)
-    BIND("/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" AS ?sfT)
+    BIND("/RCVClassifications/GermlineClassification/Description/@SubmissionCount" AS ?sfT)
     BIND("RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("germ" AS ?gate)
@@ -149,7 +149,7 @@ WHERE {
     ?rcv a xyz:RCVAccession ; ?r17 ?ccl10 . ?ccl10 a xyz:ClassifiedConditionList ; ?s10 ?cc10 .
     ?cc10 a xyz:ClassifiedCondition ; xyz:DB "MedGen" ; xyz:ID ?id10 . FILTER(STRLEN(?id10) > 0)
     BIND(STRAFTER(STR(?s10), "#_") AS ?i10)
-    BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i10, "][@DB='MedGen']") AS ?sfT)
+    BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i10, "]/@DB") AS ?sfT)
     BIND("MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." AS ?reason)
     BIND(sh:Info AS ?severity)
     BIND("canon" AS ?gate)

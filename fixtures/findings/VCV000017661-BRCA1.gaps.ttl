@@ -116,7 +116,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1][@NumberOfSubmissions]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmissions" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
@@ -128,7 +128,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1][@NumberOfSubmitters]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmitters" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
@@ -152,7 +152,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000019229']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000019229']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -164,7 +164,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000019229']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000019229']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -176,7 +176,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000047597']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000047597']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -188,7 +188,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000047597']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000047597']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -200,7 +200,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131902']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131902']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -212,7 +212,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131902']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000131902']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -224,7 +224,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000159935']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000159935']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -236,7 +236,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000159935']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000159935']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -248,7 +248,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000239114']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000239114']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -260,7 +260,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000239114']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000239114']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -272,7 +272,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000415051']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000415051']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -284,7 +284,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000415051']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000415051']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -296,7 +296,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000412714']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000412714']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -308,7 +308,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000412714']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000412714']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -320,7 +320,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000785199']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000785199']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -332,7 +332,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000785199']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000785199']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -344,7 +344,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV001270967']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV001270967']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -356,7 +356,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV001270967']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV001270967']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -368,7 +368,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV004802937']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV004802937']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -380,7 +380,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV004802937']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV004802937']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -392,7 +392,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -404,7 +404,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[1][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[1]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -416,7 +416,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[2][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[2]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -428,7 +428,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[3][@DB='MedGen']" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005003390']/ClassifiedConditionList/ClassifiedCondition[3]/@DB" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
@@ -440,7 +440,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005646760']/RCVClassifications/GermlineClassification/Description[@SubmissionCount]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV005646760']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
@@ -476,7 +476,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-08-10\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -488,7 +488,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -500,7 +500,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -512,7 +512,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='455804']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -620,7 +620,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2017-07-12\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -632,7 +632,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -644,7 +644,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -656,7 +656,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1333034']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -728,7 +728,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2021-02-05\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -740,7 +740,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -752,7 +752,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -764,7 +764,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4054956']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -836,7 +836,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-04-30\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -848,7 +848,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -860,7 +860,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -872,7 +872,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1518446']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -968,7 +968,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-03-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -980,7 +980,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -992,7 +992,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1004,7 +1004,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='305472']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1100,7 +1100,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-11-12\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1112,7 +1112,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1124,7 +1124,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1136,7 +1136,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1328792']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1220,7 +1220,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1232,7 +1232,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1244,7 +1244,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='960015']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1340,7 +1340,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-07-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1352,7 +1352,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1364,7 +1364,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1376,7 +1376,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1098983']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1448,7 +1448,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2017-08-24\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1460,7 +1460,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1472,7 +1472,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1484,7 +1484,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1365240']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1580,7 +1580,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2000-06-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1592,7 +1592,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1604,7 +1604,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1616,7 +1616,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='39517']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1688,7 +1688,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2019-05-28\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1700,7 +1700,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1712,7 +1712,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1724,7 +1724,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2246447']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1796,7 +1796,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2019-01-31\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1808,7 +1808,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1820,7 +1820,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1832,7 +1832,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='507631']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1928,7 +1928,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2014-06-13\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -1940,7 +1940,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1952,7 +1952,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -1964,7 +1964,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2862639']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2036,7 +2036,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2048,7 +2048,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2060,7 +2060,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3852325']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2120,7 +2120,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2132,7 +2132,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2144,7 +2144,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3991569']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2192,7 +2192,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -2216,7 +2216,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2022-10-24\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2228,7 +2228,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2240,7 +2240,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2252,7 +2252,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5055601']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2336,7 +2336,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-03-04\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2348,7 +2348,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2360,7 +2360,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2372,7 +2372,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='10090064']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2444,7 +2444,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-03-10\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2456,7 +2456,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2468,7 +2468,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2480,7 +2480,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='556579']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2576,7 +2576,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-08-04\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2588,7 +2588,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2600,7 +2600,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2612,7 +2612,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12128199']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2696,7 +2696,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-11-22\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2708,7 +2708,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2720,7 +2720,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2732,7 +2732,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3960434']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2792,7 +2792,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -2816,7 +2816,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-11-24\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2828,7 +2828,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2840,7 +2840,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2852,7 +2852,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5409311']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2936,7 +2936,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2026-02-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -2948,7 +2948,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2960,7 +2960,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -2972,7 +2972,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='123540']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3056,7 +3056,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -3080,7 +3080,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2026-02-16\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3092,7 +3092,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3104,7 +3104,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3116,7 +3116,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2477367']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3200,7 +3200,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2026-03-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3212,7 +3212,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3224,7 +3224,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3236,7 +3236,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2470816']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3308,7 +3308,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='261472']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='261472']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"locus-specific database (LSDB)\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -3344,7 +3344,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2014-11-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3356,7 +3356,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3368,7 +3368,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3380,7 +3380,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='502692']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3452,7 +3452,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2013-09-18\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3464,7 +3464,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3476,7 +3476,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3488,7 +3488,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='189697']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3536,7 +3536,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -3560,7 +3560,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2016-04-06\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3572,7 +3572,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3584,7 +3584,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3596,7 +3596,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='962246']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3668,7 +3668,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2017-02-23\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3680,7 +3680,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3692,7 +3692,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3704,7 +3704,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1053852']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3788,7 +3788,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2014-01-31\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3800,7 +3800,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3812,7 +3812,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3824,7 +3824,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1139951']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3884,7 +3884,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2017-04-20\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -3896,7 +3896,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3908,7 +3908,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3920,7 +3920,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1140953']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -3992,7 +3992,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4004,7 +4004,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4016,7 +4016,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1414840']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4076,7 +4076,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2017-05-25\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -4088,7 +4088,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4100,7 +4100,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4112,7 +4112,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1637443']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4196,7 +4196,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2018-12-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -4208,7 +4208,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4220,7 +4220,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4232,7 +4232,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1803335']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4292,7 +4292,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2020-01-01\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -4304,7 +4304,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4316,7 +4316,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4328,7 +4328,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='574333']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4400,7 +4400,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"other\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -4424,7 +4424,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4436,7 +4436,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4448,7 +4448,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2825103']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4520,7 +4520,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2019-06-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -4532,7 +4532,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4544,7 +4544,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4556,7 +4556,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2866857']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4628,7 +4628,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2020-04-02\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -4640,7 +4640,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4652,7 +4652,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4664,7 +4664,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2939314']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4736,7 +4736,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4748,7 +4748,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4760,7 +4760,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1147690']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4820,7 +4820,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -4844,7 +4844,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4856,7 +4856,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4868,7 +4868,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3746095']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4928,7 +4928,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4940,7 +4940,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -4952,7 +4952,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3787028']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5012,7 +5012,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5024,7 +5024,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5036,7 +5036,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3840696']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5096,7 +5096,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2021-11-16\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5108,7 +5108,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5120,7 +5120,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5132,7 +5132,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3969545']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5228,7 +5228,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2021-12-10\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5240,7 +5240,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5252,7 +5252,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5264,7 +5264,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4962069']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5348,7 +5348,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2022-08-26\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5360,7 +5360,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5372,7 +5372,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5384,7 +5384,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5059065']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5444,7 +5444,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-10-02\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5456,7 +5456,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5468,7 +5468,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5480,7 +5480,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='624258']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5540,7 +5540,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -5564,7 +5564,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2022-12-09\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5576,7 +5576,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5588,7 +5588,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5600,7 +5600,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5405660']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5684,7 +5684,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2020-01-10\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5696,7 +5696,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5708,7 +5708,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5720,7 +5720,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='375742']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5792,7 +5792,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"clinic\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -5816,7 +5816,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2021-11-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -5828,7 +5828,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5840,7 +5840,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5852,7 +5852,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3925848']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5924,7 +5924,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5936,7 +5936,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -5948,7 +5948,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7680397']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6008,7 +6008,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2023-05-03\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6020,7 +6020,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6032,7 +6032,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6044,7 +6044,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='573854']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6140,7 +6140,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-05-27\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6152,7 +6152,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6164,7 +6164,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6176,7 +6176,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9794504']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6260,7 +6260,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-03-21\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6272,7 +6272,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6284,7 +6284,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6296,7 +6296,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7862521']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6368,7 +6368,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-07-29\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6380,7 +6380,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6392,7 +6392,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6404,7 +6404,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='9003482']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6512,7 +6512,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-04-22\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6524,7 +6524,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6536,7 +6536,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6548,7 +6548,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1749894']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6632,7 +6632,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-11-11\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6644,7 +6644,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6656,7 +6656,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6668,7 +6668,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11135132']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6752,7 +6752,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-06-09\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6764,7 +6764,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6776,7 +6776,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6788,7 +6788,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='1166402']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6872,7 +6872,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-05-13\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -6884,7 +6884,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6896,7 +6896,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -6908,7 +6908,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='418660']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7004,7 +7004,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2020-10-23\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7016,7 +7016,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7028,7 +7028,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7040,7 +7040,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='2858556']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7100,7 +7100,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3442444']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='3442444']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"patient registry\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -7136,7 +7136,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2022-05-13\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7148,7 +7148,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7160,7 +7160,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7172,7 +7172,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='5042605']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7244,7 +7244,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2023-10-16\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7256,7 +7256,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7268,7 +7268,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7280,7 +7280,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='7809867']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7364,7 +7364,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-02-16\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7376,7 +7376,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7388,7 +7388,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7400,7 +7400,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='11744268']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7484,7 +7484,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7496,7 +7496,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7508,7 +7508,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4119479']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7616,7 +7616,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7628,7 +7628,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7640,7 +7640,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4121493']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7724,7 +7724,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-09-25\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7736,7 +7736,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7748,7 +7748,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7760,7 +7760,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12185819']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7820,7 +7820,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/ClinVarAccession[@OrganizationCategory]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/ClinVarAccession/@OrganizationCategory" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "OrganizationCategory \"other\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician." ] ;
@@ -7844,7 +7844,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-09-28\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7856,7 +7856,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7868,7 +7868,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7880,7 +7880,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='12651425']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -7976,7 +7976,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2024-06-27\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -7988,7 +7988,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8000,7 +8000,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8012,7 +8012,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='13550609']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8108,7 +8108,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-12-29\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -8120,7 +8120,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8132,7 +8132,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8144,7 +8144,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='4992769']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8228,7 +8228,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160']/Classification[@DateLastEvaluated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2025-07-25\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
@@ -8240,7 +8240,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8252,7 +8252,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8264,7 +8264,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14398160']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8348,7 +8348,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753'][@SubmissionDate]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753']/@SubmissionDate" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8360,7 +8360,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753'][@DateCreated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753']/@DateCreated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
@@ -8372,7 +8372,7 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753'][@DateLastUpdated]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[@ID='14475753']/@DateLastUpdated" ]
     ]
   ] ;
   oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;

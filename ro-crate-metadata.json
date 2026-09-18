@@ -330,8 +330,8 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12441",
-      "sha256": "1d49a53363c206c3ce46d84671241e9c7c1ccd3343967107d1fdb755242d0797",
+      "contentSize": "12436",
+      "sha256": "687c7c4bec6727b513b1cb3908da5a8f05d4cb3bb61a4924b95c24035872a3d4",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -342,8 +342,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10328",
-      "sha256": "f8d227a2757bfc832c2c673d63d96fc831bda9849c4454d0e743a92588a8619e",
+      "contentSize": "10317",
+      "sha256": "8d07eb0649d6c22486bcba71aa96a64b7391e64075694f00377d4b5a865608d7",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -354,8 +354,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "14325",
-      "sha256": "89ca602bc51e500823a2697c0ef5ff5a09792124ccb6316708a94a8b43bcd169",
+      "contentSize": "14318",
+      "sha256": "18c5adc9ba089ab795e0c9b2ebe6a8df6eb0f7d1a2794809861a8776ea1cb68e",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -554,8 +554,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "662689",
-      "sha256": "3cbb057a176c8636ec796c65842ddb840ac1def5d10f17862db9df3b6b8e4829",
+      "contentSize": "662127",
+      "sha256": "c3d69848b237a32239f3912befa881eae761c7aec12781c99549e150834700a4",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -572,8 +572,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "425256",
-      "sha256": "87ca6876911e36b443e566224c8ff3788e930f5beed3b50ce3b413f39f303604",
+      "contentSize": "424838",
+      "sha256": "b5b03c83be1c78acee7117498c4bd76af04a9986a077220bd7af1d046ac22377",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -590,8 +590,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "48680",
-      "sha256": "ac8029d7adb9c07722f38a72b2976fad8407c1b98ef5cb96731dc5fb23589a43",
+      "contentSize": "48598",
+      "sha256": "7e044051fb5467fef5635ed6d9953f94d4bb2ed6bcd28525883035fdcaf0505b",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -608,8 +608,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "10524",
-      "sha256": "7154d7f8e6085ff178a124b3dbf5bd92d7e51f0fd31622e532e09a36e388326b",
+      "contentSize": "10507",
+      "sha256": "e50a91d2fc11ea14d73ea31faa46d9e85ebfbc369d92bc1fc7a6ce9474903586",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },

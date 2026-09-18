@@ -170,8 +170,8 @@ WHERE {
             FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
     ?agg ?countProp ?countValue .
     FILTER(?countProp IN (xyz:NumberOfSubmissions, xyz:NumberOfSubmitters) && STRLEN(?countValue) > 0)
-    BIND(CONCAT("/Classifications/GermlineClassification[1][@",
-                STRAFTER(STR(?countProp), "http://sparql.xyz/facade-x/data/"), "]") AS ?sfT)
+    BIND(CONCAT("/Classifications/GermlineClassification[1]/@",
+                STRAFTER(STR(?countProp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
     BIND("Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." AS ?reason)
     BIND(sh:Info AS ?severity)
   }
