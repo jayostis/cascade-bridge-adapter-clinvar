@@ -24,7 +24,7 @@ the layout itself in the README. Do not re-derive them.
 - **No copy of the specification.** The `bridge:` vocabulary and its SHACL shapes
   live in `cascade-bridge-spec`. To change one, change it there.
 - **No Cascade terms are minted here.** A value with no Cascade term goes in the
-  adapter's own namespace (`vocab/`) or in the findings sidecar.
+  adapter's own namespace (`vocab/`) or is reported as a finding.
 
 ## Before pushing
 
