@@ -28,9 +28,8 @@ WHERE {
   FILTER(?recType = xyz:ClassifiedRecord ||
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
   { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
-  ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
-  OPTIONAL { ?rcv xyz:Accession ?acc0 }
-  BIND(COALESCE(?acc0, "<no-rcv>") AS ?rcvAcc)
+  ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession ; xyz:Accession ?rcvAcc .
+  FILTER(STRLEN(?rcvAcc) > 0)
 
   OPTIONAL {
     ?rcv ?f1 ?frc . ?frc a xyz:RCVClassifications ; ?f2 ?gc . ?gc a xyz:GermlineClassification .
