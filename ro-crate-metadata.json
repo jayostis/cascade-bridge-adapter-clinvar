@@ -342,8 +342,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10434",
-      "sha256": "9c47fc44bd737185f755b34ab74b8d7d2d138d42a858b2fc0ccd013ef56f49d3",
+      "contentSize": "11454",
+      "sha256": "65da14c0c78cff2fe53d67b3aa68c398f2b0976bfc1add78bdb3cf6d3b35ac6a",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
