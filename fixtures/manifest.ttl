@@ -44,7 +44,7 @@
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000007105-CFTR-deltaF508.ttl> ;
-    bridge:expectedFindings <findings/VCV000007105-CFTR-deltaF508.gaps.json>
+    bridge:expectedFindings <findings/VCV000007105-CFTR-deltaF508.gaps.ttl>
   ] .
 
 <#VCV000017661-BRCA1> a bridge:IsomorphicConversionTest ;
@@ -56,7 +56,7 @@
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000017661-BRCA1.ttl> ;
-    bridge:expectedFindings <findings/VCV000017661-BRCA1.gaps.json>
+    bridge:expectedFindings <findings/VCV000017661-BRCA1.gaps.ttl>
   ] .
 
 <#VCV000055448-BRCA2-pathogenic> a bridge:IsomorphicConversionTest ;
@@ -68,7 +68,7 @@
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000055448-BRCA2-pathogenic.ttl> ;
-    bridge:expectedFindings <findings/VCV000055448-BRCA2-pathogenic.gaps.json>
+    bridge:expectedFindings <findings/VCV000055448-BRCA2-pathogenic.gaps.ttl>
   ] .
 
 <#VCV000208804-MLH1-LynchSyndrome> a bridge:IsomorphicConversionTest ;
@@ -80,7 +80,7 @@
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000208804-MLH1-LynchSyndrome.ttl> ;
-    bridge:expectedFindings <findings/VCV000208804-MLH1-LynchSyndrome.gaps.json>
+    bridge:expectedFindings <findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl>
   ] .
 
 # NCBI's official sample: the one input whose provenance is unimpeachable.

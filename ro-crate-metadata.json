@@ -36,7 +36,7 @@
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
       "version": "0.3.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte and four expected files corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte, four expected files corrected where the converter that produced them was wrong, and four findings files translated from its JSON sidecars into Web Annotations; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -163,16 +163,16 @@
           "@id": "fixtures/expected/VCV000208804-MLH1-LynchSyndrome.ttl"
         },
         {
-          "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.json"
+          "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl"
         },
         {
-          "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.json"
+          "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl"
         },
         {
-          "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.json"
+          "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl"
         },
         {
-          "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.json"
+          "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl"
         },
         {
           "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarVCVRelease_2026-09.xml.gz"
@@ -330,36 +330,36 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10202",
-      "sha256": "e3084d713cba5256c178cb6105988de663ee403128ed11fe8e1e3cb3ca2ca8fb",
+      "contentSize": "12516",
+      "sha256": "c924a86ca39f1380eded71161ee3e90033407742cee33f3bc810d811fed3ab28",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The findings whose context is the VCV accession: what the Variant record carries that has no Cascade term."
+      "description": "What the Variant record carries that has no Cascade term, as Web Annotations on the SimpleAllele, the aggregate Classifications block and the TraitMappingList."
     },
     {
       "@id": "in/sparql/interpretation-findings.rq",
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10052",
-      "sha256": "6629a5e9349a1a5ac39644871a193324a7a882309210960e6b17bfb52d2bf056",
+      "contentSize": "10434",
+      "sha256": "9c47fc44bd737185f755b34ab74b8d7d2d138d42a858b2fc0ccd013ef56f49d3",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The findings whose context is an RCV accession, including why an RCV yields no interpretation."
+      "description": "Web Annotations on each RCVAccession and the conditions under it, including why an RCV yields no interpretation."
     },
     {
       "@id": "in/sparql/assertion-findings.rq",
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12350",
-      "sha256": "4dd407d6f2b83d8819bdd7f2864286aaed16acfc0ebb30edac73db4a9389856b",
+      "contentSize": "14727",
+      "sha256": "a591d46279cc82cd6a9a242a24a66d3ee489405c4bfa34f978be98dd6f3f8f6c",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The findings whose context is an SCV accession, including why an assertion yields no record."
+      "description": "Web Annotations on each ClinicalAssertion and what hangs off it, including why an assertion yields no record."
     },
     {
       "@id": "fixtures/manifest.ttl",
@@ -550,12 +550,12 @@
       "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and copied byte for byte from 0ea48bb. 42 triples, 3 IRI subjects named urn:uuid: by the converter."
     },
     {
-      "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.json",
+      "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000007105",
-      "encodingFormat": "application/json",
-      "contentSize": "278911",
-      "sha256": "68edeebaa0103f38fc559f72e811800dca59f8d82a5719efee7933682bc2ba30",
+      "encodingFormat": "text/turtle",
+      "contentSize": "691732",
+      "sha256": "087c7348dabc4ffcde1601ef23b741afcc16332294b463327e8eb8af14a81bf0",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -565,15 +565,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 822 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 732 entries are kept, with 90 the converter never wrote: 9 for the seven SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 81 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 1,061 Web Annotations; 13 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 822 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 732 are the converter's and 90 are not: 9 for the seven SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 81 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 92 to 276, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 126 to 179, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
-      "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.json",
+      "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
-      "encodingFormat": "application/json",
-      "contentSize": "186320",
-      "sha256": "e81d1887ab0563132a4f016785c23e4dc6f9619b075cf5d17ec513962af36233",
+      "encodingFormat": "text/turtle",
+      "contentSize": "444332",
+      "sha256": "bf72d6f0362640850bc6819de27ff9a1fb440ee2be432cb0b282e55e56a042bd",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -583,15 +583,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 558 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 502 entries are kept, with 56 the converter never wrote: 5 for the three SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 51 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 702 Web Annotations; 3 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 558 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 502 are the converter's and 56 are not: 5 for the three SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 51 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 69 to 207, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 70 to 74, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
-      "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.json",
+      "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
-      "encodingFormat": "application/json",
-      "contentSize": "21663",
-      "sha256": "bca27231696f7735b57c6704b7104fa7382c8483208030967ccfcf65798f96ed",
+      "encodingFormat": "text/turtle",
+      "contentSize": "50371",
+      "sha256": "4a329a0f225b8522040a537a91e6d3ab8910fee3ec48a44f4884e0d0a991bc76",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -601,25 +601,25 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 64 entries of {sourceField, reason, severity, context}. Taken from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06), whose 58 entries are kept, with 6 the converter never wrote: 1 for the one SubmitterAssertion it skips, which it recorded and then discarded with the skipped record, and 5 AssertionMethod findings, which it read as one element where its XML parser always yields an array. The file is in the order cascade-cli's authoring script used, ICU collation on (sourceField, severity, reason), with each added entry where that order puts it; the order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 78 Web Annotations, all sh:Info. Translated from the conformance sidecar's 64 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 58 are the converter's and 6 are not: 1 for the one SubmitterAssertion it skips, which it recorded and then discarded with the skipped record, and 5 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Three sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 6 to 18, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
-      "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.json",
+      "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000208804",
-      "encodingFormat": "application/json",
-      "contentSize": "4812",
-      "sha256": "9854c350374d50adf97e9e97e3256e6c3f1aac4b8f765b416b45821fbe906807",
+      "encodingFormat": "text/turtle",
+      "contentSize": "10750",
+      "sha256": "9bceeb407eadc2a85b9db885a38561c717489c3531303209a92ad92279b8ab15",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000208804-MLH1-LynchSyndrome.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The vocabulary-gap sidecar the input produces: 14 entries of {sourceField, reason, severity, context}. The file is in the order cascade-cli's authoring script left it, ICU collation on (sourceField, severity, reason); that order is incidental, because fixtures/manifest.ttl compares findings as a multiset, not entry for entry. Copied byte for byte from the conformance repository at 0ea48bb (last changed at 8a5e203, 2026-05-06). Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 17 Web Annotations, all sh:Info. Translated from the conformance sidecar's 14 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), every one of them the converter's. Two sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 1 to 3, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
     },
     {
       "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarVCVRelease_2026-09.xml.gz",
@@ -691,7 +691,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged and four expected files are corrected in this crate. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:cascadeVocabularyPin)."
+      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged, four expected files are corrected in this crate and the four gaps sidecars are translated into Web Annotations here. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:cascadeVocabularyPin)."
     },
     {
       "@id": "https://spdx.org/licenses/Apache-2.0",

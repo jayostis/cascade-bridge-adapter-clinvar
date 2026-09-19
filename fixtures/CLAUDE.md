@@ -12,10 +12,12 @@ change updates the crate's digest, size and description in the same commit.
 
 The four oracle triplets come from `../conformance`, `fixtures/genomics/clinvar/`
 at the commit the crate names: `X.input.xml` becomes `in/X.xml`,
-`X.expected.ttl` becomes `expected/X.ttl`, and `X.gaps.json` keeps its suffix as
-`findings/X.gaps.json`. An input stays a byte-for-byte copy. An expected file
-is corrected here where the converter that produced it was wrong; its crate
-entity then says `isBasedOn` rather than `sameAs`, and names each correction.
+`X.expected.ttl` becomes `expected/X.ttl`, and `X.gaps.json` becomes
+`findings/X.gaps.ttl`, keeping `gaps` so the copy stays traceable to the file it
+came from. An input stays a byte-for-byte copy. An expected file is corrected
+here where the converter that produced it was wrong, and a findings file is
+translated into Web Annotations; its crate entity then says `isBasedOn` rather
+than `sameAs`, and names each change.
 
 Two of the four file names do not describe the record inside; the per-entry
 `rdfs:comment` in `manifest.ttl` says which. The names are the conformance
