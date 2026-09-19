@@ -15,8 +15,8 @@
     // (stardog-union.stardog-rdf-grammars is the grammar-only alternative.)
     "faubulous.mentor",
     // EditorConfig: without it VS Code ignores .editorconfig, and its
-    // path-scoped rules are what keep the digested files under fixtures/
-    // and the pinned XSD untouched on save (see settings.json).
+    // path-scoped rules are what keep the digested files untouched on save
+    // (see settings.json).
     "EditorConfig.EditorConfig"
   ]
 }

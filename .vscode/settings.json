@@ -21,14 +21,18 @@
   "files.trimTrailingWhitespace": true,
   // Digested files (see .editorconfig): no save-time rewriting. A language
   // override reaches every file in that language, so only languages whose
-  // files are digested (or nearly all are) get one. Every digested file is XML
-  // or Turtle, so the two overrides below reach all of them, and the crate,
-  // which is JSON and carries no digest, keeps the defaults above.
+  // files are digested (or nearly all are) get one. Every digested file is XML,
+  // Turtle or SPARQL, so the three overrides below reach all of them, and the
+  // crate, which is JSON and carries no digest, keeps the defaults above.
   "[xml]": {
     "files.insertFinalNewline": false,
     "files.trimTrailingWhitespace": false
   },
   "[turtle]": {
+    "files.insertFinalNewline": false,
+    "files.trimTrailingWhitespace": false
+  },
+  "[sparql]": {
     "files.insertFinalNewline": false,
     "files.trimTrailingWhitespace": false
   }
