@@ -17,7 +17,8 @@
       "bridge:testManifest": "bridge:testManifest",
       "bridge:docRootElementName": "bridge:docRootElementName",
       "bridge:documentSchema": "bridge:documentSchema",
-      "bridge:gapScheme": "bridge:gapScheme"
+      "bridge:gapScheme": "bridge:gapScheme",
+      "bridge:sourceAccounting": "bridge:sourceAccounting"
     }
   ],
   "@graph": [
@@ -36,8 +37,8 @@
       "@type": ["Dataset", "bridge:Adapter"],
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
-      "version": "0.4.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte, four expected files corrected where the converter that produced them was wrong, and four findings files translated from its JSON sidecars into Web Annotations, each finding's body the gap of bridge:gapScheme that the sidecar's sentence named; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
+      "version": "0.5.0",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from, the accounting of every path its source carries and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte, four expected files corrected where the converter that produced them was wrong, and four findings files translated from its JSON sidecars into Web Annotations, each finding's body the gap of bridge:gapScheme that the sidecar's sentence named; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -105,6 +106,9 @@
       "bridge:gapScheme": {
         "@id": "vocab/clinvar-gaps.ttl"
       },
+      "bridge:sourceAccounting": {
+        "@id": "vocab/clinvar-accounting.ttl"
+      },
       "bridge:testManifest": {
         "@id": "fixtures/manifest.ttl"
       },
@@ -138,6 +142,9 @@
         },
         {
           "@id": "vocab/clinvar-gaps.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-accounting.ttl"
         },
         {
           "@id": "fixtures/manifest.ttl"
@@ -376,12 +383,24 @@
       "@type": "File",
       "name": "ClinVar VCV gaps",
       "encodingFormat": "text/turtle",
-      "contentSize": "11798",
-      "sha256": "edff1705f4cb028825ef23153a0e6a021c92b94747dcc9f93803a4316f2b7c67",
+      "contentSize": "16862",
+      "sha256": "517d9281f7967f27af043213e4898749c133150cdd3c2e9b767ba12067fb1d92",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
       "description": "The scheme every finding this adapter reports takes its body from: one skos:Concept per gap, in this adapter's own namespace (https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#), each under one of the five bridge:gapKinds the Cascade Bridge Specification declares and naming at most one Cascade term that would close it."
+    },
+    {
+      "@id": "vocab/clinvar-accounting.ttl",
+      "@type": "File",
+      "name": "ClinVar VCV source accounting",
+      "encodingFormat": "text/turtle",
+      "contentSize": "100574",
+      "sha256": "674430b01321ae4b3cc1d9977b1cb17eb08e7063392573bf18d5e04987981ab1",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "What this adapter does with each path of its source: one bridge:PathEntry per distinct element and attribute path of the four judged inputs, 412 of them, each with exactly one of the six bridge:verdicts and whatever that verdict names. A path is written from the record element, VariationArchive, so it is the same under both envelopes; the record element's own path carries no entry and its attributes do. The paths were enumerated with lxml over fixtures/in/'s four judged inputs on 2026-09-20. Each verdict is a claim read against in/sparql/, and not one the lint can settle: the lint tests only that a path claiming carriage has its last step named somewhere in a mapping file. Paths that only clinvar-vcv-release-2026-09 or fixtures/in/VCV_XML_VCV000091629.xml carry are not in it."
     },
     {
       "@id": "fixtures/manifest.ttl",
@@ -713,7 +732,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "What a gap is and is not, how a label is written, and what changes with it when a gap is added, removed or renamed."
+      "description": "What a gap is and is not, how a label is written, what changes with it when a gap is added, removed or renamed, and how a path of the source gets its verdict."
     },
     {
       "@id": "https://github.com/jayostis/conformance/tree/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar",

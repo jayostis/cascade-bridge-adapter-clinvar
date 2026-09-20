@@ -12,6 +12,21 @@ clinvar:aggregateClassificationCitation a skos:Concept ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:supportingEvidence .
 
+clinvar:aggregateClassificationDescription a skos:Concept ;
+  skos:prefLabel "An aggregate germline classification carries ClinVar's roll-up of every submitted classification, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:aggregateClassificationEvaluationDate a skos:Concept ;
+  skos:prefLabel "An aggregate germline classification carries the date ClinVar last evaluated its roll-up, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:aggregateClassificationReviewStatus a skos:Concept ;
+  skos:prefLabel "An aggregate germline classification carries its review status, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
 clinvar:aggregateNumberOfSubmissions a skos:Concept ;
   skos:prefLabel "An aggregate germline classification carries the number of submissions it aggregates, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
@@ -22,6 +37,16 @@ clinvar:aggregateNumberOfSubmitters a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:numberOfSubmitters .
+
+clinvar:alleleIdentifier a skos:Concept ;
+  skos:prefLabel "A simple allele carries ClinVar's allele identifier, which is not the variation identifier the record is named by, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:assertionAdditionalSubmitter a skos:Concept ;
+  skos:prefLabel "A clinical assertion carries the organizations that submitted it beside the one its accession names, and no Cascade predicate carries them."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:assertionClassificationOutsideAcmgSet a skos:Concept ;
   skos:prefLabel "A clinical assertion's germline classification is outside the five ACMG classification values, and no submitter assertion is carried for it."@en ;
@@ -55,6 +80,11 @@ clinvar:assertionMethodCriteria a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:assertionMethod .
+
+clinvar:assertionMultipleConditionExplanation a skos:Concept ;
+  skos:prefLabel "A clinical assertion explains why several conditions were submitted together, and no Cascade predicate carries the explanation."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:assertionNonGermlineClassification a skos:Concept ;
   skos:prefLabel "A clinical assertion classifies somatic clinical impact or oncogenicity rather than germline significance, and no Cascade predicate carries either."@en ;
@@ -103,16 +133,46 @@ clinvar:assertionWithoutTraitMapping a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:carriedWithLoss .
 
+clinvar:conditionDescriptiveMaterial a skos:Concept ;
+  skos:prefLabel "A classified condition carries its names, its abbreviations and its descriptive attributes, and no Cascade predicate carries any of them."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:conditionExternalCrossReference a skos:Concept ;
+  skos:prefLabel "A classified condition carries cross-references to databases beyond the MONDO and MedGen identifiers it is named by, and no Cascade predicate carries them."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:conditionKind a skos:Concept ;
+  skos:prefLabel "A classified condition carries the kind of trait it is, and no Cascade predicate carries the distinction."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
 clinvar:conditionWithoutStandardIdentifier a skos:Concept ;
   skos:prefLabel "A classified condition resolves to no MONDO and no MedGen identifier, and is carried under an identifier minted for it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:carriedWithLoss .
+
+clinvar:geneExternalCrossReference a skos:Concept ;
+  skos:prefLabel "A gene carries a cross-reference to an external database, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:geneFullName a skos:Concept ;
+  skos:prefLabel "A gene carries its descriptive full name, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:geneHaploinsufficiency a skos:Concept ;
   skos:prefLabel "A gene carries a ClinGen haploinsufficiency rating, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:haploinsufficiency .
+
+clinvar:geneLocation a skos:Concept ;
+  skos:prefLabel "A gene carries its own span on an assembly and its cytogenetic band, and no Cascade predicate carries either."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:genePropertyTag a skos:Concept ;
   skos:prefLabel "A gene carries a property tag such as membership of an ACMG actionability list, and no Cascade predicate carries it."@en ;
@@ -124,6 +184,11 @@ clinvar:geneTriplosensitivity a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:triplosensitivity .
+
+clinvar:geneVariationRelationship a skos:Concept ;
+  skos:prefLabel "A gene carries how the variation it is listed for sits in it, and no Cascade predicate carries the relation."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:haplotypeOrGenotypeRecordOnly a skos:Concept ;
   skos:prefLabel "A record carries haplotype or genotype variation and no simple allele, and no Cascade class carries it."@en ;
@@ -214,10 +279,25 @@ clinvar:simpleAlleleWithoutGene a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:sourceLacksRequired .
 
+clinvar:submittedExonLocation a skos:Concept ;
+  skos:prefLabel "A clinical assertion places the variation in an exon of a transcript, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:submittedTraitRelationship a skos:Concept ;
+  skos:prefLabel "A submitted trait carries another condition ClinVar relates it to, and no Cascade predicate carries the relation."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:traitIdentifier a skos:Concept ;
+  skos:prefLabel "A trait carries ClinVar's own trait identifier, which is neither the MONDO nor the MedGen identifier a condition is named by, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
 clinvar:traitMappingEvidence a skos:Concept ;
   skos:prefLabel "A trait mapping's type and value are read while conditions are aligned, and are not carried onto the graph."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:carriedWithLoss .
+  skos:broader bridge:noPredicate .
 
 clinvar:variantAliasName a skos:Concept ;
   skos:prefLabel "A simple allele carries legacy and alias variant names, and no Cascade predicate carries them."@en ;
@@ -225,12 +305,27 @@ clinvar:variantAliasName a skos:Concept ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:variantAlias .
 
+clinvar:variantCytogeneticLocation a skos:Concept ;
+  skos:prefLabel "A simple allele carries the cytogenetic band the variation lies in, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
 clinvar:variantExternalCrossReference a skos:Concept ;
   skos:prefLabel "A simple allele carries a cross-reference to an external database, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate .
 
+clinvar:variantSequenceAccession a skos:Concept ;
+  skos:prefLabel "A sequence location carries the accession and version of the sequence its coordinates are on, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
 clinvar:variantTypeTerm a skos:Concept ;
   skos:prefLabel "A simple allele carries the structural kind of the variant, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:variantVcfPosition a skos:Concept ;
+  skos:prefLabel "A sequence location carries the variation's start in VCF's anchor-base convention, and no Cascade predicate carries it though the VCF alleles it anchors are carried."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate .
