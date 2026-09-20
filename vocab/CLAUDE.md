@@ -26,10 +26,18 @@ A body a findings query constructs is a gap of this scheme, and outside it is
 red. So a findings query, the four `fixtures/findings/*.gaps.ttl` and
 `ro-crate-metadata.json` change in the same commit.
 
-A gap no findings query constructs is **not** red. `clinvar-accounting.ttl`
-opens a gap by naming it from a `bridge:noHome` or `bridge:carriedInPart`
-entry, and that entry is the report; no rule need fire for the gap to be real. A
+A gap no findings query constructs is **not** red. An entry of
+`clinvar-accounting.ttl` that names a gap **reports** it, once per distinct path
+per record, where the gap's kind is `bridge:noPredicate`,
+`bridge:sourceLacksRequired` or `bridge:carriedWithLoss`; a
+`bridge:valueNotMapped` gap is true of one value at the path rather than of the
+path, so only a query can report it. Retiring a query whose gap an entry names
+therefore silences nothing, and a rule that writes what its entry writes goes. A
 gap nothing names at all — no query, no entry — is dead, and goes.
+
+A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`:
+severity belongs to the kind of problem, and an entry has no query in which to
+write one.
 
 ## A verdict on a path is read, never inferred from its name
 
