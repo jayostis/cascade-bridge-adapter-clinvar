@@ -1245,8 +1245,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@variantLength" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "The span's length in bases, which is the stop less the start the graph carries, plus one; a number derived from two paths rather than a fact either of them states." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Name" ;
@@ -1823,8 +1823,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Chr" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "The RefSeq accession and version of the chromosome the coordinates are on; the graph names a location by assembly, chromosome and position, and never by the sequence record behind them." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" ;
@@ -1837,8 +1837,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@AssemblyStatus" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "Whether ClinVar currently prefers this assembly; a fact about the release rather than about where the variation is, and not how the mapping picks a location." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Chr" ;
@@ -1881,8 +1881,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@variantLength" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "The span's length in bases, which is the stop less the start the graph carries, plus one; a number derived from two paths rather than a fact either of them states." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Name" ;
