@@ -1,0 +1,1980 @@
+@prefix bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
+@prefix clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@Accession" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@DateCreated" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "When ClinVar first built the aggregate record, which dates the record rather than the variation." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@DateLastUpdated" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "When ClinVar last rebuilt the aggregate record, which dates the record rather than the variation." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@MostRecentSubmission" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's own release bookkeeping, not a fact about the variation." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@NumberOfSubmissions" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateNumberOfSubmissions .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@NumberOfSubmitters" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateNumberOfSubmitters .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@RecordType" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@VariationID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@VariationName" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@VariationType" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/@Version" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A counter ClinVar bumps on any change to the record, with no meaning outside ClinVar's own versioning." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateCreated" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "When ClinVar first built the aggregate roll-up, which dates the roll-up rather than any classification in it." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateLastEvaluated" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The date of ClinVar's roll-up across submissions; the graph carries each RCV's own evaluation date instead." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@MostRecentSubmission" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's own release bookkeeping, not a fact about the classification." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmissions" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateNumberOfSubmissions .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmitters" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateNumberOfSubmitters .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/@Abbrev" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@ContributesToAggregateClassification" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Which trait sets ClinVar folded into the roll-up; the graph carries each RCV on its own and folds nothing." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@ID" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's kind of trait set; the graph makes no distinction between kinds of condition." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@ID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's internal number for the trait; the graph names a condition by its MONDO or MedGen identifier." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's kind of trait; the graph makes no distinction between kinds of condition." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@integerValue" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Where the condition's definition text came from; the graph carries neither the text nor its source." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@DB" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Where the condition's definition text came from; the graph carries neither the text nor its source." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@ID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The identifier of the condition's definition text at its source; the graph carries neither." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/@Abbrev" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/CitationText" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The condition's display name; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Which of a condition's names ClinVar prefers; the graph carries none of them." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@DB" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@ID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "How a cross-reference stands to the name it hangs on; the graph carries the identifier alone." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The condition's abbreviation; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The condition's abbreviation; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Which of a condition's abbreviations ClinVar prefers; the graph carries none of them." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Where the condition's abbreviation came from; the graph carries neither the abbreviation nor its source." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@DB" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Where the condition's abbreviation came from; the graph carries neither the abbreviation nor its source." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@ID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The identifier of the condition's abbreviation at its source; the graph carries neither." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "How a cross-reference stands to the abbreviation it hangs on; the graph carries neither." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@DB" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@ID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "How a cross-reference stands to the trait it hangs on; the graph carries the identifier alone." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Description" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's roll-up of the submitted classifications; the graph carries each RCV's classification, from which the roll-up is ClinVar's own summary." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ReviewStatus" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's roll-up of the submitted review statuses; the graph carries each RCV's review status instead." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@ContributesToAggregateClassification" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateCreated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionDateCreated .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionDateLastUpdated .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@ID" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@SubmissionDate" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSubmissionDate .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@OrgID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@OrganizationCategory" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@SubmitterName" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Assertion" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Every assertion a VCV carries relates a variation to a condition, which the shape of a submitter assertion already states." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionMethodCriteria .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Attribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionMethodCriteria .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Attribute/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionMethodCriteria .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/@Abbrev" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/CitationText" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AttributeSet/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation/@Abbrev" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/@DateLastEvaluated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionEvaluationDate .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Citation/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/Comment/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ExplanationOfClassification" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/GermlineClassification" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/NoClassification" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter marked the submission evidence-only, so there is no classification to carry." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ReviewStatus" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionReviewStatus .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@Accession" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@DateCreated" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateCreated" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@DateUpdated" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@OrgAbbreviation" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@SubmitterName" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@OrgID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@OrganizationCategory" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@SubmitterName" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Which ClinVar accession series this is, and it is SCV for every clinical assertion." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@Version" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A counter ClinVar bumps on any change to the submission, with no meaning outside ClinVar's own versioning." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@localKey" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@localKeyIsSubmitted" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@submittedAssembly" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@title" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Comment/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Citation/CitationText" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Citation/URL" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet/ClinicalSignificance" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet/ClinicalSignificance/Description" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet/ClinicalSignificance/ReviewStatus" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet/Name" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/AlleleDescSet/Zygosity" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/Count" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Co-occurrenceSet/Zygosity" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Comment/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/FunctionalConsequence" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/FunctionalConsequence/@Id" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/FunctionalConsequence/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/FunctionalConsequenceComment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/FunctionalEffect" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/FunctionalData/Result" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/AssayType" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/Description" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodAttribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodAttribute/Attribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodAttribute/Attribute/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodType" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MolecularPhenotypeMeasured" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/NamePlatform" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute/Attribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute/Attribute/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute/Attribute/@dateValue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute/Attribute/@integerValue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ObsMethodAttribute/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/Purpose" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/ResultType" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/TypePlatform" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observationMethodType .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute/@integerValue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionSupportingCitation .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@DB" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/AffectedStatus" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:sampleAffectedStatus .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Age" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Age/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Age/@age_unit" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/CellLine" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Ethnicity" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/FamilyData" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/FamilyData/@NumFamiliesWithSegregationObserved" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/FamilyData/@NumFamiliesWithVariant" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/FamilyData/@PedigreeID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/FamilyData/FamilyHistory" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/GeographicOrigin" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/Trait" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/Trait/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/Trait/Name" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/Trait/Name/ElementValue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Indication/Trait/Name/ElementValue/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/NumberTested" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Origin" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Sex" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Species" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/Species" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Species/@TaxonomyId" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Species" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/Tissue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/@DateLastEvaluated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Comment/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/@ClinicalFeaturesAffectedStatus" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/Name" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/Name/ElementValue" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/Name/ElementValue/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/XRef" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/XRef/@DB" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/TraitSet/Trait/XRef/@ID" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:observedDataEvidence .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/RecordStatus" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionRecordStatus .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "An accession this submission absorbed; ClinVar's history of its own records, which the current record replaces." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "An accession this submission absorbed; ClinVar's history of its own records, which the current record replaces." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced/@Accession" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "An accession this submission absorbed; ClinVar's history of its own records, which the current record replaces." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced/@DateChanged" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "An accession this submission absorbed; ClinVar's history of its own records, which the current record replaces." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced/@Version" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "An accession this submission absorbed; ClinVar's history of its own records, which the current record replaces." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced/Comment" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ReplacedList/Replaced/Comment/@Type" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionComment .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/AttributeSet" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/AttributeSet/Attribute" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/AttributeSet/Attribute/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/@Symbol" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Symbol" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/Name" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/XRef" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/XRef/@DB" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/XRef/@ID" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/GeneLocation" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The exon the submitter placed the variation in; the graph carries the genomic coordinates and the HGVS expressions, from which the exon is a property of the transcript." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@Assembly" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@Chr" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Chr" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@Strand" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@alternateAllele" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@alternateAlleleVCF" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@referenceAllele" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@referenceAlleleVCF" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@start" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@start" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@stop" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@variantLength" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Name" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Name" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/OtherNameList" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/OtherNameList/Name" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/OtherNameList/Name/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/ProteinChange" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/ProteinChange" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/VariantType" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/XRefList" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/XRefList/XRef" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/XRefList/XRef/@DB" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@DB" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/XRefList/XRef/@ID" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/XRefList/XRef/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/StudyDescription" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionStudyDescription .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/StudyName" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionStudyDescription .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SubmissionNameList" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "NCBI's identifier for the batch the submission arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SubmissionNameList/SubmissionName" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "NCBI's identifier for the batch the submission arrived in, which means something only inside ClinVar's submission system." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/@multipleConditionExplanation" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Why a submitter named several conditions at once; the graph carries one interpretation per condition and no account of the grouping." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name/ElementValue" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name/ElementValue/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name/ElementValue" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name/ElementValue/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@DB" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@ID" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@Type" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList/SCV" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList/SCV/Accession" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList/SCV/Accession/@DateDeleted" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList/SCV/Accession/@Version" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList/SCV/Description" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A submission withdrawn from ClinVar: it contributes nothing to the record's current content, and the graph is of the current content." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/@Accession" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/@Title" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/@VariationName" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/@Version" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "A counter ClinVar bumps on any change to the RCV, with no meaning outside ClinVar's own versioning." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/@TraitSetID" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition/@DB" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition/@ID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@DateLastEvaluated" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:rcvSubmissionCount .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/ReviewStatus" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/@AlleleID" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar's number for the allele inside the record; the graph carries the variation identifier the whole record is named by." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/@VariationID" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/@VariationID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/AlleleFrequencyList" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/AlleleFrequencyList/AlleleFrequency" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/AlleleFrequencyList/AlleleFrequency/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/AlleleFrequencyList/AlleleFrequency/@Value" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/CanonicalSPDI" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's descriptive name; the graph names a gene by its symbol and its HGNC identifier." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@HGNC_ID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@HGNC_ID" ;
+  bridge:verdict bridge:carriedInPart ;
+  bridge:namesGap clinvar:multipleGenesOnlyFirstCarried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@RelationshipType" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "How the variation sits inside or across the gene; the graph states which gene, not the containment." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Source" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "Whether ClinVar was told the gene or computed it: provenance of the association rather than the association." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Symbol" ;
+  bridge:verdict bridge:carriedInPart ;
+  bridge:namesGap clinvar:multipleGenesOnlyFirstCarried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Haploinsufficiency" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneHaploinsufficiency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Haploinsufficiency/@ClinGen" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneHaploinsufficiency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Haploinsufficiency/@last_evaluated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneHaploinsufficiency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/CytogeneticLocation" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Accession" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyAccessionVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyStatus" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Chr" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Strand" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@display_start" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@display_stop" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/OMIM" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "OMIM's number for the gene; the graph names a gene by its symbol and its HGNC identifier." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Property" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:genePropertyTag .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Triplosensitivity" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneTriplosensitivity .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Triplosensitivity/@ClinGen" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneTriplosensitivity .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Triplosensitivity/@last_evaluated" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneTriplosensitivity .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GlobalMinorAlleleFrequency" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GlobalMinorAlleleFrequency/@MinorAllele" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GlobalMinorAlleleFrequency/@Source" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GlobalMinorAlleleFrequency/@Value" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:populationAlleleFrequency .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/@Assembly" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/@Type" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/MolecularConsequence" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/MolecularConsequence/@DB" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/MolecularConsequence/@ID" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/MolecularConsequence/@ID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/MolecularConsequence/@Type" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@Assembly" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@MANESelect" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@change" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@sequenceAccession" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@sequenceAccessionVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/@sequenceVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/NucleotideExpression/Expression" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/@change" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/@sequenceAccession" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/@sequenceAccessionVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/@sequenceVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/@singleLetterProteinChange" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/CytogeneticLocation" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The chromosome band, which locates the variation more coarsely than the coordinates the graph already carries." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Chr" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@AssemblyAccessionVersion" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@AssemblyStatus" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Chr" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@alternateAlleleVCF" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@display_start" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@start" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@display_stop" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@forDisplay" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@start" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@referenceAlleleVCF" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@start" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@variantLength" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@stop" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Name" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/@VariationName" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantAliasName .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantAliasName .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/ProteinChange" ;
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/HGVSlist/HGVS/ProteinExpression/Expression" .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantTypeTerm .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@DB" ;
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantExternalCrossReference .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" ;
+  bridge:verdict bridge:carried .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "How a cross-reference stands to the record it hangs on; the graph carries the identifier alone." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@ClinicalAssertionID" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingRef" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingType" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingValue" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@TraitType" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen/@CUI" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen/@Name" ;
+  bridge:verdict bridge:consumed .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/RecordStatus" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "The aggregate record's lifecycle flag; a record that is not current is not published in a release, so every record a Bridge sees says the same thing." .
+
+[] a bridge:PathEntry ;
+  bridge:sourcePath "/VariationArchive/Species" ;
+  bridge:verdict bridge:ignored ;
+  bridge:because "ClinVar VCV holds human variation only, so this states the scope of the source rather than anything about the record." .

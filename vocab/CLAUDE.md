@@ -24,3 +24,17 @@ only place a findings query may take a body from.
 The three `in/sparql/*-findings.rq`, the four `fixtures/findings/*.gaps.ttl` and
 `ro-crate-metadata.json` change in the same commit: a body outside this scheme
 and a gap no query constructs are both red.
+
+## A verdict on a path is read, never inferred from its name
+
+`clinvar-accounting.ttl` is the file the crate names as `bridge:sourceAccounting`:
+one `bridge:PathEntry` for each element and attribute path the four judged inputs
+carry, written from the record element so that it holds under both envelopes.
+
+- The same leaf name is carried under one parent and ignored under another, so a
+  verdict is settled against `../in/sparql/`, not against the name.
+- Several entries may name one gap: a gap is a kind of problem, and the paths
+  that open it are as many as the source has.
+- A gap no entry names is a rule about an absence, a construct the four judged
+  inputs do not carry, or a path whose verdict is not a gap at all. Which one it
+  is goes in the pull request, never into a gap minted to close the join.
