@@ -364,8 +364,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12420",
-      "sha256": "183b2944e4546caba244ba8710c7c736f8f82098ca64e7befd25bc5cc477204a",
+      "contentSize": "12418",
+      "sha256": "85ae100c0d347f0a47d352a0d167b29140c5bc680505e3f0ab2426bedcb73356",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },

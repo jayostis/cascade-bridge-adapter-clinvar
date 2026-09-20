@@ -192,10 +192,9 @@ WHERE {
   {
     ?ca a xyz:ClinicalAssertion ; ?d1 ?sd . ?sd a xyz:StudyDescription ; rdf:_1 ?sdt . FILTER(isLiteral(?sdt))
     BIND(REPLACE(?sdt, "^\\s+|\\s+$", "") AS ?study)
-    FILTER(STRLEN(?study) > 0)
     BIND("/StudyDescription" AS ?sfT)
     BIND(clinvar:assertionStudyDescription AS ?gap)
-    BIND(?study AS ?value)
+    BIND(IF(STRLEN(?study) > 0, ?study, 1/0) AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
