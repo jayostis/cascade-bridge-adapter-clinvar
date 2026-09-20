@@ -1,6 +1,7 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sh:  <http://www.w3.org/ns/shacl#> .
-@prefix oa:  <http://www.w3.org/ns/oa#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
 @prefix clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
 
 [] a oa:Annotation ;
@@ -8,67 +9,12 @@
     oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
     oa:hasSelector [
       a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/OtherNameList" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantAliasName ;
-  oa:motivatedBy oa:classifying ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/XRefList/XRef[2][@DB='OMIM']" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "OMIM" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/VariantType" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantTypeTerm ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "single nucleotide variant" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmissions" ]
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]"
     ]
   ] ;
   oa:hasBody clinvar:aggregateNumberOfSubmissions ;
   oa:motivatedBy oa:classifying ;
-  sh:value "1" ;
+  sh:value "/VariationArchive/@NumberOfSubmissions" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -76,40 +22,12 @@
     oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
     oa:hasSelector [
       a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmitters" ]
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]"
     ]
   ] ;
   oa:hasBody clinvar:aggregateNumberOfSubmitters ;
   oa:motivatedBy oa:classifying ;
-  sh:value "1" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/TraitMappingList" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:traitMappingEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:rcvSubmissionCount ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "1" ;
+  sh:value "/VariationArchive/@NumberOfSubmitters" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -132,12 +50,12 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/Classification/ReviewStatus" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
     ]
   ] ;
-  oa:hasBody clinvar:assertionReviewStatus ;
+  oa:hasBody clinvar:aggregateClassificationEvaluationDate ;
   oa:motivatedBy oa:classifying ;
-  sh:value "no assertion criteria provided" ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateLastEvaluated" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -146,12 +64,12 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/Classification/@DateLastEvaluated" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
     ]
   ] ;
-  oa:hasBody clinvar:assertionEvaluationDate ;
+  oa:hasBody clinvar:aggregateNumberOfSubmissions ;
   oa:motivatedBy oa:classifying ;
-  sh:value "2015-04-21" ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmissions" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -160,12 +78,12 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@SubmissionDate" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
     ]
   ] ;
-  oa:hasBody clinvar:assertionSubmissionDate ;
+  oa:hasBody clinvar:aggregateNumberOfSubmitters ;
   oa:motivatedBy oa:classifying ;
-  sh:value "2015-09-10" ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmitters" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -174,12 +92,418 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@DateCreated" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/@Type" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID/@Source" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionKind ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionKind ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:traitIdentifier ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@ID" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@integerValue" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@DB" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@ID" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionWithoutStandardIdentifier ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@ID" ;
+  sh:resultSeverity sh:Warning .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionDescriptiveMaterial ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue/@Type" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@DB" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@ID" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@Type" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionWithoutStandardIdentifier ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@ID" ;
+  bridge:occurrences 4 ;
+  sh:resultSeverity sh:Warning .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/XRef[4]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:conditionExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Description[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationDescription ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Description" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ReviewStatus[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:aggregateClassificationReviewStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ReviewStatus" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
     ]
   ] ;
   oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
-  sh:value "2015-09-14" ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateCreated" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -188,12 +512,12 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@DateLastUpdated" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
     ]
   ] ;
   oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
-  sh:value "2015-09-14" ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -202,11 +526,54 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@SubmissionDate" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionEvaluationDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/@DateLastEvaluated" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]/ReviewStatus[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionReviewStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ReviewStatus" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]" ]
     ]
   ] ;
   oa:hasBody clinvar:observationMethodType ;
   oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -215,12 +582,12 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList/ObservedIn[1]/Sample/AffectedStatus" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]/MethodType[1]" ]
     ]
   ] ;
-  oa:hasBody clinvar:sampleAffectedStatus ;
+  oa:hasBody clinvar:observationMethodType ;
   oa:motivatedBy oa:classifying ;
-  sh:value "not provided" ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodType" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -229,9 +596,600 @@
     oa:hasSelector [
       a oa:XPathSelector ;
       rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList/ObservedIn[1]/ObservedData[1]" ]
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]" ]
     ]
   ] ;
   oa:hasBody clinvar:observedDataEvidence ;
   oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionSupportingCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionSupportingCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionSupportingCitation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID/@Source" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@DB" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@ID" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@Type" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]/AffectedStatus[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:sampleAffectedStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/AffectedStatus" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/RecordStatus[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:assertionRecordStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/RecordStatus" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/RCVList[1]/RCVAccession[1]/RCVClassifications[1]/GermlineClassification[1]/Description[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:rcvSubmissionCount ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:alleleIdentifier ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/@AlleleID" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneFullName ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneVariationRelationship ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@RelationshipType" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:multipleGenesOnlyFirstCarried ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@HGNC_ID" ;
+  sh:resultSeverity sh:Warning .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:multipleGenesOnlyFirstCarried ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Symbol" ;
+  sh:resultSeverity sh:Warning .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/CytogeneticLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/CytogeneticLocation" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Accession" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyStatus" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Chr" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Strand" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/OMIM[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:geneExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/OMIM" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/CytogeneticLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantCytogeneticLocation ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/CytogeneticLocation" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantSequenceAccession ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantVcfPosition ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantAliasName ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]/Name[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantAliasName ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/VariantType[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantTypeTerm ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@DB" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" ;
+  bridge:occurrences 3 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[2]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:variantExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
+  bridge:occurrences 2 ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:traitMappingEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingType" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:traitMappingEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@TraitType" ;
+  sh:resultSeverity sh:Info .
+
+[] a oa:Annotation ;
+  oa:hasTarget [
+    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+    oa:hasSelector [
+      a oa:XPathSelector ;
+      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]/MedGen[1]" ]
+    ]
+  ] ;
+  oa:hasBody clinvar:traitMappingEvidence ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen/@Name" ;
   sh:resultSeverity sh:Info .

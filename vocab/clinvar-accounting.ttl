@@ -523,8 +523,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/NoClassification" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The submitter marked the submission evidence-only, so there is no classification to carry." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionWithoutClassification .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ReviewStatus" ;

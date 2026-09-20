@@ -1,5 +1,4 @@
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
 PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
@@ -62,144 +61,6 @@ WHERE {
   }
   UNION
   {
-    ?cl a xyz:Classification ; ?c1 ?rsE . ?rsE a xyz:ReviewStatus ; rdf:_1 ?rsT . FILTER(isLiteral(?rsT))
-    BIND(REPLACE(?rsT, "^\\s+|\\s+$", "") AS ?rsText)
-    FILTER(STRLEN(?rsText) > 0)
-    BIND("/Classification/ReviewStatus" AS ?sfT)
-    BIND(clinvar:assertionReviewStatus AS ?gap)
-    BIND(?rsText AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    ?cl a xyz:Classification ; xyz:DateLastEvaluated ?dle . FILTER(STRLEN(?dle) > 0)
-    BIND("/Classification/@DateLastEvaluated" AS ?sfT)
-    BIND(clinvar:assertionEvaluationDate AS ?gap)
-    BIND(?dle AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # One finding per lifecycle attribute: a selector names one node, and each
-    # attribute is its own gap.
-    ?ca a xyz:ClinicalAssertion ; ?lp ?lv .
-    FILTER(?lp IN (xyz:SubmissionDate, xyz:DateCreated, xyz:DateLastUpdated) && STRLEN(?lv) > 0)
-    BIND(CONCAT("/@", STRAFTER(STR(?lp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND(IF(?lp = xyz:SubmissionDate, clinvar:assertionSubmissionDate,
-         IF(?lp = xyz:DateCreated, clinvar:assertionDateCreated,
-                                   clinvar:assertionDateLastUpdated)) AS ?gap)
-    BIND(?lv AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # Reported once for the ClinicalAssertion when any ObservedIn/Method carries a
-    # MethodType with text. The methods span the ObservedInList, which is therefore
-    # what the finding selects.
-    { SELECT ?ca (MAX(?has) AS ?any) WHERE {
-        ?ca a xyz:ClinicalAssertion ; ?m1 ?oil . ?oil a xyz:ObservedInList ; ?m2 ?oi .
-        ?oi a xyz:ObservedIn ; ?m3 ?m . ?m a xyz:Method .
-        OPTIONAL { SELECT ?m ?mtt WHERE { ?m ?m4 ?mt . ?mt a xyz:MethodType .
-                   OPTIONAL { ?mt rdf:_1 ?mtt . FILTER(isLiteral(?mtt)) } } }
-        BIND(COALESCE(REPLACE(?mtt, "^\\s+|\\s+$", ""), "") AS ?mtv)
-        BIND(IF(STRLEN(?mtv) > 0, 1, 0) AS ?has)
-      } GROUP BY ?ca }
-    FILTER(?any = 1)
-    BIND("/ObservedInList" AS ?sfT)
-    BIND(clinvar:observationMethodType AS ?gap)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # IDs with text, under Classification's Citations if it has any, else
-    # under the assertion's own. The count is over that container, so it is what
-    # the finding selects.
-    { SELECT ?ca ?container (COUNT(?idt) AS ?nCit) WHERE {
-        { ?ca a xyz:ClinicalAssertion ; ?c1 ?clx . ?clx a xyz:Classification ; ?c2 ?cit . ?cit a xyz:Citation
-          BIND("/Classification" AS ?container) }
-        UNION
-        { ?ca a xyz:ClinicalAssertion ; ?c3 ?cit . ?cit a xyz:Citation .
-          MINUS { ?ca ?c4 ?cly . ?cly a xyz:Classification ; ?c5 ?cit2 . ?cit2 a xyz:Citation }
-          BIND("" AS ?container) }
-        ?cit ?c6 ?idn . ?idn a xyz:ID ; rdf:_1 ?idt . FILTER(isLiteral(?idt))
-      } GROUP BY ?ca ?container }
-    FILTER(?nCit > 0)
-    BIND(?container AS ?sfT)
-    BIND(clinvar:assertionSupportingCitation AS ?gap)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    ?ca a xyz:ClinicalAssertion ; ?r1 ?rse . ?rse a xyz:RecordStatus ; rdf:_1 ?rst . FILTER(isLiteral(?rst))
-    BIND(REPLACE(?rst, "^\\s+|\\s+$", "") AS ?recSt)
-    FILTER(STRLEN(?recSt) > 0 && ?recSt != "current")
-    BIND("/RecordStatus" AS ?sfT)
-    BIND(clinvar:assertionRecordStatus AS ?gap)
-    BIND(?recSt AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # Once per ObservedIn, which the selector names by position.
-    ?ca a xyz:ClinicalAssertion ; ?o1 ?oil2 . ?oil2 a xyz:ObservedInList ; ?oiSlot2 ?oi2 . ?oi2 a xyz:ObservedIn ; ?o3 ?smp .
-    ?smp a xyz:Sample ; ?o4 ?ase . ?ase a xyz:AffectedStatus ; rdf:_1 ?ast . FILTER(isLiteral(?ast))
-    BIND(REPLACE(?ast, "^\\s+|\\s+$", "") AS ?aff)
-    FILTER(STRLEN(?aff) > 0)
-    BIND(CONCAT("/ObservedInList/ObservedIn[", STRAFTER(STR(?oiSlot2), "#_"), "]/Sample/AffectedStatus") AS ?sfT)
-    BIND(clinvar:sampleAffectedStatus AS ?gap)
-    BIND(?aff AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # Once per ObservedData, which the selector names by the position of both it and
-    # its ObservedIn.
-    ?ca a xyz:ClinicalAssertion ; ?o5 ?oil3 . ?oil3 a xyz:ObservedInList ; ?oiSlot3 ?oi3 .
-    ?oi3 a xyz:ObservedIn ; ?odSlot ?od . ?od a xyz:ObservedData .
-    { SELECT ?od (COUNT(?earlierOd) AS ?beforeOd) WHERE {
-        ?ownerOd ?dA ?od . ?od a xyz:ObservedData .
-        OPTIONAL { ?ownerOd ?dB ?earlierOd . ?earlierOd a xyz:ObservedData .
-                   FILTER(xsd:integer(STRAFTER(STR(?dB), "#_")) < xsd:integer(STRAFTER(STR(?dA), "#_"))) }
-      } GROUP BY ?od }
-    BIND(CONCAT("/ObservedInList/ObservedIn[", STRAFTER(STR(?oiSlot3), "#_"),
-                "]/ObservedData[", STR(?beforeOd + 1), "]") AS ?sfT)
-    BIND(clinvar:observedDataEvidence AS ?gap)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # Once per Comment, which the selector names by position.
-    ?cl a xyz:Classification ; ?k1 ?cm . ?cm a xyz:Comment .
-    { SELECT ?cm (COUNT(?earlierCm) AS ?beforeCm) WHERE {
-        ?ownerCm ?mA ?cm . ?cm a xyz:Comment .
-        OPTIONAL { ?ownerCm ?mB ?earlierCm . ?earlierCm a xyz:Comment .
-                   FILTER(xsd:integer(STRAFTER(STR(?mB), "#_")) < xsd:integer(STRAFTER(STR(?mA), "#_"))) }
-      } GROUP BY ?cm }
-    BIND(CONCAT("/Classification/Comment[", STR(?beforeCm + 1), "]") AS ?sfT)
-    BIND(clinvar:assertionComment AS ?gap)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    ?ca a xyz:ClinicalAssertion ; ?d1 ?sd . ?sd a xyz:StudyDescription ; rdf:_1 ?sdt . FILTER(isLiteral(?sdt))
-    BIND(REPLACE(?sdt, "^\\s+|\\s+$", "") AS ?study)
-    BIND("/StudyDescription" AS ?sfT)
-    BIND(clinvar:assertionStudyDescription AS ?gap)
-    BIND(IF(STRLEN(?study) > 0, ?study, 1/0) AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
     # An absence: the ClinicalAssertion is the nearest element that exists.
     ?rec13 ?n1 ?cal13 . ?cal13 a xyz:ClinicalAssertionList ; ?n2 ?ca . ?ca a xyz:ClinicalAssertion ; xyz:ID ?tid .
     FILTER(STRLEN(?tid) > 0)
@@ -234,37 +95,6 @@ WHERE {
     BIND(clinvar:assertionNonGermlineClassification AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("skipped" AS ?gate)
-  }
-  UNION
-  {
-    # On a skipped assertion: no classification text of any kind.
-    ?cl a xyz:Classification .
-    MINUS { ?cl ?q4 ?ax . ?ax a ?axt ; rdf:_1 ?axtt .
-            FILTER(?axt IN (xyz:GermlineClassification, xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && isLiteral(?axtt)) }
-    BIND("/Classification" AS ?sfT)
-    BIND(clinvar:assertionWithoutClassification AS ?gap)
-    BIND(sh:Info AS ?severity)
-    BIND("skipped" AS ?gate)
-  }
-  UNION
-  {
-    # Once per AttributeSet whose Attribute is an AssertionMethod, which the selector
-    # names by position: AttributeSet is unbounded, so the predicate alone names a set.
-    ?ca a xyz:ClinicalAssertion ; ?w1 ?aset . ?aset a xyz:AttributeSet ; ?w2 ?attr .
-    ?attr a xyz:Attribute ; xyz:Type "AssertionMethod" .
-    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT))
-               BIND(REPLACE(?attrT, "^\\s+|\\s+$", "") AS ?method)
-               FILTER(STRLEN(?method) > 0) }
-    { SELECT ?aset (COUNT(?earlierAs) AS ?beforeAs) WHERE {
-        ?ownerAs ?sA ?aset . ?aset a xyz:AttributeSet .
-        OPTIONAL { ?ownerAs ?sB ?earlierAs . ?earlierAs a xyz:AttributeSet .
-                   FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
-      } GROUP BY ?aset }
-    BIND(CONCAT("/AttributeSet[", STR(?beforeAs + 1), "][Attribute/@Type='AssertionMethod']") AS ?sfT)
-    BIND(clinvar:assertionMethodCriteria AS ?gap)
-    BIND(?method AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("emitted" AS ?gate)
   }
   }
   FILTER(BOUND(?sfT))
