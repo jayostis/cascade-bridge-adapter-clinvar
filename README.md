@@ -36,8 +36,8 @@ only this way.
    `clinvar`, the two envelopes (`#envelope-efetch`, `#envelope-release`),
    the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
    must offer, the vocabulary pin, the gap scheme the findings take their
-   bodies from, and the test manifest, every one of them a link to an entity
-   in the same graph.
+   bodies from, the accounting of every path its source carries, and the test
+   manifest, every one of them a link to an entity in the same graph.
 2. Routes an input here when the detect rule, `in/sparql/detect.rq`, is true of
    the document's envelope skeleton; `docs/format.md` has which roots were
    deliberately not claimed.
@@ -83,6 +83,7 @@ cascade-bridge-adapter-clinvar/
   in/sparql/                 the mapping: a CONSTRUCT and a findings query per record class, and detect.rq
   vocab/
     clinvar-gaps.ttl         the gaps this adapter reports, one concept per gap, the body of every finding
+    clinvar-accounting.ttl   what this adapter does with each path of its source, one entry per path
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample
