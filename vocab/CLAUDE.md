@@ -63,9 +63,10 @@ the backlog records a fact once, where the source states it canonically. Every
   `@VariationName`; `SimpleAllele/Name` and an RCV's `@Title` name
   `@VariationName`, which names the expression in turn.
 - **A sequence location's other spellings restate its coordinates**:
-  `@display_start`, `@display_stop`, `@positionVCF` and `@variantLength` name
-  `@start` or `@stop`; `@Accession` names `@Chr`; `@AssemblyAccessionVersion` and
-  `@AssemblyStatus` name `@Assembly`.
+  `@display_start`, `@display_stop` and `@positionVCF` name `@start` or `@stop`,
+  and `@AssemblyAccessionVersion` names `@Assembly` in NCBI's accession form, as
+  a submitter's `hg19` names `GRCh37`. A value *derived* from two of them is not
+  a restatement of either, and takes a verdict of its own.
 - **A second identifier restates the first**: an allele's `@VariationID` names
   the record's, a gene's `@GeneID` names its `@HGNC_ID`, a molecular
   consequence's `@DB` names its `@ID`.
