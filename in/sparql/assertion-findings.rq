@@ -191,8 +191,11 @@ WHERE {
   UNION
   {
     ?ca a xyz:ClinicalAssertion ; ?d1 ?sd . ?sd a xyz:StudyDescription ; rdf:_1 ?sdt . FILTER(isLiteral(?sdt))
+    BIND(REPLACE(?sdt, "^\\s+|\\s+$", "") AS ?study)
+    FILTER(STRLEN(?study) > 0)
     BIND("/StudyDescription" AS ?sfT)
     BIND(clinvar:assertionStudyDescription AS ?gap)
+    BIND(?study AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -250,7 +253,9 @@ WHERE {
     # names by position: AttributeSet is unbounded, so the predicate alone names a set.
     ?ca a xyz:ClinicalAssertion ; ?w1 ?aset . ?aset a xyz:AttributeSet ; ?w2 ?attr .
     ?attr a xyz:Attribute ; xyz:Type "AssertionMethod" .
-    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT)) }
+    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT))
+               BIND(REPLACE(?attrT, "^\\s+|\\s+$", "") AS ?method)
+               FILTER(STRLEN(?method) > 0) }
     { SELECT ?aset (COUNT(?earlierAs) AS ?beforeAs) WHERE {
         ?ownerAs ?sA ?aset . ?aset a xyz:AttributeSet .
         OPTIONAL { ?ownerAs ?sB ?earlierAs . ?earlierAs a xyz:AttributeSet .
@@ -258,7 +263,7 @@ WHERE {
       } GROUP BY ?aset }
     BIND(CONCAT("/AttributeSet[", STR(?beforeAs + 1), "][Attribute/@Type='AssertionMethod']") AS ?sfT)
     BIND(clinvar:assertionMethodCriteria AS ?gap)
-    BIND(?attrT AS ?value)
+    BIND(?method AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }

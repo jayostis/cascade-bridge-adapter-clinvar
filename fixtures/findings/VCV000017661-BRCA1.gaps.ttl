@@ -676,6 +676,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "ENIGMA (Evidence-based Network for the Interpretation of Germline Mutant Alleles) is a consortium focused on determining the clinical significance of variants in BRCA1, BRCA2 and other known/suspected breast cancer genes. http://enigmaconsortium.org/" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -1495,6 +1496,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "Variants described in PMID:24884479 and PMID:23469205" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -4170,6 +4172,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "Diagnostic exome sequencing variant classification from diagnostic exome sequencing programme" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -4293,6 +4296,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "Variants for BRCA1/2 tests" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;

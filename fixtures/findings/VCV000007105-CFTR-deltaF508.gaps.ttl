@@ -942,6 +942,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "Clinical and Functional TRanslation of CFTR" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -4218,6 +4219,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "The North Carolina Newborn Exome Sequencing for Universal Screening (NC NEXUS) study explored the possible use of genomic sequencing in the context of newborn screening and studied the responses of parents to this new technology." ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -4341,6 +4343,7 @@
   ] ;
   oa:hasBody clinvar:assertionStudyDescription ;
   oa:motivatedBy oa:classifying ;
+  sh:value "VKGL Data-share Consensus" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;

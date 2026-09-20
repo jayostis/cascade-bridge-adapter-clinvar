@@ -130,7 +130,9 @@ WHERE {
     BIND(COALESCE(?ts9raw, "") AS ?tsId9)
     OPTIONAL { ?cc9 xyz:DB ?db9 }
     OPTIONAL { ?cc9 xyz:ID ?id9 }
-    OPTIONAL { ?cc9 rdf:_1 ?t9 . FILTER(isLiteral(?t9)) }
+    OPTIONAL { ?cc9 rdf:_1 ?t9 . FILTER(isLiteral(?t9))
+               BIND(REPLACE(?t9, "^\\s+|\\s+$", "") AS ?condText)
+               FILTER(STRLEN(?condText) > 0) }
     BIND(COALESCE(?db9, "") AS ?dbKey9)
     BIND(COALESCE(?id9, "") AS ?idKey9)
     OPTIONAL {
@@ -161,7 +163,7 @@ WHERE {
     FILTER(!(COALESCE(?db9, "") = "MedGen" && STRLEN(COALESCE(?id9, "")) > 0))
     BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i9, "]") AS ?sfT)
     BIND(clinvar:conditionWithoutStandardIdentifier AS ?gap)
-    BIND(?t9 AS ?value)
+    BIND(?condText AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }

@@ -352,8 +352,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "10279",
-      "sha256": "7edfee6460aa0035a4bbc87bf54c2b3dc69e122ee33f3ede14977c576fb35128",
+      "contentSize": "10396",
+      "sha256": "9a6606877064f68cefe24102b17683f63038e28a1a5bff593e263a8d2c567c5f",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -364,8 +364,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12198",
-      "sha256": "d4cfee0e0258a166cd72ee2c07c0231271313e21a7301fb8dfa221560b823a31",
+      "contentSize": "12420",
+      "sha256": "183b2944e4546caba244ba8710c7c736f8f82098ca64e7befd25bc5cc477204a",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -576,8 +576,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "567187",
-      "sha256": "db1c584bea6ff842e572752b8e066a11fe685459fbee99533957c7be7f7656d7",
+      "contentSize": "567532",
+      "sha256": "4d252e711f4b7eec89ff9297c1617e3141cc30076f4bd7ee1aa777b0c1c711ab",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -594,8 +594,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "367742",
-      "sha256": "df309ce07482f2ed6abd77bb4d6532e090bdaf921c46f10dc697d36e567d9589",
+      "contentSize": "368228",
+      "sha256": "6fef133af131e4eaff79ad1d3034f9a1773e3ca742067cf1f0a673c2c9368b29",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
