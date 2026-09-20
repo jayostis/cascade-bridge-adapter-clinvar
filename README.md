@@ -21,7 +21,7 @@ only this way.
 
 ## Status
 
-**Phase 2, version 0.3.0: the mapping, as SPARQL.**
+**Phase 2, version 0.4.0: the mapping, as SPARQL.**
 
 | phase | what | where | done when |
 |---|---|---|---|

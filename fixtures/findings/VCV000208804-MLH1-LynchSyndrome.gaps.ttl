@@ -1,6 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh:  <http://www.w3.org/ns/shacl#> .
 @prefix oa:  <http://www.w3.org/ns/oa#> .
+@prefix clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
 
 [] a oa:Annotation ;
   oa:hasTarget [
@@ -11,7 +12,8 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/OtherNameList" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "OtherNameList carries legacy / alias variant names (\"p.C61G:TGT>GGT\", \"300T>G\") that pre-date current HGVS conventions. No v1-draft alias-list predicate; could be added as genomics:variantAlias." ] ;
+  oa:hasBody clinvar:variantAliasName ;
+  oa:motivatedBy oa:classifying ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -23,7 +25,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/XRefList/XRef[2][@DB='OMIM']" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "OMIM allelic variant identifier (e.g., 113705.0002) has no v1-draft genomics: predicate; preserved only in source XML." ] ;
+  oa:hasBody clinvar:variantExternalCrossReference ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "OMIM" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -35,7 +39,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/SimpleAllele/VariantType" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "VariantType \"single nucleotide variant\" (structural kind: SNV, indel, deletion, etc.) has no v1-draft genomics: predicate. Captured in consequenceTerm only when SO mapping is present." ] ;
+  oa:hasBody clinvar:variantTypeTerm ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "single nucleotide variant" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -47,7 +53,8 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate-level Classifications block carries 2 curated citations (PubMed, DOI). No v1-draft predicate at the Variant level; candidate genomics:supportingEvidence (v1-draft.0.2)." ] ;
+  oa:hasBody clinvar:aggregateClassificationCitation ;
+  oa:motivatedBy oa:classifying ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -59,7 +66,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmissions" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
+  oa:hasBody clinvar:aggregateSubmissionCounts ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "1" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -71,7 +80,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmitters" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." ] ;
+  oa:hasBody clinvar:aggregateSubmissionCounts ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "1" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -83,7 +94,8 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/TraitMappingList" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "TraitMappingList connects each ClinicalAssertion to a normalized condition (MedGen / MONDO / OMIM). The mapping is consumed during SCV → SubmitterAssertion aggregation, but the per-mapping evidence (MappingType, MappingValue) is not preserved on the resulting graph." ] ;
+  oa:hasBody clinvar:traitMappingEvidence ;
+  oa:motivatedBy oa:classifying ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -95,7 +107,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." ] ;
+  oa:hasBody clinvar:rcvSubmissionCount ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "1" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -107,7 +121,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." ] ;
+  oa:hasBody clinvar:medgenConceptIdentifier ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "C1839615" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -119,7 +135,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/Classification/ReviewStatus" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV ReviewStatus \"no assertion criteria provided\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2)." ] ;
+  oa:hasBody clinvar:assertionReviewStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "no assertion criteria provided" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -131,7 +149,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/Classification/@DateLastEvaluated" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Per-SCV DateLastEvaluated \"2015-04-21\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2)." ] ;
+  oa:hasBody clinvar:assertionEvaluationDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "2015-04-21" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -143,7 +163,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "2015-09-10" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -155,7 +177,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "2015-09-14" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -167,7 +191,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." ] ;
+  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "2015-09-14" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -179,7 +205,8 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "Method types [\"literature only\"] have no v1-draft predicate. Candidates: genomics:methodType (literature only / clinical testing / curation / research)." ] ;
+  oa:hasBody clinvar:observationMethodType ;
+  oa:motivatedBy oa:classifying ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -191,7 +218,9 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList/ObservedIn[1]/Sample/AffectedStatus" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "AffectedStatus \"not provided\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus." ] ;
+  oa:hasBody clinvar:sampleAffectedStatus ;
+  oa:motivatedBy oa:classifying ;
+  sh:value "not provided" ;
   sh:resultSeverity sh:Info .
 
 [] a oa:Annotation ;
@@ -203,5 +232,6 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000245702']/ObservedInList/ObservedIn[1]/ObservedData[1]" ]
     ]
   ] ;
-  oa:hasBody [ a oa:TextualBody ; rdf:value "ObservedData carries free-text case descriptions, segregation evidence, and population frequencies. No v1-draft predicate; would map to genomics:observationNarrative or be split into structured evidence types in v1-draft.0.2." ] ;
+  oa:hasBody clinvar:observedDataEvidence ;
+  oa:motivatedBy oa:classifying ;
   sh:resultSeverity sh:Info .

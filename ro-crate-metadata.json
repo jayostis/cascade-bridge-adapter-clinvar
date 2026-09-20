@@ -36,8 +36,8 @@
       "@type": ["Dataset", "bridge:Adapter"],
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
-      "version": "0.3.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte, four expected files corrected where the converter that produced them was wrong, and four findings files translated from its JSON sidecars into Web Annotations; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
+      "version": "0.4.0",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs and findings are taken from the conformance repository, the inputs byte for byte, four expected files corrected where the converter that produced them was wrong, and four findings files translated from its JSON sidecars into Web Annotations, each finding's body the gap of bridge:gapScheme that the sidecar's sentence named; their fetch date and method were not recorded when they were captured, and each entry says so. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -576,8 +576,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "691732",
-      "sha256": "087c7348dabc4ffcde1601ef23b741afcc16332294b463327e8eb8af14a81bf0",
+      "contentSize": "567366",
+      "sha256": "1658337e990cc72427daa052cef2e7cde429d8f025f2dbaed19efadf50e03ecb",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -587,15 +587,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 1,061 Web Annotations; 13 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 822 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 732 are the converter's and 90 are not: 9 for the seven SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 81 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 92 to 276, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 126 to 179, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 1,061 Web Annotations; 13 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 822 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 732 are the converter's and 90 are not: 9 for the seven SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 81 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 92 to 276, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 126 to 179, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Each sidecar reason is now the gap of vocab/clinvar-gaps.ttl it named, the annotation's oa:hasBody, with the source value the rule read as sh:value; no sentence is written."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "444332",
-      "sha256": "bf72d6f0362640850bc6819de27ff9a1fb440ee2be432cb0b282e55e56a042bd",
+      "contentSize": "367875",
+      "sha256": "03063a23558714746bf7dc50a007f08779f146b6b72e6b1e225b4fabcb6968d1",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -605,15 +605,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 702 Web Annotations; 3 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 558 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 502 are the converter's and 56 are not: 5 for the three SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 51 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 69 to 207, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 70 to 74, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 702 Web Annotations; 3 carry sh:Warning and the rest sh:Info. Translated from the conformance sidecar's 558 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 502 are the converter's and 56 are not: 5 for the three SubmitterAssertions it skips, which it recorded and then discarded with the skipped record, and 51 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Four sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 69 to 207, ClinicalAssertion/ObservedInList/ObservedIn/ObservedData 70 to 74, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Each sidecar reason is now the gap of vocab/clinvar-gaps.ttl it named, the annotation's oa:hasBody, with the source value the rule read as sh:value; no sentence is written."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "50371",
-      "sha256": "4a329a0f225b8522040a537a91e6d3ab8910fee3ec48a44f4884e0d0a991bc76",
+      "contentSize": "41439",
+      "sha256": "cb28bba2aedeac097d77d8bcdeb234ba3c549554e6c5bc1d39c34a36c1b3de85",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -623,15 +623,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 78 Web Annotations, all sh:Info. Translated from the conformance sidecar's 64 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 58 are the converter's and 6 are not: 1 for the one SubmitterAssertion it skips, which it recorded and then discarded with the skipped record, and 5 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Three sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 6 to 18, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 78 Web Annotations, all sh:Info. Translated from the conformance sidecar's 64 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), of which 58 are the converter's and 6 are not: 1 for the one SubmitterAssertion it skips, which it recorded and then discarded with the skipped record, and 5 AssertionMethod findings, which it read as one element where its XML parser always yields an array. Three sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 6 to 18, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2, VariationArchive/SimpleAllele/GeneList/Gene/Haploinsufficiency|Triplosensitivity 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Each sidecar reason is now the gap of vocab/clinvar-gaps.ttl it named, the annotation's oa:hasBody, with the source value the rule read as sh:value; no sentence is written."
     },
     {
       "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "10750",
-      "sha256": "9bceeb407eadc2a85b9db885a38561c717489c3531303209a92ad92279b8ab15",
+      "contentSize": "8797",
+      "sha256": "a5c8485d48398e4172d94c2387bd9ef604f7d6acc7c1943ee891d3d8eac959e5",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
@@ -641,7 +641,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 17 Web Annotations, all sh:Info. Translated from the conformance sidecar's 14 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), every one of them the converter's. Two sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 1 to 3, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Cites genomics v1-draft.0.1 terms with v1-draft.0.2 candidates."
+      "description": "Every finding the input produces, as 17 Web Annotations, all sh:Info. Translated from the conformance sidecar's 14 {sourceField, reason, severity, context} entries at 0ea48bb (last changed at 8a5e203, 2026-05-06), every one of them the converter's. Two sourceField patterns become more than one annotation each: ClinicalAssertion/@SubmissionDate|@DateCreated|@DateLastUpdated 1 to 3, VariationArchive/Classifications/GermlineClassification/@NumberOfSubmissions|@NumberOfSubmitters 1 to 2. Every other pattern translates one for one, and context is dropped. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism. Each sidecar reason is now the gap of vocab/clinvar-gaps.ttl it named, the annotation's oa:hasBody, with the source value the rule read as sh:value; no sentence is written."
     },
     {
       "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarVCVRelease_2026-09.xml.gz",
