@@ -166,7 +166,8 @@ WHERE {
   }
   UNION
   {
-    # One finding per aggregate count attribute on that same GermlineClassification.
+    # One finding per aggregate count attribute on that same GermlineClassification,
+    # each attribute its own gap.
     ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
     FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
@@ -175,7 +176,8 @@ WHERE {
     FILTER(?countProp IN (xyz:NumberOfSubmissions, xyz:NumberOfSubmitters) && STRLEN(?countValue) > 0)
     BIND(CONCAT("/Classifications/GermlineClassification[1]/@",
                 STRAFTER(STR(?countProp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND(clinvar:aggregateSubmissionCounts AS ?gap)
+    BIND(IF(?countProp = xyz:NumberOfSubmissions, clinvar:aggregateNumberOfSubmissions,
+                                                 clinvar:aggregateNumberOfSubmitters) AS ?gap)
     BIND(?countValue AS ?value)
     BIND(sh:Info AS ?severity)
   }

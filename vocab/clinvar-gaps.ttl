@@ -12,8 +12,13 @@ clinvar:aggregateClassificationCitation a skos:Concept ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:supportingEvidence .
 
-clinvar:aggregateSubmissionCounts a skos:Concept ;
-  skos:prefLabel "An aggregate germline classification carries counts of submissions and of submitters, and no Cascade predicate carries them."@en ;
+clinvar:aggregateNumberOfSubmissions a skos:Concept ;
+  skos:prefLabel "An aggregate germline classification carries the number of submissions it aggregates, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:aggregateNumberOfSubmitters a skos:Concept ;
+  skos:prefLabel "An aggregate germline classification carries the number of submitters it aggregates, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:numberOfSubmitters .
@@ -28,6 +33,16 @@ clinvar:assertionComment a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate ;
   bridge:closedBy genomics:assertionComment .
+
+clinvar:assertionDateCreated a skos:Concept ;
+  skos:prefLabel "A clinical assertion carries the date its record was created, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:assertionDateLastUpdated a skos:Concept ;
+  skos:prefLabel "A clinical assertion carries the date its record was last updated, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
 
 clinvar:assertionEvaluationDate a skos:Concept ;
   skos:prefLabel "A clinical assertion carries the date its own classification was last evaluated, and no Cascade predicate carries it."@en ;
@@ -59,6 +74,11 @@ clinvar:assertionReviewStatus a skos:Concept ;
 
 clinvar:assertionStudyDescription a skos:Concept ;
   skos:prefLabel "A clinical assertion carries the study or consortium it came from, and no Cascade predicate carries it."@en ;
+  skos:inScheme clinvar:gaps ;
+  skos:broader bridge:noPredicate .
+
+clinvar:assertionSubmissionDate a skos:Concept ;
+  skos:prefLabel "A clinical assertion carries the date it was submitted, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate .
 
@@ -193,11 +213,6 @@ clinvar:simpleAlleleWithoutGene a skos:Concept ;
   skos:prefLabel "A simple allele carries no gene, which the variant shape requires."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:sourceLacksRequired .
-
-clinvar:submissionLifecycleDate a skos:Concept ;
-  skos:prefLabel "A clinical assertion carries a date in its submission lifecycle, and no Cascade predicate carries it."@en ;
-  skos:inScheme clinvar:gaps ;
-  skos:broader bridge:noPredicate .
 
 clinvar:traitMappingEvidence a skos:Concept ;
   skos:prefLabel "A trait mapping's type and value are read while conditions are aligned, and are not carried onto the graph."@en ;

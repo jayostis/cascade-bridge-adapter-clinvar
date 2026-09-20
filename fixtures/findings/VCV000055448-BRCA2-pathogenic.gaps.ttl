@@ -78,7 +78,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmissions" ]
     ]
   ] ;
-  oa:hasBody clinvar:aggregateSubmissionCounts ;
+  oa:hasBody clinvar:aggregateNumberOfSubmissions ;
   oa:motivatedBy oa:classifying ;
   sh:value "6" ;
   sh:resultSeverity sh:Info .
@@ -92,7 +92,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/Classifications/GermlineClassification[1]/@NumberOfSubmitters" ]
     ]
   ] ;
-  oa:hasBody clinvar:aggregateSubmissionCounts ;
+  oa:hasBody clinvar:aggregateNumberOfSubmitters ;
   oa:motivatedBy oa:classifying ;
   sh:value "6" ;
   sh:resultSeverity sh:Info .
@@ -301,7 +301,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000145379']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2014-03-28" ;
   sh:resultSeverity sh:Info .
@@ -315,7 +315,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000145379']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2014-04-01" ;
   sh:resultSeverity sh:Info .
@@ -329,7 +329,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000145379']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2014-04-01" ;
   sh:resultSeverity sh:Info .
@@ -411,7 +411,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000326199']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2016-10-28" ;
   sh:resultSeverity sh:Info .
@@ -425,7 +425,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000326199']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2014-04-01" ;
   sh:resultSeverity sh:Info .
@@ -439,7 +439,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000326199']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2022-12-11" ;
   sh:resultSeverity sh:Info .
@@ -548,7 +548,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV004297793']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2026-02-10" ;
   sh:resultSeverity sh:Info .
@@ -562,7 +562,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV004297793']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2024-02-14" ;
   sh:resultSeverity sh:Info .
@@ -576,7 +576,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV004297793']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2026-02-23" ;
   sh:resultSeverity sh:Info .
@@ -698,7 +698,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000186117']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2020-11-30" ;
   sh:resultSeverity sh:Info .
@@ -712,7 +712,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000186117']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2014-08-06" ;
   sh:resultSeverity sh:Info .
@@ -726,7 +726,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000186117']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2015-03-24" ;
   sh:resultSeverity sh:Info .
@@ -835,7 +835,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000568397']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2021-09-24" ;
   sh:resultSeverity sh:Info .
@@ -849,7 +849,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000568397']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2017-04-27" ;
   sh:resultSeverity sh:Info .
@@ -863,7 +863,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV000568397']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2017-04-27" ;
   sh:resultSeverity sh:Info .
@@ -972,7 +972,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV005915327']/@SubmissionDate" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionSubmissionDate ;
   oa:motivatedBy oa:classifying ;
   sh:value "2025-03-18" ;
   sh:resultSeverity sh:Info .
@@ -986,7 +986,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV005915327']/@DateCreated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateCreated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2025-04-28" ;
   sh:resultSeverity sh:Info .
@@ -1000,7 +1000,7 @@
       oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion[ClinVarAccession/@Accession='SCV005915327']/@DateLastUpdated" ]
     ]
   ] ;
-  oa:hasBody clinvar:submissionLifecycleDate ;
+  oa:hasBody clinvar:assertionDateLastUpdated ;
   oa:motivatedBy oa:classifying ;
   sh:value "2025-04-28" ;
   sh:resultSeverity sh:Info .

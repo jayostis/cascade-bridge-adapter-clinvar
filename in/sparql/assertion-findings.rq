@@ -82,11 +82,14 @@ WHERE {
   }
   UNION
   {
-    # One finding per lifecycle attribute: a selector names one node.
+    # One finding per lifecycle attribute: a selector names one node, and each
+    # attribute is its own gap.
     ?ca a xyz:ClinicalAssertion ; ?lp ?lv .
     FILTER(?lp IN (xyz:SubmissionDate, xyz:DateCreated, xyz:DateLastUpdated) && STRLEN(?lv) > 0)
     BIND(CONCAT("/@", STRAFTER(STR(?lp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND(clinvar:submissionLifecycleDate AS ?gap)
+    BIND(IF(?lp = xyz:SubmissionDate, clinvar:assertionSubmissionDate,
+         IF(?lp = xyz:DateCreated, clinvar:assertionDateCreated,
+                                   clinvar:assertionDateLastUpdated)) AS ?gap)
     BIND(?lv AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
