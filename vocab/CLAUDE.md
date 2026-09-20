@@ -22,9 +22,14 @@ only place a findings query may take a body from.
 
 ## Adding, removing or renaming a gap
 
-The three `in/sparql/*-findings.rq`, the four `fixtures/findings/*.gaps.ttl` and
-`ro-crate-metadata.json` change in the same commit: a body outside this scheme
-and a gap no query constructs are both red.
+A body a findings query constructs is a gap of this scheme, and outside it is
+red. So a findings query, the four `fixtures/findings/*.gaps.ttl` and
+`ro-crate-metadata.json` change in the same commit.
+
+A gap no findings query constructs is **not** red. `clinvar-accounting.ttl`
+opens a gap by naming it from a `bridge:noHome` or `bridge:carriedInPart`
+entry, and that entry is the report; no rule need fire for the gap to be real. A
+gap nothing names at all — no query, no entry — is dead, and goes.
 
 ## A verdict on a path is read, never inferred from its name
 
