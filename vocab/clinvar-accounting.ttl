@@ -1864,8 +1864,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@start" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "The start position in VCF's convention, which takes the start and the allele shape together, so no one path restates it; the graph carries the VCF reference and alternate alleles and not the position they hang on, which is a gap for wave 2 to name rather than a fact dropped on purpose." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@referenceAlleleVCF" ;
