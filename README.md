@@ -35,8 +35,9 @@ only this way.
    record in one RO-Crate. The root entity is the adapter: format id
    `clinvar`, the two envelopes (`#envelope-efetch`, `#envelope-release`),
    the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
-   must offer, the vocabulary pin, and the test manifest, every one of them
-   a link to an entity in the same graph.
+   must offer, the vocabulary pin, the gap scheme the findings take their
+   bodies from, and the test manifest, every one of them a link to an entity
+   in the same graph.
 2. Routes an input here when the detect rule, `in/sparql/detect.rq`, is true of
    the document's envelope skeleton; `docs/format.md` has which roots were
    deliberately not claimed.
