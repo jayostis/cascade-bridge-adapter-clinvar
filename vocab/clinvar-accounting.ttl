@@ -1218,8 +1218,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@Strand" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "The strand the submitter reported the variation's coordinates on; the graph carries an assembly, a chromosome and coordinates, and no orientation for them." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation/@alternateAllele" ;

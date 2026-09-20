@@ -395,8 +395,8 @@
       "@type": "File",
       "name": "ClinVar VCV source accounting",
       "encodingFormat": "text/turtle",
-      "contentSize": "104802",
-      "sha256": "e8652113b23abdef96b8dcf37f987bb84ac7b254b9de3bef15a7ba61d2d4f056",
+      "contentSize": "104865",
+      "sha256": "bae796f576bb0377d025422a46b115316c651fea4362dbc885ff7e81d4431015",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
