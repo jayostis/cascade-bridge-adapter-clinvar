@@ -47,7 +47,7 @@ clinvar:assertionNonGermlineClassification a skos:Concept ;
   skos:broader bridge:noPredicate .
 
 clinvar:assertionRecordStatus a skos:Concept ;
-  skos:prefLabel "A clinical assertion carries a record status marking it withdrawn or superseded, and no Cascade predicate carries it."@en ;
+  skos:prefLabel "A clinical assertion carries a record status other than current, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate .
 
@@ -130,8 +130,7 @@ clinvar:observationMethodType a skos:Concept ;
 clinvar:observedDataEvidence a skos:Concept ;
   skos:prefLabel "An observation carries case descriptions, segregation evidence and population frequencies as observed data, and no Cascade predicate carries them."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:noPredicate ;
-  bridge:closedBy genomics:observationNarrative .
+  skos:broader bridge:noPredicate .
 
 clinvar:organizationCategoryNotMapped a skos:Concept ;
   skos:prefLabel "A submitting organization's category is outside the submitter categories the vocabulary fixes."@en ;
