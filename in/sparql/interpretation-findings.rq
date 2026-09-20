@@ -4,6 +4,7 @@ PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
 PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
+PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 # Which rules fire depends on three facts about the RCV: a usable @Accession
 # (?hasAcc), a non-empty GermlineClassification (?germ) and a canonical ACMG
@@ -20,7 +21,9 @@ CONSTRUCT {
       oa:hasSource bridge:thisRecord ;
       oa:hasSelector [ a oa:XPathSelector ; rdf:value ?xpath ]
     ] ;
-    oa:hasBody [ a oa:TextualBody ; rdf:value ?reason ] ;
+    oa:hasBody ?gap ;
+    oa:motivatedBy oa:classifying ;
+    sh:value ?value ;
     sh:resultSeverity ?severity .
 }
 WHERE {
@@ -54,7 +57,7 @@ WHERE {
     # An absence: the RCVAccession is the nearest element that exists, and ?rcvSel has
     # already selected it by position.
     BIND("" AS ?sfT)
-    BIND("RCVAccession has no usable @Accession, which schema/ClinVar_VCV_2.6.xsd:1767 makes required; the RCV is reported by position here and nothing downstream can cite it by accession." AS ?reason)
+    BIND(clinvar:rcvWithoutAccession AS ?gap)
     BIND(sh:Warning AS ?severity)
     BIND("noacc" AS ?gate)
   }
@@ -66,7 +69,7 @@ WHERE {
         ?other a ?ot ; ?op ?oo .
         FILTER(?ot IN (xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && ?op != rdf:type) } }
     BIND("/RCVClassifications" AS ?sfT)
-    BIND("RCV carries SomaticClinicalImpact or OncogenicityClassification; v1-draft.0.1 has no genomics:somaticStatus / oncogenicityClassification predicates yet — these are v1-draft.0.2 candidates." AS ?reason)
+    BIND(clinvar:rcvNonGermlineClassification AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("any" AS ?gate)
   }
@@ -74,7 +77,7 @@ WHERE {
   {
     # An absence: the RCVAccession is the nearest element that exists.
     BIND("" AS ?sfT)
-    BIND("RCV has no GermlineClassification block; cannot emit a VariantInterpretation (ACMG classification is required)." AS ?reason)
+    BIND(clinvar:rcvWithoutGermlineClassification AS ?gap)
     BIND(sh:Warning AS ?severity)
     BIND("nogerm" AS ?gate)
   }
@@ -85,7 +88,8 @@ WHERE {
     ?gc a xyz:GermlineClassification ; ?r5 ?d3 . ?d3 a xyz:Description ; xyz:SubmissionCount ?sc .
     FILTER(STRLEN(?sc) > 0)
     BIND("/RCVClassifications/GermlineClassification/Description/@SubmissionCount" AS ?sfT)
-    BIND("RCV submission count carries the per-condition aggregate count; v1-draft has no genomics:submissionCount predicate. Star rating is computed via genomics:reviewStatus instead." AS ?reason)
+    BIND(clinvar:rcvSubmissionCount AS ?gap)
+    BIND(?sc AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("germ" AS ?gate)
   }
@@ -95,7 +99,7 @@ WHERE {
     ?rcv a xyz:RCVAccession .
     MINUS { ?rcv ?r6 ?ccl6 . ?ccl6 a xyz:ClassifiedConditionList ; ?r7 ?cc6 . ?cc6 a xyz:ClassifiedCondition }
     BIND("" AS ?sfT)
-    BIND("RCV has no ClassifiedCondition entries; cannot emit VariantInterpretation (genomics:condition is required, cardinality 1..1 per D-Q5)." AS ?reason)
+    BIND(clinvar:rcvWithoutClassifiedCondition AS ?gap)
     BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
   }
@@ -110,7 +114,8 @@ WHERE {
     FILTER(STRLEN(?acmgText) > 0 && !(LCASE(?acmgText) IN
            ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign")))
     BIND("/RCVClassifications/GermlineClassification/Description" AS ?sfT)
-    BIND(CONCAT("Description \"", ?acmgText, "\" is not one of the five canonical ACMG values; cannot emit a VariantInterpretation (would violate VariantInterpretationShape). Common non-canonical strings: \"Conflicting classifications of pathogenicity\", \"Pathogenic, low penetrance\", \"drug response\".") AS ?reason)
+    BIND(clinvar:rcvClassificationOutsideAcmgSet AS ?gap)
+    BIND(?acmgText AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
   }
@@ -155,8 +160,8 @@ WHERE {
     FILTER(!COALESCE(?traitMondo, false))
     FILTER(!(COALESCE(?db9, "") = "MedGen" && STRLEN(COALESCE(?id9, "")) > 0))
     BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i9, "]") AS ?sfT)
-    BIND(CONCAT("Condition \"", COALESCE(REPLACE(?t9, "^\\s+|\\s+$", ""), ""), "\" (DB=", COALESCE(?db9, "none"),
-                ", ID=", COALESCE(?id9, "none"), ") had no resolvable MONDO/MedGen identifier; synthesized a Cascade-local IRI to satisfy cardinality 1..1 on genomics:condition. Recommended: source XML carries no MONDO mapping for this trait.") AS ?reason)
+    BIND(clinvar:conditionWithoutStandardIdentifier AS ?gap)
+    BIND(?t9 AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }
@@ -167,7 +172,8 @@ WHERE {
     ?cc10 a xyz:ClassifiedCondition ; xyz:DB "MedGen" ; xyz:ID ?id10 . FILTER(STRLEN(?id10) > 0)
     BIND(STRAFTER(STR(?s10), "#_") AS ?i10)
     BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i10, "]/@ID") AS ?sfT)
-    BIND("MedGen CUI carries the original ClinVar trait identifier; no v1-draft genomics:medgenId predicate (could be added in v1-draft.0.2 alongside mondoId)." AS ?reason)
+    BIND(clinvar:medgenConceptIdentifier AS ?gap)
+    BIND(?id10 AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("canon" AS ?gate)
   }
@@ -185,7 +191,8 @@ WHERE {
       "criteria provided, multiple submitters, no conflicts", "reviewed by expert panel", "practice guideline")))
     FILTER EXISTS { ?rcv ?r22 ?ccl19 . ?ccl19 a xyz:ClassifiedConditionList ; ?r23 ?cc19 . ?cc19 a xyz:ClassifiedCondition }
     BIND("/RCVClassifications/GermlineClassification/ReviewStatus" AS ?sfT)
-    BIND(CONCAT("Unknown ReviewStatus \"", ?rsText, "\"; not one of the seven published ClinGen tiers.") AS ?reason)
+    BIND(clinvar:rcvReviewStatusOutsideTiers AS ?gap)
+    BIND(?rsText AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }
