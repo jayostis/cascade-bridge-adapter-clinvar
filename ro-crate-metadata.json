@@ -376,8 +376,8 @@
       "@type": "File",
       "name": "ClinVar VCV gaps",
       "encodingFormat": "text/turtle",
-      "contentSize": "11798",
-      "sha256": "edff1705f4cb028825ef23153a0e6a021c92b94747dcc9f93803a4316f2b7c67",
+      "contentSize": "11794",
+      "sha256": "2842d37e7a781430c5e4af89043b7b782f3ff6065d0a6b68b2d0b45e2a2804a0",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },

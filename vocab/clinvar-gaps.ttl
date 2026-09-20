@@ -217,7 +217,7 @@ clinvar:simpleAlleleWithoutGene a skos:Concept ;
 clinvar:traitMappingEvidence a skos:Concept ;
   skos:prefLabel "A trait mapping's type and value are read while conditions are aligned, and are not carried onto the graph."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:carriedWithLoss .
+  skos:broader bridge:noPredicate .
 
 clinvar:variantAliasName a skos:Concept ;
   skos:prefLabel "A simple allele carries legacy and alias variant names, and no Cascade predicate carries them."@en ;
