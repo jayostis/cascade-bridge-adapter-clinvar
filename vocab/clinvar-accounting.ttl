@@ -251,7 +251,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@ID" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carriedInPart ;
+  bridge:namesGap clinvar:conditionWithoutStandardIdentifier .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@Type" ;
@@ -303,7 +304,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@ID" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carriedInPart ;
+  bridge:namesGap clinvar:conditionWithoutStandardIdentifier .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
@@ -1922,7 +1924,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
