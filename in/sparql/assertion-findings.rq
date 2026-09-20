@@ -4,6 +4,7 @@ PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
 PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
+PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 # An assertion that yields no SubmitterAssertion still reports its SubmitterName and
 # OrganizationCategory findings and the one that says why it yields none; the rest are
@@ -11,10 +12,6 @@ PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 # assertions, which for skipped ones, and which for both. Each rule also binds a path
 # below its ClinicalAssertion (?sfT); the record's wrapper element and the assertion
 # are joined on after the UNION.
-#
-# Not guaranteed by the standard: the Method types list is a JSON array in document
-# order, and GROUP_CONCAT aggregates a multiset (SPARQL 1.1 §18.5), so its order is
-# the engine's. No fixture has a list that mixes values, so none can detect this.
 #
 # Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
@@ -24,7 +21,9 @@ CONSTRUCT {
       oa:hasSource bridge:thisRecord ;
       oa:hasSelector [ a oa:XPathSelector ; rdf:value ?xpath ]
     ] ;
-    oa:hasBody [ a oa:TextualBody ; rdf:value ?reason ] ;
+    oa:hasBody ?gap ;
+    oa:motivatedBy oa:classifying ;
+    sh:value ?value ;
     sh:resultSeverity ?severity .
 }
 WHERE {
@@ -46,7 +45,7 @@ WHERE {
     ?cva a xyz:ClinVarAccession .
     MINUS { ?cva xyz:SubmitterName ?sn FILTER(STRLEN(?sn) > 0) }
     BIND("/ClinVarAccession" AS ?sfT)
-    BIND("ClinicalAssertion has no SubmitterName; SubmitterAssertionShape requires genomics:submitter cardinality 1." AS ?reason)
+    BIND(clinvar:assertionWithoutSubmitterName AS ?gap)
     BIND(sh:Warning AS ?severity)
     BIND("any" AS ?gate)
   }
@@ -56,7 +55,8 @@ WHERE {
     FILTER(STRLEN(?oc) > 0 && !(LCASE(?oc) IN ("laboratory", "consortium", "expert-panel", "expert panel",
            "research group", "research", "resource", "clinician", "single clinician")))
     BIND("/ClinVarAccession/@OrganizationCategory" AS ?sfT)
-    BIND(CONCAT("OrganizationCategory \"", ?oc, "\" has no SubmitterCategory mapping; v1-draft enum covers laboratory, consortium, expert-panel, research, single-clinician.") AS ?reason)
+    BIND(clinvar:organizationCategoryNotMapped AS ?gap)
+    BIND(?oc AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("any" AS ?gate)
   }
@@ -66,7 +66,8 @@ WHERE {
     BIND(REPLACE(?rsT, "^\\s+|\\s+$", "") AS ?rsText)
     FILTER(STRLEN(?rsText) > 0)
     BIND("/Classification/ReviewStatus" AS ?sfT)
-    BIND(CONCAT("Per-SCV ReviewStatus \"", ?rsText, "\" has no v1-draft.0.1 predicate. Aggregate-level reviewStatus is on the parent VariantInterpretation. Candidate: genomics:assertionReviewStatus (v1-draft.0.2).") AS ?reason)
+    BIND(clinvar:assertionReviewStatus AS ?gap)
+    BIND(?rsText AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -74,38 +75,41 @@ WHERE {
   {
     ?cl a xyz:Classification ; xyz:DateLastEvaluated ?dle . FILTER(STRLEN(?dle) > 0)
     BIND("/Classification/@DateLastEvaluated" AS ?sfT)
-    BIND(CONCAT("Per-SCV DateLastEvaluated \"", ?dle, "\" has no v1-draft.0.1 predicate. Candidate: genomics:assertionDate (v1-draft.0.2).") AS ?reason)
+    BIND(clinvar:assertionEvaluationDate AS ?gap)
+    BIND(?dle AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
   UNION
   {
-    # One finding per lifecycle attribute: a selector names one node.
+    # One finding per lifecycle attribute: a selector names one node, and each
+    # attribute is its own gap.
     ?ca a xyz:ClinicalAssertion ; ?lp ?lv .
     FILTER(?lp IN (xyz:SubmissionDate, xyz:DateCreated, xyz:DateLastUpdated) && STRLEN(?lv) > 0)
     BIND(CONCAT("/@", STRAFTER(STR(?lp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND("Submission lifecycle dates have no v1-draft.0.1 predicate. Useful for chronology and audit; candidates for v1-draft.0.2." AS ?reason)
+    BIND(IF(?lp = xyz:SubmissionDate, clinvar:assertionSubmissionDate,
+         IF(?lp = xyz:DateCreated, clinvar:assertionDateCreated,
+                                   clinvar:assertionDateLastUpdated)) AS ?gap)
+    BIND(?lv AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
   UNION
   {
-    # One entry per ObservedIn/Method, the MethodType as a JSON string, or
-    # null with no MethodType; reported when any entry is non-empty. JSON escaping
-    # covers backslash and quote only. The list spans the ObservedInList, which is
-    # therefore what the finding selects.
-    { SELECT ?ca (GROUP_CONCAT(?jm; SEPARATOR=",") AS ?list) (MAX(?has) AS ?any) WHERE {
+    # Reported once for the ClinicalAssertion when any ObservedIn/Method carries a
+    # MethodType with text. The methods span the ObservedInList, which is therefore
+    # what the finding selects.
+    { SELECT ?ca (MAX(?has) AS ?any) WHERE {
         ?ca a xyz:ClinicalAssertion ; ?m1 ?oil . ?oil a xyz:ObservedInList ; ?m2 ?oi .
         ?oi a xyz:ObservedIn ; ?m3 ?m . ?m a xyz:Method .
-        OPTIONAL { SELECT ?m ?mt ?mtt WHERE { ?m ?m4 ?mt . ?mt a xyz:MethodType .
+        OPTIONAL { SELECT ?m ?mtt WHERE { ?m ?m4 ?mt . ?mt a xyz:MethodType .
                    OPTIONAL { ?mt rdf:_1 ?mtt . FILTER(isLiteral(?mtt)) } } }
         BIND(COALESCE(REPLACE(?mtt, "^\\s+|\\s+$", ""), "") AS ?mtv)
-        BIND(IF(BOUND(?mt), CONCAT("\"", REPLACE(REPLACE(?mtv, "\\\\", "\\\\\\\\"), "\"", "\\\\\""), "\""), "null") AS ?jm)
         BIND(IF(STRLEN(?mtv) > 0, 1, 0) AS ?has)
       } GROUP BY ?ca }
     FILTER(?any = 1)
     BIND("/ObservedInList" AS ?sfT)
-    BIND(CONCAT("Method types [", ?list, "] have no v1-draft predicate. Candidates: genomics:methodType (literature only / clinical testing / curation / research).") AS ?reason)
+    BIND(clinvar:observationMethodType AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -125,7 +129,7 @@ WHERE {
       } GROUP BY ?ca ?container }
     FILTER(?nCit > 0)
     BIND(?container AS ?sfT)
-    BIND(CONCAT("Citations carry ", STR(?nCit), " PMID/DOI references for the assertion's evidence. No v1-draft predicate; candidate genomics:supportingCitation (v1-draft.0.2).") AS ?reason)
+    BIND(clinvar:assertionSupportingCitation AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -135,7 +139,8 @@ WHERE {
     BIND(REPLACE(?rst, "^\\s+|\\s+$", "") AS ?recSt)
     FILTER(STRLEN(?recSt) > 0 && ?recSt != "current")
     BIND("/RecordStatus" AS ?sfT)
-    BIND(CONCAT("RecordStatus \"", ?recSt, "\" indicates a non-current record (withdrawn or superseded). v1-draft has no predicate to flag this state on a SubmitterAssertion.") AS ?reason)
+    BIND(clinvar:assertionRecordStatus AS ?gap)
+    BIND(?recSt AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -147,7 +152,8 @@ WHERE {
     BIND(REPLACE(?ast, "^\\s+|\\s+$", "") AS ?aff)
     FILTER(STRLEN(?aff) > 0)
     BIND(CONCAT("/ObservedInList/ObservedIn[", STRAFTER(STR(?oiSlot2), "#_"), "]/Sample/AffectedStatus") AS ?sfT)
-    BIND(CONCAT("AffectedStatus \"", ?aff, "\" (yes / no / not provided / unknown) describes the sample's affection state. No v1-draft predicate; relevant to causality. Candidate: genomics:affectedStatus.") AS ?reason)
+    BIND(clinvar:sampleAffectedStatus AS ?gap)
+    BIND(?aff AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -164,7 +170,7 @@ WHERE {
       } GROUP BY ?od }
     BIND(CONCAT("/ObservedInList/ObservedIn[", STRAFTER(STR(?oiSlot3), "#_"),
                 "]/ObservedData[", STR(?beforeOd + 1), "]") AS ?sfT)
-    BIND("ObservedData carries free-text case descriptions, segregation evidence, and population frequencies. No v1-draft predicate; would map to genomics:observationNarrative or be split into structured evidence types in v1-draft.0.2." AS ?reason)
+    BIND(clinvar:observedDataEvidence AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -178,15 +184,17 @@ WHERE {
                    FILTER(xsd:integer(STRAFTER(STR(?mB), "#_")) < xsd:integer(STRAFTER(STR(?mA), "#_"))) }
       } GROUP BY ?cm }
     BIND(CONCAT("/Classification/Comment[", STR(?beforeCm + 1), "]") AS ?sfT)
-    BIND("ClinicalAssertion Comment carries human-readable notes from the submitter. No v1-draft predicate; candidate genomics:assertionComment (v1-draft.0.2)." AS ?reason)
+    BIND(clinvar:assertionComment AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
   UNION
   {
     ?ca a xyz:ClinicalAssertion ; ?d1 ?sd . ?sd a xyz:StudyDescription ; rdf:_1 ?sdt . FILTER(isLiteral(?sdt))
+    BIND(REPLACE(?sdt, "^\\s+|\\s+$", "") AS ?study)
     BIND("/StudyDescription" AS ?sfT)
-    BIND("StudyDescription carries the broader study/consortium context for the assertion. No v1-draft predicate." AS ?reason)
+    BIND(clinvar:assertionStudyDescription AS ?gap)
+    BIND(IF(STRLEN(?study) > 0, ?study, 1/0) AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -198,7 +206,7 @@ WHERE {
     # An anti-join as MINUS, which walks the TraitMappings once, not per assertion.
     MINUS { ?rec13 ?n3 ?tml . ?tml a xyz:TraitMappingList ; ?n4 ?tm . ?tm xyz:ClinicalAssertionID ?tid }
     BIND("" AS ?sfT)
-    BIND("No <TraitMapping> entry for this ClinicalAssertion; cannot derive a deterministic genomics:aggregatedFrom link to a specific VariantInterpretation. The Assertion is emitted standalone." AS ?reason)
+    BIND(clinvar:assertionWithoutTraitMapping AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
@@ -209,7 +217,8 @@ WHERE {
     BIND(REPLACE(?cgxt, "^\\s+|\\s+$", "") AS ?gText)
     FILTER(STRLEN(?gText) > 0)
     BIND("/Classification/GermlineClassification" AS ?sfT)
-    BIND(CONCAT("GermlineClassification \"", ?gText, "\" is not one of the five canonical ACMG values; cannot emit a SubmitterAssertion (would violate SubmitterAssertionShape). Common non-canonical strings: \"Pathogenic, low penetrance\", \"established risk allele\", \"drug response\".") AS ?reason)
+    BIND(clinvar:assertionClassificationOutsideAcmgSet AS ?gap)
+    BIND(?gText AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("skipped" AS ?gate)
   }
@@ -222,7 +231,7 @@ WHERE {
         FILTER(?sxt IN (xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && isLiteral(?sxtt)) } }
     MINUS { ?cl ?q3 ?gx . ?gx a xyz:GermlineClassification ; rdf:_1 ?gxt . FILTER(isLiteral(?gxt)) }
     BIND("/Classification" AS ?sfT)
-    BIND("ClinicalAssertion classifies somatic impact or oncogenicity, not germline ACMG; v1-draft.0.1 has no genomics:somaticStatus / oncogenicityClass — these are v1-draft.0.2 candidates. Skipping SubmitterAssertion emission." AS ?reason)
+    BIND(clinvar:assertionNonGermlineClassification AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("skipped" AS ?gate)
   }
@@ -233,7 +242,7 @@ WHERE {
     MINUS { ?cl ?q4 ?ax . ?ax a ?axt ; rdf:_1 ?axtt .
             FILTER(?axt IN (xyz:GermlineClassification, xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && isLiteral(?axtt)) }
     BIND("/Classification" AS ?sfT)
-    BIND("ClinicalAssertion has no germline / somatic / oncogenicity classification text (e.g., NoClassification=evidence_only); SubmitterAssertionShape requires genomics:assertedClassification cardinality 1. Skipping SubmitterAssertion emission." AS ?reason)
+    BIND(clinvar:assertionWithoutClassification AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("skipped" AS ?gate)
   }
@@ -243,14 +252,17 @@ WHERE {
     # names by position: AttributeSet is unbounded, so the predicate alone names a set.
     ?ca a xyz:ClinicalAssertion ; ?w1 ?aset . ?aset a xyz:AttributeSet ; ?w2 ?attr .
     ?attr a xyz:Attribute ; xyz:Type "AssertionMethod" .
-    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT)) }
+    OPTIONAL { ?attr rdf:_1 ?attrT . FILTER(isLiteral(?attrT))
+               BIND(REPLACE(?attrT, "^\\s+|\\s+$", "") AS ?method)
+               FILTER(STRLEN(?method) > 0) }
     { SELECT ?aset (COUNT(?earlierAs) AS ?beforeAs) WHERE {
         ?ownerAs ?sA ?aset . ?aset a xyz:AttributeSet .
         OPTIONAL { ?ownerAs ?sB ?earlierAs . ?earlierAs a xyz:AttributeSet .
                    FILTER(xsd:integer(STRAFTER(STR(?sB), "#_")) < xsd:integer(STRAFTER(STR(?sA), "#_"))) }
       } GROUP BY ?aset }
     BIND(CONCAT("/AttributeSet[", STR(?beforeAs + 1), "][Attribute/@Type='AssertionMethod']") AS ?sfT)
-    BIND(CONCAT("Assertion method \"", COALESCE(REPLACE(?attrT, "^\\s+|\\s+$", ""), "<unknown>"), "\" — the criteria suite the submitter applied. No v1-draft predicate; candidate genomics:assertionMethod (v1-draft.0.2).") AS ?reason)
+    BIND(clinvar:assertionMethodCriteria AS ?gap)
+    BIND(?method AS ?value)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }

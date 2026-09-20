@@ -21,7 +21,7 @@ only this way.
 
 ## Status
 
-**Phase 2, version 0.3.0: the mapping, as SPARQL.**
+**Phase 2, version 0.4.0: the mapping, as SPARQL.**
 
 | phase | what | where | done when |
 |---|---|---|---|
@@ -35,8 +35,9 @@ only this way.
    record in one RO-Crate. The root entity is the adapter: format id
    `clinvar`, the two envelopes (`#envelope-efetch`, `#envelope-release`),
    the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
-   must offer, the vocabulary pin, and the test manifest, every one of them
-   a link to an entity in the same graph.
+   must offer, the vocabulary pin, the gap scheme the findings take their
+   bodies from, and the test manifest, every one of them a link to an entity
+   in the same graph.
 2. Routes an input here when the detect rule, `in/sparql/detect.rq`, is true of
    the document's envelope skeleton; `docs/format.md` has which roots were
    deliberately not claimed.
@@ -80,6 +81,8 @@ cascade-bridge-adapter-clinvar/
     ClinVar_VCV_2.6.xsd      NCBI's schema, pinned byte for byte (md5 a7b65e5a166dc5f36a7eea9127d56f4e)
     ClinVarResult-Set.xsd    the efetch envelope root NCBI's schema does not declare; includes the above
   in/sparql/                 the mapping: a CONSTRUCT and a findings query per record class, and detect.rq
+  vocab/
+    clinvar-gaps.ttl         the gaps this adapter reports, one concept per gap, the body of every finding
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample

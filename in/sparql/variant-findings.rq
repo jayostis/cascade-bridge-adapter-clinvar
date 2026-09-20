@@ -4,13 +4,14 @@ PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
 PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
+PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 # A nested group cannot see variables bound outside it, so each branch binds a
 # path below the record's wrapper element (?sfT) and the wrapper's own name is
 # joined on after the UNION.
 #
-# ?selector stays unbound for a finding about the whole record; the template's
-# three selector triples drop with it.
+# ?selector stays unbound for a finding about the whole record, and ?value for a
+# rule that read no source value; the template's triples drop with them.
 
 CONSTRUCT {
   [] a oa:Annotation ;
@@ -18,7 +19,9 @@ CONSTRUCT {
       oa:hasSource bridge:thisRecord ;
       oa:hasSelector ?selector
     ] ;
-    oa:hasBody [ a oa:TextualBody ; rdf:value ?reason ] ;
+    oa:hasBody ?gap ;
+    oa:motivatedBy oa:classifying ;
+    sh:value ?value ;
     sh:resultSeverity ?severity .
   ?selector a oa:XPathSelector ; rdf:value ?xpath .
 }
@@ -35,7 +38,7 @@ WHERE {
     ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     MINUS { ?sa ?x1 ?gl . ?gl a xyz:GeneList ; ?x2 ?gn . ?gn a xyz:Gene }
     BIND("/SimpleAllele" AS ?sfT)
-    BIND("SimpleAllele has no Gene element; SHACL VariantShape requires geneSymbol cardinality 1." AS ?reason)
+    BIND(clinvar:simpleAlleleWithoutGene AS ?gap)
     BIND(sh:Warning AS ?severity)
   }
   UNION
@@ -45,7 +48,7 @@ WHERE {
       } GROUP BY ?sa }
     FILTER(?n > 1)
     BIND("/SimpleAllele/GeneList" AS ?sfT)
-    BIND(CONCAT("SimpleAllele lists ", STR(?n), " Gene elements; v1-draft Variant carries only the first. Multi-gene fusion / overlap variants need vocab evolution.") AS ?reason)
+    BIND(clinvar:multipleGenesOnlyFirstCarried AS ?gap)
     BIND(sh:Warning AS ?severity)
   }
   UNION
@@ -64,7 +67,7 @@ WHERE {
     FILTER(?doseType IN (xyz:Haploinsufficiency, xyz:Triplosensitivity))
     BIND(CONCAT("/SimpleAllele/GeneList/Gene[", STR(?gi), "]/",
                 STRAFTER(STR(?doseType), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND("ClinGen dosage-sensitivity annotations on the Gene (Haploinsufficiency / Triplosensitivity) carry the dosage-pathogenicity evidence — not variant-level. No v1-draft Gene predicate; candidate genomics:haploinsufficiency / genomics:triplosensitivity at the Gene class level." AS ?reason)
+    BIND(IF(?doseType = xyz:Haploinsufficiency, clinvar:geneHaploinsufficiency, clinvar:geneTriplosensitivity) AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -87,7 +90,7 @@ WHERE {
                    FILTER(xsd:integer(STRAFTER(STR(?pB), "#_")) < xsd:integer(STRAFTER(STR(?pA), "#_"))) }
       } GROUP BY ?prop }
     BIND(CONCAT("/SimpleAllele/GeneList/Gene[", STR(?gi), "]/Property[", STR(?before + 1), "]") AS ?sfT)
-    BIND("Gene properties (e.g., gene_acmg_incidental_2022) tag genes on ACMG actionability lists. No v1-draft predicate; useful for genome-screening reports." AS ?reason)
+    BIND(clinvar:genePropertyTag AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -95,7 +98,7 @@ WHERE {
     ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     { SELECT DISTINCT ?sa WHERE { ?sa ?x1 ?onl . ?onl a xyz:OtherNameList ; ?any ?anyo . FILTER(?any != rdf:type) } }
     BIND("/SimpleAllele/OtherNameList" AS ?sfT)
-    BIND("OtherNameList carries legacy / alias variant names (\"p.C61G:TGT>GGT\", \"300T>G\") that pre-date current HGVS conventions. No v1-draft alias-list predicate; could be added as genomics:variantAlias." AS ?reason)
+    BIND(clinvar:variantAliasName AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -104,9 +107,8 @@ WHERE {
     ?xr a xyz:XRef ; xyz:DB ?db ; xyz:ID ?xid .
     FILTER(?db IN ("OMIM", "UniProtKB", "BRCA1-HCI", "NCBI 1000 Genomes Browser"))
     BIND(CONCAT("/SimpleAllele/XRefList/XRef[", STRAFTER(STR(?x2), "#_"), "][@DB='", ?db, "']") AS ?sfT)
-    BIND(IF(?db = "OMIM",
-      "OMIM allelic variant identifier (e.g., 113705.0002) has no v1-draft genomics: predicate; preserved only in source XML.",
-      CONCAT("External cross-ref to ", ?db, " has no v1-draft genomics: predicate.")) AS ?reason)
+    BIND(clinvar:variantExternalCrossReference AS ?gap)
+    BIND(?db AS ?value)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -114,7 +116,7 @@ WHERE {
     ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     { SELECT DISTINCT ?sa WHERE { ?sa ?x1 ?afl . ?afl a xyz:AlleleFrequencyList ; ?any ?anyo . FILTER(?any != rdf:type) } }
     BIND("/SimpleAllele/AlleleFrequencyList" AS ?sfT)
-    BIND("Population-level allele frequency tables (gnomAD, ExAC) have no v1-draft genomics: predicate. Per-sample VAF maps to genomics:mosaicismFraction; population frequencies are a v1-draft.0.2 candidate." AS ?reason)
+    BIND(clinvar:populationAlleleFrequency AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -123,7 +125,8 @@ WHERE {
     BIND(REPLACE(?vtRaw, "^\\s+|\\s+$", "") AS ?vtt)
     FILTER(STRLEN(?vtt) > 0)
     BIND("/SimpleAllele/VariantType" AS ?sfT)
-    BIND(CONCAT("VariantType \"", ?vtt, "\" (structural kind: SNV, indel, deletion, etc.) has no v1-draft genomics: predicate. Captured in consequenceTerm only when SO mapping is present.") AS ?reason)
+    BIND(clinvar:variantTypeTerm AS ?gap)
+    BIND(?vtt AS ?value)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -142,7 +145,7 @@ WHERE {
       } GROUP BY ?sa }
     FILTER(?nPc > 0 && COALESCE(?nP, 0) = 0)
     BIND("/SimpleAllele" AS ?sfT)
-    BIND("SimpleAllele lists <ProteinChange> in one-letter form but no <HGVS Type=\"protein\"> with a full p.HGVS expression. Cannot derive hgvsPDot." AS ?reason)
+    BIND(clinvar:proteinChangeWithoutHgvsProtein AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -158,12 +161,13 @@ WHERE {
       } GROUP BY ?agg }
     FILTER(?nCit > 0)
     BIND("/Classifications/GermlineClassification[1]" AS ?sfT)
-    BIND(CONCAT("Aggregate-level Classifications block carries ", STR(?nCit), " curated citations (PubMed, DOI). No v1-draft predicate at the Variant level; candidate genomics:supportingEvidence (v1-draft.0.2).") AS ?reason)
+    BIND(clinvar:aggregateClassificationCitation AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   UNION
   {
-    # One finding per aggregate count attribute on that same GermlineClassification.
+    # One finding per aggregate count attribute on that same GermlineClassification,
+    # each attribute its own gap.
     ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
     FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
@@ -172,7 +176,9 @@ WHERE {
     FILTER(?countProp IN (xyz:NumberOfSubmissions, xyz:NumberOfSubmitters) && STRLEN(?countValue) > 0)
     BIND(CONCAT("/Classifications/GermlineClassification[1]/@",
                 STRAFTER(STR(?countProp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND("Aggregate counts (NumberOfSubmissions, NumberOfSubmitters) drive the ClinGen star-rating UI. No v1-draft predicate; candidate genomics:numberOfSubmitters." AS ?reason)
+    BIND(IF(?countProp = xyz:NumberOfSubmissions, clinvar:aggregateNumberOfSubmissions,
+                                                 clinvar:aggregateNumberOfSubmitters) AS ?gap)
+    BIND(?countValue AS ?value)
     BIND(sh:Info AS ?severity)
   }
   UNION
@@ -180,7 +186,7 @@ WHERE {
     ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     { SELECT DISTINCT ?rec WHERE { ?rec ?x2 ?tml . ?tml a xyz:TraitMappingList ; ?any ?anyo . FILTER(?any != rdf:type) } }
     BIND("/TraitMappingList" AS ?sfT)
-    BIND("TraitMappingList connects each ClinicalAssertion to a normalized condition (MedGen / MONDO / OMIM). The mapping is consumed during SCV → SubmitterAssertion aggregation, but the per-mapping evidence (MappingType, MappingValue) is not preserved on the resulting graph." AS ?reason)
+    BIND(clinvar:traitMappingEvidence AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   }
@@ -196,7 +202,7 @@ WHERE {
     FILTER(?recType = xyz:ClassifiedRecord ||
            (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
     FILTER NOT EXISTS { ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele }
-    BIND("VariationArchive has no SimpleAllele block; only Haplotype / Genotype variants are present (deferred — no v1-draft Cascade representation for ClinVar haplotype-level records yet)." AS ?reason)
+    BIND(clinvar:haplotypeOrGenotypeRecordOnly AS ?gap)
     BIND(sh:Warning AS ?severity)
   }
 
