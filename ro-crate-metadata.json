@@ -400,7 +400,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "What this adapter does with each path of its source: one bridge:PathEntry per distinct element and attribute path of the four judged inputs, 412 of them, each with exactly one of the six bridge:verdicts and whatever that verdict names. A path is written from the record element, VariationArchive, so it is the same under both envelopes; the record element's own path carries no entry and its attributes do. The paths were enumerated with lxml over fixtures/in/'s four judged inputs on 2026-09-20 and every verdict was read against in/sparql/ before it was written. Paths that only clinvar-vcv-release-2026-09 or fixtures/in/VCV_XML_VCV000091629.xml carry are not in it."
+      "description": "What this adapter does with each path of its source: one bridge:PathEntry per distinct element and attribute path of the four judged inputs, 412 of them, each with exactly one of the six bridge:verdicts and whatever that verdict names. A path is written from the record element, VariationArchive, so it is the same under both envelopes; the record element's own path carries no entry and its attributes do. The paths were enumerated with lxml over fixtures/in/'s four judged inputs on 2026-09-20. Each verdict is a claim read against in/sparql/, and not one the lint can settle: the lint tests only that a path claiming carriage has its last step named somewhere in a mapping file. Paths that only clinvar-vcv-release-2026-09 or fixtures/in/VCV_XML_VCV000091629.xml carry are not in it."
     },
     {
       "@id": "fixtures/manifest.ttl",
