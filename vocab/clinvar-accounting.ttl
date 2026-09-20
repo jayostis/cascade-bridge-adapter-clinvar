@@ -73,8 +73,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateLastEvaluated" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The date of ClinVar's roll-up across submissions; the graph carries each RCV's own evaluation date instead." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationEvaluationDate .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@MostRecentSubmission" ;
@@ -140,8 +140,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's kind of trait set; the graph makes no distinction between kinds of condition." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionKind .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait" ;
@@ -149,48 +149,48 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@ID" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's internal number for the trait; the graph names a condition by its MONDO or MedGen identifier." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:traitIdentifier .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's kind of trait; the graph makes no distinction between kinds of condition." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionKind .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@integerValue" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "MedGen's prose about the condition: its public definition, its inheritance and its GARD number. The graph names a condition by identifier and describes it nowhere." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Where the condition's definition text came from; the graph carries neither the text nor its source." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@DB" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Where the condition's definition text came from; the graph carries neither the text nor its source." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@ID" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The identifier of the condition's definition text at its source; the graph carries neither." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Citation" ;
@@ -233,13 +233,13 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The condition's display name; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Which of a condition's names ClinVar prefers; the graph carries none of them." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef" ;
@@ -256,43 +256,43 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How a cross-reference stands to the name it hangs on; the graph carries the identifier alone." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The condition's abbreviation; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The condition's abbreviation; the graph names a condition by its MONDO or MedGen identifier and carries no label." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Which of a condition's abbreviations ClinVar prefers; the graph carries none of them." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionDescriptiveMaterial .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Where the condition's abbreviation came from; the graph carries neither the abbreviation nor its source." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@DB" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Where the condition's abbreviation came from; the graph carries neither the abbreviation nor its source." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@ID" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The identifier of the condition's abbreviation at its source; the graph carries neither." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How a cross-reference stands to the abbreviation it hangs on; the graph carries neither." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef" ;
@@ -309,18 +309,18 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How a cross-reference stands to the trait it hangs on; the graph carries the identifier alone." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:conditionExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Description" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's roll-up of the submitted classifications; the graph carries each RCV's classification, from which the roll-up is ClinVar's own summary." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationDescription .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ReviewStatus" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's roll-up of the submitted review statuses; the graph carries each RCV's review status instead." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:aggregateClassificationReviewStatus .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList" ;
@@ -355,33 +355,33 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@OrgID" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@OrganizationCategory" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@SubmitterName" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/AdditionalSubmitters/SubmitterDescription/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The organizations that co-submitted the assertion; the graph carries the one submitter the accession names." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionAdditionalSubmitter .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Assertion" ;
@@ -594,12 +594,12 @@
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@submittedAssembly" ;
   bridge:verdict bridge:ignored ;
-  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+  bridge:because "The assembly the submitter worked in; the graph carries no submitter's own coordinates for it to qualify." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID/@title" ;
   bridge:verdict bridge:ignored ;
-  bridge:because "The submitter's own key for the batch the assertion arrived in, which means something only inside ClinVar's submission system." .
+  bridge:because "The submitter's display title for the submission, which is either the batch identifier or the variation and condition the record states itself." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Comment" ;
@@ -1200,8 +1200,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/GeneLocation" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The exon the submitter placed the variation in; the graph carries the genomic coordinates and the HGVS expressions, from which the exon is a property of the transcript." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedExonLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/Location/SequenceLocation" ;
@@ -1335,8 +1335,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/@multipleConditionExplanation" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "Why a submitter named several conditions at once; the graph carries one interpretation per condition and no account of the grouping." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:assertionMultipleConditionExplanation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait" ;
@@ -1365,28 +1365,28 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedTraitRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedTraitRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedTraitRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name/ElementValue" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedTraitRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship/Name/ElementValue/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A second condition ClinVar relates the submitted one to; the graph carries the condition the assertion was aggregated under, not ClinVar's relations between conditions." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:submittedTraitRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef" ;
@@ -1405,8 +1405,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How a cross-reference stands to the trait it hangs on; the graph carries the identifier alone." .
+  bridge:verdict bridge:redundantWith ;
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList" ;
@@ -1511,8 +1511,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/@AlleleID" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "ClinVar's number for the allele inside the record; the graph carries the variation identifier the whole record is named by." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:alleleIdentifier .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/@VariationID" ;
@@ -1553,8 +1553,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's descriptive name; the graph names a gene by its symbol and its HGNC identifier." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneFullName .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" ;
@@ -1568,8 +1568,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@RelationshipType" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How the variation sits inside or across the gene; the graph states which gene, not the containment." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneVariationRelationship .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Source" ;
@@ -1598,28 +1598,28 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/CytogeneticLocation" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Accession" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyAccessionVersion" ;
@@ -1628,18 +1628,18 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyStatus" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Chr" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Strand" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@display_start" ;
@@ -1653,18 +1653,18 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The gene's own span on the assembly; the graph carries where the variation is, and takes the gene as a name rather than as a region." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/OMIM" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "OMIM's number for the gene; the graph names a gene by its symbol and its HGNC identifier." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:geneExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Property" ;
@@ -1814,8 +1814,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/CytogeneticLocation" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The chromosome band, which locates the variation more coarsely than the coordinates the graph already carries." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantCytogeneticLocation .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation" ;
@@ -1823,8 +1823,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The RefSeq accession and version of the chromosome the coordinates are on; the graph names a location by assembly, chromosome and position, and never by the sequence record behind them." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantSequenceAccession .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Assembly" ;
@@ -1864,8 +1864,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "The start position in VCF's convention, which takes the start and the allele shape together, so no one path restates it; the graph carries the VCF reference and alternate alleles and not the position they hang on, which is a gap for wave 2 to name rather than a fact dropped on purpose." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantVcfPosition .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@referenceAlleleVCF" ;
@@ -1929,8 +1929,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "How a cross-reference stands to the record it hangs on; the graph carries the identifier alone." .
+  bridge:verdict bridge:noHome ;
+  bridge:namesGap clinvar:variantExternalCrossReference .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/TraitMappingList" ;

@@ -383,8 +383,8 @@
       "@type": "File",
       "name": "ClinVar VCV gaps",
       "encodingFormat": "text/turtle",
-      "contentSize": "11794",
-      "sha256": "2842d37e7a781430c5e4af89043b7b782f3ff6065d0a6b68b2d0b45e2a2804a0",
+      "contentSize": "16862",
+      "sha256": "517d9281f7967f27af043213e4898749c133150cdd3c2e9b767ba12067fb1d92",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -395,8 +395,8 @@
       "@type": "File",
       "name": "ClinVar VCV source accounting",
       "encodingFormat": "text/turtle",
-      "contentSize": "105710",
-      "sha256": "21a1ce54ac3702bb5178bc4fc0be702f5a39a3103c3306747e9671a2d0b62527",
+      "contentSize": "100574",
+      "sha256": "674430b01321ae4b3cc1d9977b1cb17eb08e7063392573bf18d5e04987981ab1",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
