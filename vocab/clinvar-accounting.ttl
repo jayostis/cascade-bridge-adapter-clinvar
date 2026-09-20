@@ -1326,12 +1326,12 @@
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/@Type" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/@multipleConditionExplanation" ;
@@ -1341,27 +1341,27 @@
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/@Type" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name/ElementValue" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/Name/ElementValue/@Type" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/TraitRelationship" ;
@@ -1391,22 +1391,22 @@
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@DB" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@DB" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@ID" ;
   bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@ID" .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/TraitSet/Trait/XRef/@Type" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList/ClassifiedCondition" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "How a cross-reference stands to the trait it hangs on; the graph carries the identifier alone." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/DeletedSCVList" ;
