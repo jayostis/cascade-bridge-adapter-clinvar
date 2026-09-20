@@ -1185,8 +1185,8 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/XRef/@DB" ;
-  bridge:verdict bridge:redundantWith ;
-  bridge:sameFactAs "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@GeneID" .
+  bridge:verdict bridge:ignored ;
+  bridge:because "Which database the gene cross-reference is into; the graph carries the NCBI gene identifier, whose database its own predicate fixes." .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/SimpleAllele/GeneList/Gene/XRef/@ID" ;
