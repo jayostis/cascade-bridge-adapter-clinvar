@@ -15,10 +15,10 @@ only place a findings query may take a body from.
 - Two sentences that differ only by a value are one gap. Two source elements
   whose loss reads as two sentences are two gaps, even where one rule reports
   both; where one sentence covers both, they open one gap between them.
-- The five `skos:broader` kinds are the specification's `bridge:gapKinds`. Adding
-  a kind is a change to [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec).
-- `bridge:closedBy` names the one Cascade term that would close the gap. A gap
-  whose sentence proposed two terms names neither until the rule is split.
+- Every `skos:broader` names a concept of the specification's `bridge:gapKinds`.
+  Adding a kind is a change to [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec).
+- A gap whose sentence proposed two `bridge:closedBy` terms names neither until
+  the rule is split.
 
 ## Adding, removing or renaming a gap
 
