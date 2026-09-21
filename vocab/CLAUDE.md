@@ -27,13 +27,14 @@ red. So a findings query, the four `fixtures/findings/*.gaps.ttl` and
 `ro-crate-metadata.json` change in the same commit.
 
 A gap no findings query constructs is **not** red. An entry of
-`clinvar-accounting.ttl` that names a gap **reports** it, once per distinct path
-per record, where the gap's kind is `bridge:noPredicate`,
-`bridge:sourceLacksRequired` or `bridge:carriedWithLoss`; a
-`bridge:valueNotMapped` gap is true of one value at the path rather than of the
-path, so only a query can report it. Retiring a query whose gap an entry names
-therefore silences nothing, and a rule that writes what its entry writes goes. A
-gap nothing names at all — no query, no entry — is dead, and goes.
+`clinvar-accounting.ttl` that names a gap whose kind reports **reports** it,
+once per distinct path per record; which kinds report is
+[`engine/sparql.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md)'s
+to say. A gap of any other kind is true of what a record holds at the path
+rather than of the path, so only a query can report it. Retiring a query whose
+gap an entry reports therefore silences nothing, and a rule that writes what its
+entry writes goes. A gap nothing names at all — no query, no entry — is dead,
+and goes.
 
 A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`:
 severity belongs to the kind of problem, and an entry has no query in which to

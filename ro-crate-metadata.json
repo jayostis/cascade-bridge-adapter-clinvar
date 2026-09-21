@@ -600,9 +600,6 @@
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
-      "isBasedOn": {
-        "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000007105-CFTR-deltaF508.gaps.json"
-      },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -617,9 +614,6 @@
       "sha256": "5a707f65dd521c11547ec1d475df5c77f2ba3807ae09e39e97f59ad0dc51fc18",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
-      },
-      "isBasedOn": {
-        "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000017661-BRCA1.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -636,9 +630,6 @@
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
-      "isBasedOn": {
-        "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000055448-BRCA2-pathogenic.gaps.json"
-      },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -653,9 +644,6 @@
       "sha256": "6892b442361da7eb52a4097f47ae1f52de1d7e36b9ff90f30284c60b54f1975d",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
-      },
-      "isBasedOn": {
-        "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000208804-MLH1-LynchSyndrome.gaps.json"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -742,7 +730,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The four input / expected / gaps triplets the committed oracles are taken from; the inputs are unchanged, four expected files are corrected in this crate and the four gaps sidecars are translated into Web Annotations here. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:cascadeVocabularyPin)."
+      "description": "The four input / expected pairs the committed oracles are taken from; the inputs are unchanged and four expected graphs are corrected in this crate. The gaps sidecars beside them are the source of nothing here: the findings oracles are a Bridge's own convert --findings output. A contextual entity: the source of the fixtures, not part of the crate. The commit is on the fork, jayostis/conformance, and is not an ancestor of the-cascade-protocol/conformance main, so this entity and the oracles' links name the fork: naming the org would point at a revision the org does not hold. The directory last changed at 8a5e203 (2026-05-06, \"feat(conformance): clinvar VCV expected.ttl + gaps.json oracles for 4 VCVs\"), which is on the org's main with identical blobs; the same bytes are readable from the org at that commit. The conformance suite validates the expected graphs against the spec revision in its scripts/SPEC_PIN, jayostis/spec at e77ba5e; this adapter pins the-cascade-protocol/spec instead (bridge:cascadeVocabularyPin)."
     },
     {
       "@id": "https://spdx.org/licenses/Apache-2.0",

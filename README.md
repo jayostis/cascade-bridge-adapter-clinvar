@@ -88,7 +88,7 @@ cascade-bridge-adapter-clinvar/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample
     expected/                the four expected graphs, from conformance, corrected where it was wrong
-    findings/                the four expected findings graphs, Web Annotations translated from conformance's gaps sidecars
+    findings/                the four expected findings graphs, a Bridge's convert --findings over the input beside each
 ```
 
 ## Decisions
