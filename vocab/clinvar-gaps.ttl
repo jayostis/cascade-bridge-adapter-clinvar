@@ -128,7 +128,8 @@ clinvar:assertionWithoutClassification a skos:Concept ;
 clinvar:assertionWithoutSubmitterName a skos:Concept ;
   skos:prefLabel "A clinical assertion carries no submitter name, which a submitter assertion requires."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:sourceLacksRequired .
+  skos:broader bridge:sourceLacksRequired ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:assertionWithoutTraitMapping a skos:Concept ;
   skos:prefLabel "A clinical assertion has no trait mapping, and is carried with no link to the interpretation it supports."@en ;
@@ -196,7 +197,8 @@ clinvar:geneVariationRelationship a skos:Concept ;
 clinvar:haplotypeOrGenotypeRecordOnly a skos:Concept ;
   skos:prefLabel "A record carries haplotype or genotype variation and no simple allele, and no Cascade class carries it."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:noPredicate .
+  skos:broader bridge:noPredicate ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:medgenConceptIdentifier a skos:Concept ;
   skos:prefLabel "A classified condition carries its MedGen concept identifier, and no Cascade predicate carries it."@en ;
@@ -250,7 +252,8 @@ clinvar:rcvNonGermlineClassification a skos:Concept ;
 clinvar:rcvReviewStatusOutsideTiers a skos:Concept ;
   skos:prefLabel "An RCV's review status is outside the published ClinGen review tiers."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:valueNotMapped .
+  skos:broader bridge:valueNotMapped ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:rcvSubmissionCount a skos:Concept ;
   skos:prefLabel "An RCV's germline classification carries the number of submissions behind it, and no Cascade predicate carries it."@en ;
@@ -261,17 +264,20 @@ clinvar:rcvSubmissionCount a skos:Concept ;
 clinvar:rcvWithoutAccession a skos:Concept ;
   skos:prefLabel "An RCV carries no accession, which its schema requires, and nothing downstream can cite it by one."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:sourceLacksRequired .
+  skos:broader bridge:sourceLacksRequired ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:rcvWithoutClassifiedCondition a skos:Concept ;
   skos:prefLabel "An RCV carries no classified condition, which a variant interpretation requires."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:sourceLacksRequired .
+  skos:broader bridge:sourceLacksRequired ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:rcvWithoutGermlineClassification a skos:Concept ;
   skos:prefLabel "An RCV carries no germline classification, which a variant interpretation requires."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:sourceLacksRequired .
+  skos:broader bridge:sourceLacksRequired ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:sampleAffectedStatus a skos:Concept ;
   skos:prefLabel "An observed sample carries its affected status, and no Cascade predicate carries it."@en ;
@@ -282,7 +288,8 @@ clinvar:sampleAffectedStatus a skos:Concept ;
 clinvar:simpleAlleleWithoutGene a skos:Concept ;
   skos:prefLabel "A simple allele carries no gene, which the variant shape requires."@en ;
   skos:inScheme clinvar:gaps ;
-  skos:broader bridge:sourceLacksRequired .
+  skos:broader bridge:sourceLacksRequired ;
+  sh:resultSeverity sh:Warning .
 
 clinvar:submittedExonLocation a skos:Concept ;
   skos:prefLabel "A clinical assertion places the variation in an exon of a transcript, and no Cascade predicate carries it."@en ;
