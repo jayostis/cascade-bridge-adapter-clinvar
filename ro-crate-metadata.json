@@ -14,6 +14,7 @@
       "bridge:detectQuery": "bridge:detectQuery",
       "bridge:mapping": "bridge:mapping",
       "bridge:findingsQuery": "bridge:findingsQuery",
+      "bridge:table": "bridge:table",
       "bridge:testManifest": "bridge:testManifest",
       "bridge:docRootElementName": "bridge:docRootElementName",
       "bridge:documentSchema": "bridge:documentSchema",
@@ -38,7 +39,7 @@
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
       "version": "0.5.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from, each gap declaring the sh:resultSeverity its findings carry where that is not sh:Info, the accounting of every path its source carries, whose entry reports the gap it names and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs are taken from the conformance repository, the inputs byte for byte and the expected graphs corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. The four expected findings are the output of a Bridge's convert --findings over the committed input beside them. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Lookup tables are inline VALUES in the queries, so no bridge:table is declared; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin, the gap scheme every finding takes its body from, each gap declaring the sh:resultSeverity its findings carry where that is not sh:Info, the accounting of every path its source carries, whose entry reports the gap it names and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs and their expected graphs are taken from the conformance repository, the inputs byte for byte and the expected graphs corrected where the converter that produced them was wrong; their fetch date and method were not recorded when they were captured, and each entry says so. The four expected findings are the output of a Bridge's convert --findings over the committed input beside them. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Its three lookup tables are SKOS concept maps under vocab/, each declared as a bridge:table and read by the mapping queries that look a value up in it; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -103,6 +104,17 @@
           "@id": "in/sparql/assertion-findings.rq"
         }
       ],
+      "bridge:table": [
+        {
+          "@id": "vocab/clinvar-acmg-classifications.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-review-statuses.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-submitter-categories.ttl"
+        }
+      ],
       "bridge:gapScheme": {
         "@id": "vocab/clinvar-gaps.ttl"
       },
@@ -145,6 +157,15 @@
         },
         {
           "@id": "vocab/clinvar-accounting.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-acmg-classifications.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-review-statuses.ttl"
+        },
+        {
+          "@id": "vocab/clinvar-submitter-categories.ttl"
         },
         {
           "@id": "fixtures/manifest.ttl"
@@ -323,8 +344,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "12237",
-      "sha256": "f0f2f110d1b9fcaa13327b5d3227e23dda2fc0c8b9cc27c037d6bbe65777c8fc",
+      "contentSize": "11867",
+      "sha256": "e33353583d51a32be3fc148a9a1e6a680cb6f545afba648349f2371bf9d0ce0b",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -335,8 +356,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "3014",
-      "sha256": "ced46177c65bd66e932d8a1152ed7a0a749b19fb65e087d7ff5bf6b83dd43464",
+      "contentSize": "2917",
+      "sha256": "e0e638eb1bcd9cf93b593ca39d7fdeef48022f66032b1417349a5b0750dc9898",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -359,8 +380,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "9872",
-      "sha256": "3e78257e6a792b7868c3b99eb8d1f7da3b13f5fdaadc9062f4f424e0c1afb610",
+      "contentSize": "8026",
+      "sha256": "d19c0466dfd8e8f03fc2161d2447a80911f83bcc88c47a30ab3a3a1d866f424c",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -371,8 +392,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "4819",
-      "sha256": "bd1fa1cecf3b3412f0ef1ed1294e1fa4a0e298acac63cd981df03f1ff08ddb8b",
+      "contentSize": "4064",
+      "sha256": "a4ebe77f96c253bb7709d819243e26b70af7a8fee98bcc66d05f68f3b6c47ae3",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -383,8 +404,8 @@
       "@type": "File",
       "name": "ClinVar VCV gaps",
       "encodingFormat": "text/turtle",
-      "contentSize": "17275",
-      "sha256": "489f0cb493a6ab67e36794a60c2e57de382714434e0cefaec662825e74382ca6",
+      "contentSize": "17180",
+      "sha256": "3cb4386edae34c08d5ceedc9a6c3a6aafb9a8a63159f21786f31a4d7b936bb29",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -395,12 +416,62 @@
       "@type": "File",
       "name": "ClinVar VCV source accounting",
       "encodingFormat": "text/turtle",
-      "contentSize": "100520",
-      "sha256": "f4ee3e0edf667e02ff174a8d3a0662a073514a2a4a362cbcc81e9d4c57f91d24",
+      "contentSize": "100999",
+      "sha256": "a6e40ff62c3d45fabac2bb52a0584c3d0ef3d82eb05a9ece3d209824ab8e68a4",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "What this adapter does with each path of its source: one bridge:PathEntry per distinct element and attribute path of the four judged inputs, 412 of them, each with exactly one of the six bridge:verdicts and whatever that verdict names. A path is written from the record element, VariationArchive, so it is the same under both envelopes; the record element's own path carries no entry and its attributes do. The paths were enumerated with lxml over fixtures/in/'s four judged inputs on 2026-09-20. Each verdict is a claim read against in/sparql/, and not one the lint can settle: the lint tests only that a path claiming carriage has its last step named somewhere in a mapping file. Paths that only clinvar-vcv-release-2026-09 or fixtures/in/VCV_XML_VCV000091629.xml carry are not in it."
+      "description": "What this adapter does with each path of its source: one bridge:PathEntry per distinct element and attribute path of the four judged inputs, 412 of them, each with exactly one of the six bridge:verdicts and whatever that verdict names. Four of them also declare a lookup: the concept map under vocab/ that their path's values are looked up in, and the gap a value that map holds no notation for opens. A path is written from the record element, VariationArchive, so it is the same under both envelopes; the record element's own path carries no entry and its attributes do. The paths were enumerated with lxml over fixtures/in/'s four judged inputs on 2026-09-20. Each verdict is a claim read against in/sparql/, and not one the lint can settle: the lint tests only that a path claiming carriage has its last step named somewhere in a mapping file. Paths that only clinvar-vcv-release-2026-09 or fixtures/in/VCV_XML_VCV000091629.xml carry are not in it."
+    },
+    {
+      "@id": "vocab/clinvar-acmg-classifications.ttl",
+      "@type": "File",
+      "name": "ClinVar germline classification values",
+      "encodingFormat": "text/turtle",
+      "contentSize": "1139",
+      "sha256": "f0d61b23bdbf1a1112664750f47656bd1605800e27d81c6776bbc5bda35a7a30",
+      "isBasedOn": {
+        "@id": "https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/"
+      },
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The concept map in/sparql/assertion.rq and in/sparql/interpretation.rq look a germline classification up in: one skos:Concept per ClinVar classification phrase, its skos:notation the phrase lowercased and trimmed of XML whitespace, its skos:exactMatch the Cascade term. The five ACMG/AMP terms are the ones this adapter carries; the isBasedOn page, Representation of classifications in ClinVar, read on 2026-09-21, names them and also lists the values ClinVar accepts beyond them, which this map deliberately does not carry, so each of those is reported as a gap."
+    },
+    {
+      "@id": "vocab/clinvar-review-statuses.ttl",
+      "@type": "File",
+      "name": "ClinVar review statuses",
+      "encodingFormat": "text/turtle",
+      "contentSize": "2217",
+      "sha256": "8bec9845630c8474402c64114896fd4655a6e6684638b682772208074854d6aa",
+      "isBasedOn": {
+        "@id": "https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/"
+      },
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The concept map in/sparql/interpretation.rq looks an RCV's review status up in: one skos:Concept per ClinVar review status phrase, its skos:notation the phrase lowercased and trimmed of XML whitespace, its skos:exactMatch the Cascade term. The isBasedOn page, Review status in ClinVar, read on 2026-09-21, publishes the statuses and their star ratings; it lists the current spellings, and this map also carries the earlier spellings of the conflicting tier that the committed records still hold."
+    },
+    {
+      "@id": "vocab/clinvar-submitter-categories.ttl",
+      "@type": "File",
+      "name": "ClinVar submitting organization categories",
+      "encodingFormat": "text/turtle",
+      "contentSize": "1963",
+      "sha256": "b838ab69400e1ac2f49bf9fc1f4c009e48a5cbd7a22c347f405ec2d08cefa957",
+      "isBasedOn": [
+        {
+          "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/organization_summary.txt"
+        },
+        {
+          "@id": "https://www.ncbi.nlm.nih.gov/clinvar/docs/submit/"
+        }
+      ],
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "description": "The concept map in/sparql/assertion.rq looks a ClinVarAccession/@OrganizationCategory up in: one skos:Concept per category phrase, its skos:notation the phrase lowercased and trimmed of XML whitespace, its match the Cascade term, skos:closeMatch where the phrase and the term do not mean the same thing. ClinVar's schema types the attribute xs:string and publishes no page of its values, so two sources stand behind these rows and neither is enough alone, both read on 2026-09-21. organization_summary.txt's institution type column is the published listing of what the data carries - lab, clinic, other, consortium, LSDB, patient registry, resource and access - which spells two of this map's phrases in shorter form and names none of the panel, research-group and clinician ones. Submission Overview names those as prose under Can I submit to ClinVar?: clinical testing labs, research labs, genetics clinics, patient registries, locus-specific databases, expert panels, groups establishing practice guidelines."
     },
     {
       "@id": "fixtures/manifest.ttl",
@@ -595,38 +666,38 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "303813",
-      "sha256": "7ced2850aef1bbddd4ca66df0f11f9e421fe48dafd54afcf00329b79ab6427e2",
+      "contentSize": "268250",
+      "sha256": "e072b3a9a1fe2746c92af605845ec50bb9900306839bac36275d9e00138acc21",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 240 Web Annotations; 13 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 219 Web Annotations; 8 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "289240",
-      "sha256": "5a707f65dd521c11547ec1d475df5c77f2ba3807ae09e39e97f59ad0dc51fc18",
+      "contentSize": "268847",
+      "sha256": "fc70291950dae2dc189c3320f8e32840c3515ad6e6058e35a5378db6359532b5",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 229 Web Annotations; 3 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 221 Web Annotations; 2 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "172753",
-      "sha256": "0d48bc843d9a0d076bb52dc37ac14b56fb5ca7becf87becb4c27bdb384a9c60c",
+      "contentSize": "165979",
+      "sha256": "a3a66303ec8e3eefa2c1f150b451179355117f6e15c368eefecb8695edc89e08",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -640,8 +711,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "98023",
-      "sha256": "6892b442361da7eb52a4097f47ae1f52de1d7e36b9ff90f30284c60b54f1975d",
+      "contentSize": "94165",
+      "sha256": "f4e8d6333aa08efda73c777dadceb0efed45ed5033dca616917f5106d2227446",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
@@ -720,7 +791,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "What a gap is and is not, how a label is written, what changes with it when a gap is added, removed or renamed, and how a path of the source gets its verdict."
+      "description": "What a lookup table is and how its rows are written, what a gap is and is not, how a label is written, what changes with it when a gap is added, removed or renamed, and how a path of the source gets its verdict."
     },
     {
       "@id": "https://github.com/jayostis/conformance/tree/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar",
