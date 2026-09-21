@@ -1,5 +1,4 @@
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
 PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
@@ -33,7 +32,6 @@ WHERE {
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
   ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele .
   OPTIONAL {
-
   {
     ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
     MINUS { ?sa ?x1 ?gl . ?gl a xyz:GeneList ; ?x2 ?gn . ?gn a xyz:Gene }
@@ -53,84 +51,6 @@ WHERE {
   }
   UNION
   {
-    # One finding per dosage element on the first Gene that carries any of the three.
-    { SELECT ?sa (MIN(?pos) AS ?first) WHERE {
-        ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?gl . ?gl a xyz:GeneList ; ?slot ?gn . ?gn a xyz:Gene .
-        ?gn ?y ?c . ?c a ?ct .
-        FILTER(?ct IN (xyz:Haploinsufficiency, xyz:Triplosensitivity, xyz:Property))
-        BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
-      } GROUP BY ?sa }
-    ?sa ?x3 ?gl2 . ?gl2 a xyz:GeneList ; ?slot2 ?g2 . ?g2 a xyz:Gene .
-    BIND(xsd:integer(STRAFTER(STR(?slot2), "#_")) AS ?gi)
-    FILTER(?gi = ?first)
-    ?g2 ?y2 ?dose . ?dose a ?doseType .
-    FILTER(?doseType IN (xyz:Haploinsufficiency, xyz:Triplosensitivity))
-    BIND(CONCAT("/SimpleAllele/GeneList/Gene[", STR(?gi), "]/",
-                STRAFTER(STR(?doseType), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND(IF(?doseType = xyz:Haploinsufficiency, clinvar:geneHaploinsufficiency, clinvar:geneTriplosensitivity) AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    # The same Gene, when it carries no dosage element: one finding per Property.
-    { SELECT ?sa (MIN(?pos) AS ?first) WHERE {
-        ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?gl . ?gl a xyz:GeneList ; ?slot ?gn . ?gn a xyz:Gene .
-        ?gn ?y ?c . ?c a ?ct .
-        FILTER(?ct IN (xyz:Haploinsufficiency, xyz:Triplosensitivity, xyz:Property))
-        BIND(xsd:integer(STRAFTER(STR(?slot), "#_")) AS ?pos)
-      } GROUP BY ?sa }
-    ?sa ?x3 ?gl2 . ?gl2 a xyz:GeneList ; ?slot2 ?g2 . ?g2 a xyz:Gene .
-    BIND(xsd:integer(STRAFTER(STR(?slot2), "#_")) AS ?gi)
-    FILTER(?gi = ?first)
-    MINUS { ?g2 ?y3 ?d . ?d a ?dt . FILTER(?dt IN (xyz:Haploinsufficiency, xyz:Triplosensitivity)) }
-    ?g2 ?slotP ?prop . ?prop a xyz:Property .
-    { SELECT ?prop (COUNT(?earlier) AS ?before) WHERE {
-        ?gene ?pA ?prop . ?prop a xyz:Property .
-        OPTIONAL { ?gene ?pB ?earlier . ?earlier a xyz:Property .
-                   FILTER(xsd:integer(STRAFTER(STR(?pB), "#_")) < xsd:integer(STRAFTER(STR(?pA), "#_"))) }
-      } GROUP BY ?prop }
-    BIND(CONCAT("/SimpleAllele/GeneList/Gene[", STR(?gi), "]/Property[", STR(?before + 1), "]") AS ?sfT)
-    BIND(clinvar:genePropertyTag AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
-    { SELECT DISTINCT ?sa WHERE { ?sa ?x1 ?onl . ?onl a xyz:OtherNameList ; ?any ?anyo . FILTER(?any != rdf:type) } }
-    BIND("/SimpleAllele/OtherNameList" AS ?sfT)
-    BIND(clinvar:variantAliasName AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?xl . ?xl a xyz:XRefList ; ?x2 ?xr .
-    ?xr a xyz:XRef ; xyz:DB ?db ; xyz:ID ?xid .
-    FILTER(?db IN ("OMIM", "UniProtKB", "BRCA1-HCI", "NCBI 1000 Genomes Browser"))
-    BIND(CONCAT("/SimpleAllele/XRefList/XRef[", STRAFTER(STR(?x2), "#_"), "][@DB='", ?db, "']") AS ?sfT)
-    BIND(clinvar:variantExternalCrossReference AS ?gap)
-    BIND(?db AS ?value)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
-    { SELECT DISTINCT ?sa WHERE { ?sa ?x1 ?afl . ?afl a xyz:AlleleFrequencyList ; ?any ?anyo . FILTER(?any != rdf:type) } }
-    BIND("/SimpleAllele/AlleleFrequencyList" AS ?sfT)
-    BIND(clinvar:populationAlleleFrequency AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?vt . ?vt a xyz:VariantType ; rdf:_1 ?vtRaw .
-    BIND(REPLACE(?vtRaw, "^\\s+|\\s+$", "") AS ?vtt)
-    FILTER(STRLEN(?vtt) > 0)
-    BIND("/SimpleAllele/VariantType" AS ?sfT)
-    BIND(clinvar:variantTypeTerm AS ?gap)
-    BIND(?vtt AS ?value)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
     # A ProteinChange with no p. expression the Variant could carry: the ones counted
     # are variant.rq's hgvsPDot candidates, and the two rules change together. Counted
     # once per SimpleAllele: a FILTER NOT EXISTS re-walks the HGVS list for every row.
@@ -146,47 +66,6 @@ WHERE {
     FILTER(?nPc > 0 && COALESCE(?nP, 0) = 0)
     BIND("/SimpleAllele" AS ?sfT)
     BIND(clinvar:proteinChangeWithoutHgvsProtein AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    # The aggregate Classifications block: the first GermlineClassification only, the
-    # container the citations were counted over.
-    ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
-    ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
-    FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
-                        FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
-    { SELECT ?agg (COUNT(?cit) AS ?nCit) WHERE {
-        ?agg a xyz:GermlineClassification ; ?y ?cit . ?cit a xyz:Citation
-      } GROUP BY ?agg }
-    FILTER(?nCit > 0)
-    BIND("/Classifications/GermlineClassification[1]" AS ?sfT)
-    BIND(clinvar:aggregateClassificationCitation AS ?gap)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    # One finding per aggregate count attribute on that same GermlineClassification,
-    # each attribute its own gap.
-    ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
-    ?rec ?x2 ?cls . ?cls a xyz:Classifications ; ?slot2 ?agg . ?agg a xyz:GermlineClassification .
-    FILTER NOT EXISTS { ?cls ?slotP ?prev . ?prev a xyz:GermlineClassification .
-                        FILTER(xsd:integer(STRAFTER(STR(?slotP), "#_")) < xsd:integer(STRAFTER(STR(?slot2), "#_"))) }
-    ?agg ?countProp ?countValue .
-    FILTER(?countProp IN (xyz:NumberOfSubmissions, xyz:NumberOfSubmitters) && STRLEN(?countValue) > 0)
-    BIND(CONCAT("/Classifications/GermlineClassification[1]/@",
-                STRAFTER(STR(?countProp), "http://sparql.xyz/facade-x/data/")) AS ?sfT)
-    BIND(IF(?countProp = xyz:NumberOfSubmissions, clinvar:aggregateNumberOfSubmissions,
-                                                 clinvar:aggregateNumberOfSubmitters) AS ?gap)
-    BIND(?countValue AS ?value)
-    BIND(sh:Info AS ?severity)
-  }
-  UNION
-  {
-    ?rec ?x1 ?sa . ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele .
-    { SELECT DISTINCT ?rec WHERE { ?rec ?x2 ?tml . ?tml a xyz:TraitMappingList ; ?any ?anyo . FILTER(?any != rdf:type) } }
-    BIND("/TraitMappingList" AS ?sfT)
-    BIND(clinvar:traitMappingEvidence AS ?gap)
     BIND(sh:Info AS ?severity)
   }
   }

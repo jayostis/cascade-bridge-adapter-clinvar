@@ -15,10 +15,10 @@ only place a findings query may take a body from.
 - Two sentences that differ only by a value are one gap. Two source elements
   whose loss reads as two sentences are two gaps, even where one rule reports
   both; where one sentence covers both, they open one gap between them.
-- The five `skos:broader` kinds are the specification's `bridge:gapKinds`. Adding
-  a kind is a change to [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec).
-- `bridge:closedBy` names the one Cascade term that would close the gap. A gap
-  whose sentence proposed two terms names neither until the rule is split.
+- Every `skos:broader` names a concept of the specification's `bridge:gapKinds`.
+  Adding a kind is a change to [cascade-bridge-spec](https://github.com/jayostis/cascade-bridge-spec).
+- A gap whose sentence proposed two `bridge:closedBy` terms names neither until
+  the rule is split.
 
 ## Adding, removing or renaming a gap
 
@@ -26,10 +26,19 @@ A body a findings query constructs is a gap of this scheme, and outside it is
 red. So a findings query, the four `fixtures/findings/*.gaps.ttl` and
 `ro-crate-metadata.json` change in the same commit.
 
-A gap no findings query constructs is **not** red. `clinvar-accounting.ttl`
-opens a gap by naming it from a `bridge:noHome` or `bridge:carriedInPart`
-entry, and that entry is the report; no rule need fire for the gap to be real. A
-gap nothing names at all — no query, no entry — is dead, and goes.
+A gap no findings query constructs is **not** red. An entry of
+`clinvar-accounting.ttl` that names a gap whose kind reports **reports** it,
+once per distinct path per record; which kinds report is
+[`engine/sparql.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md)'s
+to say. A gap of any other kind is true of what a record holds at the path
+rather than of the path, so only a query can report it. Retiring a query whose
+gap an entry reports therefore silences nothing, and a rule that writes what its
+entry writes goes. A gap nothing names at all — no query, no entry — is dead,
+and goes.
+
+A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`:
+severity belongs to the kind of problem, and an entry has no query in which to
+write one.
 
 ## A verdict on a path is read, never inferred from its name
 

@@ -83,18 +83,6 @@ WHERE {
   }
   UNION
   {
-    # Before the ACMG check, so an RCV with no interpretation still reports it.
-    ?rcv a xyz:RCVAccession ; ?r3 ?rc3 . ?rc3 a xyz:RCVClassifications ; ?r4 ?gc .
-    ?gc a xyz:GermlineClassification ; ?r5 ?d3 . ?d3 a xyz:Description ; xyz:SubmissionCount ?sc .
-    FILTER(STRLEN(?sc) > 0)
-    BIND("/RCVClassifications/GermlineClassification/Description/@SubmissionCount" AS ?sfT)
-    BIND(clinvar:rcvSubmissionCount AS ?gap)
-    BIND(?sc AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("germ" AS ?gate)
-  }
-  UNION
-  {
     # An absence: the RCVAccession is the nearest element that exists.
     ?rcv a xyz:RCVAccession .
     MINUS { ?rcv ?r6 ?ccl6 . ?ccl6 a xyz:ClassifiedConditionList ; ?r7 ?cc6 . ?cc6 a xyz:ClassifiedCondition }
