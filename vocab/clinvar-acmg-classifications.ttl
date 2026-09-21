@@ -1,0 +1,31 @@
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix genomics: <https://ns.cascadeprotocol.org/genomics/v1#> .
+@prefix clinvar:  <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
+
+clinvar:acmgClassifications a skos:ConceptScheme ;
+  skos:prefLabel "ClinVar germline classification values"@en .
+
+clinvar:acmgPathogenic a skos:Concept ;
+  skos:inScheme clinvar:acmgClassifications ;
+  skos:notation "pathogenic" ;
+  skos:exactMatch genomics:Pathogenic .
+
+clinvar:acmgLikelyPathogenic a skos:Concept ;
+  skos:inScheme clinvar:acmgClassifications ;
+  skos:notation "likely pathogenic" ;
+  skos:exactMatch genomics:LikelyPathogenic .
+
+clinvar:acmgUncertainSignificance a skos:Concept ;
+  skos:inScheme clinvar:acmgClassifications ;
+  skos:notation "uncertain significance" ;
+  skos:exactMatch genomics:VUS .
+
+clinvar:acmgLikelyBenign a skos:Concept ;
+  skos:inScheme clinvar:acmgClassifications ;
+  skos:notation "likely benign" ;
+  skos:exactMatch genomics:LikelyBenign .
+
+clinvar:acmgBenign a skos:Concept ;
+  skos:inScheme clinvar:acmgClassifications ;
+  skos:notation "benign" ;
+  skos:exactMatch genomics:Benign .

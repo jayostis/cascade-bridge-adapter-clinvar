@@ -1,0 +1,51 @@
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix genomics: <https://ns.cascadeprotocol.org/genomics/v1#> .
+@prefix clinvar:  <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
+
+clinvar:reviewStatuses a skos:ConceptScheme ;
+  skos:prefLabel "ClinVar review statuses"@en .
+
+clinvar:reviewStatusNoAssertionProvided a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "no assertion provided" ;
+  skos:exactMatch genomics:NoAssertionProvided .
+
+clinvar:reviewStatusNoAssertionCriteriaProvided a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "no assertion criteria provided" ;
+  skos:exactMatch genomics:CriteriaNotProvided .
+
+clinvar:reviewStatusSingleSubmitter a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "criteria provided, single submitter" ;
+  skos:exactMatch genomics:SingleSubmitter .
+
+clinvar:reviewStatusConflictingInterpretations a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "criteria provided, conflicting interpretations" ;
+  skos:exactMatch genomics:ConflictingSubmissions .
+
+clinvar:reviewStatusConflictingClassifications a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "criteria provided, conflicting classifications" ;
+  skos:exactMatch genomics:ConflictingSubmissions .
+
+clinvar:reviewStatusConflictingClassificationsOfPathogenicity a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "criteria provided, conflicting classifications of pathogenicity" ;
+  skos:exactMatch genomics:ConflictingSubmissions .
+
+clinvar:reviewStatusMultipleSubmittersNoConflicts a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "criteria provided, multiple submitters, no conflicts" ;
+  skos:exactMatch genomics:MultipleSubmittersNoConflict .
+
+clinvar:reviewStatusReviewedByExpertPanel a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "reviewed by expert panel" ;
+  skos:exactMatch genomics:ExpertPanelReviewed .
+
+clinvar:reviewStatusPracticeGuideline a skos:Concept ;
+  skos:inScheme clinvar:reviewStatuses ;
+  skos:notation "practice guideline" ;
+  skos:exactMatch genomics:PracticeGuideline .

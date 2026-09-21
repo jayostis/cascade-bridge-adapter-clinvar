@@ -84,6 +84,8 @@ cascade-bridge-adapter-clinvar/
   vocab/
     clinvar-gaps.ttl         the gaps this adapter reports, one concept per gap, the body of every finding
     clinvar-accounting.ttl   what this adapter does with each path of its source, one entry per path
+    clinvar-acmg-classifications.ttl, clinvar-review-statuses.ttl, clinvar-submitter-categories.ttl
+                             the three lookup tables, one SKOS concept map each, joined on a folded and trimmed key
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample

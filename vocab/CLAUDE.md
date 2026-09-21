@@ -3,6 +3,21 @@
 This adapter's own namespace, `https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#`,
 prefix `clinvar:`. No Cascade term is minted here.
 
+## A lookup table is a concept map, and its rows are transcribed
+
+What a concept map holds, and the form a `skos:notation` is written in, is
+[`shapes/concept-map.shapes.ttl`](https://github.com/jayostis/cascade-bridge-spec/blob/main/shapes/concept-map.shapes.ttl)'s
+to say, and a failing run prints it.
+
+- `skos:closeMatch` where the phrase and the term do not mean the same thing.
+- **A row is transcribed, never invented.** Adding one, removing one or changing
+  what a phrase maps to changes what this adapter carries; the crate's
+  `schema:isBasedOn` for the file says where the rows came from.
+- The entry of `clinvar-accounting.ttl` for the path holding those values names
+  the map with `bridge:lookupIn` and the miss with `bridge:lookupNamesGap`, and
+  the mapping query joins the same scheme on the same key. The two halves fold a
+  value the same way or a value is mapped and reported as unmapped at once.
+
 ## A gap is a kind of problem, never an instance of one
 
 `clinvar-gaps.ttl` is the scheme the crate names as `bridge:gapScheme`, and the
@@ -27,14 +42,12 @@ red. So a findings query, the four `fixtures/findings/*.gaps.ttl` and
 `ro-crate-metadata.json` change in the same commit.
 
 A gap no findings query constructs is **not** red. An entry of
-`clinvar-accounting.ttl` that names a gap whose kind reports **reports** it,
-once per distinct path per record; which kinds report is
-[`engine/sparql.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md)'s
-to say. A gap of any other kind is true of what a record holds at the path
-rather than of the path, so only a query can report it. Retiring a query whose
-gap an entry reports therefore silences nothing, and a rule that writes what its
-entry writes goes. A gap nothing names at all — no query, no entry — is dead,
-and goes.
+`clinvar-accounting.ttl` may report it instead, from its verdict or from its
+`bridge:lookupIn`; which entries report, and how many findings each one yields,
+is [`engine/sparql.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md)'s
+to say. Retiring a query whose gap an entry reports therefore silences nothing,
+and a rule that writes what its entry writes goes. A gap nothing names at all —
+no query, no entry — is dead, and goes.
 
 A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`:
 severity belongs to the kind of problem, and an entry has no query in which to

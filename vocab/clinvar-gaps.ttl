@@ -50,7 +50,7 @@ clinvar:assertionAdditionalSubmitter a skos:Concept ;
   skos:broader bridge:noPredicate .
 
 clinvar:assertionClassificationOutsideAcmgSet a skos:Concept ;
-  skos:prefLabel "A clinical assertion's germline classification is outside the five ACMG classification values, and no submitter assertion is carried for it."@en ;
+  skos:prefLabel "A clinical assertion's germline classification is outside the five ACMG classification values."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:valueNotMapped ;
   sh:resultSeverity sh:Warning .
@@ -239,7 +239,7 @@ clinvar:proteinChangeWithoutHgvsProtein a skos:Concept ;
   skos:broader bridge:carriedWithLoss .
 
 clinvar:rcvClassificationOutsideAcmgSet a skos:Concept ;
-  skos:prefLabel "An RCV's germline classification description is outside the five ACMG classification values, and no variant interpretation is carried for it."@en ;
+  skos:prefLabel "An RCV's germline classification description is outside the five ACMG classification values."@en ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:valueNotMapped ;
   sh:resultSeverity sh:Warning .

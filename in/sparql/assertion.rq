@@ -3,6 +3,8 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 # Its aggregatedFrom links are written by interpretation.rq, which repeats the
 # emission rule and the name below.
@@ -33,11 +35,10 @@ WHERE {
   ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)
   ?ca ?s4 ?cl . ?cl a xyz:Classification ; ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt .
   FILTER(isLiteral(?cgt))
-  BIND(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) AS ?acmgKey)
-  VALUES (?acmgKey ?acmg) {
-    ("pathogenic" g:Pathogenic) ("likely pathogenic" g:LikelyPathogenic)
-    ("uncertain significance" g:VUS) ("likely benign" g:LikelyBenign) ("benign" g:Benign)
-  }
+  BIND(LCASE(REPLACE(?cgt, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?acmgKey)
+  ?acmgConcept skos:inScheme clinvar:acmgClassifications ;
+               skos:notation ?acmgKey ;
+               skos:exactMatch|skos:closeMatch ?acmg .
 
   BIND(SHA1(CONCAT("genomics:SubmitterAssertion:clinvar:", ?scv)) AS ?h)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
@@ -49,14 +50,10 @@ WHERE {
   OPTIONAL { ?cva xyz:OrgID ?orgId FILTER(STRLEN(?orgId) > 0) }
   OPTIONAL {
     ?cva xyz:OrganizationCategory ?oc .
-    BIND(LCASE(?oc) AS ?ocKey)
-    VALUES (?ocKey ?cat) {
-      ("laboratory" g:SubmitterLaboratory) ("consortium" g:SubmitterConsortium)
-      ("expert-panel" g:SubmitterExpertPanel) ("expert panel" g:SubmitterExpertPanel)
-      ("research group" g:SubmitterResearch) ("research" g:SubmitterResearch)
-      ("resource" g:SubmitterLaboratory) ("clinician" g:SubmitterClinician)
-      ("single clinician" g:SubmitterClinician)
-    }
+    BIND(LCASE(REPLACE(?oc, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?ocKey)
+    ?ocConcept skos:inScheme clinvar:submitterCategories ;
+               skos:notation ?ocKey ;
+               skos:exactMatch|skos:closeMatch ?cat .
   }
   OPTIONAL { ?ca xyz:ContributesToAggregateClassification ?c0 FILTER(?c0 IN ("true", "false")) }
   BIND(STRDT(?c0, xsd:boolean) AS ?contrib)
