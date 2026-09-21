@@ -1,4 +1,5 @@
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
 PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
@@ -105,6 +106,54 @@ WHERE {
     BIND(?acmgText AS ?value)
     BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
+  }
+  UNION
+  {
+    # Per condition: no MONDO of its own, none on the aligned Trait, no MedGen.
+    # The Trait lookup repeats interpretation.rq's, down to existence.
+    ?rec9 ?r13 ?rcvl9 . ?rcvl9 a xyz:RCVList ; ?r14 ?rcv . ?rcv a xyz:RCVAccession ; ?r15 ?ccl9 .
+    ?ccl9 a xyz:ClassifiedConditionList ; ?s9 ?cc9 . ?cc9 a xyz:ClassifiedCondition .
+    BIND(STRAFTER(STR(?s9), "#_") AS ?i9)
+    OPTIONAL { ?ccl9 xyz:TraitSetID ?ts9raw }
+    BIND(COALESCE(?ts9raw, "") AS ?tsId9)
+    OPTIONAL { ?cc9 xyz:DB ?db9 }
+    OPTIONAL { ?cc9 xyz:ID ?id9 }
+    OPTIONAL { ?cc9 rdf:_1 ?t9 . FILTER(isLiteral(?t9))
+               BIND(REPLACE(?t9, "^\\s+|\\s+$", "") AS ?condText)
+               FILTER(STRLEN(?condText) > 0) }
+    BIND(COALESCE(?db9, "") AS ?dbKey9)
+    BIND(COALESCE(?id9, "") AS ?idKey9)
+    OPTIONAL {
+      ?rec9 ?t0 ?cls . ?cls a xyz:Classifications .
+      { SELECT ?cls ?tsId9 (MAX(?tk) AS ?tkBest) WHERE {
+          ?cls a xyz:Classifications ; ?k1 ?kind . ?kind a ?kt ; ?k2 ?cl0 . ?cl0 a xyz:ConditionList ; ?k3 ?ts0 .
+          ?ts0 a xyz:TraitSet ; xyz:ID ?tsId9 . FILTER(STRLEN(?tsId9) > 0)
+          VALUES (?kt ?kr) { (xyz:GermlineClassification "0") (xyz:SomaticClinicalImpact "1")
+                             (xyz:OncogenicityClassification "2") }
+          BIND(xsd:integer(STRAFTER(STR(?k1), "#_")) AS ?p1)
+          BIND(xsd:integer(STRAFTER(STR(?k3), "#_")) AS ?p3)
+          BIND(CONCAT(?kr, SUBSTR(CONCAT("0000000000", STR(?p1)), STRLEN(STR(?p1)) + 1),
+                           SUBSTR(CONCAT("0000000000", STR(?p3)), STRLEN(STR(?p3)) + 1)) AS ?tk)
+        } GROUP BY ?cls ?tsId9 }
+      ?cls ?k1b ?kindb . ?kindb ?k2b ?clb . ?clb a xyz:ConditionList ; ?k3b ?ts . ?ts a xyz:TraitSet .
+      FILTER(xsd:integer(STRAFTER(STR(?k1b), "#_")) = xsd:integer(SUBSTR(?tkBest, 2, 10)) &&
+             xsd:integer(STRAFTER(STR(?k3b), "#_")) = xsd:integer(SUBSTR(?tkBest, 12, 10)))
+      ?ts ?tS ?trait . ?trait a xyz:Trait ; ?tX ?idXref . ?idXref a xyz:XRef ; xyz:DB ?dbKey9 ; xyz:ID ?idKey9 .
+      OPTIONAL { SELECT ?trait (COUNT(*) AS ?nMondo) WHERE {
+          { ?trait a xyz:Trait ; ?xs ?xr . ?xr a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid }
+          UNION
+          { ?trait a xyz:Trait ; ?ns ?nm . ?nm a xyz:Name ; ?xs2 ?xr2 . ?xr2 a xyz:XRef ; xyz:DB "MONDO" ; xyz:ID ?xid2 }
+        } GROUP BY ?trait }
+      BIND(COALESCE(?nMondo, 0) > 0 AS ?traitMondo)
+    }
+    FILTER(!(COALESCE(?db9, "") = "MONDO" && STRLEN(COALESCE(?id9, "")) > 0))
+    FILTER(!COALESCE(?traitMondo, false))
+    FILTER(!(COALESCE(?db9, "") = "MedGen" && STRLEN(COALESCE(?id9, "")) > 0))
+    BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i9, "]") AS ?sfT)
+    BIND(clinvar:conditionWithoutStandardIdentifier AS ?gap)
+    BIND(?condText AS ?value)
+    BIND(sh:Warning AS ?severity)
+    BIND("canon" AS ?gate)
   }
   UNION
   {

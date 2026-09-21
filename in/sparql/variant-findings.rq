@@ -41,6 +41,16 @@ WHERE {
   }
   UNION
   {
+    { SELECT ?sa (COUNT(?gn) AS ?n) WHERE {
+        ?anchorRec a ?anchorType ; ?anchorSlot ?sa . FILTER(?anchorType IN (xyz:ClassifiedRecord, xyz:IncludedRecord)) ?sa a xyz:SimpleAllele ; ?x1 ?gl . ?gl a xyz:GeneList ; ?x2 ?gn . ?gn a xyz:Gene
+      } GROUP BY ?sa }
+    FILTER(?n > 1)
+    BIND("/SimpleAllele/GeneList" AS ?sfT)
+    BIND(clinvar:multipleGenesOnlyFirstCarried AS ?gap)
+    BIND(sh:Warning AS ?severity)
+  }
+  UNION
+  {
     # A ProteinChange with no p. expression the Variant could carry: the ones counted
     # are variant.rq's hgvsPDot candidates, and the two rules change together. Counted
     # once per SimpleAllele: a FILTER NOT EXISTS re-walks the HGVS list for every row.

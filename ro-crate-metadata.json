@@ -347,8 +347,8 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "3718",
-      "sha256": "9c99c0f0b67e2abf3e3320272ca65397a6fb5b8c1e5173e53fc7a23ce713cb1f",
+      "contentSize": "4153",
+      "sha256": "636e9b97884f3a097a570042ce6e160afb682a0bdc8e448ef2a17450a2b86257",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -359,8 +359,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "6995",
-      "sha256": "f4092abb446619230cae3a9902c3046b09ee6d48efca0d449fa3128cd635a1a9",
+      "contentSize": "9872",
+      "sha256": "3e78257e6a792b7868c3b99eb8d1f7da3b13f5fdaadc9062f4f424e0c1afb610",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -595,8 +595,8 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "148240",
-      "sha256": "46b11ec19c5f1e0041d1d22ae9b8e52ba609e3760a37598067f7b787d04e8c03",
+      "contentSize": "303813",
+      "sha256": "7ced2850aef1bbddd4ca66df0f11f9e421fe48dafd54afcf00329b79ab6427e2",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -606,15 +606,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 241 Web Annotations; 14 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml, so the oracle a Bridge is judged against is the oracle a Bridge wrote; oa:hasSource was rewritten from the document's absolute file: IRI to the relative path, and nothing else was changed. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 240 Web Annotations; 13 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "142244",
-      "sha256": "790ca1eab1e4d840ad7cce866274025145402a83629e1246aa8b0c82f8de657d",
+      "contentSize": "289240",
+      "sha256": "5a707f65dd521c11547ec1d475df5c77f2ba3807ae09e39e97f59ad0dc51fc18",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -624,15 +624,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 232 Web Annotations; 6 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml, so the oracle a Bridge is judged against is the oracle a Bridge wrote; oa:hasSource was rewritten from the document's absolute file: IRI to the relative path, and nothing else was changed. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 229 Web Annotations; 3 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "86670",
-      "sha256": "6496355bbe4a22612563955888a6330840c4ccb61234ed14f81e4bfaf8935760",
+      "contentSize": "172753",
+      "sha256": "0d48bc843d9a0d076bb52dc37ac14b56fb5ca7becf87becb4c27bdb384a9c60c",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -642,15 +642,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 141 Web Annotations; 4 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml, so the oracle a Bridge is judged against is the oracle a Bridge wrote; oa:hasSource was rewritten from the document's absolute file: IRI to the relative path, and nothing else was changed. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 137 Web Annotations; all sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "50202",
-      "sha256": "f7e17ceabe1449d8d7b56628e7507b9dcb071665208e3acc9234c67d692ca7d1",
+      "contentSize": "98023",
+      "sha256": "6892b442361da7eb52a4097f47ae1f52de1d7e36b9ff90f30284c60b54f1975d",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
@@ -660,7 +660,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 83 Web Annotations; 4 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml, so the oracle a Bridge is judged against is the oracle a Bridge wrote; oa:hasSource was rewritten from the document's absolute file: IRI to the relative path, and nothing else was changed. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 79 Web Annotations; all sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarVCVRelease_2026-09.xml.gz",

@@ -1,1195 +1,1052 @@
-@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sh:      <http://www.w3.org/ns/shacl#> .
-@prefix oa:      <http://www.w3.org/ns/oa#> .
-@prefix bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
-@prefix clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#> .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]"
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateNumberOfSubmissions ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/@NumberOfSubmissions" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]"
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateNumberOfSubmitters ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/@NumberOfSubmitters" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:medgenConceptIdentifier ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "C1839615" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationEvaluationDate ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateLastEvaluated" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateNumberOfSubmissions ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmissions" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateNumberOfSubmitters ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmitters" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/@Type" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID/@Source" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionKind ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionKind ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:traitIdentifier ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@ID" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@integerValue" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@DB" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@ID" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionWithoutStandardIdentifier ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/XRef/@ID" ;
-  sh:resultSeverity sh:Warning .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionDescriptiveMaterial ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue/@Type" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@DB" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@ID" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@Type" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionWithoutStandardIdentifier ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@ID" ;
-  bridge:occurrences 4 ;
-  sh:resultSeverity sh:Warning .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/XRef[4]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:conditionExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Description[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationDescription ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Description" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ReviewStatus[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:aggregateClassificationReviewStatus ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ReviewStatus" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionDateCreated ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateCreated" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionDateLastUpdated ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionSubmissionDate ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@SubmissionDate" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionEvaluationDate ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/@DateLastEvaluated" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]/ReviewStatus[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionReviewStatus ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ReviewStatus" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observationMethodType ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]/MethodType[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observationMethodType ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodType" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionSupportingCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionSupportingCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionSupportingCitation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID/@Source" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@DB" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@ID" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@Type" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:observedDataEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]/AffectedStatus[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:sampleAffectedStatus ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/AffectedStatus" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/RecordStatus[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:assertionRecordStatus ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/RecordStatus" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/RCVList[1]/RCVAccession[1]/RCVClassifications[1]/GermlineClassification[1]/Description[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:rcvSubmissionCount ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:alleleIdentifier ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/@AlleleID" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneFullName ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneVariationRelationship ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@RelationshipType" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:multipleGenesOnlyFirstCarried ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@HGNC_ID" ;
-  sh:resultSeverity sh:Warning .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:multipleGenesOnlyFirstCarried ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@Symbol" ;
-  sh:resultSeverity sh:Warning .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/CytogeneticLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/CytogeneticLocation" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Accession" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyStatus" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Chr" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Strand" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/OMIM[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:geneExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/OMIM" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/CytogeneticLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantCytogeneticLocation ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/CytogeneticLocation" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantSequenceAccession ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantVcfPosition ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantAliasName ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]/Name[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantAliasName ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/VariantType[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantTypeTerm ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@DB" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" ;
-  bridge:occurrences 3 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[2]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:variantExternalCrossReference ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
-  bridge:occurrences 2 ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:traitMappingEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingType" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:traitMappingEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@TraitType" ;
-  sh:resultSeverity sh:Info .
-
-[] a oa:Annotation ;
-  oa:hasTarget [
-    oa:hasSource <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    oa:hasSelector [
-      a oa:XPathSelector ;
-      rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
-      oa:refinedBy [ a oa:XPathSelector ; rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]/MedGen[1]" ]
-    ]
-  ] ;
-  oa:hasBody clinvar:traitMappingEvidence ;
-  oa:motivatedBy oa:classifying ;
-  sh:value "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen/@Name" ;
-  sh:resultSeverity sh:Info .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+_:a5fb316bafb66dc8e41fb2a49caef106 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e6c87cb2b86b35cf46530fb2fba0dbd3 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e6bbb4ff7db3ad72ddd9a1df28c6429e .
+_:e6bbb4ff7db3ad72ddd9a1df28c6429e <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a5fb316bafb66dc8e41fb2a49caef106 .
+_:e6c87cb2b86b35cf46530fb2fba0dbd3 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateNumberOfSubmissions> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/@NumberOfSubmissions" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f108e6354357d05099bdc2bb9060bf7 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:b094ea10f932eb070f53b2374ab95e27 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e30a2a543e1ac32f7b9e7538692d5c38 .
+_:e30a2a543e1ac32f7b9e7538692d5c38 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f108e6354357d05099bdc2bb9060bf7 .
+_:b094ea10f932eb070f53b2374ab95e27 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateNumberOfSubmitters> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/@NumberOfSubmitters" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fe595fae1b399510388517dcb4887933 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f497e7090974a144d8c656259c7a32bd a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]" .
+_:fe595fae1b399510388517dcb4887933 <http://www.w3.org/ns/oa#refinedBy> _:f497e7090974a144d8c656259c7a32bd .
+_:cc7d226ad3abb944b7e15fb9a48f7aa5 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b9f8cdf7bed35fa3312d92cc99aff25f .
+_:b9f8cdf7bed35fa3312d92cc99aff25f <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fe595fae1b399510388517dcb4887933 .
+_:cc7d226ad3abb944b7e15fb9a48f7aa5 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#alleleIdentifier> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/@AlleleID" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f0d42acf0b81aec9184369d0f0962c89 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f5060c8080b7446ae47194925670f125 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" .
+_:f0d42acf0b81aec9184369d0f0962c89 <http://www.w3.org/ns/oa#refinedBy> _:f5060c8080b7446ae47194925670f125 .
+_:e4b49219577a37766ff83ac5600d3d7a a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c6638e459765ae84a9a58e55db43c678 .
+_:c6638e459765ae84a9a58e55db43c678 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f0d42acf0b81aec9184369d0f0962c89 .
+_:e4b49219577a37766ff83ac5600d3d7a <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneFullName> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@FullName" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b17160a8744f25a834b643b9a34a8abc a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c7f2b1d6f6ddae9388dd0afad0542538 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]" .
+_:b17160a8744f25a834b643b9a34a8abc <http://www.w3.org/ns/oa#refinedBy> _:c7f2b1d6f6ddae9388dd0afad0542538 .
+_:b9da71e7d5938aa0b768ecb12f45b224 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c290c8abe3b3efd4bf70a7be929d51b7 .
+_:c290c8abe3b3efd4bf70a7be929d51b7 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b17160a8744f25a834b643b9a34a8abc .
+_:b9da71e7d5938aa0b768ecb12f45b224 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneVariationRelationship> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/@RelationshipType" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d99676adfd5d6cf3cd43f54332e97d39 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cd8280bce2d77f8aa5acde1a68a6af2a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]" .
+_:d99676adfd5d6cf3cd43f54332e97d39 <http://www.w3.org/ns/oa#refinedBy> _:cd8280bce2d77f8aa5acde1a68a6af2a .
+_:e0b3df0e0c6c168acd42b095b1a0b9eb a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ad3bf235fc3bc693436eeb209e85fb4f .
+_:ad3bf235fc3bc693436eeb209e85fb4f <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d99676adfd5d6cf3cd43f54332e97d39 .
+_:e0b3df0e0c6c168acd42b095b1a0b9eb <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:dd396ddeb240ef4e6ef4b4bbe1ca0 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ce51b148b077155388c77e585e3a2a20 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/CytogeneticLocation[1]" .
+_:dd396ddeb240ef4e6ef4b4bbe1ca0 <http://www.w3.org/ns/oa#refinedBy> _:ce51b148b077155388c77e585e3a2a20 .
+_:bfa09f5cbe05a09d1cb0cd78dd234966 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:fbacae110c2aad7deb846e8d4cb202f7 .
+_:fbacae110c2aad7deb846e8d4cb202f7 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:dd396ddeb240ef4e6ef4b4bbe1ca0 .
+_:bfa09f5cbe05a09d1cb0cd78dd234966 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/CytogeneticLocation" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ea32330de27a2271386660a59502c9df a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e17940972eba66eb02cffb8981747310 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:ea32330de27a2271386660a59502c9df <http://www.w3.org/ns/oa#refinedBy> _:e17940972eba66eb02cffb8981747310 .
+_:ef256bbe57f3a69e8dfbfd49bb7f15e a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:acb8d122c03a7549fde11bd20a43431e .
+_:acb8d122c03a7549fde11bd20a43431e <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ea32330de27a2271386660a59502c9df .
+_:ef256bbe57f3a69e8dfbfd49bb7f15e <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d12245b229aac692e226d2ff32b85e77 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a2312047f09563d172ef35be3422177b a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:d12245b229aac692e226d2ff32b85e77 <http://www.w3.org/ns/oa#refinedBy> _:a2312047f09563d172ef35be3422177b .
+_:d4d719b0ca99c51180cd818e689615e3 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b750e2c7447c69d497d2abf6fb4f7615 .
+_:b750e2c7447c69d497d2abf6fb4f7615 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d12245b229aac692e226d2ff32b85e77 .
+_:d4d719b0ca99c51180cd818e689615e3 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Assembly" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fe6fde43cf8918d410a2f1b824a1cad6 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:db7f595b827e6b7a83b16ab3e8140f7a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:fe6fde43cf8918d410a2f1b824a1cad6 <http://www.w3.org/ns/oa#refinedBy> _:db7f595b827e6b7a83b16ab3e8140f7a .
+_:db6cbe9954a44ac1e5e1911d391a8f12 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c5f158cfce7a6e6c18e939f41269b04 .
+_:c5f158cfce7a6e6c18e939f41269b04 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fe6fde43cf8918d410a2f1b824a1cad6 .
+_:db6cbe9954a44ac1e5e1911d391a8f12 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@AssemblyStatus" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a4cfb88b8eb0e9ecbbe8eee061b0e8e0 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d4e0449ea860723f3d97f723206ee6ff a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:a4cfb88b8eb0e9ecbbe8eee061b0e8e0 <http://www.w3.org/ns/oa#refinedBy> _:d4e0449ea860723f3d97f723206ee6ff .
+_:fe454eade53fc314b446f00939fdd78b a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:bf7be0e830dce52321543212c3f48b0a .
+_:bf7be0e830dce52321543212c3f48b0a <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a4cfb88b8eb0e9ecbbe8eee061b0e8e0 .
+_:fe454eade53fc314b446f00939fdd78b <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Chr" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:cd393983cded669614f192080e77f36a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a86ce9c3d0e83a744c443d1cfa5c5e15 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:cd393983cded669614f192080e77f36a <http://www.w3.org/ns/oa#refinedBy> _:a86ce9c3d0e83a744c443d1cfa5c5e15 .
+_:d619fa0f69c31306d8740c6953bb368c a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e5373705e8ef90f27a23c3e9bd8d6834 .
+_:e5373705e8ef90f27a23c3e9bd8d6834 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:cd393983cded669614f192080e77f36a .
+_:d619fa0f69c31306d8740c6953bb368c <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Accession" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:feaadab6a848c95dea948c7ada76df7b a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d3cd2ce57148dab0d410778146de4130 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:feaadab6a848c95dea948c7ada76df7b <http://www.w3.org/ns/oa#refinedBy> _:d3cd2ce57148dab0d410778146de4130 .
+_:a17305601adc2cec9d7818799e55cd88 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e246dfde7b5556e954145e7ec90715b5 .
+_:e246dfde7b5556e954145e7ec90715b5 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:feaadab6a848c95dea948c7ada76df7b .
+_:a17305601adc2cec9d7818799e55cd88 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@start" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:e9f5c8122fd654be2905eadbaad41a45 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:bef0c211a2d8ea146bb9dcf912205345 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:e9f5c8122fd654be2905eadbaad41a45 <http://www.w3.org/ns/oa#refinedBy> _:bef0c211a2d8ea146bb9dcf912205345 .
+_:a373c8c18bc76a56c28a916fc1c0824d a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:acebb7af34b5bb3e83f59eb3f5b38623 .
+_:acebb7af34b5bb3e83f59eb3f5b38623 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:e9f5c8122fd654be2905eadbaad41a45 .
+_:a373c8c18bc76a56c28a916fc1c0824d <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@stop" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b2d87dda2de30d3183d6e7ebc6c08518 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:b695303483754943a52b68a834469e31 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/Location[1]/SequenceLocation[1]" .
+_:b2d87dda2de30d3183d6e7ebc6c08518 <http://www.w3.org/ns/oa#refinedBy> _:b695303483754943a52b68a834469e31 .
+_:ebe6efc80334e8a59b68d386ea21b22e a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:bf88c9e1eb8686e5677ffb99ec6f5797 .
+_:bf88c9e1eb8686e5677ffb99ec6f5797 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b2d87dda2de30d3183d6e7ebc6c08518 .
+_:ebe6efc80334e8a59b68d386ea21b22e <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/Location/SequenceLocation/@Strand" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d275a5f2ea1f3d3e03ccd4d94512cc84 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c3fe91260df2c67d49f0e1e07576e8fd a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/GeneList[1]/Gene[1]/OMIM[1]" .
+_:d275a5f2ea1f3d3e03ccd4d94512cc84 <http://www.w3.org/ns/oa#refinedBy> _:c3fe91260df2c67d49f0e1e07576e8fd .
+_:dbb3e1ab725cc6414ede6d2da86034d3 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cecc44adc50d855dc9f36843b8288156 .
+_:cecc44adc50d855dc9f36843b8288156 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d275a5f2ea1f3d3e03ccd4d94512cc84 .
+_:dbb3e1ab725cc6414ede6d2da86034d3 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#geneExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/GeneList/Gene/OMIM" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c11595fea51b97f48af3e2324f5dfc35 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e85072befc6b0b1dc30eb7352d2f3e74 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/VariantType[1]" .
+_:c11595fea51b97f48af3e2324f5dfc35 <http://www.w3.org/ns/oa#refinedBy> _:e85072befc6b0b1dc30eb7352d2f3e74 .
+_:cb1d8f9d12a73ca1cd1db45715565229 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:adc2de1e83171cfec510a4c26519a900 .
+_:adc2de1e83171cfec510a4c26519a900 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c11595fea51b97f48af3e2324f5dfc35 .
+_:cb1d8f9d12a73ca1cd1db45715565229 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantTypeTerm> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/VariantType" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a9e99194b767f0030279a52e447f954f a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f64202a5da2f3d6c5311f10d2b48dc74 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/CytogeneticLocation[1]" .
+_:a9e99194b767f0030279a52e447f954f <http://www.w3.org/ns/oa#refinedBy> _:f64202a5da2f3d6c5311f10d2b48dc74 .
+_:d20c022de850b6287f5fcba2ae299025 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b0025124322b6622376ef47d9e7216c0 .
+_:b0025124322b6622376ef47d9e7216c0 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a9e99194b767f0030279a52e447f954f .
+_:d20c022de850b6287f5fcba2ae299025 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantCytogeneticLocation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/CytogeneticLocation" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ad8338b88810a7ad5851af9bb769bd98 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ced96b823ab2d3191cdb9461e1f63392 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" .
+_:ad8338b88810a7ad5851af9bb769bd98 <http://www.w3.org/ns/oa#refinedBy> _:ced96b823ab2d3191cdb9461e1f63392 .
+_:a2633b8835666162c2320f81ed1c155d a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f9c0c9b2e359ece0a09998e0b1a46ce5 .
+_:f9c0c9b2e359ece0a09998e0b1a46ce5 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ad8338b88810a7ad5851af9bb769bd98 .
+_:a2633b8835666162c2320f81ed1c155d <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantSequenceAccession> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@Accession" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ffef37f8c1dff2dc240b5aad85a3ef6 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ab63ada20f866fcc2f9537ba85f1815c a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/Location[1]/SequenceLocation[1]" .
+_:ffef37f8c1dff2dc240b5aad85a3ef6 <http://www.w3.org/ns/oa#refinedBy> _:ab63ada20f866fcc2f9537ba85f1815c .
+_:f62594583db80f3956640c30d558a4cd a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f90c783fff1a7f095c4540b59ce239c6 .
+_:f90c783fff1a7f095c4540b59ce239c6 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ffef37f8c1dff2dc240b5aad85a3ef6 .
+_:f62594583db80f3956640c30d558a4cd <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantVcfPosition> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/Location/SequenceLocation/@positionVCF" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fcb820d0fb7201a9d543c9e95a34b1d5 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c1ddd3a30f702276d335e14e87db756a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]" .
+_:fcb820d0fb7201a9d543c9e95a34b1d5 <http://www.w3.org/ns/oa#refinedBy> _:c1ddd3a30f702276d335e14e87db756a .
+_:d009813aabcf54782398aef0b7c0f1bd a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b499f42851dc854eba824f42365c0821 .
+_:b499f42851dc854eba824f42365c0821 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fcb820d0fb7201a9d543c9e95a34b1d5 .
+_:d009813aabcf54782398aef0b7c0f1bd <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantAliasName> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c018119cdf536fe38898bd5935261b89 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d4930176c05bf94ee3f8f7030a9afb6c a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/OtherNameList[1]/Name[1]" .
+_:c018119cdf536fe38898bd5935261b89 <http://www.w3.org/ns/oa#refinedBy> _:d4930176c05bf94ee3f8f7030a9afb6c .
+_:e892a7f2550c87540113c3026da6eae a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:d06ec737d611280b9e3644d4b7f3f3f7 .
+_:d06ec737d611280b9e3644d4b7f3f3f7 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c018119cdf536fe38898bd5935261b89 .
+_:e892a7f2550c87540113c3026da6eae <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantAliasName> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/OtherNameList/Name" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c66ecd31fe1852e883970c69d7bf64c2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:b9927dbb4a3ac8752e9bee375a02547a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" .
+_:c66ecd31fe1852e883970c69d7bf64c2 <http://www.w3.org/ns/oa#refinedBy> _:b9927dbb4a3ac8752e9bee375a02547a .
+_:d6fbafb7cde4c29fb1afc4663c040de1 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b26dfb2b33c559567cd8a07c78b7e963 .
+_:b26dfb2b33c559567cd8a07c78b7e963 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c66ecd31fe1852e883970c69d7bf64c2 .
+_:d6fbafb7cde4c29fb1afc4663c040de1 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@ID" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f27ad236480db3836aceacca2a168326 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a755e8fb6404232f5a813ce68aaff59d a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[1]" .
+_:f27ad236480db3836aceacca2a168326 <http://www.w3.org/ns/oa#refinedBy> _:a755e8fb6404232f5a813ce68aaff59d .
+_:ae3a0d27e08c17aedac0a081ad698e58 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b8548090c1478d22c0945dbcf662c895 .
+_:b8548090c1478d22c0945dbcf662c895 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f27ad236480db3836aceacca2a168326 .
+_:ae3a0d27e08c17aedac0a081ad698e58 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@DB" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ae4ca556a67f1f7314867989a270be2e a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f50ad9d500079da37cfb1fa04a154844 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/SimpleAllele[1]/XRefList[1]/XRef[2]" .
+_:ae4ca556a67f1f7314867989a270be2e <http://www.w3.org/ns/oa#refinedBy> _:f50ad9d500079da37cfb1fa04a154844 .
+_:e1d24cd38b270acce4185af2bbcf19c7 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:abbffb982ec6b5c361477eed3c0410a9 .
+_:abbffb982ec6b5c361477eed3c0410a9 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ae4ca556a67f1f7314867989a270be2e .
+_:e1d24cd38b270acce4185af2bbcf19c7 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#variantExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/SimpleAllele/XRefList/XRef/@Type" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c39b95f12b5def243a74c117eb50c3 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c7aca8ae91f3a674ab2bbfd2f0def203 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/RCVList[1]/RCVAccession[1]/RCVClassifications[1]/GermlineClassification[1]/Description[1]" .
+_:c39b95f12b5def243a74c117eb50c3 <http://www.w3.org/ns/oa#refinedBy> _:c7aca8ae91f3a674ab2bbfd2f0def203 .
+_:a56a9eaf71582fc530c7bcacd58e35d9 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e046ddb6b88dc1e03f01363fb7cd72ec .
+_:e046ddb6b88dc1e03f01363fb7cd72ec <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c39b95f12b5def243a74c117eb50c3 .
+_:a56a9eaf71582fc530c7bcacd58e35d9 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#rcvSubmissionCount> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@SubmissionCount" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fcd493aeb7d87b5b67ace394b8d2748 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c26e5c011148d163141fc1042c2be5a2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" .
+_:fcd493aeb7d87b5b67ace394b8d2748 <http://www.w3.org/ns/oa#refinedBy> _:c26e5c011148d163141fc1042c2be5a2 .
+_:a8cf035346d613392049f2143f8ef7be a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a0fb53a3ae460b67a44f46a524ed74a7 .
+_:a0fb53a3ae460b67a44f46a524ed74a7 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fcd493aeb7d87b5b67ace394b8d2748 .
+_:a8cf035346d613392049f2143f8ef7be <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationEvaluationDate> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@DateLastEvaluated" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:dddce0a15b4ef68010501b8e289d6768 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a8dfe21037e04c463156f00dca33c69f a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" .
+_:dddce0a15b4ef68010501b8e289d6768 <http://www.w3.org/ns/oa#refinedBy> _:a8dfe21037e04c463156f00dca33c69f .
+_:f4535ba5acf33bf47c8337e53e8601ef a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c718e65da42a1bc3a0587ab18a201db1 .
+_:c718e65da42a1bc3a0587ab18a201db1 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:dddce0a15b4ef68010501b8e289d6768 .
+_:f4535ba5acf33bf47c8337e53e8601ef <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateNumberOfSubmissions> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmissions" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b89b0e5262df64808f19fd1db4a00895 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c9c8a75bdd76ad0e47bc1140a77c6c3 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]" .
+_:b89b0e5262df64808f19fd1db4a00895 <http://www.w3.org/ns/oa#refinedBy> _:c9c8a75bdd76ad0e47bc1140a77c6c3 .
+_:e9cc6728a6b3c71ca1778d4f5de3686c a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f33f734ef93417332698939d75bb837d .
+_:f33f734ef93417332698939d75bb837d <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b89b0e5262df64808f19fd1db4a00895 .
+_:e9cc6728a6b3c71ca1778d4f5de3686c <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateNumberOfSubmitters> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/@NumberOfSubmitters" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:dda49b60e345fbfa05b1d4cf193141f6 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:aa68e1e54c4a4aa0c36e724e844312e6 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ReviewStatus[1]" .
+_:dda49b60e345fbfa05b1d4cf193141f6 <http://www.w3.org/ns/oa#refinedBy> _:aa68e1e54c4a4aa0c36e724e844312e6 .
+_:c6ae0c1b0c099cd9a35a1badc3467d28 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f60c5e51b5166f691b86d75adfa015d1 .
+_:f60c5e51b5166f691b86d75adfa015d1 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:dda49b60e345fbfa05b1d4cf193141f6 .
+_:c6ae0c1b0c099cd9a35a1badc3467d28 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationReviewStatus> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ReviewStatus" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d852c732612a0784b38354ebca71980f a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d51e99eb008493b270562c5126126883 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Description[1]" .
+_:d852c732612a0784b38354ebca71980f <http://www.w3.org/ns/oa#refinedBy> _:d51e99eb008493b270562c5126126883 .
+_:ed9bb6715fe53e79aa6f27a3d9248a04 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ffb530f40bc0bf3e69c7b4967e8a5d49 .
+_:ffb530f40bc0bf3e69c7b4967e8a5d49 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d852c732612a0784b38354ebca71980f .
+_:ed9bb6715fe53e79aa6f27a3d9248a04 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationDescription> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Description" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:cdf12c184656dcc388879439c2c0a950 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cc7159ceb6c56537c91cfbda1445bae3 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" .
+_:cdf12c184656dcc388879439c2c0a950 <http://www.w3.org/ns/oa#refinedBy> _:cc7159ceb6c56537c91cfbda1445bae3 .
+_:ce6d23c4525c9cff5a6e9c92d0d8ccd9 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:dfb7ae7327c4a7139638b2cebf6dd56d .
+_:dfb7ae7327c4a7139638b2cebf6dd56d <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:cdf12c184656dcc388879439c2c0a950 .
+_:ce6d23c4525c9cff5a6e9c92d0d8ccd9 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ded8cf1f6e98282a5eae12d4bb8df6ee a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d77e7eeb421cc7e6abc35bcf0812b3c9 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]" .
+_:ded8cf1f6e98282a5eae12d4bb8df6ee <http://www.w3.org/ns/oa#refinedBy> _:d77e7eeb421cc7e6abc35bcf0812b3c9 .
+_:acc7db69438a85a84ebf9f77db4d9bc8 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:fd6bd53f89caeb1b3f28f66044b07055 .
+_:fd6bd53f89caeb1b3f28f66044b07055 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ded8cf1f6e98282a5eae12d4bb8df6ee .
+_:acc7db69438a85a84ebf9f77db4d9bc8 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/@Type" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fd3dbf1fd2a277b1ea356f66a4154748 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f612e38b2a8ab5cddfbc17c6a0b1923f a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" .
+_:fd3dbf1fd2a277b1ea356f66a4154748 <http://www.w3.org/ns/oa#refinedBy> _:f612e38b2a8ab5cddfbc17c6a0b1923f .
+_:d898fe7e2b18bf2227dc3a66e12a58cd a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ccb061013297c1ce8b6146cab78f05ec .
+_:ccb061013297c1ce8b6146cab78f05ec <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fd3dbf1fd2a277b1ea356f66a4154748 .
+_:d898fe7e2b18bf2227dc3a66e12a58cd <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d0b00162b3183c9a277428d7a4c3aadc a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ec705c7650d1aa0bd0979fae16ff46e a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/Citation[1]/ID[1]" .
+_:d0b00162b3183c9a277428d7a4c3aadc <http://www.w3.org/ns/oa#refinedBy> _:ec705c7650d1aa0bd0979fae16ff46e .
+_:c82775eb99a6e03b340272a1f0a058ba a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f6ddf8a49203326903ce90a74ed56d14 .
+_:f6ddf8a49203326903ce90a74ed56d14 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d0b00162b3183c9a277428d7a4c3aadc .
+_:c82775eb99a6e03b340272a1f0a058ba <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#aggregateClassificationCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/Citation/ID/@Source" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:cd720191749ec11186ef155b7bf8671e a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:babd968508f356c2472db9517bac70dd a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]" .
+_:cd720191749ec11186ef155b7bf8671e <http://www.w3.org/ns/oa#refinedBy> _:babd968508f356c2472db9517bac70dd .
+_:aba3da0a4204866f061b53789a700998 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:fe20735ea71411df7f86e1813e8b4356 .
+_:fe20735ea71411df7f86e1813e8b4356 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:cd720191749ec11186ef155b7bf8671e .
+_:aba3da0a4204866f061b53789a700998 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionKind> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ddf369cf561c157c6b96ddf4040a564 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a6316c9d18adc1d9d5ed9a895cefa717 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" .
+_:ddf369cf561c157c6b96ddf4040a564 <http://www.w3.org/ns/oa#refinedBy> _:a6316c9d18adc1d9d5ed9a895cefa717 .
+_:d10155dd59afb67d7440cece387f67b5 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:bf7cda7242bb7d9dd5f2317c46c74d21 .
+_:bf7cda7242bb7d9dd5f2317c46c74d21 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ddf369cf561c157c6b96ddf4040a564 .
+_:d10155dd59afb67d7440cece387f67b5 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#traitIdentifier> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@ID" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:e600217168cab6ce70b8fa4f8649cdaf a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e121f0794865b37967f08517d956138a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]" .
+_:e600217168cab6ce70b8fa4f8649cdaf <http://www.w3.org/ns/oa#refinedBy> _:e121f0794865b37967f08517d956138a .
+_:b4eb5dbfcea5157287179d5db02e577c a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b92a28e89ddbe9ed77ab042aeb1e0de5 .
+_:b92a28e89ddbe9ed77ab042aeb1e0de5 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:e600217168cab6ce70b8fa4f8649cdaf .
+_:b4eb5dbfcea5157287179d5db02e577c <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionKind> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fa385a1444967b23ad9e674320458ca8 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f4d56d5f497b5f4349ddc5097d1d02a6 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" .
+_:fa385a1444967b23ad9e674320458ca8 <http://www.w3.org/ns/oa#refinedBy> _:f4d56d5f497b5f4349ddc5097d1d02a6 .
+_:a6d5983f62b2f3e3656caa0e5eb10cfd a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e776195e8ba1ecc381cdf90fb9a8b714 .
+_:e776195e8ba1ecc381cdf90fb9a8b714 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fa385a1444967b23ad9e674320458ca8 .
+_:a6d5983f62b2f3e3656caa0e5eb10cfd <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fcb5d1af12b52f61f7f1a978b372f147 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d67f0958fa9a937e76ae98c2aa17f7df a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Name[1]/ElementValue[1]" .
+_:fcb5d1af12b52f61f7f1a978b372f147 <http://www.w3.org/ns/oa#refinedBy> _:d67f0958fa9a937e76ae98c2aa17f7df .
+_:f46d50aa29fb6f3c4dc87dd1d1e5922 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a3a42afd0e6b2dda712f515776eb4724 .
+_:a3a42afd0e6b2dda712f515776eb4724 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fcb5d1af12b52f61f7f1a978b372f147 .
+_:f46d50aa29fb6f3c4dc87dd1d1e5922 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Name/ElementValue/@Type" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:abe00ba63d7f9eb64c63d10d03f63c87 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f6603be436824b1379ddb5d4bcfd88df a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]" .
+_:abe00ba63d7f9eb64c63d10d03f63c87 <http://www.w3.org/ns/oa#refinedBy> _:f6603be436824b1379ddb5d4bcfd88df .
+_:b721019fa069f2b97c3486514eb803b9 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cdde9d1cec29b9a4624fcaf13aace174 .
+_:cdde9d1cec29b9a4624fcaf13aace174 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:abe00ba63d7f9eb64c63d10d03f63c87 .
+_:b721019fa069f2b97c3486514eb803b9 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:bfb62a651696f4a13d18f8341fa508a2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cf83e2bf0ece227a37e1ca0d68621b45 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" .
+_:bfb62a651696f4a13d18f8341fa508a2 <http://www.w3.org/ns/oa#refinedBy> _:cf83e2bf0ece227a37e1ca0d68621b45 .
+_:d7f78d5e0f065f25b4f408d51da0ca51 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f8abb3ced5da7b9010d17b7bdcf3f925 .
+_:f8abb3ced5da7b9010d17b7bdcf3f925 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:bfb62a651696f4a13d18f8341fa508a2 .
+_:d7f78d5e0f065f25b4f408d51da0ca51 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a399549361a1fd96b286db5cc29d7116 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:fb07e47f40e57e9c433b40143f388f08 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/ElementValue[1]" .
+_:a399549361a1fd96b286db5cc29d7116 <http://www.w3.org/ns/oa#refinedBy> _:fb07e47f40e57e9c433b40143f388f08 .
+_:d543eb6808efd8c49188e669c27b132 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cef241a1c44e8229559c6c3056f13880 .
+_:cef241a1c44e8229559c6c3056f13880 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a399549361a1fd96b286db5cc29d7116 .
+_:d543eb6808efd8c49188e669c27b132 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/ElementValue/@Type" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 3 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a3d9d5d815533292c78ef2206e227067 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f2b2031a1766aaed1ee4e961199e12c4 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" .
+_:a3d9d5d815533292c78ef2206e227067 <http://www.w3.org/ns/oa#refinedBy> _:f2b2031a1766aaed1ee4e961199e12c4 .
+_:b93a22655da9862978e0e3f0620eea64 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a725aa9c29fd901023839634242531e1 .
+_:a725aa9c29fd901023839634242531e1 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a3d9d5d815533292c78ef2206e227067 .
+_:b93a22655da9862978e0e3f0620eea64 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:eedc7b35a079afef9ad5eea6b84df4e2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f81a6501f944c6f5625ba6606eb81a9f a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" .
+_:eedc7b35a079afef9ad5eea6b84df4e2 <http://www.w3.org/ns/oa#refinedBy> _:f81a6501f944c6f5625ba6606eb81a9f .
+_:f332d504f7a0e1394d659b0e1d056971 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e5422ff4a76641e0d5fe81f030e46615 .
+_:e5422ff4a76641e0d5fe81f030e46615 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:eedc7b35a079afef9ad5eea6b84df4e2 .
+_:f332d504f7a0e1394d659b0e1d056971 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@Type" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:e363b6243c29094d02fa3e9c33bc7e47 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ff2947b0aaa12788a5aac5762da3ca15 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" .
+_:e363b6243c29094d02fa3e9c33bc7e47 <http://www.w3.org/ns/oa#refinedBy> _:ff2947b0aaa12788a5aac5762da3ca15 .
+_:b8a92b94d186298adf50aa1499c238b5 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c54a304a90b733804547d7619b70b4bb .
+_:c54a304a90b733804547d7619b70b4bb <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:e363b6243c29094d02fa3e9c33bc7e47 .
+_:b8a92b94d186298adf50aa1499c238b5 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@ID" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c507e188e112edd2c5419470c69217ed a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f45a4e658890855fb4cd4384320c3560 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/Symbol[1]/XRef[1]" .
+_:c507e188e112edd2c5419470c69217ed <http://www.w3.org/ns/oa#refinedBy> _:f45a4e658890855fb4cd4384320c3560 .
+_:d03126836a8c34242a95e9854700b807 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:fb18f7533da21a8724f10d3afaa72c7e .
+_:fb18f7533da21a8724f10d3afaa72c7e <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c507e188e112edd2c5419470c69217ed .
+_:d03126836a8c34242a95e9854700b807 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/Symbol/XRef/@DB" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:bca1a6e8eeb4e0ea9afdad46270f48ef a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:fa2ad4d8bdd710e9792d821120b4c6f1 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]" .
+_:bca1a6e8eeb4e0ea9afdad46270f48ef <http://www.w3.org/ns/oa#refinedBy> _:fa2ad4d8bdd710e9792d821120b4c6f1 .
+_:b234a91e2b9cd9901eb2324c25f38a22 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e88f52178d676a4955d521262d4d3ece .
+_:e88f52178d676a4955d521262d4d3ece <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:bca1a6e8eeb4e0ea9afdad46270f48ef .
+_:b234a91e2b9cd9901eb2324c25f38a22 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c4864add733b0bddb47c66636da40823 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d406d9b8d47a660362bdb0a0723991e8 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" .
+_:c4864add733b0bddb47c66636da40823 <http://www.w3.org/ns/oa#refinedBy> _:d406d9b8d47a660362bdb0a0723991e8 .
+_:d7567f2c2471ba544ff9a978ae081f80 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b1879a86640208443f6a0f341cf49096 .
+_:b1879a86640208443f6a0f341cf49096 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c4864add733b0bddb47c66636da40823 .
+_:d7567f2c2471ba544ff9a978ae081f80 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:aef22588a9538dc2f39c21c85e6ddc0 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e1b2c39c9f1b2868850cc871cfc415ad a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" .
+_:aef22588a9538dc2f39c21c85e6ddc0 <http://www.w3.org/ns/oa#refinedBy> _:e1b2c39c9f1b2868850cc871cfc415ad .
+_:bbc37ffaef5e16e7ba0fc0390d56e1f0 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cf6eaf7a78ae34b4485e07ebba2163ff .
+_:cf6eaf7a78ae34b4485e07ebba2163ff <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:aef22588a9538dc2f39c21c85e6ddc0 .
+_:bbc37ffaef5e16e7ba0fc0390d56e1f0 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f58f1a71696c0793cd051d9fd4742453 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d4f8feef422d268ec727de744fa292bd a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/Attribute[1]" .
+_:f58f1a71696c0793cd051d9fd4742453 <http://www.w3.org/ns/oa#refinedBy> _:d4f8feef422d268ec727de744fa292bd .
+_:b3fb52b587d3689cd340cfc1531f659d a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a3c0cee0917e3377cdcb46d4bb4286a9 .
+_:a3c0cee0917e3377cdcb46d4bb4286a9 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f58f1a71696c0793cd051d9fd4742453 .
+_:b3fb52b587d3689cd340cfc1531f659d <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionDescriptiveMaterial> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/Attribute/@integerValue" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d3d561073944a0d188715a98fca1f855 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:dfb94505d3d6879df75c1794d977c6d2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" .
+_:d3d561073944a0d188715a98fca1f855 <http://www.w3.org/ns/oa#refinedBy> _:dfb94505d3d6879df75c1794d977c6d2 .
+_:c159aa6c8a929b29589866723f9d9551 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e98b4cddeed7e052924dbb8c9f894f16 .
+_:e98b4cddeed7e052924dbb8c9f894f16 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d3d561073944a0d188715a98fca1f855 .
+_:c159aa6c8a929b29589866723f9d9551 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c629e1b257d91e659c668425c4e9c3cf a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c208cac71cc9f73a6337a6aeddab5972 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" .
+_:c629e1b257d91e659c668425c4e9c3cf <http://www.w3.org/ns/oa#refinedBy> _:c208cac71cc9f73a6337a6aeddab5972 .
+_:cf84855f99c5c36b39a1b36bcb93ed41 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:f059ab313479736ab32fb1c5afec557 .
+_:f059ab313479736ab32fb1c5afec557 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c629e1b257d91e659c668425c4e9c3cf .
+_:cf84855f99c5c36b39a1b36bcb93ed41 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@ID" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:aa2ee29db3d8a752293c6529a4c34289 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:aaaf5dcee5b7f87f802d91af4bdec7ad a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/AttributeSet[1]/XRef[1]" .
+_:aa2ee29db3d8a752293c6529a4c34289 <http://www.w3.org/ns/oa#refinedBy> _:aaaf5dcee5b7f87f802d91af4bdec7ad .
+_:a6d8978bd466a17a664b76baeb361ee a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:dcc9e28ebfaa2b9b98bc27b311898fdd .
+_:dcc9e28ebfaa2b9b98bc27b311898fdd <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:aa2ee29db3d8a752293c6529a4c34289 .
+_:a6d8978bd466a17a664b76baeb361ee <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/AttributeSet/XRef/@DB" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:e4c6621c586a4897aee371181262bd0 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:eb10ad8a8808e17128c563feb6144922 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/Classifications[1]/GermlineClassification[1]/ConditionList[1]/TraitSet[1]/Trait[1]/XRef[4]" .
+_:e4c6621c586a4897aee371181262bd0 <http://www.w3.org/ns/oa#refinedBy> _:eb10ad8a8808e17128c563feb6144922 .
+_:fed6ed2ff8f17acf9ebd1ec7b66e2cec a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:fbca9171b2b53ade1bee1d011ed49b0 .
+_:fbca9171b2b53ade1bee1d011ed49b0 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:e4c6621c586a4897aee371181262bd0 .
+_:fed6ed2ff8f17acf9ebd1ec7b66e2cec <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#conditionExternalCrossReference> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/Classifications/GermlineClassification/ConditionList/TraitSet/Trait/XRef/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a8b22d9a1cd05c661c5fb0eef6040fd7 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cc1ec2908e0bcf579e8ae04c8eb769ca a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" .
+_:a8b22d9a1cd05c661c5fb0eef6040fd7 <http://www.w3.org/ns/oa#refinedBy> _:cc1ec2908e0bcf579e8ae04c8eb769ca .
+_:f8f085dd2aad24f75d0facc51ce2c808 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:aa77693a9a3ba7b19fdfa4f64ccafc19 .
+_:aa77693a9a3ba7b19fdfa4f64ccafc19 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a8b22d9a1cd05c661c5fb0eef6040fd7 .
+_:f8f085dd2aad24f75d0facc51ce2c808 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionSubmissionDate> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@SubmissionDate" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d3dcb4eb652e70edd63f15b6f7cc9e09 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a947ab214ff16e7ae64b23b2fa1c308b a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" .
+_:d3dcb4eb652e70edd63f15b6f7cc9e09 <http://www.w3.org/ns/oa#refinedBy> _:a947ab214ff16e7ae64b23b2fa1c308b .
+_:a9375610c88a30cac9a4359734dc46ee a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:eea2782e159a24c81f964d30ae639edf .
+_:eea2782e159a24c81f964d30ae639edf <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d3dcb4eb652e70edd63f15b6f7cc9e09 .
+_:a9375610c88a30cac9a4359734dc46ee <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionDateLastUpdated> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b450954c10aa8f81ac5cabe62265ecb a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d8782d942675d43646dfe816705beefb a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" .
+_:b450954c10aa8f81ac5cabe62265ecb <http://www.w3.org/ns/oa#refinedBy> _:d8782d942675d43646dfe816705beefb .
+_:aed84b1a2edc0508a5b4eb4a8f663c2f a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a1fc3bf13717e13604bcbf357210d0c3 .
+_:a1fc3bf13717e13604bcbf357210d0c3 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b450954c10aa8f81ac5cabe62265ecb .
+_:aed84b1a2edc0508a5b4eb4a8f663c2f <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionDateCreated> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateCreated" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c015fb1c16bb4c0b35603e1fe18dc8b1 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:a3e14bd84c53d4e8864ab259d8f7a793 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/RecordStatus[1]" .
+_:c015fb1c16bb4c0b35603e1fe18dc8b1 <http://www.w3.org/ns/oa#refinedBy> _:a3e14bd84c53d4e8864ab259d8f7a793 .
+_:c2f7a86051b2c471c3aacc2641838d26 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cbad698cdd01f694c79cf6ab51313a20 .
+_:cbad698cdd01f694c79cf6ab51313a20 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c015fb1c16bb4c0b35603e1fe18dc8b1 .
+_:c2f7a86051b2c471c3aacc2641838d26 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionRecordStatus> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/RecordStatus" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ff295be49c0b2325ec6ef7e5d09edb77 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:d4949098b886aac01fdafd89173e5968 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]" .
+_:ff295be49c0b2325ec6ef7e5d09edb77 <http://www.w3.org/ns/oa#refinedBy> _:d4949098b886aac01fdafd89173e5968 .
+_:c5831b08ae51b8bb4500fe26d35fa248 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ba7ea82d59acdab952bfdefcdfcb9659 .
+_:ba7ea82d59acdab952bfdefcdfcb9659 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ff295be49c0b2325ec6ef7e5d09edb77 .
+_:c5831b08ae51b8bb4500fe26d35fa248 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionEvaluationDate> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/@DateLastEvaluated" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f2d74ada8ca9a0a18d37f9d9a2f08133 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cb207be41c1b68711a809ab8f2b929a4 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/Classification[1]/ReviewStatus[1]" .
+_:f2d74ada8ca9a0a18d37f9d9a2f08133 <http://www.w3.org/ns/oa#refinedBy> _:cb207be41c1b68711a809ab8f2b929a4 .
+_:fb8d1e4e7c6eb71df7f90c12d74b71a9 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:d82d5c73f526adf772ca9cfb542a819c .
+_:d82d5c73f526adf772ca9cfb542a819c <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f2d74ada8ca9a0a18d37f9d9a2f08133 .
+_:fb8d1e4e7c6eb71df7f90c12d74b71a9 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionReviewStatus> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/ReviewStatus" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:fc8a9d695f425332bfbf5d2bb78c2290 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:cd6a4d5f31d70150217af11b7320d888 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]" .
+_:fc8a9d695f425332bfbf5d2bb78c2290 <http://www.w3.org/ns/oa#refinedBy> _:cd6a4d5f31d70150217af11b7320d888 .
+_:bc5bce943914905d7d1ffc6cbe2645ef a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b86709fb8affdb130958237327bcf2fc .
+_:b86709fb8affdb130958237327bcf2fc <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:fc8a9d695f425332bfbf5d2bb78c2290 .
+_:bc5bce943914905d7d1ffc6cbe2645ef <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d359389876d440db7107411cd5625415 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:fbb926409cd0372506c2cb267baa5931 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Sample[1]/AffectedStatus[1]" .
+_:d359389876d440db7107411cd5625415 <http://www.w3.org/ns/oa#refinedBy> _:fbb926409cd0372506c2cb267baa5931 .
+_:daa2d296d416b95cacd88e9e5b13716e a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:cb45f656bc4a68257e76e2fbe1a399c0 .
+_:cb45f656bc4a68257e76e2fbe1a399c0 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d359389876d440db7107411cd5625415 .
+_:daa2d296d416b95cacd88e9e5b13716e <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#sampleAffectedStatus> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Sample/AffectedStatus" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f9726304bdebcb7b7e92be0d3c2afee0 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:b9e92dd223fecaca6c1261ad25100712 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]" .
+_:f9726304bdebcb7b7e92be0d3c2afee0 <http://www.w3.org/ns/oa#refinedBy> _:b9e92dd223fecaca6c1261ad25100712 .
+_:dfa9733a91a3bbaac483223b45919da0 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:c3cffb2328233f228326bdaa2ba0e274 .
+_:c3cffb2328233f228326bdaa2ba0e274 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f9726304bdebcb7b7e92be0d3c2afee0 .
+_:dfa9733a91a3bbaac483223b45919da0 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observationMethodType> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:da9589356f494665cb1093717599ea80 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e9ac56479aa4e19205154372c9edf630 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/Method[1]/MethodType[1]" .
+_:da9589356f494665cb1093717599ea80 <http://www.w3.org/ns/oa#refinedBy> _:e9ac56479aa4e19205154372c9edf630 .
+_:ffc6c1ca282b38adbc401ee69db4fc6 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a4f4869b02421c8b545f752113d5133a .
+_:a4f4869b02421c8b545f752113d5133a <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:da9589356f494665cb1093717599ea80 .
+_:ffc6c1ca282b38adbc401ee69db4fc6 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observationMethodType> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/Method/MethodType" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:cd72407e709c85322ae51fc62419c7ad a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:dbcd4d19a8a50211dabf67850b64dc9 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]" .
+_:cd72407e709c85322ae51fc62419c7ad <http://www.w3.org/ns/oa#refinedBy> _:dbcd4d19a8a50211dabf67850b64dc9 .
+_:eadf7b7873f8181c871b341c4337e894 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a465cc877ed8a4220c28ce6bc8aaea5a .
+_:a465cc877ed8a4220c28ce6bc8aaea5a <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:cd72407e709c85322ae51fc62419c7ad .
+_:eadf7b7873f8181c871b341c4337e894 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:de371cfa290f8070b5b1d82e69bb119a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:ce451284c8e9bf440214517a2dceb885 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" .
+_:de371cfa290f8070b5b1d82e69bb119a <http://www.w3.org/ns/oa#refinedBy> _:ce451284c8e9bf440214517a2dceb885 .
+_:f45bea68dc679f9b7736b3d75c5d61cd a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b26faefc277e7ec63b12ea9dccde8a7e .
+_:b26faefc277e7ec63b12ea9dccde8a7e <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:de371cfa290f8070b5b1d82e69bb119a .
+_:f45bea68dc679f9b7736b3d75c5d61cd <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:e8b7bb81752b9371eac229792c90a946 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e409b814d0d5162942d3fcf6035ed575 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Attribute[1]" .
+_:e8b7bb81752b9371eac229792c90a946 <http://www.w3.org/ns/oa#refinedBy> _:e409b814d0d5162942d3fcf6035ed575 .
+_:bf185a3e2173c6cde533a7b5f57d37 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:d68d094d52b4fe05e9e0b6f961e2010a .
+_:d68d094d52b4fe05e9e0b6f961e2010a <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:e8b7bb81752b9371eac229792c90a946 .
+_:bf185a3e2173c6cde533a7b5f57d37 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Attribute/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b595ecbd7a0225ed9f2f37af93f07dc3 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:afe03df69759f0dfb687568181d8b843 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]" .
+_:b595ecbd7a0225ed9f2f37af93f07dc3 <http://www.w3.org/ns/oa#refinedBy> _:afe03df69759f0dfb687568181d8b843 .
+_:b0628c8e7a0c59415adc7666a1e023ab a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e225e3d811d615522f0159c5a829ca55 .
+_:e225e3d811d615522f0159c5a829ca55 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b595ecbd7a0225ed9f2f37af93f07dc3 .
+_:b0628c8e7a0c59415adc7666a1e023ab <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionSupportingCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c17f6fa143d9076fad22599e33c0e406 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:f4ca1df690b0f4ada36a0124c58afd10 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" .
+_:c17f6fa143d9076fad22599e33c0e406 <http://www.w3.org/ns/oa#refinedBy> _:f4ca1df690b0f4ada36a0124c58afd10 .
+_:b9ae880eb186410649f21344bc095516 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:bb946ea801393a8ec0f1e30a160ada25 .
+_:bb946ea801393a8ec0f1e30a160ada25 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c17f6fa143d9076fad22599e33c0e406 .
+_:b9ae880eb186410649f21344bc095516 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionSupportingCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:a48255d75ed9a319683fb45fa9c50633 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:acfd31e9bbebc269881f306afeb2b365 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/Citation[1]/ID[1]" .
+_:a48255d75ed9a319683fb45fa9c50633 <http://www.w3.org/ns/oa#refinedBy> _:acfd31e9bbebc269881f306afeb2b365 .
+_:ef6961b1b3627296a56362d8d3f92cd4 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a6306b65b2491d955f5e413e64de763a .
+_:a6306b65b2491d955f5e413e64de763a <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:a48255d75ed9a319683fb45fa9c50633 .
+_:ef6961b1b3627296a56362d8d3f92cd4 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#assertionSupportingCitation> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/Citation/ID/@Source" ;
+	<https://ns.cascadeprotocol.org/bridge/v1-draft#occurrences> 2 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:f79faa3e7be182afea13566f18adadfa a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:de132f80d290f0aaacf7848aa915e6a1 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" .
+_:f79faa3e7be182afea13566f18adadfa <http://www.w3.org/ns/oa#refinedBy> _:de132f80d290f0aaacf7848aa915e6a1 .
+_:ceb074e81bd92840471b800de852d13a a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:d12140c38abe43f0e5f33b26bad350af .
+_:d12140c38abe43f0e5f33b26bad350af <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:f79faa3e7be182afea13566f18adadfa .
+_:ceb074e81bd92840471b800de852d13a <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ad6ab6fb41148987ab201f441ed6845a a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:de2e215f22842d9447ee7b3bed343862 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" .
+_:ad6ab6fb41148987ab201f441ed6845a <http://www.w3.org/ns/oa#refinedBy> _:de2e215f22842d9447ee7b3bed343862 .
+_:b31f7c627b15c57956a3d5dc06bedac6 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:e9c443d5cfc5decf0b829b0307298962 .
+_:e9c443d5cfc5decf0b829b0307298962 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ad6ab6fb41148987ab201f441ed6845a .
+_:b31f7c627b15c57956a3d5dc06bedac6 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@DB" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:bd50ee8f82ec78933190d8bddcda024b a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:c348a62ef33292178190628ea2adbdc a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" .
+_:bd50ee8f82ec78933190d8bddcda024b <http://www.w3.org/ns/oa#refinedBy> _:c348a62ef33292178190628ea2adbdc .
+_:d491c0462b64b5593f6ef3b4217d7e83 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:b83defbde5a99dd43cd7fb6a00f684e6 .
+_:b83defbde5a99dd43cd7fb6a00f684e6 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:bd50ee8f82ec78933190d8bddcda024b .
+_:d491c0462b64b5593f6ef3b4217d7e83 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@ID" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:ba58d93eb272ba8f2d3dc301fa3296aa a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:e53b04b1861bc27a0f403746dce597bf a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]/ObservedInList[1]/ObservedIn[1]/ObservedData[1]/XRef[1]" .
+_:ba58d93eb272ba8f2d3dc301fa3296aa <http://www.w3.org/ns/oa#refinedBy> _:e53b04b1861bc27a0f403746dce597bf .
+_:a09f8fef143a7c60c85746039574df34 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:df42c87526dd10f0dd9f2921756327b2 .
+_:df42c87526dd10f0dd9f2921756327b2 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:ba58d93eb272ba8f2d3dc301fa3296aa .
+_:a09f8fef143a7c60c85746039574df34 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#observedDataEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ObservedInList/ObservedIn/ObservedData/XRef/@Type" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b6f1502b875436a87403aac32ea83ce3 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:af621da3674357adb85a020b7f7072ec a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" .
+_:b6f1502b875436a87403aac32ea83ce3 <http://www.w3.org/ns/oa#refinedBy> _:af621da3674357adb85a020b7f7072ec .
+_:bbe0d4e691966150ba75651f96daafc1 a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:a40f5a4d07436d4aadd01d6becbd5651 .
+_:a40f5a4d07436d4aadd01d6becbd5651 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:b6f1502b875436a87403aac32ea83ce3 .
+_:bbe0d4e691966150ba75651f96daafc1 <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#traitMappingEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@TraitType" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:c074dabf4496ed6474f09b3c2193901 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:fad868746ee61505a5d458675a73a8c2 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]" .
+_:c074dabf4496ed6474f09b3c2193901 <http://www.w3.org/ns/oa#refinedBy> _:fad868746ee61505a5d458675a73a8c2 .
+_:b2d5f66f7366216d53dd677a0311b4bb a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ebf8b49dfe353a348b5e84a5a8e6fbc3 .
+_:ebf8b49dfe353a348b5e84a5a8e6fbc3 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:c074dabf4496ed6474f09b3c2193901 .
+_:b2d5f66f7366216d53dd677a0311b4bb <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#traitMappingEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/@MappingType" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:d5bf09e0c99849c9e4255a95c2923b09 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" .
+_:da2e7c9a45a8478c07e3cd9a5b7c97bb a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "ClassifiedRecord[1]/TraitMappingList[1]/TraitMapping[1]/MedGen[1]" .
+_:d5bf09e0c99849c9e4255a95c2923b09 <http://www.w3.org/ns/oa#refinedBy> _:da2e7c9a45a8478c07e3cd9a5b7c97bb .
+_:b9e52f7ad9481b63259b6575cbfd2dae a <http://www.w3.org/ns/oa#Annotation> ;
+	<http://www.w3.org/ns/oa#hasTarget> _:ecc3a17d7c1c8b061a53878f8563d0b3 .
+_:ecc3a17d7c1c8b061a53878f8563d0b3 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> ;
+	<http://www.w3.org/ns/oa#hasSelector> _:d5bf09e0c99849c9e4255a95c2923b09 .
+_:b9e52f7ad9481b63259b6575cbfd2dae <http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#traitMappingEvidence> ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/shacl#value> "/VariationArchive/ClassifiedRecord/TraitMappingList/TraitMapping/MedGen/@Name" ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> .
+_:b977fc084c94b961df23965313b06981 a <http://www.w3.org/ns/oa#XPathSelector> ;
+	rdf:value "/ClinVarResult-Set/VariationArchive[1]" ;
+	<http://www.w3.org/ns/oa#refinedBy> _:d8d80ea17d61258adb288aea6a8f0d95 .
+_:b016ceab4b11c7fef825be679cdd0230 <http://www.w3.org/ns/oa#hasSource> <../in/VCV000208804-MLH1-LynchSyndrome.xml> .
+_:d8d80ea17d61258adb288aea6a8f0d95 rdf:value "ClassifiedRecord/RCVList/RCVAccession[@Accession='RCV000190832']/ClassifiedConditionList/ClassifiedCondition[1]/@ID" ;
+	a <http://www.w3.org/ns/oa#XPathSelector> .
+_:b016ceab4b11c7fef825be679cdd0230 <http://www.w3.org/ns/oa#hasSelector> _:b977fc084c94b961df23965313b06981 .
+_:e34eaf3adbc1e4dfdf5fdc2e0a081fad <http://www.w3.org/ns/oa#hasTarget> _:b016ceab4b11c7fef825be679cdd0230 ;
+	<http://www.w3.org/ns/shacl#resultSeverity> <http://www.w3.org/ns/shacl#Info> ;
+	<http://www.w3.org/ns/shacl#value> "C1839615" ;
+	<http://www.w3.org/ns/oa#motivatedBy> <http://www.w3.org/ns/oa#classifying> ;
+	<http://www.w3.org/ns/oa#hasBody> <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#medgenConceptIdentifier> ;
+	a <http://www.w3.org/ns/oa#Annotation> .
