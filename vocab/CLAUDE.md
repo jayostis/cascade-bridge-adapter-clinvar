@@ -5,15 +5,10 @@ prefix `clinvar:`. No Cascade term is minted here.
 
 ## A lookup table is a concept map, and its rows are transcribed
 
-One `skos:ConceptScheme` per file, one `skos:Concept` per source phrase,
-carrying exactly one `skos:notation` and exactly one `skos:exactMatch` or
-`skos:closeMatch`. Two concepts may share a match target; two may not share a
-notation.
+What a concept map holds, and the form a `skos:notation` is written in, is
+[`shapes/concept-map.shapes.ttl`](https://github.com/jayostis/cascade-bridge-spec/blob/main/shapes/concept-map.shapes.ttl)'s
+to say, and a failing run prints it.
 
-- **A notation is the key**: the source phrase lowercased and stripped of
-  leading and trailing space, tab, carriage return and line feed, and of no
-  other character. A notation written any other way matches nothing, and every
-  value at that path is reported as a miss for as long as it stands.
 - `skos:closeMatch` where the phrase and the term do not mean the same thing.
 - **A row is transcribed, never invented.** Adding one, removing one or changing
   what a phrase maps to changes what this adapter carries; the crate's
