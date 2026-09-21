@@ -3,6 +3,8 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 # aggregatedFrom repeats assertion.rq's emission rule and name for each
 # SubmitterAssertion, so a change to either is made in both.
@@ -10,7 +12,7 @@ PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 # Idioms beyond the Variant query's:
 #   - a template triple whose variable is unbound is not produced (SPARQL 1.1 §16.2),
 #     so an optional field is an OPTIONAL or an erroring BIND, never a UNION;
-#   - a lookup table is VALUES joined on a computed key;
+#   - a lookup table is a concept map of the crate, joined on a computed key;
 #   - a condition's index is its ordinal among same-named siblings: a COUNT of the
 #     earlier ones, from an OPTIONAL whose FILTER sees both sides;
 #   - "the last one wins" is MAX over a position key, decoded back into positions;
@@ -51,16 +53,15 @@ WHERE {
   OPTIONAL { ?rcv xyz:Accession ?rcvAcc0 }
   BIND(COALESCE(?rcvAcc0, "<no-rcv>") AS ?rcvAcc)
 
-  # Emitted only for a non-empty GermlineClassification whose Description is one of
-  # the five ACMG classes.
+  # Emitted only for a non-empty GermlineClassification whose Description the ACMG
+  # concept map carries.
   ?rcv ?s3 ?rc . ?rc a xyz:RCVClassifications ; ?s4 ?gc . ?gc a xyz:GermlineClassification .
   FILTER EXISTS { ?gc ?gp ?go FILTER(?gp != rdf:type) }
   ?gc ?s5 ?desc . ?desc a xyz:Description ; rdf:_1 ?dt . FILTER(isLiteral(?dt))
-  BIND(LCASE(REPLACE(?dt, "^\\s+|\\s+$", "")) AS ?acmgKey)
-  VALUES (?acmgKey ?acmg) {
-    ("pathogenic" g:Pathogenic) ("likely pathogenic" g:LikelyPathogenic)
-    ("uncertain significance" g:VUS) ("likely benign" g:LikelyBenign) ("benign" g:Benign)
-  }
+  BIND(LCASE(REPLACE(?dt, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?acmgKey)
+  ?acmgConcept skos:inScheme clinvar:acmgClassifications ;
+               skos:notation ?acmgKey ;
+               skos:exactMatch|skos:closeMatch ?acmg .
 
   # One interpretation per ClassifiedCondition; ?i is its 0-based index.
   ?rcv ?s6 ?ccl . ?ccl a xyz:ClassifiedConditionList ; ?ccSlot ?cc . ?cc a xyz:ClassifiedCondition .
@@ -145,18 +146,10 @@ WHERE {
 
   OPTIONAL {
     ?gc ?s7 ?rsEl . ?rsEl a xyz:ReviewStatus ; rdf:_1 ?rsText .
-    BIND(LCASE(REPLACE(?rsText, "^\\s+|\\s+$", "")) AS ?rsKey)
-    VALUES (?rsKey ?rs) {
-      ("no assertion provided" g:NoAssertionProvided)
-      ("no assertion criteria provided" g:CriteriaNotProvided)
-      ("criteria provided, single submitter" g:SingleSubmitter)
-      ("criteria provided, conflicting interpretations" g:ConflictingSubmissions)
-      ("criteria provided, conflicting classifications" g:ConflictingSubmissions)
-      ("criteria provided, conflicting classifications of pathogenicity" g:ConflictingSubmissions)
-      ("criteria provided, multiple submitters, no conflicts" g:MultipleSubmittersNoConflict)
-      ("reviewed by expert panel" g:ExpertPanelReviewed)
-      ("practice guideline" g:PracticeGuideline)
-    }
+    BIND(LCASE(REPLACE(?rsText, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?rsKey)
+    ?rsConcept skos:inScheme clinvar:reviewStatuses ;
+               skos:notation ?rsKey ;
+               skos:exactMatch|skos:closeMatch ?rs .
   }
   OPTIONAL { ?desc xyz:DateLastEvaluated ?d0 FILTER(STRLEN(?d0) > 0) }
   BIND(STRDT(?d0, xsd:date) AS ?date)
@@ -178,8 +171,9 @@ WHERE {
         FILTER(STRLEN(?caId) > 0)
         ?ca ?a3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)
         ?ca ?a4 ?ccls . ?ccls a xyz:Classification ; ?a5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt .
-        FILTER(isLiteral(?cgt) && LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
-               ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"))
+        FILTER(isLiteral(?cgt))
+        BIND(LCASE(REPLACE(?cgt, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?saKey)
+        ?saConcept skos:inScheme clinvar:acmgClassifications ; skos:notation ?saKey .
         BIND(SHA1(CONCAT("genomics:SubmitterAssertion:clinvar:", ?scv)) AS ?hs)
         BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hs, 17, 1),
                "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?ns1)
