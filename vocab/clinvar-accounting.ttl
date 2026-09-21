@@ -519,7 +519,9 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/GermlineClassification" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carried ;
+  bridge:lookupIn <clinvar-acmg-classifications.ttl> ;
+  bridge:lookupNamesGap clinvar:assertionClassificationOutsideAcmgSet .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/Classification/NoClassification" ;
@@ -560,7 +562,9 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@OrganizationCategory" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carried ;
+  bridge:lookupIn <clinvar-submitter-categories.ttl> ;
+  bridge:lookupNamesGap clinvar:organizationCategoryNotMapped .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@SubmitterName" ;
@@ -1490,7 +1494,9 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carried ;
+  bridge:lookupIn <clinvar-acmg-classifications.ttl> ;
+  bridge:lookupNamesGap clinvar:rcvClassificationOutsideAcmgSet .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/Description/@DateLastEvaluated" ;
@@ -1503,7 +1509,9 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/RCVClassifications/GermlineClassification/ReviewStatus" ;
-  bridge:verdict bridge:carried .
+  bridge:verdict bridge:carried ;
+  bridge:lookupIn <clinvar-review-statuses.ttl> ;
+  bridge:lookupNamesGap clinvar:rcvReviewStatusOutsideTiers .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/SimpleAllele" ;

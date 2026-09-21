@@ -2,15 +2,15 @@ PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
 PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
-# An assertion that yields no SubmitterAssertion still reports its SubmitterName and
-# OrganizationCategory findings and the one that says why it yields none; the rest are
-# reported for emitted assertions only. ?gate says which rules run for emitted
-# assertions, which for skipped ones, and which for both. Each rule also binds a path
-# below its ClinicalAssertion (?sfT); the record's wrapper element and the assertion
-# are joined on after the UNION.
+# An assertion that yields no SubmitterAssertion still reports its SubmitterName
+# finding and the one that says why it yields none; the rest are reported for emitted
+# assertions only. ?gate says which rules run for emitted assertions, which for skipped
+# ones, and which for both. Each rule also binds a path below its ClinicalAssertion
+# (?sfT); the record's wrapper element and the assertion are joined on after the UNION.
 #
 # Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
@@ -22,7 +22,6 @@ CONSTRUCT {
     ] ;
     oa:hasBody ?gap ;
     oa:motivatedBy oa:classifying ;
-    sh:value ?value ;
     sh:resultSeverity ?severity .
 }
 WHERE {
@@ -35,8 +34,11 @@ WHERE {
   ?ca ?s3 ?cva . ?cva a xyz:ClinVarAccession ; xyz:Accession ?scv . FILTER(STRLEN(?scv) > 0)
   ?ca ?s4 ?cl . ?cl a xyz:Classification .
   OPTIONAL { SELECT ?cl ?cgt WHERE { ?cl ?s5 ?cg . ?cg a xyz:GermlineClassification ; rdf:_1 ?cgt . FILTER(isLiteral(?cgt)) } }
-  BIND(COALESCE(LCASE(REPLACE(?cgt, "^\\s+|\\s+$", "")) IN
-         ("pathogenic", "likely pathogenic", "uncertain significance", "likely benign", "benign"), false) AS ?emitted)
+  # "" is no notation of any scheme, so a classification that is absent or blank is not
+  # emitted, which is what the EXISTS would otherwise answer with nothing to match on.
+  BIND(COALESCE(LCASE(REPLACE(?cgt, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")), "") AS ?acmgKey)
+  BIND(EXISTS { ?acmgConcept skos:inScheme clinvar:acmgClassifications ;
+                             skos:notation ?acmgKey } AS ?emitted)
 
   OPTIONAL {
   {
@@ -50,17 +52,6 @@ WHERE {
   }
   UNION
   {
-    ?cva a xyz:ClinVarAccession ; xyz:OrganizationCategory ?oc .
-    FILTER(STRLEN(?oc) > 0 && !(LCASE(?oc) IN ("laboratory", "consortium", "expert-panel", "expert panel",
-           "research group", "research", "resource", "clinician", "single clinician")))
-    BIND("/ClinVarAccession/@OrganizationCategory" AS ?sfT)
-    BIND(clinvar:organizationCategoryNotMapped AS ?gap)
-    BIND(?oc AS ?value)
-    BIND(sh:Info AS ?severity)
-    BIND("any" AS ?gate)
-  }
-  UNION
-  {
     # An absence: the ClinicalAssertion is the nearest element that exists.
     ?rec13 ?n1 ?cal13 . ?cal13 a xyz:ClinicalAssertionList ; ?n2 ?ca . ?ca a xyz:ClinicalAssertion ; xyz:ID ?tid .
     FILTER(STRLEN(?tid) > 0)
@@ -70,18 +61,6 @@ WHERE {
     BIND(clinvar:assertionWithoutTraitMapping AS ?gap)
     BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
-  }
-  UNION
-  {
-    # On a skipped assertion: GermlineClassification text outside the five classes.
-    ?cl a xyz:Classification ; ?q1 ?cgx . ?cgx a xyz:GermlineClassification ; rdf:_1 ?cgxt . FILTER(isLiteral(?cgxt))
-    BIND(REPLACE(?cgxt, "^\\s+|\\s+$", "") AS ?gText)
-    FILTER(STRLEN(?gText) > 0)
-    BIND("/Classification/GermlineClassification" AS ?sfT)
-    BIND(clinvar:assertionClassificationOutsideAcmgSet AS ?gap)
-    BIND(?gText AS ?value)
-    BIND(sh:Warning AS ?severity)
-    BIND("skipped" AS ?gate)
   }
   UNION
   {
