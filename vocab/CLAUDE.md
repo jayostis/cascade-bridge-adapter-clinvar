@@ -3,6 +3,26 @@
 This adapter's own namespace, `https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#`,
 prefix `clinvar:`. No Cascade term is minted here.
 
+## A lookup table is a concept map, and its rows are transcribed
+
+One `skos:ConceptScheme` per file, one `skos:Concept` per source phrase,
+carrying exactly one `skos:notation` and exactly one `skos:exactMatch` or
+`skos:closeMatch`. Two concepts may share a match target; two may not share a
+notation.
+
+- **A notation is the key**: the source phrase lowercased and stripped of
+  leading and trailing space, tab, carriage return and line feed, and of no
+  other character. A notation written any other way matches nothing, and every
+  value at that path is reported as a miss for as long as it stands.
+- `skos:closeMatch` where the phrase and the term do not mean the same thing.
+- **A row is transcribed, never invented.** Adding one, removing one or changing
+  what a phrase maps to changes what this adapter carries; the crate's
+  `schema:isBasedOn` for the file says where the rows came from.
+- The entry of `clinvar-accounting.ttl` for the path holding those values names
+  the map with `bridge:lookupIn` and the miss with `bridge:lookupNamesGap`, and
+  the mapping query joins the same scheme on the same key. The two halves fold a
+  value the same way or a value is mapped and reported as unmapped at once.
+
 ## A gap is a kind of problem, never an instance of one
 
 `clinvar-gaps.ttl` is the scheme the crate names as `bridge:gapScheme`, and the
