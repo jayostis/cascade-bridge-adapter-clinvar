@@ -6,11 +6,9 @@ PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
 PREFIX bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
-# An assertion that yields no SubmitterAssertion still reports its SubmitterName
-# finding and the one that says why it yields none; the rest are reported for emitted
-# assertions only. ?gate says which rules run for emitted assertions, which for skipped
-# ones, and which for both. Each rule also binds a path below its ClinicalAssertion
-# (?sfT); the record's wrapper element and the assertion are joined on after the UNION.
+# ?gate says which rules run for emitted assertions, which for skipped ones, and which
+# for both. Each rule also binds a path below its ClinicalAssertion (?sfT); the record's
+# wrapper element and the assertion are joined on after the UNION.
 #
 # Shaped for Oxigraph's join ordering as variant.rq's header describes.
 
