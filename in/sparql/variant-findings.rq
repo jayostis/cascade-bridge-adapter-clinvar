@@ -20,8 +20,7 @@ CONSTRUCT {
     ] ;
     oa:hasBody ?gap ;
     oa:motivatedBy oa:classifying ;
-    sh:value ?value ;
-    sh:resultSeverity ?severity .
+    sh:value ?value .
   ?selector a oa:XPathSelector ; rdf:value ?xpath .
 }
 WHERE {
@@ -37,7 +36,6 @@ WHERE {
     MINUS { ?sa ?x1 ?gl . ?gl a xyz:GeneList ; ?x2 ?gn . ?gn a xyz:Gene }
     BIND("/SimpleAllele" AS ?sfT)
     BIND(clinvar:simpleAlleleWithoutGene AS ?gap)
-    BIND(sh:Warning AS ?severity)
   }
   UNION
   {
@@ -47,7 +45,6 @@ WHERE {
     FILTER(?n > 1)
     BIND("/SimpleAllele/GeneList" AS ?sfT)
     BIND(clinvar:multipleGenesOnlyFirstCarried AS ?gap)
-    BIND(sh:Warning AS ?severity)
   }
   UNION
   {
@@ -66,7 +63,6 @@ WHERE {
     FILTER(?nPc > 0 && COALESCE(?nP, 0) = 0)
     BIND("/SimpleAllele" AS ?sfT)
     BIND(clinvar:proteinChangeWithoutHgvsProtein AS ?gap)
-    BIND(sh:Info AS ?severity)
   }
   }
   FILTER(BOUND(?sfT))
@@ -82,7 +78,6 @@ WHERE {
            (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
     FILTER NOT EXISTS { ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele }
     BIND(clinvar:haplotypeOrGenotypeRecordOnly AS ?gap)
-    BIND(sh:Warning AS ?severity)
   }
 
   BIND(STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/") AS ?recName)

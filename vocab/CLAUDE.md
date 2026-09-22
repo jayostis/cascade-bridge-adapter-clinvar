@@ -49,9 +49,9 @@ to say. Retiring a query whose gap an entry reports therefore silences nothing,
 and a rule that writes what its entry writes goes. A gap nothing names at all —
 no query, no entry — is dead, and goes.
 
-A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`:
-severity belongs to the kind of problem, and an entry has no query in which to
-write one.
+A gap whose findings are not `sh:Info` carries its own `sh:resultSeverity`,
+and no rule reporting it writes one: severity belongs to the kind of problem
+rather than to the rule that finds it, and an entry has no query to write it in.
 
 ## A verdict on a path is read, never inferred from its name
 
