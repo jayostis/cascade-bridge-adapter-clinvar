@@ -368,8 +368,8 @@
       "@type": "File",
       "name": "Findings: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "4153",
-      "sha256": "636e9b97884f3a097a570042ce6e160afb682a0bdc8e448ef2a17450a2b86257",
+      "contentSize": "3986",
+      "sha256": "e7087a920bcca0f578592c777172d9e44e20d33ba0971101675e1ac7cdc371a8",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -380,8 +380,8 @@
       "@type": "File",
       "name": "Findings: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "8026",
-      "sha256": "d19c0466dfd8e8f03fc2161d2447a80911f83bcc88c47a30ab3a3a1d866f424c",
+      "contentSize": "7794",
+      "sha256": "3bd79a5d33ae15a718e1b8f7136d07056a58862220e29264a906d187bb860801",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -392,8 +392,8 @@
       "@type": "File",
       "name": "Findings: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "3880",
-      "sha256": "3eaaf05321be87ff4cea0d929c3f2450443b176fb4eb046751b7f3a5b642043c",
+      "contentSize": "3705",
+      "sha256": "64a712715302d334e2efbd99197d70ff112732388a8729a7d3caf208a60589e0",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },

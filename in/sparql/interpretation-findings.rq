@@ -24,8 +24,7 @@ CONSTRUCT {
     ] ;
     oa:hasBody ?gap ;
     oa:motivatedBy oa:classifying ;
-    sh:value ?value ;
-    sh:resultSeverity ?severity .
+    sh:value ?value .
 }
 WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
@@ -62,7 +61,6 @@ WHERE {
     # already selected it by position.
     BIND("" AS ?sfT)
     BIND(clinvar:rcvWithoutAccession AS ?gap)
-    BIND(sh:Warning AS ?severity)
     BIND("noacc" AS ?gate)
   }
   UNION
@@ -74,7 +72,6 @@ WHERE {
         FILTER(?ot IN (xyz:SomaticClinicalImpact, xyz:OncogenicityClassification) && ?op != rdf:type) } }
     BIND("/RCVClassifications" AS ?sfT)
     BIND(clinvar:rcvNonGermlineClassification AS ?gap)
-    BIND(sh:Info AS ?severity)
     BIND("any" AS ?gate)
   }
   UNION
@@ -82,7 +79,6 @@ WHERE {
     # An absence: the RCVAccession is the nearest element that exists.
     BIND("" AS ?sfT)
     BIND(clinvar:rcvWithoutGermlineClassification AS ?gap)
-    BIND(sh:Warning AS ?severity)
     BIND("nogerm" AS ?gate)
   }
   UNION
@@ -92,7 +88,6 @@ WHERE {
     MINUS { ?rcv ?r6 ?ccl6 . ?ccl6 a xyz:ClassifiedConditionList ; ?r7 ?cc6 . ?cc6 a xyz:ClassifiedCondition }
     BIND("" AS ?sfT)
     BIND(clinvar:rcvWithoutClassifiedCondition AS ?gap)
-    BIND(sh:Warning AS ?severity)
     BIND("germ" AS ?gate)
   }
   UNION
@@ -140,7 +135,6 @@ WHERE {
     BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i9, "]") AS ?sfT)
     BIND(clinvar:conditionWithoutStandardIdentifier AS ?gap)
     BIND(?condText AS ?value)
-    BIND(sh:Warning AS ?severity)
     BIND("canon" AS ?gate)
   }
   UNION
@@ -152,7 +146,6 @@ WHERE {
     BIND(CONCAT("/ClassifiedConditionList/ClassifiedCondition[", ?i10, "]/@ID") AS ?sfT)
     BIND(clinvar:medgenConceptIdentifier AS ?gap)
     BIND(?id10 AS ?value)
-    BIND(sh:Info AS ?severity)
     BIND("canon" AS ?gate)
   }
   }

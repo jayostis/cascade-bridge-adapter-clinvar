@@ -1,5 +1,4 @@
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sh:     <http://www.w3.org/ns/shacl#>
 PREFIX oa:     <http://www.w3.org/ns/oa#>
 PREFIX xyz:    <http://sparql.xyz/facade-x/data/>
 PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
@@ -19,8 +18,7 @@ CONSTRUCT {
       oa:hasSelector [ a oa:XPathSelector ; rdf:value ?xpath ]
     ] ;
     oa:hasBody ?gap ;
-    oa:motivatedBy oa:classifying ;
-    sh:resultSeverity ?severity .
+    oa:motivatedBy oa:classifying .
 }
 WHERE {
   ?va a xyz:VariationArchive ; ?recSlot ?rec .
@@ -45,7 +43,6 @@ WHERE {
     MINUS { ?cva xyz:SubmitterName ?sn FILTER(STRLEN(?sn) > 0) }
     BIND("/ClinVarAccession" AS ?sfT)
     BIND(clinvar:assertionWithoutSubmitterName AS ?gap)
-    BIND(sh:Warning AS ?severity)
     BIND("any" AS ?gate)
   }
   UNION
@@ -57,7 +54,6 @@ WHERE {
     MINUS { ?rec13 ?n3 ?tml . ?tml a xyz:TraitMappingList ; ?n4 ?tm . ?tm xyz:ClinicalAssertionID ?tid }
     BIND("" AS ?sfT)
     BIND(clinvar:assertionWithoutTraitMapping AS ?gap)
-    BIND(sh:Info AS ?severity)
     BIND("emitted" AS ?gate)
   }
   UNION
@@ -70,7 +66,6 @@ WHERE {
     MINUS { ?cl ?q3 ?gx . ?gx a xyz:GermlineClassification ; rdf:_1 ?gxt . FILTER(isLiteral(?gxt)) }
     BIND("/Classification" AS ?sfT)
     BIND(clinvar:assertionNonGermlineClassification AS ?gap)
-    BIND(sh:Info AS ?severity)
     BIND("skipped" AS ?gate)
   }
   }
