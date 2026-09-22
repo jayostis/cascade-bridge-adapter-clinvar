@@ -34,7 +34,7 @@ CONSTRUCT {
   ?v a g:Variant ;
      g:dataQualityTier g:ClinicalGrade ;
      g:dataProvenance g:ClinicalSequencing ;
-     cascade:sourceFhirId ?acc ;
+     cascade:sourceRecordId ?acc ;
      ?p ?o .
 }
 WHERE {

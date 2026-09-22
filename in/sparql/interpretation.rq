@@ -33,7 +33,7 @@ CONSTRUCT {
       g:reviewStatus ?rs ;
       g:interpretedDate ?date ;
       g:clinvarRcvId ?rcvAcc ;
-      cascade:sourceFhirId ?sfid ;
+      cascade:sourceRecordId ?srid ;
       g:aggregatedFrom ?sa .
 }
 WHERE {
@@ -159,7 +159,7 @@ WHERE {
          "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
   BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
                   "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
-  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?sfid)
+  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?srid)
 
   # aggregatedFrom. Right side: every emitted SubmitterAssertion (as assertion.rq) with
   # each key its TraitMapping yields: "mondo:" + MappingValue when MappingRef is MONDO;

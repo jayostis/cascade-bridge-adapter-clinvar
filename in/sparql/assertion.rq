@@ -22,7 +22,7 @@ CONSTRUCT {
       g:submitterCategory ?cat ;
       g:assertedClassification ?acmg ;
       g:contributesToAggregate ?contrib ;
-      cascade:sourceFhirId ?sfid .
+      cascade:sourceRecordId ?srid .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
@@ -57,5 +57,5 @@ WHERE {
   }
   OPTIONAL { ?ca xyz:ContributesToAggregateClassification ?c0 FILTER(?c0 IN ("true", "false")) }
   BIND(STRDT(?c0, xsd:boolean) AS ?contrib)
-  BIND(CONCAT(?vcv, ":", ?scv) AS ?sfid)
+  BIND(CONCAT(?vcv, ":", ?scv) AS ?srid)
 }

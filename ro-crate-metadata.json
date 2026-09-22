@@ -272,7 +272,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every genomics: and core: term the expected graphs write has the same standing here as at jayostis/spec e77ba5e, the fork revision conformance/scripts/SPEC_PIN names: the fork's later releases add nothing this adapter writes. One term is declared at neither: cascade:sourceFhirId, which every record carries. Read on 2026-09-13. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every predicate and every type the expected graphs write is declared at it, cascade:sourceRecordId, which every record carries, in ontologies/core/v1/core.ttl. Read on 2026-09-22. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/genomics/v1#",
@@ -332,8 +332,8 @@
       "@type": "File",
       "name": "Mapping: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "13930",
-      "sha256": "75a527ef785d13dc4e36dad27e66757423b5c82279a6e38827d4375b7b137d2c",
+      "contentSize": "13932",
+      "sha256": "86edd089bfbcb336560054c23d955992a1bc58fcfb24262c355265eea3f386a4",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -344,8 +344,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "11867",
-      "sha256": "e33353583d51a32be3fc148a9a1e6a680cb6f545afba648349f2371bf9d0ce0b",
+      "contentSize": "11869",
+      "sha256": "edb49c529bc9b9291babbbddded50783e790144e4d6cc0aaf1be16f75e6660af",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -356,8 +356,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "2917",
-      "sha256": "e0e638eb1bcd9cf93b593ca39d7fdeef48022f66032b1417349a5b0750dc9898",
+      "contentSize": "2919",
+      "sha256": "fe37f536b95feba15f044ec7e2d50174d0b2786a3d7c14c938dfa5e205a4363d",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -594,8 +594,8 @@
       "@type": "File",
       "name": "Expected graph for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "144362",
-      "sha256": "22b55ec95a97ee725c7e00b2f50c0dfa28be31f09e0ca9f18f9eb2781f6a2d0d",
+      "contentSize": "144586",
+      "sha256": "eafa24f990c43d839eb4d6cde719b75269c37fd6e3e71e607d599a152758c428",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -605,61 +605,61 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. 1,424 triples, 112 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. 1,424 triples, 112 IRI subjects named urn:uuid: by the converter."
     },
     {
       "@id": "fixtures/expected/VCV000017661-BRCA1.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "89761",
-      "sha256": "b9bb3e10e01058cb13d8a9a24e2461852945d4e1946a04a71e6ba9cc01f734dd",
+      "contentSize": "89929",
+      "sha256": "3c2adb4bcd1b8cc5719a5a17df6c6a2d17c479d17658a6ec204c4b145043b0b0",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000017661-BRCA1.expected.ttl"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and copied byte for byte from 0ea48bb. 951 triples, 84 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 951 triples, 84 IRI subjects named urn:uuid: by the converter."
     },
     {
       "@id": "fixtures/expected/VCV000055448-BRCA2-pathogenic.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "12993",
-      "sha256": "62e372af0447efb8297dad3d0859521fb8c9954e8618c132a32dc1a1b8d04f02",
+      "contentSize": "13017",
+      "sha256": "414177d8601f0b0955e2a0a7bd862446b0c75e8346b7a0148c0c08e5cc7d845b",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000055448-BRCA2-pathogenic.expected.ttl"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and copied byte for byte from 0ea48bb. 139 triples, 12 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 139 triples, 12 IRI subjects named urn:uuid: by the converter."
     },
     {
       "@id": "fixtures/expected/VCV000208804-MLH1-LynchSyndrome.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "4192",
-      "sha256": "8bcd108941d8cb4c8b1b879789bc65305c12f3377de44c65c2aafb8f1a089289",
+      "contentSize": "4198",
+      "sha256": "c30cedb220c7e733c6ac1b98619ae90b53d4185fd88701bc3e0e0d9dadeb3de4",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
-      "sameAs": {
+      "isBasedOn": {
         "@id": "https://github.com/jayostis/conformance/blob/0ea48bb1c044ac9bf8086d456601357135cf79e6/fixtures/genomics/clinvar/VCV000208804-MLH1-LynchSyndrome.expected.ttl"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and copied byte for byte from 0ea48bb. 42 triples, 3 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 42 triples, 3 IRI subjects named urn:uuid: by the converter."
     },
     {
       "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl",

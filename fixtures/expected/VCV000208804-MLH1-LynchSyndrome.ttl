@@ -28,7 +28,7 @@
     <https://ns.cascadeprotocol.org/genomics/v1#refAllele> "T";
     <https://ns.cascadeprotocol.org/genomics/v1#altAllele> "G";
     <https://ns.cascadeprotocol.org/genomics/v1#genomicStartEnd> "chrX:151404910-151404910";
-    cascade:sourceFhirId "VCV000208804";
+    cascade:sourceRecordId "VCV000208804";
     <https://ns.cascadeprotocol.org/genomics/v1#somaticStatus> <https://ns.cascadeprotocol.org/genomics/v1#Germline>.
 <urn:uuid:a9929bc2-1945-55fb-880c-f7ad1505ae7d> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
     cascade:dataProvenance cascade:ClinicalGenerated;
@@ -40,7 +40,7 @@
     <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#CriteriaNotProvided>;
     <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2015-04-21"^^xsd:date;
     <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV000190832";
-    cascade:sourceFhirId "VCV000208804:RCV000190832:0".
+    cascade:sourceRecordId "VCV000208804:RCV000190832:0".
 <urn:uuid:5743fa04-f6aa-5652-8e8d-81d98f65fc87> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
     cascade:dataProvenance cascade:ClinicalGenerated;
     cascade:schemaVersion "1.3";
@@ -50,5 +50,5 @@
     <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterLaboratory>;
     <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
     <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceFhirId "VCV000208804:SCV000245702".
+    cascade:sourceRecordId "VCV000208804:SCV000245702".
 <urn:uuid:a9929bc2-1945-55fb-880c-f7ad1505ae7d> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:5743fa04-f6aa-5652-8e8d-81d98f65fc87>.
