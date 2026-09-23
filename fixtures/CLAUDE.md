@@ -18,6 +18,16 @@ converter that produced it was wrong. A findings file is not a copy of anything:
 it is a Bridge's own `convert --findings` output over the input beside it,
 committed unedited.
 
+A findings file is compared as a graph and never as bytes, so its digest records
+what was committed rather than what a rerun reproduces. A second run writes the
+same findings under other blank node labels and in another order, because a
+query's solution order is randomised once per parse of any mapping holding an
+aggregate. So a regeneration's diff is total and says nothing; what says
+something is the harness, which fails an oracle whose content has moved and
+passes one that differs only in how it is written. Making the bytes reproducible
+was built and measured and is not worth its cost:
+[jayostis/cascade-bridge-rs#35](https://github.com/jayostis/cascade-bridge-rs/issues/35).
+
 Two of the four file names do not describe the record inside; the per-entry
 `rdfs:comment` in `manifest.ttl` says which. The names are the conformance
 repository's and are kept so each copy stays traceable.
