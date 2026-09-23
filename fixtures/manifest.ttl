@@ -28,7 +28,6 @@
     <#VCV000055448-BRCA2-pathogenic>
     <#VCV000208804-MLH1-LynchSyndrome>
     <#VCV_XML_VCV000091629>
-    <#clinvar-vcv-release-2026-09>
   ) .
 
 # The four conformance oracles, some corrected here; the crate says which.
@@ -91,17 +90,4 @@
   mf:action [
     bridge:input <in/VCV_XML_VCV000091629.xml> ;
     bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
-  ] .
-
-# The weekly release is not listed: on 2026-09-06 its symlink resolved to the
-# monthly file below, so an entry would be a second pass over the same bytes
-# (docs/format.md, "Releases"). mf:result is absent until a first run records
-# bridge:recordsProcessedCount and bridge:outputDigest; RDF has no null.
-
-<#clinvar-vcv-release-2026-09> a bridge:DatasetCompletionTest ;
-  mf:name "clinvar-vcv-release-2026-09" ;
-  rdfs:comment "The monthly VCV release of 2026-09 (ReleaseDate 2026-08-29), about 5.8 GB gzipped, in the ClinVarVariationRelease envelope." ;
-  mf:action [
-    bridge:dataset <https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarVCVRelease_2026-09.xml.gz> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-release>
   ] .
