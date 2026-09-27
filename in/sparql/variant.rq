@@ -49,7 +49,7 @@ WHERE {
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
   ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele .
 
-  # Every record name these queries mint is by the ClinVar rows of
+  # Every record name these queries mint is by
   # https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md#naming-a-record
   BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|", ?acc)) AS ?h)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),

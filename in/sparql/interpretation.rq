@@ -40,7 +40,8 @@ CONSTRUCT {
       g:clinvarRcvId ?rcvAcc ;
       g:aggregatedFrom ?sa .
   [] bridge:arrivedAs ?version ;
-     pav:version ?rcvVersion .
+     pav:version ?rcvVersion ;
+     bridge:selector ?arrivalSelector .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
@@ -55,7 +56,8 @@ WHERE {
   BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hv, 1, 8), "-", SUBSTR(?hv, 9, 4), "-8", SUBSTR(?hv, 14, 3),
                   "-", ?nv, SUBSTR(?hv, 18, 3), "-", SUBSTR(?hv, 21, 12))) AS ?v)
 
-  ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession ; xyz:Accession ?rcvAcc .
+  ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
+  OPTIONAL { ?rcv xyz:Accession ?rcvAcc FILTER(STRLEN(?rcvAcc) > 0) }
   OPTIONAL { ?rcv xyz:Version ?rcvVersion FILTER(STRLEN(?rcvVersion) > 0) }
 
   # Emitted only for a non-empty GermlineClassification whose Description the ACMG
@@ -128,8 +130,19 @@ WHERE {
     BIND(STRAFTER(?gBest, "|") AS ?tMedgen)
   }
 
-  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|",
-                     ?rcvAcc, "|", STR(?i))) AS ?h)
+  # An RCV with no usable accession is "a record with none of these ids": its
+  # interpretations are named by the document and each one's own selector, which
+  # its arrival carries. RCVList holds nothing but RCVAccession, so the membership
+  # index is the XPath position.
+  OPTIONAL { bridge:thisDocument bridge:sha256 ?document }
+  OPTIONAL { bridge:thisRecord bridge:selector ?recordSelector }
+  BIND(IF(BOUND(?rcvAcc), 1/0,
+          CONCAT(?recordSelector, "/", STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/"),
+                 "/RCVList/RCVAccession[", STRAFTER(STR(?s2), "#_"),
+                 "]/ClassifiedConditionList/ClassifiedCondition[", STR(?i + 1), "]")) AS ?arrivalSelector)
+  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|",
+                     IF(BOUND(?rcvAcc), CONCAT("https://www.ncbi.nlm.nih.gov/clinvar|", ?rcvAcc, "|", STR(?i)),
+                        CONCAT(?document, "|", ?arrivalSelector)))) AS ?h)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
          "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
   BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),

@@ -342,8 +342,8 @@
       "@type": "File",
       "name": "Mapping: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "14386",
-      "sha256": "b85039eee0b0a82f4d955d556990110363c197c23cd02d9555d7088274ef8185",
+      "contentSize": "14366",
+      "sha256": "f5265c8c1bae99cd3e5bd23f4d6b934daa5f0a8fb50aaa5068b2aef726e0b7e3",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -354,8 +354,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "11780",
-      "sha256": "bbf9d1e1ff934bd408398a638d81fa15e672bb1ecbb3516b73e53fbb50989b58",
+      "contentSize": "12670",
+      "sha256": "88515cd556d535080ee18e21336c3151ec9c8b0c30c2021e21b023234811b8e2",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
