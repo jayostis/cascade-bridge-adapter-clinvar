@@ -676,60 +676,60 @@
       "@type": "File",
       "name": "Expected findings for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "194770",
-      "sha256": "d1b9c7c953bc4bceba790e25f3a9ac2c37d00bb17d97ee39399cc903384c1f0e",
+      "contentSize": "341896",
+      "sha256": "839f3f10cc89c74cafc9b75232ccbc4c94c7403a0d3b6558bcb0d0009d1f8c56",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 219 Web Annotations; 8 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 461 Web Annotations; 243 carry sh:Violation, 8 sh:Warning and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "195568",
-      "sha256": "0faedd09be59112cbdc2db72f7e81ec99ed43fd0cbc685680ab525d39d8f6dc3",
+      "contentSize": "303968",
+      "sha256": "67f3ac8b7834135e0ecdc0c9898d1cb3357cac4de50e9c89dfbf108cd981738d",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 221 Web Annotations; 2 carry sh:Warning and the rest sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 402 Web Annotations; 182 carry sh:Violation, 2 sh:Warning and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "120991",
-      "sha256": "9294f5a36cd1c3763ee0fec07dc8d00a774ab263508897c1c274eb9246ede9af",
+      "contentSize": "137885",
+      "sha256": "d8b174539ffaebce45039daa6525eb4fbccefa4e222621aa76df5667b4edab34",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 137 Web Annotations; all sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 165 Web Annotations; 29 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl",
       "@type": "File",
       "name": "Expected findings for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "68808",
-      "sha256": "0dedc032b2e3357c54e58153667b1b441b494e0bcb7b0d742a62dc73001a61c2",
+      "contentSize": "72302",
+      "sha256": "2a702d9311e9e634857266aba032f885b07fd32857d2f933dd47c1d81ff57086",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 79 Web Annotations; all sh:Info. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 85 Web Annotations; 7 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/facts/conformance.ttl",
