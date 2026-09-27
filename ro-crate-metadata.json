@@ -336,8 +336,8 @@
       "@type": "File",
       "name": "Mapping: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "13932",
-      "sha256": "86edd089bfbcb336560054c23d955992a1bc58fcfb24262c355265eea3f386a4",
+      "contentSize": "13937",
+      "sha256": "69236940b552a6d40d058204dcfa7ef9ba86459dc2aac2dd11d38a8517480e16",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -348,8 +348,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "11869",
-      "sha256": "edb49c529bc9b9291babbbddded50783e790144e4d6cc0aaf1be16f75e6660af",
+      "contentSize": "11949",
+      "sha256": "905dd9d4bfa72af64276589b3693e231a0e929372861663f6356cd623561ea3d",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -360,8 +360,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "2919",
-      "sha256": "fe37f536b95feba15f044ec7e2d50174d0b2786a3d7c14c938dfa5e205a4363d",
+      "contentSize": "2959",
+      "sha256": "8dd46dee2cd4e498b04a154c9c503047b2a3727c33b54c3a8d6324e49ce50d70",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -599,7 +599,7 @@
       "name": "Expected graph for VCV000007105",
       "encodingFormat": "text/turtle",
       "contentSize": "144586",
-      "sha256": "eafa24f990c43d839eb4d6cde719b75269c37fd6e3e71e607d599a152758c428",
+      "sha256": "df59c4cbc272fb71995822e96457cdc03f8a36f1782a3605888b1028d2311802",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -609,7 +609,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. 1,424 triples, 112 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. 1,424 triples, 112 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
     },
     {
       "@id": "fixtures/expected/VCV000017661-BRCA1.ttl",
@@ -617,7 +617,7 @@
       "name": "Expected graph for VCV000017661",
       "encodingFormat": "text/turtle",
       "contentSize": "89929",
-      "sha256": "3c2adb4bcd1b8cc5719a5a17df6c6a2d17c479d17658a6ec204c4b145043b0b0",
+      "sha256": "2454358eb76ef24ea2b6132348850a77b9596fe40b0c2336235c15c032dd4c2a",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -627,7 +627,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 951 triples, 84 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 951 triples, 84 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
     },
     {
       "@id": "fixtures/expected/VCV000055448-BRCA2-pathogenic.ttl",
@@ -635,7 +635,7 @@
       "name": "Expected graph for VCV000055448",
       "encodingFormat": "text/turtle",
       "contentSize": "13017",
-      "sha256": "414177d8601f0b0955e2a0a7bd862446b0c75e8346b7a0148c0c08e5cc7d845b",
+      "sha256": "881ac6110cdc04dafe67b024c1d502a9ecc19f0ab3532b42766c139ae3992ae6",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -645,7 +645,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 139 triples, 12 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 139 triples, 12 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
     },
     {
       "@id": "fixtures/expected/VCV000208804-MLH1-LynchSyndrome.ttl",
@@ -653,7 +653,7 @@
       "name": "Expected graph for VCV000208804",
       "encodingFormat": "text/turtle",
       "contentSize": "4198",
-      "sha256": "c30cedb220c7e733c6ac1b98619ae90b53d4185fd88701bc3e0e0d9dadeb3de4",
+      "sha256": "9504d45e15b0da07da9adc4129a882f97c006a5d4c19d2af69d468f83611910a",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
@@ -663,7 +663,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 42 triples, 3 IRI subjects named urn:uuid: by the converter."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 42 triples, 3 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
     },
     {
       "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl",

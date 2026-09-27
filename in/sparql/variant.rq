@@ -44,13 +44,12 @@ WHERE {
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
   ?rec ?saSlot ?sa . ?sa a xyz:SimpleAllele .
 
-  # The record name: a name-based UUID, SHA-1 over the seed with the version
-  # nibble forced to 5 and the variant bits to 10. SPARQL has no bitwise
-  # operators, so the variant nibble is a four-way table.
-  BIND(SHA1(CONCAT("genomics:Variant:clinvar:", ?acc)) AS ?h)
+  # Every record name these queries mint is by the ClinVar rows of
+  # https://github.com/jayostis/cascade-bridge-spec/blob/main/engine/sparql.md#naming-a-record
+  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|", ?acc)) AS ?h)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
          "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?vn)
-  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),
                   "-", ?vn, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?v)
 
   OPTIONAL {
