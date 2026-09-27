@@ -1,6 +1,10 @@
+@prefix bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
 @prefix cascade: <https://ns.cascadeprotocol.org/core/v1#> .
 @prefix g: <https://ns.cascadeprotocol.org/genomics/v1#> .
+@prefix pav: <http://purl.org/pav/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://ns.cascadeprotocol.org/records/v1-draft#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ni:///sha-256;15DdgO5P6KOew4s1JSjXcal5mfPMjdnrgo7aja6n7Ck> prov:specializationOf <urn:uuid:c9a69dac-6efe-8ac2-b6af-d24e08d5e467> ;
@@ -47,4 +51,40 @@
 
 <urn:uuid:db300dcf-41f7-87ed-8efa-a317b5093fcc> a g:SubmitterAssertion ;
     cascade:sourceRecordId "VCV000208804:SCV000245702" .
+
+<ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> a prov:Entity ;
+    prov:qualifiedAttribution [ prov:agent [ rdfs:label "NCBI ClinVar" ] ;
+            prov:hadRole rec:author ] .
+
+[] pav:lastUpdateOn "2025-08-23"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> ;
+    prov:wasGeneratedBy _:Nf1789004e943461db49929202d14e063 ;
+    bridge:arrivedAs <ni:///sha-256;rXFb0kKFk4bnnxsbuUiXGBy5J6IOD7nrX5Zn2L9rYH8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2015-09-14"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> ;
+    prov:wasGeneratedBy _:Nf1789004e943461db49929202d14e063 ;
+    bridge:arrivedAs <ni:///sha-256;puQ4SsaJED2vV95A85pAsWn9pF7zdQ9R_t3CrP8prEE> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> ;
+    prov:wasGeneratedBy _:Nf1789004e943461db49929202d14e063 ;
+    bridge:arrivedAs <ni:///sha-256;15DdgO5P6KOew4s1JSjXcal5mfPMjdnrgo7aja6n7Ck> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+_:N32dcf56dd5534d72b78ddf39ba64822a a prov:Plan ;
+    rdfs:label "clinvar" ;
+    pav:version "0.6.0" .
+
+_:Ne8bdd898d4364218bed77e0765bf48f7 prov:agent [ ] ;
+    prov:hadPlan _:N32dcf56dd5534d72b78ddf39ba64822a .
+
+_:Nf1789004e943461db49929202d14e063 a prov:Activity ;
+    rdfs:label "cascade-bridge-adapter-clinvar fixtures" ;
+    prov:qualifiedAssociation _:Ne8bdd898d4364218bed77e0765bf48f7 ;
+    prov:used <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> .
 

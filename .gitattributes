@@ -18,3 +18,4 @@ schema/ClinVar_VCV_*.xsd  -text
 fixtures/in/**            -text
 fixtures/expected/**      -text
 fixtures/findings/**      -text
+fixtures/facts/**         -text

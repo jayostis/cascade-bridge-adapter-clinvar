@@ -12,8 +12,7 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/@DateLastUpdated" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "When ClinVar last rebuilt the aggregate record, which dates the record rather than the variation." .
+  bridge:verdict bridge:consumed .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/@MostRecentSubmission" ;
@@ -51,8 +50,7 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/@Version" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A counter ClinVar bumps on any change to the record, with no meaning outside ClinVar's own versioning." .
+  bridge:verdict bridge:consumed .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord" ;
@@ -341,8 +339,7 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@DateLastUpdated" ;
-  bridge:verdict bridge:noHome ;
-  bridge:namesGap clinvar:assertionDateLastUpdated .
+  bridge:verdict bridge:consumed .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/@ID" ;
@@ -577,8 +574,7 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarAccession/@Version" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A counter ClinVar bumps on any change to the submission, with no meaning outside ClinVar's own versioning." .
+  bridge:verdict bridge:consumed .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/ClinicalAssertionList/ClinicalAssertion/ClinVarSubmissionID" ;
@@ -1461,8 +1457,7 @@
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/@Version" ;
-  bridge:verdict bridge:ignored ;
-  bridge:because "A counter ClinVar bumps on any change to the RCV, with no meaning outside ClinVar's own versioning." .
+  bridge:verdict bridge:consumed .
 
 [] a bridge:PathEntry ;
   bridge:sourcePath "/VariationArchive/ClassifiedRecord/RCVList/RCVAccession/ClassifiedConditionList" ;

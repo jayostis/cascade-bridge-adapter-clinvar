@@ -1,6 +1,10 @@
+@prefix bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
 @prefix cascade: <https://ns.cascadeprotocol.org/core/v1#> .
 @prefix g: <https://ns.cascadeprotocol.org/genomics/v1#> .
+@prefix pav: <http://purl.org/pav/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://ns.cascadeprotocol.org/records/v1-draft#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ni:///sha-256;-m6HmTxByKXXqOX1eiAXHeehtW1RiqsFzFbsAprWFKw> prov:specializationOf <urn:uuid:bf9a8fdb-18c6-855d-9d54-88b7922db2cd> ;
@@ -1037,4 +1041,594 @@
 
 <urn:uuid:7e9bcf29-8c9a-87c1-aa99-deae123e6356> a g:Variant ;
     cascade:sourceRecordId "VCV000017661" .
+
+<ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> a prov:Entity ;
+    prov:qualifiedAttribution [ prov:agent [ rdfs:label "NCBI ClinVar" ] ;
+            prov:hadRole rec:author ] .
+
+[] pav:lastUpdateOn "2024-12-28"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;v1w1KYDv93ls_Sq3Nvu4LlMOj3A7MPO9sSu0WS7dZms> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "44" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;I4zXpMpPUeFapMh5bvJ59N23KxRGh1PMlV3TtlBH8pM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-09-24"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;oOBTNJam6IHyMb9w8ygHcxlklBYzB0lI5c5VmuGEj3o> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-04-16"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;FNiRUbMacUoiJE4w0FlZL50hZaO4Ppbatt9ZWoWVAEw> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2023-03-04"^^xsd:date ;
+    pav:version "14" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;3ACWy-kvG006WHd6AGpzZOioyWTjzQS59l8JbeNEfsU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "9" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;7sf0i0LsdRU9uDHIrh_pw_hXZ7xoC2Nz3cS5g70-x1w> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-01-13"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;RYRTk6YmUvImhajcxV86r-hfneB0Ll6P6BGw2L8M-SE> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-02-25"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;rSCDcHmu3TL3nNlDedf7CTb0cOQh0xs9BUmzYn4jG2M> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2024-01-06"^^xsd:date ;
+    pav:version "6" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;_kzVvrln4JyDV_AS_t9PyGWASWoKJgGxHDNDRxC8IWc> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-04-16"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;6qG4ta-bwidTqBMt3t0YyFpHK4woRQIj-D2ygoRucWM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-10-02"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;r7MYJchUKp0al3mDCiKsV0Zffj0r6oMvv_3y_yrIjjA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2022-06-24"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;c6k07YeF77Vow266fp2f5p7PMgfjeqSwiGZu54PJO2s> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;eZEK7LQad7wPD57Hq2w5oTiIMF6lYHlg06EtgPxehi0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-12-12"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;l42QxVlZC2zK2aWCwROGX4k-iy_PFs-9DU3LZkz-3tA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2024-12-14"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;T0IaQrkCSY92HNk2QCncJLAMcwDWLFE8dPhmi4dgOg0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-03-07"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;0Vy7JqVJqJWhmZDAplZ99pEnT-UWfzW4fgITf_CHQnU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2016-10-22"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;_5SVmzpY4AeGqGJ3HnKAUUXfrOhTgUiHJeTR0rX67GM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-01-03"^^xsd:date ;
+    pav:version "8" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;PY_wfHMeNwdaoSMIMuBwPm-jL-8VA6gmbyEJndlNuSc> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2016-05-06"^^xsd:date ;
+    pav:version "5" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;nLBeAlTVMRlyuQin0S6pvF1ii-xQ-mpw2rGPIMX5qpk> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2023-02-25"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;O6n_hJ3S1Dc_MfYPJAeIVywOvLyJFOBx_8wfFT_HjQM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-07-05"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;e-TUCWmlo61GV7puUpZYPP-88gd9VXlun6qS2fSWvJ0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-05-03"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;REq9PKIDurp4ZlOF6wZgH8isdiCqGZ5NCon85fLiiCg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2022-04-23"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;XufYjrmofxZgmcese0qoOpOADzZbivvgtFQKwD1_EFM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "11" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;diVXk_qnANa0ZJh6H3HSyEHKEBk1YBUGfdCG3-a3Boo> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-05-03"^^xsd:date ;
+    pav:version "157" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;PiHNZ7lN_PeZZCJYwUb3eICvGfIlYbMy50tYTl892pc> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-10-07"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;UERx9I8B6gJI5eP-MjtC7pHbQ9sbBSnjwfIKxy14Ek0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-01-25"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;t542mvPktY9Mo8t5R32j7cSp0y8_V16Q_JNPXZpCP4w> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-04-13"^^xsd:date ;
+    pav:version "6" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;V3U-xV3ISmFLDbu-DHHqhX7tiD72c0iv_ODaLlXRwzQ> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "60" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;5rfisEf9-79OnvDlNSqLeJVQmx2J1DIdXcwDre4cFf8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2024-06-17"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;AOyQNjdJJQ-mKg7Xw7BozBKAWBYjURXpPmtzNp7WQf8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-04-04"^^xsd:date ;
+    pav:version "11" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;E5he4umLP5Kw6DzjeRX4DCWbEdwnC9qtd9s3hkjFTkQ> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-09-06"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;T9uYf961aTh6haghK1tf0CJjPhM-WsO2Y_je4zyjsY8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2018-04-09"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;2Nakb4tDXwrx5djr8D-yaIew1lLEfiuJWoN9EcmVh0o> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-05-03"^^xsd:date ;
+    pav:version "6" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;42gZqZbVSn3FigK06c-6a-myPb8Arm3J_4pIwSZwfAw> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "25" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;K4jprwKqVdvaaVOX3Vi2UNjy_oF-uGCmBIqSBVBONTQ> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-12-18"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;MvLRBjFk-kldxDDvv6NgD_4h5SnV0vesL_dIIjVxTc0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2019-06-17"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;zt9YZWF8omAXZJceJ3NnxbieQ3uGJuhRo5FpxkeDLK8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-11-08"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;v68nq5hZ4I1tpFsN1jd6aOKyaERwoBCLH0yta2du7zA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2022-10-29"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;FULsEhdnXFG8o76_ArLxVi8yu0YcQbFi0gOKkzmMqwA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2024-08-25"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;PiCqKtydh0QJkhfRmLpOEDKrb01MaUtnYmXOoA7WXtg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "86" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;lDd_A4tAOd0Fhy9zRd3MzyOk7FYs5KzRc43-fh529Vw> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-09-27"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;akktuR0SbePHNMFmnHBeY-dgFVoIIMU4RiAnNdAsBHU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-07-06"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;cuXsubCBeleEl98nMoeI9TWq3EoJ_0m-7vkOsDTEOcA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2015-09-29"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;02uKpRu9wycsqFaPkKL-yK1wnO7gkJwjyXeHQ_kiGXk> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-01-09"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;ZOo2Fsx1Avw1Hg9-7zhgsUFC7UPm9H44gveYLQFg8D4> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-09-24"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;4VthHTciz5BM6HfKULsn4NUFrGmAkef8dZp-nVYsiyY> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-04-12"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;vkU05x7ryYRCEMyCnHMdbVCfc4XMPEOPfhjlxiipb-E> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2024-06-02"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;ifMR2qnKPr7U-MuWHVJt7xRfIyIrAbUMiz_VOPUf7RA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-04-28"^^xsd:date ;
+    pav:version "9" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;zJ_T4GdO_BH5AEstShjGOQT7Vph7dOKInJKbxWIDIaQ> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-08-03"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;YFiA5Lq0rrjZIa9sEJgvaRmR8V6M3AIgNqYiwKgQ2PI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-05-04"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;Ty2n8pw51pUcRHx-RYAMFjkgMscyf0Up3jxxXlPyBp8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-12-07"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;AKBC2OsRPb84JshxOfUKec0y17VgkNfutYJHXGX8Vdg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-03-07"^^xsd:date ;
+    pav:version "19" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;GkIColPGzpUyfW3_cVFUsk-sH2ZWNRd6Pmwk8FQAuuo> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-10-21"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;FYplOLPqZpJVdV-s0zJLaYQC3lTgBKvHhQ7Zi7rGAaw> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-08-09"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;UGgTn1jBVUM-6Pn9Wp4gxtaVp-35yM6vpgd11AzjsrQ> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-03-11"^^xsd:date ;
+    pav:version "5" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;8pTgxHRrj6lscVVfSpwweBiZZr4ndqT5Hh6FhL2rYVo> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;NqjpAkjfb0gi7zia7Xhux_vOTI8IGQsotAKbyvFqG6o> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "10" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;IyfiBSAXFHmeD5WPhXQRGHzeJEpcE28K4VwnWCGEGzE> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;nxfLMA4hiuyZrsM8JTzeS5ONerP3KDj6Gn2hDEgc6CI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-08-24"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;iJwBlGaYnz0TI0mF5ydknngBvGZ7w4yfMNAnDtyWYR8> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2023-11-11"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;3Ggouf-crLdVNc5NKM3wg7SeKPTzvLpVOOpcX0WtH3o> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "10" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;6vLidPNJiLFkR7T5Yc3XvRHGoWLfPrel4EV9N8_pfqI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-04-13"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;6XGdBHiAPHh0LPVvK_WG8ES-zfKooAx-LkQDAT7nP6I> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2023-07-16"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;dFsGUsOgf2xg-vCgWcLymqvXqtHWyDI4UTdXC119uOg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;SZfT6EaTwdZkXkcaPiZLzIZAykwQSN-AgHbkdTm6Bto> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-08-03"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;S6wIFLbtkBSNWNgTbXgL3Jh4mLJXVHIvEWdo_66FDqY> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2023-04-01"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;3Ky8LtHk9UsptXYtAlHRM9Miw9cSBUsdXZXrRViokIg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2018-04-09"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;CxWqt8oO5y-z5OaTgt0cD25OHCCo5CGv351pWqxq6Do> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-04-13"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;rw9wvE5cfUCrfod0HEcKhzWsjLZp2jX9_MkE9DuTDmk> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2021-04-13"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;AO6h-ONRhoPVchRDQKwykeesvdAeHeAvtkJaZAwqMsg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2022-12-11"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;-v0--5rD4dDQkqP4XYNIjgWNG2PbSNU-h9v3n_6G-Ew> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2017-12-26"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;5nOiJ0ODJ5tUVfCS7f-87QbkUIpEITsBSLGTQVN4TAM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;BxJ-ODwDX7omlWnuIunqrUNVOOfGrE7MaddAbAMGKLY> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2022-12-11"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;-m6HmTxByKXXqOX1eiAXHeehtW1RiqsFzFbsAprWFKw> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2016-05-06"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;7Yja8RalS8EtxYmw1FvCPbqk5BNPcSvFS93q4e1Xvvo> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2026-04-25"^^xsd:date ;
+    pav:version "37" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;SZ51FiQt5g6aZaphwkjKTQp2q5wvriWYvEcYkSEUCsU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-10-25"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;tV1YGZDdeNxfS-R5MlDvF4Jj4wyqVLoo0AFtxYH3Ulc> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-01-13"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;TzfFUJFXQ0ectBovQrffV0TR45x55cwbT4cPvpGgEeU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-06-29"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;KpenOe9o4X8OSxdfhkAYs897dvKZbKJvx3tnRyQse-Y> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2025-04-13"^^xsd:date ;
+    pav:version "2" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;kths1Wv8dHhyxsurvFHHURdIWLG69AFl5vLvDqHZxkU> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2020-12-26"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;s7GwPrNFUVLTJv0UzecekSSl9wt4_7XTZBpxIDnjV6s> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:version "16" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;rHxgLFNrd3wHNojUVR3RLFHiQ9RoEU2gvIq6SpGAMxg> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2016-08-01"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;jzYGXkBxo69rMmJOx9u-RI43a5QwVStxVzUeZT5wy08> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2018-04-09"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> ;
+    prov:wasGeneratedBy _:Nc1112e115c6948009d1b93a805deadbb ;
+    bridge:arrivedAs <ni:///sha-256;IJ0z1WYXtaXzf7iTp5TQov0hBtNxyRp4Xlal75c23W0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+_:N1de364369561407baa6b5b47b58ab302 a prov:Plan ;
+    rdfs:label "clinvar" ;
+    pav:version "0.6.0" .
+
+_:Nb8237f8484a94befa9bda3d5fd1d8416 prov:agent [ ] ;
+    prov:hadPlan _:N1de364369561407baa6b5b47b58ab302 .
+
+_:Nc1112e115c6948009d1b93a805deadbb a prov:Activity ;
+    rdfs:label "cascade-bridge-adapter-clinvar fixtures" ;
+    prov:qualifiedAssociation _:Nb8237f8484a94befa9bda3d5fd1d8416 ;
+    prov:used <ni:///sha-256;X7aw6q6-tdNY22m5Cuy_ci_VoJ8VPyGh2-K7q_Pa6A8> .
 

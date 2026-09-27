@@ -4,6 +4,8 @@ PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX pav:     <http://purl.org/pav/>
+PREFIX bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
 PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
@@ -37,6 +39,8 @@ CONSTRUCT {
       g:interpretedDate ?date ;
       g:clinvarRcvId ?rcvAcc ;
       g:aggregatedFrom ?sa .
+  [] bridge:arrivedAs ?version ;
+     pav:version ?rcvVersion .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
@@ -52,6 +56,7 @@ WHERE {
                   "-", ?nv, SUBSTR(?hv, 18, 3), "-", SUBSTR(?hv, 21, 12))) AS ?v)
 
   ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession ; xyz:Accession ?rcvAcc .
+  OPTIONAL { ?rcv xyz:Version ?rcvVersion FILTER(STRLEN(?rcvVersion) > 0) }
 
   # Emitted only for a non-empty GermlineClassification whose Description the ACMG
   # concept map carries.

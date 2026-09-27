@@ -4,10 +4,10 @@ PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
 PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX pav:     <http://purl.org/pav/>
+PREFIX bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 
 # ClinVar VariationArchive -> genomics:Variant, over a Facade-X lift of the VCV XML.
-# The stamp predicates (cascade:dataProvenance, cascade:schemaVersion) are the
-# Bridge's, not the mapping's, and are not written here.
 #
 # Idioms, because SPARQL has no "first", no "else", no JSON and no loops:
 #   - a child step is "?parent ?slot ?child . ?child a xyz:Element": rdf:_N slots
@@ -38,6 +38,9 @@ CONSTRUCT {
      g:dataQualityTier g:ClinicalGrade ;
      g:dataProvenance g:ClinicalSequencing ;
      ?p ?o .
+  [] bridge:arrivedAs ?version ;
+     pav:version ?archiveVersion ;
+     pav:lastUpdateOn ?archiveUpdated .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?acc ; ?recSlot ?rec .
@@ -54,6 +57,9 @@ WHERE {
   BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),
                   "-", ?vn, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?v)
   BIND(IRI(CONCAT("urn:cascade:version-of:", STRAFTER(STR(?v), "urn:uuid:"))) AS ?version)
+  OPTIONAL { ?va xyz:Version ?archiveVersion FILTER(STRLEN(?archiveVersion) > 0) }
+  OPTIONAL { ?va xyz:DateLastUpdated ?u0 FILTER(STRLEN(?u0) > 0) }
+  BIND(STRDT(?u0, xsd:date) AS ?archiveUpdated)
 
   OPTIONAL {
     {
