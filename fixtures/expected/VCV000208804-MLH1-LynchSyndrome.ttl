@@ -68,13 +68,13 @@
     prov:wasDerivedFrom <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> ;
     prov:wasGeneratedBy _:Nf1789004e943461db49929202d14e063 ;
     bridge:arrivedAs <ni:///sha-256;puQ4SsaJED2vV95A85pAsWn9pF7zdQ9R_t3CrP8prEE> ;
-    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" .
 
 [] pav:version "3" ;
     prov:wasDerivedFrom <ni:///sha-256;IeQsIB0wxEZzR2lUvNN1kv1u7HN5PVdbuD7tsZRdPnI> ;
     prov:wasGeneratedBy _:Nf1789004e943461db49929202d14e063 ;
     bridge:arrivedAs <ni:///sha-256;15DdgO5P6KOew4s1JSjXcal5mfPMjdnrgo7aja6n7Ck> ;
-    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[1]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
 
 _:N32dcf56dd5534d72b78ddf39ba64822a a prov:Plan ;
     rdfs:label "clinvar" ;

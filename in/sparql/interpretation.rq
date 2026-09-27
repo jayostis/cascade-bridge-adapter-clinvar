@@ -130,16 +130,16 @@ WHERE {
     BIND(STRAFTER(?gBest, "|") AS ?tMedgen)
   }
 
-  # An RCV with no usable accession is "a record with none of these ids": its
-  # interpretations are named by the document and each one's own selector, which
-  # its arrival carries. RCVList holds nothing but RCVAccession, so the membership
-  # index is the XPath position.
+  # Each interpretation arrives at its own ClassifiedCondition, and one whose RCV has
+  # no usable accession is "a record with none of these ids", named by the document
+  # and that selector. An element the schema allows once is at position 1, and
+  # RCVList holds nothing but RCVAccession, so its membership index is the XPath
+  # position.
   OPTIONAL { bridge:thisDocument bridge:sha256 ?document }
   OPTIONAL { bridge:thisRecord bridge:selector ?recordSelector }
-  BIND(IF(BOUND(?rcvAcc), 1/0,
-          CONCAT(?recordSelector, "/", STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/"),
-                 "/RCVList/RCVAccession[", STRAFTER(STR(?s2), "#_"),
-                 "]/ClassifiedConditionList/ClassifiedCondition[", STR(?i + 1), "]")) AS ?arrivalSelector)
+  BIND(CONCAT(?recordSelector, "/", STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/"),
+              "[1]/RCVList[1]/RCVAccession[", STRAFTER(STR(?s2), "#_"),
+              "]/ClassifiedConditionList[1]/ClassifiedCondition[", STR(?i + 1), "]") AS ?arrivalSelector)
   BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|",
                      IF(BOUND(?rcvAcc), CONCAT("https://www.ncbi.nlm.nih.gov/clinvar|", ?rcvAcc, "|", STR(?i)),
                         CONCAT(?document, "|", ?arrivalSelector)))) AS ?h)

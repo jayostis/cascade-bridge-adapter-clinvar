@@ -29,7 +29,8 @@ CONSTRUCT {
       g:contributesToAggregate ?contrib .
   [] bridge:arrivedAs ?version ;
      pav:version ?scvVersion ;
-     pav:lastUpdateOn ?assertionUpdated .
+     pav:lastUpdateOn ?assertionUpdated ;
+     bridge:selector ?arrivalSelector .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
@@ -56,6 +57,13 @@ WHERE {
   OPTIONAL { ?cva xyz:Version ?scvVersion FILTER(STRLEN(?scvVersion) > 0) }
   OPTIONAL { ?ca xyz:DateLastUpdated ?u0 FILTER(STRLEN(?u0) > 0) }
   BIND(STRDT(?u0, xsd:date) AS ?assertionUpdated)
+
+  # Each assertion arrives at its own ClinicalAssertion. An element the schema allows
+  # once is at position 1, and ClinicalAssertionList holds nothing but
+  # ClinicalAssertion, so its membership index is the XPath position.
+  OPTIONAL { bridge:thisRecord bridge:selector ?recordSelector }
+  BIND(CONCAT(?recordSelector, "/", STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/"),
+              "[1]/ClinicalAssertionList[1]/ClinicalAssertion[", STRAFTER(STR(?s2), "#_"), "]") AS ?arrivalSelector)
 
   OPTIONAL { ?cva xyz:SubmitterName ?submitter FILTER(STRLEN(?submitter) > 0) }
   OPTIONAL { ?cva xyz:OrgID ?orgId FILTER(STRLEN(?orgId) > 0) }
