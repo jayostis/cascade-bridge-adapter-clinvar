@@ -1,151 +1,253 @@
-@prefix cascade: <https://ns.cascadeprotocol.org/core/v1#>.
-@prefix health: <https://ns.cascadeprotocol.org/health/v1#>.
-@prefix clinical: <https://ns.cascadeprotocol.org/clinical/v1#>.
-@prefix coverage: <https://ns.cascadeprotocol.org/coverage/v1#>.
-@prefix fhir: <http://hl7.org/fhir/>.
-@prefix sct: <http://snomed.info/sct/>.
-@prefix loinc: <http://loinc.org/rdf#>.
-@prefix rxnorm: <http://www.nlm.nih.gov/research/umls/rxnorm/>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix prov: <http://www.w3.org/ns/prov#>.
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
+@prefix cascade: <https://ns.cascadeprotocol.org/core/v1#> .
+@prefix g: <https://ns.cascadeprotocol.org/genomics/v1#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://ns.cascadeprotocol.org/records/v1-draft#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78> a <https://ns.cascadeprotocol.org/genomics/v1#Variant>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#dataQualityTier> <https://ns.cascadeprotocol.org/genomics/v1#ClinicalGrade>;
-    <https://ns.cascadeprotocol.org/genomics/v1#dataProvenance> <https://ns.cascadeprotocol.org/genomics/v1#ClinicalSequencing>;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarVariationId> "55448";
-    <https://ns.cascadeprotocol.org/genomics/v1#hgvsCDot> "NM_007294.4:c.5193+1G>C";
-    <https://ns.cascadeprotocol.org/genomics/v1#hgvsGDot> "NC_000017.11:g.43063332C>G";
-    <https://ns.cascadeprotocol.org/genomics/v1#geneSymbol> "BRCA1";
-    <https://ns.cascadeprotocol.org/genomics/v1#hgncId> "HGNC:1100";
-    <https://ns.cascadeprotocol.org/genomics/v1#caId> "CA003337";
-    <https://ns.cascadeprotocol.org/genomics/v1#dbsnpRsId> "rs80358004";
-    <https://ns.cascadeprotocol.org/genomics/v1#vrsObject> "{\"canonicalSPDI\":\"NC_000017.11:43063331:C:G\"}";
-    <https://ns.cascadeprotocol.org/genomics/v1#consequenceTerm> <http://purl.obolibrary.org/obo/SO_0001575>;
-    <https://ns.cascadeprotocol.org/genomics/v1#consequenceLabel> "splice donor variant";
-    <https://ns.cascadeprotocol.org/genomics/v1#refAllele> "C";
-    <https://ns.cascadeprotocol.org/genomics/v1#altAllele> "G";
-    <https://ns.cascadeprotocol.org/genomics/v1#genomicStartEnd> "chr17:43063332-43063332";
-    cascade:sourceRecordId "VCV000055448";
-    <https://ns.cascadeprotocol.org/genomics/v1#somaticStatus> <https://ns.cascadeprotocol.org/genomics/v1#UnknownSomaticStatus>.
-<urn:uuid:bf9daf84-d99a-5c0d-9714-8738344bc2b0> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0011450>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0011450";
-    <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#SingleSubmitter>;
-    <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2015-10-02"^^xsd:date;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV000112550";
-    cascade:sourceRecordId "VCV000055448:RCV000112550:0".
-<urn:uuid:a4db11f0-5f48-543b-8519-e3768ea95ff8> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0015356>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0015356";
-    <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#SingleSubmitter>;
-    <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2013-01-08"^^xsd:date;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV000131171";
-    cascade:sourceRecordId "VCV000055448:RCV000131171:0".
-<urn:uuid:5290fb20-6c24-5d43-bbe3-976b3ac77724> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <https://www.ncbi.nlm.nih.gov/medgen/C3661900>;
-    <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#SingleSubmitter>;
-    <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2021-03-11"^^xsd:date;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV000486220";
-    cascade:sourceRecordId "VCV000055448:RCV000486220:0".
-<urn:uuid:3a2f15ac-1851-5880-9ccb-09590ea140bb> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0003582>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0003582";
-    <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#SingleSubmitter>;
-    <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2024-03-15"^^xsd:date;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV003529968";
-    cascade:sourceRecordId "VCV000055448:RCV003529968:0".
-<urn:uuid:fe3966ea-5b1e-5cc3-bd13-1d479a87dcfa> a <https://ns.cascadeprotocol.org/genomics/v1#VariantInterpretation>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#variantInterpreted> <urn:uuid:988782e0-1a8a-547d-8357-4d21e818ab78>;
-    <https://ns.cascadeprotocol.org/genomics/v1#condition> <http://purl.obolibrary.org/obo/MONDO_0054748>;
-    <https://ns.cascadeprotocol.org/genomics/v1#mondoId> "MONDO:0054748";
-    <https://ns.cascadeprotocol.org/genomics/v1#acmgClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#reviewStatus> <https://ns.cascadeprotocol.org/genomics/v1#SingleSubmitter>;
-    <https://ns.cascadeprotocol.org/genomics/v1#interpretedDate> "2020-05-28"^^xsd:date;
-    <https://ns.cascadeprotocol.org/genomics/v1#clinvarRcvId> "RCV005357413";
-    cascade:sourceRecordId "VCV000055448:RCV005357413:0".
-<urn:uuid:6ad9875f-22d7-5c0e-81ee-55e1f2e84d6a> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV000145379";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "Breast Cancer Information Core (BIC) (BRCA1)";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "504196";
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> false;
-    cascade:sourceRecordId "VCV000055448:SCV000145379".
-<urn:uuid:bf9daf84-d99a-5c0d-9714-8738344bc2b0> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:6ad9875f-22d7-5c0e-81ee-55e1f2e84d6a>.
-<urn:uuid:719e88cb-c9c5-57f6-8586-baf1954f54e0> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV000326199";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "Consortium of Investigators of Modifiers of BRCA1/2 (CIMBA), c/o University of Cambridge";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "505954";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterConsortium>;
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceRecordId "VCV000055448:SCV000326199".
-<urn:uuid:bf9daf84-d99a-5c0d-9714-8738344bc2b0> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:719e88cb-c9c5-57f6-8586-baf1954f54e0>.
-<urn:uuid:8a76eda7-f9a2-57f5-8f13-7b37344f5753> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV004297793";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "Labcorp Genetics (formerly Invitae), Labcorp";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "500031";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterLaboratory>;
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceRecordId "VCV000055448:SCV004297793".
-<urn:uuid:3a2f15ac-1851-5880-9ccb-09590ea140bb> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:8a76eda7-f9a2-57f5-8f13-7b37344f5753>.
-<urn:uuid:3e757428-8c5e-55d5-b933-4310ab63aeb1> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV000186117";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "Ambry Genetics";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "61756";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterLaboratory>;
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceRecordId "VCV000055448:SCV000186117".
-<urn:uuid:a4db11f0-5f48-543b-8519-e3768ea95ff8> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:3e757428-8c5e-55d5-b933-4310ab63aeb1>.
-<urn:uuid:6cceed24-db6c-58c9-9676-1923e1b5a74b> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV000568397";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "GeneDx";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "26957";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterLaboratory>;
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceRecordId "VCV000055448:SCV000568397".
-<urn:uuid:5290fb20-6c24-5d43-bbe3-976b3ac77724> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:6cceed24-db6c-58c9-9676-1923e1b5a74b>.
-<urn:uuid:12b19333-fc4e-52ba-b8cf-c17bcb08252d> a <https://ns.cascadeprotocol.org/genomics/v1#SubmitterAssertion>;
-    cascade:dataProvenance cascade:ClinicalGenerated;
-    cascade:schemaVersion "1.3";
-    <https://ns.cascadeprotocol.org/genomics/v1#scvAccession> "SCV005915327";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitter> "Department of Pathology and Laboratory Medicine, Sinai Health System";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterOrgId> "506152";
-    <https://ns.cascadeprotocol.org/genomics/v1#submitterCategory> <https://ns.cascadeprotocol.org/genomics/v1#SubmitterLaboratory>;
-    <https://ns.cascadeprotocol.org/genomics/v1#assertedClassification> <https://ns.cascadeprotocol.org/genomics/v1#Pathogenic>;
-    <https://ns.cascadeprotocol.org/genomics/v1#contributesToAggregate> true;
-    cascade:sourceRecordId "VCV000055448:SCV005915327".
-<urn:uuid:fe3966ea-5b1e-5cc3-bd13-1d479a87dcfa> <https://ns.cascadeprotocol.org/genomics/v1#aggregatedFrom> <urn:uuid:12b19333-fc4e-52ba-b8cf-c17bcb08252d>.
+<ni:///sha-256;4VLoiE9c-D99hGTRwJU0eKplbrkDwaiZc8hGTDrZe1Y> prov:specializationOf <urn:uuid:5b3bf9df-b42f-84fb-a526-b6bb75dd16dc> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate true ;
+    g:scvAccession "SCV000568397" ;
+    g:submitter "GeneDx" ;
+    g:submitterCategory g:SubmitterLaboratory ;
+    g:submitterOrgId "26957" .
+
+<ni:///sha-256;4q-j_5EemayOU8ylb-JClap2xmXdJ1GD0QqQakzzgCA> prov:specializationOf <urn:uuid:5d908429-fd30-82a7-9d3b-541849e9b115> ;
+    g:acmgClassification g:Pathogenic ;
+    g:aggregatedFrom <urn:uuid:24e9e7d7-30cf-8db9-8fdb-14b284db3c6f> ;
+    g:clinvarRcvId "RCV000131171" ;
+    g:condition <http://purl.obolibrary.org/obo/MONDO_0015356> ;
+    g:interpretedDate "2013-01-08"^^xsd:date ;
+    g:mondoId "MONDO:0015356" ;
+    g:reviewStatus g:SingleSubmitter ;
+    g:variantInterpreted <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> .
+
+<ni:///sha-256;4yBfO-EroqKmD-hBV937-RSWLMaQnjF34YhrHPfO-m0> prov:specializationOf <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> ;
+    g:altAllele "G" ;
+    g:caId "CA003337" ;
+    g:clinvarVariationId "55448" ;
+    g:consequenceLabel "splice donor variant" ;
+    g:consequenceTerm <http://purl.obolibrary.org/obo/SO_0001575> ;
+    g:dataProvenance g:ClinicalSequencing ;
+    g:dataQualityTier g:ClinicalGrade ;
+    g:dbsnpRsId "rs80358004" ;
+    g:geneSymbol "BRCA1" ;
+    g:genomicStartEnd "chr17:43063332-43063332" ;
+    g:hgncId "HGNC:1100" ;
+    g:hgvsCDot "NM_007294.4:c.5193+1G>C" ;
+    g:hgvsGDot "NC_000017.11:g.43063332C>G" ;
+    g:refAllele "C" ;
+    g:somaticStatus g:UnknownSomaticStatus ;
+    g:vrsObject "{\"canonicalSPDI\":\"NC_000017.11:43063331:C:G\"}" .
+
+<ni:///sha-256;9XIvYYCAr_WArY2wdMS3j7HG7qgjppRoB1GqWYuBdqI> prov:specializationOf <urn:uuid:0ce72c1b-6cc6-87db-8f09-6def88673b2f> ;
+    g:acmgClassification g:Pathogenic ;
+    g:aggregatedFrom <urn:uuid:c1c4b4ab-c87d-84a0-9906-0dd591bbd9e5>,
+        <urn:uuid:e568d59f-2233-837b-9308-37cd5fe3e8bc> ;
+    g:clinvarRcvId "RCV000112550" ;
+    g:condition <http://purl.obolibrary.org/obo/MONDO_0011450> ;
+    g:interpretedDate "2015-10-02"^^xsd:date ;
+    g:mondoId "MONDO:0011450" ;
+    g:reviewStatus g:SingleSubmitter ;
+    g:variantInterpreted <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> .
+
+<ni:///sha-256;N5Pgh1Lra-Xuqu5-QnxR49hJXvrV7JaPhm0L8uS6OrM> prov:specializationOf <urn:uuid:97455143-d146-87aa-b124-cf0b4b59174d> ;
+    g:acmgClassification g:Pathogenic ;
+    g:aggregatedFrom <urn:uuid:aed6d4f6-a017-8437-aaac-3a5ae6bb05e6> ;
+    g:clinvarRcvId "RCV005357413" ;
+    g:condition <http://purl.obolibrary.org/obo/MONDO_0054748> ;
+    g:interpretedDate "2020-05-28"^^xsd:date ;
+    g:mondoId "MONDO:0054748" ;
+    g:reviewStatus g:SingleSubmitter ;
+    g:variantInterpreted <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> .
+
+<ni:///sha-256;SXASdNWWVh6SN6PMHLzpSaTnX0LoMZtXsi4RmlPlcuE> prov:specializationOf <urn:uuid:aed6d4f6-a017-8437-aaac-3a5ae6bb05e6> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate true ;
+    g:scvAccession "SCV005915327" ;
+    g:submitter "Department of Pathology and Laboratory Medicine, Sinai Health System" ;
+    g:submitterCategory g:SubmitterLaboratory ;
+    g:submitterOrgId "506152" .
+
+<ni:///sha-256;Wd6uFlJknt4mcfWmGqiLkyXv3ojzd9sSpuOkyyPMHe0> prov:specializationOf <urn:uuid:24e9e7d7-30cf-8db9-8fdb-14b284db3c6f> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate true ;
+    g:scvAccession "SCV000186117" ;
+    g:submitter "Ambry Genetics" ;
+    g:submitterCategory g:SubmitterLaboratory ;
+    g:submitterOrgId "61756" .
+
+<ni:///sha-256;_v8ChaP2qfIyKkvQwUzA_caA438LzNo9Z0fDGgEFYnE> prov:specializationOf <urn:uuid:c1c4b4ab-c87d-84a0-9906-0dd591bbd9e5> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate true ;
+    g:scvAccession "SCV000326199" ;
+    g:submitter "Consortium of Investigators of Modifiers of BRCA1/2 (CIMBA), c/o University of Cambridge" ;
+    g:submitterCategory g:SubmitterConsortium ;
+    g:submitterOrgId "505954" .
+
+<ni:///sha-256;bDLQAdcnK2-7GVjdIYB_awbKr_JSPjyuwMGXOffE7M0> prov:specializationOf <urn:uuid:e568d59f-2233-837b-9308-37cd5fe3e8bc> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate false ;
+    g:scvAccession "SCV000145379" ;
+    g:submitter "Breast Cancer Information Core (BIC) (BRCA1)" ;
+    g:submitterOrgId "504196" .
+
+<ni:///sha-256;bvBALwn1bvrnQ9cPBZaQCRr9Kw4QLYIvRI11m7FhjsI> prov:specializationOf <urn:uuid:30727954-5027-8567-906d-3a5a5287d2c9> ;
+    g:assertedClassification g:Pathogenic ;
+    g:contributesToAggregate true ;
+    g:scvAccession "SCV004297793" ;
+    g:submitter "Labcorp Genetics (formerly Invitae), Labcorp" ;
+    g:submitterCategory g:SubmitterLaboratory ;
+    g:submitterOrgId "500031" .
+
+<ni:///sha-256;cqUND3-WQCK0kTpO0T0FhFRJgfv0o9Pn9x3d69onq2o> prov:specializationOf <urn:uuid:397bc70a-4834-8a09-8620-93bd0ef0e17e> ;
+    g:acmgClassification g:Pathogenic ;
+    g:aggregatedFrom <urn:uuid:5b3bf9df-b42f-84fb-a526-b6bb75dd16dc> ;
+    g:clinvarRcvId "RCV000486220" ;
+    g:condition <https://www.ncbi.nlm.nih.gov/medgen/C3661900> ;
+    g:interpretedDate "2021-03-11"^^xsd:date ;
+    g:reviewStatus g:SingleSubmitter ;
+    g:variantInterpreted <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> .
+
+<ni:///sha-256;hZOUHcgJUzO7JUTPLa8xi3VFIGwNZgu7r163JX6KDUI> prov:specializationOf <urn:uuid:1e420606-d5b6-8613-8487-47f810d1e0df> ;
+    g:acmgClassification g:Pathogenic ;
+    g:aggregatedFrom <urn:uuid:30727954-5027-8567-906d-3a5a5287d2c9> ;
+    g:clinvarRcvId "RCV003529968" ;
+    g:condition <http://purl.obolibrary.org/obo/MONDO_0003582> ;
+    g:interpretedDate "2024-03-15"^^xsd:date ;
+    g:mondoId "MONDO:0003582" ;
+    g:reviewStatus g:SingleSubmitter ;
+    g:variantInterpreted <urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> .
+
+<urn:uuid:0ce72c1b-6cc6-87db-8f09-6def88673b2f> a g:VariantInterpretation ;
+    cascade:sourceRecordId "VCV000055448:RCV000112550:0" .
+
+<urn:uuid:1e420606-d5b6-8613-8487-47f810d1e0df> a g:VariantInterpretation ;
+    cascade:sourceRecordId "VCV000055448:RCV003529968:0" .
+
+<urn:uuid:397bc70a-4834-8a09-8620-93bd0ef0e17e> a g:VariantInterpretation ;
+    cascade:sourceRecordId "VCV000055448:RCV000486220:0" .
+
+<urn:uuid:5d908429-fd30-82a7-9d3b-541849e9b115> a g:VariantInterpretation ;
+    cascade:sourceRecordId "VCV000055448:RCV000131171:0" .
+
+<urn:uuid:97455143-d146-87aa-b124-cf0b4b59174d> a g:VariantInterpretation ;
+    cascade:sourceRecordId "VCV000055448:RCV005357413:0" .
+
+<urn:uuid:24e9e7d7-30cf-8db9-8fdb-14b284db3c6f> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV000186117" .
+
+<urn:uuid:30727954-5027-8567-906d-3a5a5287d2c9> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV004297793" .
+
+<urn:uuid:5b3bf9df-b42f-84fb-a526-b6bb75dd16dc> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV000568397" .
+
+<urn:uuid:aed6d4f6-a017-8437-aaac-3a5ae6bb05e6> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV005915327" .
+
+<urn:uuid:c1c4b4ab-c87d-84a0-9906-0dd591bbd9e5> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV000326199" .
+
+<urn:uuid:e568d59f-2233-837b-9308-37cd5fe3e8bc> a g:SubmitterAssertion ;
+    cascade:sourceRecordId "VCV000055448:SCV000145379" .
+
+<urn:uuid:2d872b01-4073-89af-8de8-cec5dcb7cc27> a g:Variant ;
+    cascade:sourceRecordId "VCV000055448" .
+
+<ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> a prov:Entity ;
+    prov:qualifiedAttribution [ prov:agent [ rdfs:label "NCBI ClinVar" ] ;
+            prov:hadRole rec:author ] .
+
+[] pav:version "10" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;4q-j_5EemayOU8ylb-JClap2xmXdJ1GD0QqQakzzgCA> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[2]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
+
+[] pav:version "14" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;9XIvYYCAr_WArY2wdMS3j7HG7qgjppRoB1GqWYuBdqI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[1]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
+
+[] pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;N5Pgh1Lra-Xuqu5-QnxR49hJXvrV7JaPhm0L8uS6OrM> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[5]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
+
+[] pav:lastUpdateOn "2025-04-28"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;SXASdNWWVh6SN6PMHLzpSaTnX0LoMZtXsi4RmlPlcuE> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[7]" .
+
+[] pav:lastUpdateOn "2014-04-01"^^xsd:date ;
+    pav:version "1" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;bDLQAdcnK2-7GVjdIYB_awbKr_JSPjyuwMGXOffE7M0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[1]" .
+
+[] pav:lastUpdateOn "2026-02-23"^^xsd:date ;
+    pav:version "3" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;bvBALwn1bvrnQ9cPBZaQCRr9Kw4QLYIvRI11m7FhjsI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[4]" .
+
+[] pav:lastUpdateOn "2017-04-27"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;4VLoiE9c-D99hGTRwJU0eKplbrkDwaiZc8hGTDrZe1Y> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[6]" .
+
+[] pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;hZOUHcgJUzO7JUTPLa8xi3VFIGwNZgu7r163JX6KDUI> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[4]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
+
+[] pav:version "10" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;cqUND3-WQCK0kTpO0T0FhFRJgfv0o9Pn9x3d69onq2o> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/RCVList[1]/RCVAccession[3]/ClassifiedConditionList[1]/ClassifiedCondition[1]" .
+
+[] pav:lastUpdateOn "2022-12-11"^^xsd:date ;
+    pav:version "4" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;_v8ChaP2qfIyKkvQwUzA_caA438LzNo9Z0fDGgEFYnE> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[2]" .
+
+[] pav:lastUpdateOn "2026-04-13"^^xsd:date ;
+    pav:version "15" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;4yBfO-EroqKmD-hBV937-RSWLMaQnjF34YhrHPfO-m0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]" .
+
+[] pav:lastUpdateOn "2015-03-24"^^xsd:date ;
+    pav:version "5" ;
+    prov:wasDerivedFrom <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> ;
+    prov:wasGeneratedBy _:N88cd5d536e45474681dd9c48d29fc02a ;
+    bridge:arrivedAs <ni:///sha-256;Wd6uFlJknt4mcfWmGqiLkyXv3ojzd9sSpuOkyyPMHe0> ;
+    bridge:selector "/ClinVarResult-Set/VariationArchive[1]/ClassifiedRecord[1]/ClinicalAssertionList[1]/ClinicalAssertion[5]" .
+
+_:N77c0432d64d54ad6b2f5c096152ee4c3 prov:agent [ ] ;
+    prov:hadPlan [ a prov:Plan ;
+            rdfs:label "clinvar" ;
+            pav:version "0.6.0" ] .
+
+_:N88cd5d536e45474681dd9c48d29fc02a a prov:Activity ;
+    rdfs:label "cascade-bridge-adapter-clinvar fixtures" ;
+    prov:qualifiedAssociation _:N77c0432d64d54ad6b2f5c096152ee4c3 ;
+    prov:used <ni:///sha-256;gYvt1Jl58nY_x_a_TUy6uku2of9Vi-vuZzXih5RzTl8> .
+

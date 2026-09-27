@@ -15,13 +15,10 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mf:      <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
 @prefix bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
-@prefix cascade: <https://ns.cascadeprotocol.org/core/v1#> .
-@prefix prov:    <http://www.w3.org/ns/prov#> .
 
 <> a mf:Manifest ;
   rdfs:label "cascade-bridge-adapter-clinvar fixture cases" ;
   bridge:adapter <../> ; # the crate's root entity, the adapter; its bridge:testManifest is <>
-  bridge:stampPredicate cascade:dataProvenance, cascade:schemaVersion, prov:generatedAtTime ;
   mf:entries (
     <#VCV000007105-CFTR-deltaF508>
     <#VCV000017661-BRCA1>
@@ -39,7 +36,8 @@
   rdfs:comment "NM_000492.3(CFTR):c.1521_1523del (p.Phe508del), version 206, last updated 2026-05-03. The largest oracle: 99 submissions." ;
   mf:action [
     bridge:input <in/VCV000007105-CFTR-deltaF508.xml> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
+    bridge:envelope <../ro-crate-metadata.json#envelope-efetch> ;
+    bridge:facts <facts/conformance.ttl>
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000007105-CFTR-deltaF508.ttl> ;
@@ -51,7 +49,8 @@
   rdfs:comment "NM_007294.4(BRCA1):c.181T>G (p.Cys61Gly), version 157, last updated 2026-05-03. About eighty IRI subjects." ;
   mf:action [
     bridge:input <in/VCV000017661-BRCA1.xml> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
+    bridge:envelope <../ro-crate-metadata.json#envelope-efetch> ;
+    bridge:facts <facts/conformance.ttl>
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000017661-BRCA1.ttl> ;
@@ -63,7 +62,8 @@
   rdfs:comment "NM_007294.4(BRCA1):c.5193+1G>C, version 15, last updated 2026-04-13. The file name says BRCA2; the record is a BRCA1 variant." ;
   mf:action [
     bridge:input <in/VCV000055448-BRCA2-pathogenic.xml> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
+    bridge:envelope <../ro-crate-metadata.json#envelope-efetch> ;
+    bridge:facts <facts/conformance.ttl>
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000055448-BRCA2-pathogenic.ttl> ;
@@ -75,7 +75,8 @@
   rdfs:comment "NM_001017980.4(VMA21):c.164-6T>G, version 2, last updated 2025-08-23, one submission. The file name says MLH1 and Lynch syndrome; the record is a VMA21 variant interpreted for MONDO:0010684. The smallest oracle." ;
   mf:action [
     bridge:input <in/VCV000208804-MLH1-LynchSyndrome.xml> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
+    bridge:envelope <../ro-crate-metadata.json#envelope-efetch> ;
+    bridge:facts <facts/conformance.ttl>
   ] ;
   mf:result [
     bridge:expectedGraph <expected/VCV000208804-MLH1-LynchSyndrome.ttl> ;
@@ -89,5 +90,6 @@
   rdfs:comment "NM_007294.4(BRCA1):c.4357+2T>G, version 19, last updated 2026-02-15, from pub/clinvar/xml/sample_xml/. Parsed and validated; the graph a Bridge produces is recorded, not judged." ;
   mf:action [
     bridge:input <in/VCV_XML_VCV000091629.xml> ;
-    bridge:envelope <../ro-crate-metadata.json#envelope-efetch>
+    bridge:envelope <../ro-crate-metadata.json#envelope-efetch> ;
+    bridge:facts <facts/sample-xml.ttl>
   ] .

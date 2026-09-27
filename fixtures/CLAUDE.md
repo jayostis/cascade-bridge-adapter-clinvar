@@ -6,17 +6,19 @@ judged by, and the crate records where every file came from.
 
 ## Every byte is recorded, and inputs are never edited
 
-Every file under `in/`, `expected/` and `findings/` has its digest in the crate,
+Every file under `in/`, `facts/`, `expected/` and `findings/` has its digest in the crate,
 and `.gitattributes` and `.editorconfig` protect them from normalisation. A
 change updates the crate's digest, size and description in the same commit.
 
-An input and an expected graph come from `../../conformance`,
-`fixtures/genomics/clinvar/` at the commit the crate names: `X.input.xml`
-becomes `in/X.xml`, and `X.expected.ttl` becomes `expected/X.ttl`. An input
-stays a byte-for-byte copy. An expected file is corrected here where the
-converter that produced it was wrong. A findings file is not a copy of anything:
-it is a Bridge's own `convert --findings` output over the input beside it,
-committed unedited.
+An input comes from `../../conformance`, `fixtures/genomics/clinvar/` at the
+commit the crate names: `X.input.xml` becomes `in/X.xml`, a byte-for-byte copy.
+An expected graph is the records layer of the Cascade Bridge Specification for
+that input. What its versions say started as that repository's
+`X.expected.ttl` and is corrected here where the converter that produced it was
+wrong; every record name and version name in it is the one the specification's
+`tests/specification/recomputed.py` computes, never one taken from a Bridge
+alone. A findings file is not a copy of anything: it is a Bridge's own
+`convert --findings` output over the input beside it, committed unedited.
 
 A findings file is compared as a graph and never as bytes, so its digest records
 what was committed rather than what a rerun reproduces. A second run writes the

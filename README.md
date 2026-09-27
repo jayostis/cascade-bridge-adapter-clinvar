@@ -46,11 +46,12 @@ only this way.
    `schema/ClinVar_VCV_2.6.xsd`. A unit that fails is a finding; it still goes
    through.
 4. Lifts each unit to RDF and runs the queries in `in/sparql/` over it: the
-   mappings write the records, which name each other by the IRIs the queries
-   mint, and the findings queries write Web Annotations on the source document.
-   Then stamps provenance, checks every predicate against the pinned
-   vocabularies, validates with SHACL, and hands the graph and findings to the
-   runtime.
+   mappings write each record, named as the specification's naming convention
+   says, and its version, and the findings queries write Web Annotations on the
+   source document. Then names each version, writes each version's arrival, the
+   document and the import from the facts supplied with the document, checks
+   every predicate against the pinned vocabularies, validates with SHACL, and
+   hands the graph and findings to the runtime.
 5. In test, executes `fixtures/manifest.ttl`. Each entry's type carries how it
    is judged, and the rule is the `rdfs:comment` on that type in the
    specification's vocabulary, not anything this repository states.
@@ -90,7 +91,8 @@ cascade-bridge-adapter-clinvar/
   fixtures/
     manifest.ttl             the test manifest: the cases and how to judge each
     in/                      four conformance inputs and NCBI's official sample
-    expected/                the four expected graphs, from conformance, corrected where it was wrong
+    facts/                   the facts supplied with each input: where it came from, as far as is known
+    expected/                the four expected graphs: the records layer, derived from the rules
     findings/                the four expected findings graphs, a Bridge's convert --findings over the input beside each
 ```
 
