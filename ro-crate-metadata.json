@@ -282,7 +282,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every Cascade predicate and type the expected graphs write is declared at it, cascade:sourceRecordId, which every record carries, in ontologies/core/v1/core.ttl. Read on 2026-09-22. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every Cascade predicate and type the expected graphs write is declared at it, cascade:sourceRecordId among them, in ontologies/core/v1/core.ttl. Read on 2026-09-22. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/genomics/v1#",
