@@ -336,8 +336,8 @@
       "@type": "File",
       "name": "Mapping: the Variant",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "13937",
-      "sha256": "69236940b552a6d40d058204dcfa7ef9ba86459dc2aac2dd11d38a8517480e16",
+      "contentSize": "14111",
+      "sha256": "3585cbf6cf61e204b982a3e37b87f88117f3b95b4583335ca0cf8691b592e49a",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -348,8 +348,8 @@
       "@type": "File",
       "name": "Mapping: the interpretations",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "11949",
-      "sha256": "905dd9d4bfa72af64276589b3693e231a0e929372861663f6356cd623561ea3d",
+      "contentSize": "11535",
+      "sha256": "4b364ed36844c6c314bb782b0211d43fce22e45dbf0f567eb220861c63260537",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -360,8 +360,8 @@
       "@type": "File",
       "name": "Mapping: the submitter assertions",
       "encodingFormat": "application/sparql-query",
-      "contentSize": "2959",
-      "sha256": "8dd46dee2cd4e498b04a154c9c503047b2a3727c33b54c3a8d6324e49ce50d70",
+      "contentSize": "3135",
+      "sha256": "1a87ce662df706db67a8e8d03c7420bb65df3e4ea2c6cbe1064d405793875aa7",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
@@ -598,8 +598,8 @@
       "@type": "File",
       "name": "Expected graph for VCV000007105",
       "encodingFormat": "text/turtle",
-      "contentSize": "144586",
-      "sha256": "df59c4cbc272fb71995822e96457cdc03f8a36f1782a3605888b1028d2311802",
+      "contentSize": "77932",
+      "sha256": "fc8369c0c1d64e47a90cd77f7a2cab56c0ec0b2042d48f6e3b2cad4ae8eeabdd",
       "about": {
         "@id": "fixtures/in/VCV000007105-CFTR-deltaF508.xml"
       },
@@ -609,15 +609,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. 1,424 triples, 112 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification: each record carries its type and its source id, and what the source says of it is its version; record names and version names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000017661-BRCA1.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000017661",
       "encodingFormat": "text/turtle",
-      "contentSize": "89929",
-      "sha256": "2454358eb76ef24ea2b6132348850a77b9596fe40b0c2336235c15c032dd4c2a",
+      "contentSize": "51881",
+      "sha256": "63d85bfc51a5ca0db528100892ba253875b5709fec0c339deabb7a4a14205cd2",
       "about": {
         "@id": "fixtures/in/VCV000017661-BRCA1.xml"
       },
@@ -627,15 +627,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 951 triples, 84 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification: each record carries its type and its source id, and what the source says of it is its version; record names and version names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000055448-BRCA2-pathogenic.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000055448",
       "encodingFormat": "text/turtle",
-      "contentSize": "13017",
-      "sha256": "881ac6110cdc04dafe67b024c1d502a9ecc19f0ab3532b42766c139ae3992ae6",
+      "contentSize": "7595",
+      "sha256": "f581c255c22f08a0bd89a8b933b1bb7fce797e2ba78c86913a09c5f575bcfc85",
       "about": {
         "@id": "fixtures/in/VCV000055448-BRCA2-pathogenic.xml"
       },
@@ -645,15 +645,15 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 139 triples, 12 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification: each record carries its type and its source id, and what the source says of it is its version; record names and version names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000208804-MLH1-LynchSyndrome.ttl",
       "@type": "File",
       "name": "Expected graph for VCV000208804",
       "encodingFormat": "text/turtle",
-      "contentSize": "4198",
-      "sha256": "9504d45e15b0da07da9adc4129a882f97c006a5d4c19d2af69d468f83611910a",
+      "contentSize": "2249",
+      "sha256": "2472612e181f3706b228c1c817109ea54a5cd63458968d2fb19c2d79c8322836",
       "about": {
         "@id": "fixtures/in/VCV000208804-MLH1-LynchSyndrome.xml"
       },
@@ -663,7 +663,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. 42 triples, 3 IRI subjects, each record renamed by the Cascade Bridge Specification's naming convention."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification: each record carries its type and its source id, and what the source says of it is its version; record names and version names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl",

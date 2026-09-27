@@ -3,6 +3,7 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
 PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
@@ -26,6 +27,8 @@ PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 CONSTRUCT {
   ?vi a g:VariantInterpretation ;
+      cascade:sourceRecordId ?srid .
+  ?version prov:specializationOf ?vi ;
       g:variantInterpreted ?v ;
       g:condition ?cond ;
       g:mondoId ?mondoId ;
@@ -33,7 +36,6 @@ CONSTRUCT {
       g:reviewStatus ?rs ;
       g:interpretedDate ?date ;
       g:clinvarRcvId ?rcvAcc ;
-      cascade:sourceRecordId ?srid ;
       g:aggregatedFrom ?sa .
 }
 WHERE {
@@ -74,8 +76,6 @@ WHERE {
   BIND(COALESCE(?ccDb0, "") AS ?ccDb)
   OPTIONAL { ?cc xyz:ID ?ccId0 }
   BIND(COALESCE(?ccId0, "") AS ?ccId)
-  OPTIONAL { ?cc rdf:_1 ?ccText . FILTER(isLiteral(?ccText)) }
-  BIND(COALESCE(REPLACE(?ccText, "^\\s+|\\s+$", ""), "") AS ?ccLabel)
 
   # The Trait aligned with the condition: ClinVar orders a TraitSet's Traits
   # independently of an RCV's conditions, so position does not pair them, and the
@@ -123,8 +123,17 @@ WHERE {
     BIND(STRAFTER(?gBest, "|") AS ?tMedgen)
   }
 
+  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|",
+                     ?rcvAcc, "|", STR(?i))) AS ?h)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),
+                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
+  BIND(IRI(CONCAT("urn:cascade:version-of:", STRAFTER(STR(?vi), "urn:uuid:"))) AS ?version)
+  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?srid)
+
   # condition: the ClassifiedCondition's own MONDO, else the aligned Trait's MONDO,
-  # else its MedGen CUI, else a name hashed from the label.
+  # else its MedGen CUI, else a node of the version's own.
   # MONDO numbers lose "MONDO:" and leading zeros, then pad to seven.
   BIND(REPLACE(?ccId, "^MONDO:0*", "") AS ?ccN)
   BIND(IF(?ccDb = "MONDO" && STRLEN(?ccId) > 0,
@@ -132,14 +141,9 @@ WHERE {
   BIND(REPLACE(?tMondoRaw, "^MONDO:0*", "") AS ?tN)
   BIND(IF(STRLEN(?tN) >= 7, ?tN, SUBSTR(CONCAT("0000000", ?tN), STRLEN(?tN) + 1)) AS ?tMondo)
   BIND(COALESCE(?ccMondo, ?tMondo) AS ?mondoNum)
-  BIND(SHA1(CONCAT("clinvar-condition:", ?rcvAcc, ":", STR(?i), ":",
-                   IF(STRLEN(?ccLabel) > 0, ?ccLabel, IF(STRLEN(?ccId) > 0, ?ccId, "unknown")))) AS ?hc)
-  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hc, 17, 1),
-         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?nc)
   BIND(IF(BOUND(?mondoNum), IRI(CONCAT("http://purl.obolibrary.org/obo/MONDO_", ?mondoNum)),
        IF(?ccDb = "MedGen" && STRLEN(?ccId) > 0, IRI(CONCAT("https://www.ncbi.nlm.nih.gov/medgen/", ?ccId)),
-          IRI(CONCAT("urn:cascade:condition:", SUBSTR(?hc, 1, 8), "-", SUBSTR(?hc, 9, 4), "-5",
-                     SUBSTR(?hc, 14, 3), "-", ?nc, SUBSTR(?hc, 18, 3), "-", SUBSTR(?hc, 21, 12))))) AS ?cond)
+          IRI(CONCAT(STR(?version), "#condition")))) AS ?cond)
   BIND(CONCAT("MONDO:", ?mondoNum) AS ?mondoId)
 
   OPTIONAL {
@@ -151,14 +155,6 @@ WHERE {
   }
   OPTIONAL { ?desc xyz:DateLastEvaluated ?d0 FILTER(STRLEN(?d0) > 0) }
   BIND(STRDT(?d0, xsd:date) AS ?date)
-
-  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|",
-                     ?rcvAcc, "|", STR(?i))) AS ?h)
-  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
-         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
-  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),
-                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
-  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?srid)
 
   # aggregatedFrom. Right side: every emitted SubmitterAssertion (as assertion.rq) with
   # each key its TraitMapping yields: "mondo:" + MappingValue when MappingRef is MONDO;
