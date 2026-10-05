@@ -3,6 +3,9 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX xyz:     <http://sparql.xyz/facade-x/data/>
 PREFIX g:       <https://ns.cascadeprotocol.org/genomics/v1#>
 PREFIX cascade: <https://ns.cascadeprotocol.org/core/v1#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX pav:     <http://purl.org/pav/>
+PREFIX bridge:  <https://ns.cascadeprotocol.org/bridge/v1-draft#>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
 PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
@@ -26,6 +29,8 @@ PREFIX clinvar: <https://ns.cascadeprotocol.org/adapter/clinvar/v1-draft#>
 
 CONSTRUCT {
   ?vi a g:VariantInterpretation ;
+      cascade:sourceRecordId ?srid .
+  ?version prov:specializationOf ?vi ;
       g:variantInterpreted ?v ;
       g:condition ?cond ;
       g:mondoId ?mondoId ;
@@ -33,8 +38,10 @@ CONSTRUCT {
       g:reviewStatus ?rs ;
       g:interpretedDate ?date ;
       g:clinvarRcvId ?rcvAcc ;
-      cascade:sourceRecordId ?srid ;
       g:aggregatedFrom ?sa .
+  [] bridge:arrivedAs ?version ;
+     pav:version ?rcvVersion ;
+     bridge:selector ?arrivalSelector .
 }
 WHERE {
   ?va a xyz:VariationArchive ; xyz:Accession ?vcv ; ?recSlot ?rec .
@@ -43,15 +50,15 @@ WHERE {
          (?recType = xyz:IncludedRecord && NOT EXISTS { ?va ?cs ?cr . ?cr a xyz:ClassifiedRecord }))
   { SELECT DISTINCT ?rec WHERE { ?rec ?alSlot ?allele . ?allele a xyz:SimpleAllele } }
 
-  BIND(SHA1(CONCAT("genomics:Variant:clinvar:", ?vcv)) AS ?hv)
+  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|", ?vcv)) AS ?hv)
   BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hv, 17, 1),
          "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?nv)
-  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hv, 1, 8), "-", SUBSTR(?hv, 9, 4), "-5", SUBSTR(?hv, 14, 3),
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hv, 1, 8), "-", SUBSTR(?hv, 9, 4), "-8", SUBSTR(?hv, 14, 3),
                   "-", ?nv, SUBSTR(?hv, 18, 3), "-", SUBSTR(?hv, 21, 12))) AS ?v)
 
   ?rec ?s1 ?rcvl . ?rcvl a xyz:RCVList ; ?s2 ?rcv . ?rcv a xyz:RCVAccession .
-  OPTIONAL { ?rcv xyz:Accession ?rcvAcc0 }
-  BIND(COALESCE(?rcvAcc0, "<no-rcv>") AS ?rcvAcc)
+  OPTIONAL { ?rcv xyz:Accession ?rcvAcc FILTER(STRLEN(?rcvAcc) > 0) }
+  OPTIONAL { ?rcv xyz:Version ?rcvVersion FILTER(STRLEN(?rcvVersion) > 0) }
 
   # Emitted only for a non-empty GermlineClassification whose Description the ACMG
   # concept map carries.
@@ -76,8 +83,6 @@ WHERE {
   BIND(COALESCE(?ccDb0, "") AS ?ccDb)
   OPTIONAL { ?cc xyz:ID ?ccId0 }
   BIND(COALESCE(?ccId0, "") AS ?ccId)
-  OPTIONAL { ?cc rdf:_1 ?ccText . FILTER(isLiteral(?ccText)) }
-  BIND(COALESCE(REPLACE(?ccText, "^\\s+|\\s+$", ""), "") AS ?ccLabel)
 
   # The Trait aligned with the condition: ClinVar orders a TraitSet's Traits
   # independently of an RCV's conditions, so position does not pair them, and the
@@ -125,8 +130,28 @@ WHERE {
     BIND(STRAFTER(?gBest, "|") AS ?tMedgen)
   }
 
+  # Each interpretation arrives at its own ClassifiedCondition, and one whose RCV has
+  # no usable accession is "a record with none of these ids", named by the document
+  # and that selector. An element the schema allows once is at position 1, and
+  # RCVList holds nothing but RCVAccession, so its membership index is the XPath
+  # position.
+  OPTIONAL { bridge:thisDocument bridge:sha256 ?document }
+  OPTIONAL { bridge:thisRecord bridge:selector ?recordSelector }
+  BIND(CONCAT(?recordSelector, "/", STRAFTER(STR(?recType), "http://sparql.xyz/facade-x/data/"),
+              "[1]/RCVList[1]/RCVAccession[", STRAFTER(STR(?s2), "#_"),
+              "]/ClassifiedConditionList[1]/ClassifiedCondition[", STR(?i + 1), "]") AS ?arrivalSelector)
+  BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|",
+                     IF(BOUND(?rcvAcc), CONCAT("https://www.ncbi.nlm.nih.gov/clinvar|", ?rcvAcc, "|", STR(?i)),
+                        CONCAT(?document, "|", ?arrivalSelector)))) AS ?h)
+  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
+         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
+  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-8", SUBSTR(?h, 14, 3),
+                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
+  BIND(IRI(CONCAT("urn:cascade:version-of:", STRAFTER(STR(?vi), "urn:uuid:"))) AS ?version)
+  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?srid)
+
   # condition: the ClassifiedCondition's own MONDO, else the aligned Trait's MONDO,
-  # else its MedGen CUI, else a name hashed from the label.
+  # else its MedGen CUI, else a node of the version's own.
   # MONDO numbers lose "MONDO:" and leading zeros, then pad to seven.
   BIND(REPLACE(?ccId, "^MONDO:0*", "") AS ?ccN)
   BIND(IF(?ccDb = "MONDO" && STRLEN(?ccId) > 0,
@@ -134,14 +159,9 @@ WHERE {
   BIND(REPLACE(?tMondoRaw, "^MONDO:0*", "") AS ?tN)
   BIND(IF(STRLEN(?tN) >= 7, ?tN, SUBSTR(CONCAT("0000000", ?tN), STRLEN(?tN) + 1)) AS ?tMondo)
   BIND(COALESCE(?ccMondo, ?tMondo) AS ?mondoNum)
-  BIND(SHA1(CONCAT("clinvar-condition:", ?rcvAcc, ":", STR(?i), ":",
-                   IF(STRLEN(?ccLabel) > 0, ?ccLabel, IF(STRLEN(?ccId) > 0, ?ccId, "unknown")))) AS ?hc)
-  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hc, 17, 1),
-         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?nc)
   BIND(IF(BOUND(?mondoNum), IRI(CONCAT("http://purl.obolibrary.org/obo/MONDO_", ?mondoNum)),
        IF(?ccDb = "MedGen" && STRLEN(?ccId) > 0, IRI(CONCAT("https://www.ncbi.nlm.nih.gov/medgen/", ?ccId)),
-          IRI(CONCAT("urn:cascade:condition:", SUBSTR(?hc, 1, 8), "-", SUBSTR(?hc, 9, 4), "-5",
-                     SUBSTR(?hc, 14, 3), "-", ?nc, SUBSTR(?hc, 18, 3), "-", SUBSTR(?hc, 21, 12))))) AS ?cond)
+          IRI(CONCAT(STR(?version), "#condition")))) AS ?cond)
   BIND(CONCAT("MONDO:", ?mondoNum) AS ?mondoId)
 
   OPTIONAL {
@@ -153,13 +173,6 @@ WHERE {
   }
   OPTIONAL { ?desc xyz:DateLastEvaluated ?d0 FILTER(STRLEN(?d0) > 0) }
   BIND(STRDT(?d0, xsd:date) AS ?date)
-
-  BIND(SHA1(CONCAT("genomics:VariantInterpretation:clinvar:", ?rcvAcc, ":", STR(?i))) AS ?h)
-  BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?h, 17, 1),
-         "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?n)
-  BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?h, 1, 8), "-", SUBSTR(?h, 9, 4), "-5", SUBSTR(?h, 14, 3),
-                  "-", ?n, SUBSTR(?h, 18, 3), "-", SUBSTR(?h, 21, 12))) AS ?vi)
-  BIND(CONCAT(?vcv, ":", ?rcvAcc, ":", STR(?i)) AS ?srid)
 
   # aggregatedFrom. Right side: every emitted SubmitterAssertion (as assertion.rq) with
   # each key its TraitMapping yields: "mondo:" + MappingValue when MappingRef is MONDO;
@@ -174,10 +187,10 @@ WHERE {
         FILTER(isLiteral(?cgt))
         BIND(LCASE(REPLACE(?cgt, "^[ \\t\\r\\n]+|[ \\t\\r\\n]+$", "")) AS ?saKey)
         ?saConcept skos:inScheme clinvar:acmgClassifications ; skos:notation ?saKey .
-        BIND(SHA1(CONCAT("genomics:SubmitterAssertion:clinvar:", ?scv)) AS ?hs)
+        BIND(SHA256(CONCAT("90c60849-c5ef-4ca6-bfb8-8662bd07d2b5|https://www.ncbi.nlm.nih.gov/clinvar|", ?scv)) AS ?hs)
         BIND(REPLACE(REPLACE(REPLACE(REPLACE(SUBSTR(?hs, 17, 1),
                "[048c]", "8"), "[159d]", "9"), "[26ae]", "a"), "[37bf]", "b") AS ?ns1)
-        BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hs, 1, 8), "-", SUBSTR(?hs, 9, 4), "-5", SUBSTR(?hs, 14, 3),
+        BIND(IRI(CONCAT("urn:uuid:", SUBSTR(?hs, 1, 8), "-", SUBSTR(?hs, 9, 4), "-8", SUBSTR(?hs, 14, 3),
                         "-", ?ns1, SUBSTR(?hs, 18, 3), "-", SUBSTR(?hs, 21, 12))) AS ?sa)
         ?rec ?a6 ?tml . ?tml a xyz:TraitMappingList ; ?a7 ?tm . ?tm a xyz:TraitMapping ; xyz:ClinicalAssertionID ?caId .
         OPTIONAL { ?tm xyz:MappingRef ?mref }

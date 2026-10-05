@@ -1,0 +1,10 @@
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix bridge: <https://ns.cascadeprotocol.org/bridge/v1-draft#> .
+@prefix rec:    <https://ns.cascadeprotocol.org/records/v1-draft#> .
+
+bridge:thisDocument
+  prov:qualifiedAttribution [ prov:agent [ rdfs:label "NCBI ClinVar" ] ; prov:hadRole rec:author ] .
+
+bridge:thisImport
+  rdfs:label "cascade-bridge-adapter-clinvar fixtures" .

@@ -66,11 +66,6 @@ clinvar:assertionDateCreated a skos:Concept ;
   skos:inScheme clinvar:gaps ;
   skos:broader bridge:noPredicate .
 
-clinvar:assertionDateLastUpdated a skos:Concept ;
-  skos:prefLabel "A clinical assertion carries the date its record was last updated, and no Cascade predicate carries it."@en ;
-  skos:inScheme clinvar:gaps ;
-  skos:broader bridge:noPredicate .
-
 clinvar:assertionEvaluationDate a skos:Concept ;
   skos:prefLabel "A clinical assertion carries the date its own classification was last evaluated, and no Cascade predicate carries it."@en ;
   skos:inScheme clinvar:gaps ;
