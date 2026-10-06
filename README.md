@@ -35,7 +35,7 @@ only this way.
    record in one RO-Crate. The root entity is the adapter: format id
    `clinvar`, the two envelopes (`#envelope-efetch`, `#envelope-release`),
    the unit `VariationArchive`, the detect rule, the `sparql-1.1` profile it
-   must offer, the vocabulary pin and the paths, in the repository it pins, of
+   must offer, the vocabulary repository and the paths, in that repository, of
    the ontology and shapes files the adapter is read against, the gap scheme
    the findings take their bodies from, the accounting of every path its source
    carries, and the test manifest.
@@ -50,7 +50,7 @@ only this way.
    says, and its version, and the findings queries write Web Annotations on the
    source document. Then names each version, writes each version's arrival, the
    document and the import from the facts supplied with the document, checks
-   every predicate against the pinned vocabularies, validates with SHACL, and
+   every predicate against the vocabularies, validates with SHACL, and
    hands the graph and findings to the runtime.
 5. In test, executes `fixtures/manifest.ttl`. Each entry's type carries how it
    is judged, and the rule is the `rdfs:comment` on that type in the
@@ -105,7 +105,7 @@ restated here. Each is a property of the **adapter package format**, and the
 authority for that format is the Cascade Bridge Specification:
 [`adapter/ro-crate-metadata.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/adapter/ro-crate-metadata.md),
 [`adapter/fixtures/manifest.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/adapter/fixtures/manifest.md)
-and [`pinning.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/pinning.md).
+and [`compatibility.md`](https://github.com/jayostis/cascade-bridge-spec/blob/main/compatibility.md).
 
 What is specific to ClinVar rather than to adapters in general is in
 [`docs/format.md`](docs/format.md): why the schema pin is 2.6, why an envelope
