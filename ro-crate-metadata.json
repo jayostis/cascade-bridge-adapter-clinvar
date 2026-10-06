@@ -291,8 +291,7 @@
       "@id": "https://ns.cascadeprotocol.org/core/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade core vocabulary",
-      "version": "3.9",
-      "description": "One of the two Cascade vocabularies the adapter writes. On 2026-09-22, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.9\", the version spec's VOCAB_VERSIONS records."
+      "description": "One of the two Cascade vocabularies the adapter writes; its version is the owl:versionInfo of ontologies/core/v1/core.ttl at the version a run reads, and is not recorded here."
     },
     {
       "@id": "schema/ClinVar_VCV_2.6.xsd",
