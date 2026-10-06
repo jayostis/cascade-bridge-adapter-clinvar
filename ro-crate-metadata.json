@@ -5,7 +5,7 @@
       "md5": "https://w3id.org/ro/terms/workflow-run#md5",
       "bridge": "https://ns.cascadeprotocol.org/bridge/v1-draft#",
       "bridge:requiresProfile": "bridge:requiresProfile",
-      "bridge:cascadeVocabularyPin": "bridge:cascadeVocabularyPin",
+      "bridge:cascadeVocabularyRepository": "bridge:cascadeVocabularyRepository",
       "bridge:vocabulary": "bridge:vocabulary",
       "bridge:vocabularyFile": "bridge:vocabularyFile",
       "bridge:sourceMediaType": "bridge:sourceMediaType",
@@ -40,7 +40,7 @@
       "identifier": "clinvar",
       "name": "ClinVar VCV XML",
       "version": "0.6.0",
-      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary pin and the paths, at it, of the ontology and shapes files the adapter is read against, the gap scheme every finding takes its body from, each gap declaring the sh:resultSeverity its findings carry where that is not sh:Info, the accounting of every path its source carries, whose entry reports the gap it names and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs are taken from the conformance repository byte for byte; their fetch date and method were not recorded when they were captured, and each entry says so. Their expected graphs are the records layer the Cascade Bridge Specification's rules derive from them and the facts supplied with them, saying what that repository's expected graphs said, corrected where the converter that produced those was wrong. The four expected findings are the output of a Bridge's convert --findings over the committed input beside them. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Its three lookup tables are SKOS concept maps under vocab/, each declared as a bridge:table and read by the mapping queries that look a value up in it; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
+      "description": "The Cascade Bridge Adapter for ClinVar VCV XML: the package of data a Cascade Bridge runs to turn NCBI ClinVar variation records into Cascade RDF, the pilot adapter. Import-only. This crate is the adapter's manifest: a Bridge reads the root entity first, for the format id (identifier, the same string cascade-cli accepts for --from, from src/lib/clinvar-converter/registry-entry.ts), the source schema, the two envelopes, the unit, the detect rule, the profile the Bridge must offer, the vocabulary repository and the paths, in it, of the ontology and shapes files the adapter is read against, the gap scheme every finding takes its body from, each gap declaring the sh:resultSeverity its findings carry where that is not sh:Info, the accounting of every path its source carries, whose entry reports the gap it names and the test manifest; the data entities carry provenance for every committed fixture, schema and document and for every remote dataset the adapter references. Committed inputs carry a sha256 computed locally over the committed bytes. Remote datasets carry the md5 NCBI publishes in the .md5 file beside each release. Four inputs are taken from the conformance repository byte for byte; their fetch date and method were not recorded when they were captured, and each entry says so. Their expected graphs are the records layer the Cascade Bridge Specification's rules derive from them and the facts supplied with them, saying what that repository's expected graphs said, corrected where the converter that produced those was wrong. The four expected findings are the output of a Bridge's convert --findings over the committed input beside them. Dates and sizes for remote files were read from ftp.ncbi.nlm.nih.gov on 2026-09-06. Its three lookup tables are SKOS concept maps under vocab/, each declared as a bridge:table and read by the mapping queries that look a value up in it; this adapter's own namespace carries its gaps and nothing else, so no value yet needs a bridge:extensionVocabulary. Nothing for the export direction is declared, because ClinVar is import-only.",
       "datePublished": "2026-09-06",
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
@@ -56,8 +56,8 @@
           "@id": "bridge:sparql-1.1"
         }
       ],
-      "bridge:cascadeVocabularyPin": {
-        "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
+      "bridge:cascadeVocabularyRepository": {
+        "@id": "https://github.com/the-cascade-protocol/spec"
       },
       "bridge:vocabulary": [
         {
@@ -226,7 +226,7 @@
           "@id": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/ClinVar_VCV_2.6.xsd"
         },
         {
-          "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27"
+          "@id": "https://github.com/the-cascade-protocol/spec"
         },
         {
           "@id": "docs/format.md"
@@ -272,31 +272,26 @@
       "description": "The RO-Crate 1.2 Profile Crate a conforming adapter package names in conformsTo: the machine-checkable claim that this crate is an adapter package, whose constraints resource is the SHACL shapes in cascade-bridge-spec. The IRI does not dereference yet, which that repository's README records; the Profile Crate describing it is adapter/profile/ro-crate-metadata.json there."
     },
     {
-      "@id": "https://github.com/the-cascade-protocol/spec/commit/d819bc2c045266f9f79ebf9398cbbb82a6156d27",
+      "@id": "https://github.com/the-cascade-protocol/spec",
       "@type": ["SoftwareSourceCode", "File"],
-      "name": "spec at d819bc2",
-      "codeRepository": {
-        "@id": "https://github.com/the-cascade-protocol/spec"
-      },
-      "version": "d819bc2c045266f9f79ebf9398cbbb82a6156d27",
+      "name": "spec",
       "license": {
         "@id": "https://spdx.org/licenses/CC-BY-4.0"
       },
-      "description": "The spec revision the adapter's vocabularies are pinned to: the-cascade-protocol/spec at the merge commit of its PR #56 (2026-09-08), which the tag vocab/core-v3.9 points at and keeps reachable. Every Cascade predicate and type the expected graphs write is declared at it, cascade:sourceRecordId among them, in ontologies/core/v1/core.ttl. Read on 2026-09-22. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
+      "description": "The repository the adapter's vocabularies are read from, at the version a run picks. Every Cascade predicate and type the expected graphs write is declared there, cascade:sourceRecordId among them, in ontologies/core/v1/core.ttl. A web-based data entity, referenced and not committed, the way the release files are: the RO-Crate 1.2 validator reads every SoftwareSourceCode as a script that must be a File in hasPart."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/genomics/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade genomics vocabulary",
       "version": "v1-draft",
-      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: at the pin, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.5\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
+      "description": "One of the two Cascade vocabularies the adapter writes. Pre-stable: on 2026-09-22, ontologies/genomics/v1-draft/genomics.ttl carries owl:versionInfo \"1.0-draft.0.5\"; the version recorded here is the draft label. Its terms go through spec's own process; none is minted in this adapter."
     },
     {
       "@id": "https://ns.cascadeprotocol.org/core/v1#",
       "@type": "DefinedTermSet",
       "name": "Cascade core vocabulary",
-      "version": "3.9",
-      "description": "One of the two Cascade vocabularies the adapter writes. At the pin, ontologies/core/v1/core.ttl carries owl:versionInfo \"3.9\", the version spec's VOCAB_VERSIONS records."
+      "description": "One of the two Cascade vocabularies the adapter writes; its version is the owl:versionInfo of ontologies/core/v1/core.ttl at the version a run reads, and is not recorded here."
     },
     {
       "@id": "schema/ClinVar_VCV_2.6.xsd",
@@ -615,7 +610,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary pin does not declare; cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with two corrections. The converter paired each condition of RCV002490332 with the TraitSet's Trait at the same position, and ClinVar lists the two in different orders, so four interpretations carried another condition's MONDO. Here each condition takes the MONDO of the Trait carrying its MedGen ID: four condition and mondoId values move to their own interpretations, and the 62 aggregatedFrom links the misaligned Traits produced are removed. The converter also wrote cascade:sourceFhirId, which the vocabulary repository does not declare; cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000017661-BRCA1.ttl",
@@ -633,7 +628,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary repository does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000055448-BRCA2-pathogenic.ttl",
@@ -651,7 +646,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary repository does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/expected/VCV000208804-MLH1-LynchSyndrome.ttl",
@@ -669,7 +664,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary pin does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
+      "description": "The Cascade RDF the input produces through cascade-cli's ClinVar converter, as committed to the conformance repository at 8a5e203 (2026-05-06) and taken from 0ea48bb, with one correction: the converter wrote cascade:sourceFhirId, which the vocabulary repository does not declare, and cascade:sourceRecordId is written in its place, once on each subject. Laid out as the records layer of the Cascade Bridge Specification, supplied with fixtures/facts/conformance.ttl: each record carries its type and its source id, what the source says of it is its version, and each version's arrival carries ClinVar's own version and last-updated date, beside the document and the import. Record, version and document names are those the specification's reference recomputation, tests/specification/recomputed.py, computes."
     },
     {
       "@id": "fixtures/findings/VCV000007105-CFTR-deltaF508.gaps.ttl",
@@ -684,7 +679,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 461 Web Annotations; 243 carry sh:Violation, 8 sh:Warning and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 461 Web Annotations; 243 carry sh:Violation, 8 sh:Warning and the rest sh:Info; the sh:Violation findings are the vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000007105-CFTR-deltaF508.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000017661-BRCA1.gaps.ttl",
@@ -699,7 +694,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 402 Web Annotations; 182 carry sh:Violation, 2 sh:Warning and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 402 Web Annotations; 182 carry sh:Violation, 2 sh:Warning and the rest sh:Info; the sh:Violation findings are the vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000017661-BRCA1.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000055448-BRCA2-pathogenic.gaps.ttl",
@@ -714,7 +709,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 165 Web Annotations; 29 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 165 Web Annotations; 29 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000055448-BRCA2-pathogenic.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/findings/VCV000208804-MLH1-LynchSyndrome.gaps.ttl",
@@ -729,7 +724,7 @@
       "license": {
         "@id": "https://spdx.org/licenses/Apache-2.0"
       },
-      "description": "Every finding the input produces, as 85 Web Annotations; 7 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the pinned vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
+      "description": "Every finding the input produces, as 85 Web Annotations; 7 carry sh:Violation and the rest sh:Info; the sh:Violation findings are the vocabulary's shapes, which require on a typed record what the records layer states on its version. Produced by running a Bridge's convert --findings over ../in/VCV000208804-MLH1-LynchSyndrome.xml and committed unedited: the command writes each finding's oa:hasSource relative to the file it is writing, so the oracle a Bridge is judged against is the oracle a Bridge wrote. The order is incidental, because fixtures/manifest.ttl compares findings by isomorphism."
     },
     {
       "@id": "fixtures/facts/conformance.ttl",
@@ -845,7 +840,7 @@
       "sameAs": {
         "@id": "https://creativecommons.org/licenses/by/4.0/"
       },
-      "description": "The licence of the Cascade Protocol's spec repository, whose vocabularies the adapter writes at the revision bridge:cascadeVocabularyPin names."
+      "description": "The licence of the Cascade Protocol's spec repository, whose vocabularies the adapter writes, the repository bridge:cascadeVocabularyRepository names."
     }
   ]
 }
