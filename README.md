@@ -74,6 +74,7 @@ cascade-bridge-adapter-clinvar/
   .editorconfig
   .github/workflows/
     validate.yml             runs the specification's checks; no logic of its own
+    ready.yml                the merge gate, and the re-run on a Depends-On: or base edit
   .vscode/
     extensions.json          XML, SPARQL, Turtle, EditorConfig
     settings.json            XSD association for fixtures/in
