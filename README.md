@@ -2,6 +2,20 @@
 
 [![compatibility](https://github.com/jayostis/cascade-bridge-adapter-clinvar/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/jayostis/cascade-bridge-adapter-clinvar/actions/workflows/validate.yml?query=branch%3Amain)
 
+> **Retired.** This adapter is retired and the repository will be archived.
+> ClinVar's classifications are now published as a reference-table series by
+> [cascade-reference-tables](https://github.com/jayostis/cascade-reference-tables/tree/main/builders/ncbi-clinvar),
+> built from NCBI's monthly releases. Its three lookup tables are now concept
+> schemes in the vocabulary
+> ([`records.ttl`](https://github.com/jayostis/cascade-vocabulary/blob/main/ontologies/records/v1-draft/records.ttl)),
+> and its format notes are the builder's
+> [`format.md`](https://github.com/jayostis/cascade-reference-tables/blob/main/builders/ncbi-clinvar/format.md).
+> Why: ClinVar is NCBI's catalogue, not a person's records, so it does not
+> belong in a pod. See
+> [cascade-vocabulary#107](https://github.com/jayostis/cascade-vocabulary/issues/107).
+>
+> The rest of this file is kept as history.
+
 The **Cascade Bridge Adapter** for ClinVar VCV XML: the package of data a
 **Cascade Bridge** runs to turn NCBI ClinVar variation records into Cascade
 RDF. The pilot adapter: import-only, a published NCBI schema, no vendor quirks,
